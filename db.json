@@ -1,0 +1,42 @@
+{
+  "candidates": [
+    {
+      "id": "1",
+      "firstName": "Depak",
+      "age": "35",
+      "employerId": "3",
+      "educationId": "1"
+    },
+    {
+      "id": "2",
+      "firstName": "Tina",
+      "age": "20",
+      "employerId": "1",
+      "educationId": "3"
+    },
+    {
+      "id": "3",
+      "firstName": "Remi",
+      "age": "21",
+      "employerId": "1",
+      "educationId": "1"
+    },
+    {
+      "id": "4",
+      "firstName": "Marvin",
+      "age": "22",
+      "employerId": "2",
+      "educationId": "2"
+    }
+  ],
+  "employers": [
+    { "id": "1", "name": "Google", "Jobs": "yes" },
+    { "id": "2", "name": "Amazon", "Jobs": "yes" },
+    { "id": "3", "name": "Netflix", "Jobs": "yes" }
+  ],
+  "education": [
+    { "id": "1", "schoolName": "FullStack", "degreeType": "Certificate" },
+    { "id": "2", "schoolName": "Harvard", "degreeType": "BA" },
+    { "id": "3", "schoolName": "Yale", "degreeType": "BS" }
+  ]
+}
