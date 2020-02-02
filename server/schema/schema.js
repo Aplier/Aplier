@@ -123,6 +123,14 @@ const RootQuery = new GraphQLObjectType({
           .then(resp => resp.data);
       },
     },
+    candidates: {
+      type: new GraphQLList(CandidateType),
+      resolve(parentValue, args) {
+        return axios
+          .get(`http://localhost:3000/candidates/`)
+          .then(resp => resp.data);
+      },
+    },
     education: {
       type: EducationType,
       args: { id: { type: GraphQLID } },

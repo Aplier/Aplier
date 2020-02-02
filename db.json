@@ -5,7 +5,7 @@
       "firstName": "Depak",
       "lastName": "Borhara",
       "intro": "I am Depak",
-      "email": "depakborhara@aplier.com",
+      "email": "depak@aplier.com",
       "password": "fullstack",
       "address": "123 Google Way",
       "educationId": 1,
@@ -15,6 +15,37 @@
       "imgURL": "testimgDepak",
       "vidURL": "testvidDepak"
     },
+    {
+      "id": "2",
+      "firstName": "Tina",
+      "lastName": "Fun",
+      "intro": "I am Tina",
+      "email": "tina@aplier.com",
+      "password": "academy",
+      "address": "123 Google Way",
+      "educationId": 2,
+      "currentPosId": "fillInLater",
+      "empHistoryId": "fillInLaster",
+      "industry": "tech",
+      "imgURL": "testimgTina",
+      "vidURL": "testvidTina"
+    },
+    {
+      "id": "3",
+      "firstName": "Remi",
+      "lastName": "Mendoza",
+      "intro": "I am Remi",
+      "email": "Remi@aplier.com",
+      "password": "fullstack1",
+      "address": "123 Google Way",
+      "educationId": 1,
+      "currentPosId": "fillInLater",
+      "empHistoryId": "fillInLaster",
+      "industry": "tech",
+      "imgURL": "testimgRemi",
+      "vidURL": "testvidRemi"
+    },
+
     {
       "id": "4",
       "firstName": "Marvin",
@@ -32,21 +63,9 @@
     }
   ],
   "education": [
-    {
-      "id": "1",
-      "schoolName": "FullStack",
-      "degreeType": "Certificate"
-    },
-    {
-      "id": "2",
-      "schoolName": "Harvard",
-      "degreeType": "BA"
-    },
-    {
-      "id": "3",
-      "schoolName": "Yale",
-      "degreeType": "BS"
-    }
+    { "id": "1", "schoolName": "FullStack", "degreeType": "Certificate" },
+    { "id": "2", "schoolName": "Harvard", "degreeType": "BA" },
+    { "id": "3", "schoolName": "Yale", "degreeType": "BS" }
   ],
   "currentPos": [
     {
