@@ -1,5 +1,10 @@
 const graphql = require('graphql');
 const axios = require('axios');
+const connectionString = 'postgresql://tinafunmacpro@:5432/aplier'
+// const connectionString = 'postgresql://aplier@aplierdb.czniy2ofqmqo.us-east-2.rds.amazonaws.com:5432/aplier'
+const pgp = require('pg-promise')();
+const db = {}
+db.conn = pgp(connectionString);
 
 const { GraphQLObjectType, GraphQLString, GraphQLSchema, GraphQLID } = graphql;
 
@@ -67,7 +72,7 @@ const CandidateType = new GraphQLObjectType({
       type: EducationType,
       resolve(parentValue, args) {
         axios
-          .get(`http://localhost:3000/education/${parentValue.educationId}`)
+          .get(`http://localhost:4000/education/${parentValue.educationId}`)
           .then(res => res.data);
       },
     }, //to change
@@ -92,11 +97,21 @@ const RootQuery = new GraphQLObjectType({
       type: CandidateType,
       args: { id: { type: GraphQLID } },
       //Used to return actual piece of data
+      // resolve(parentValue, args) {
+      //   return axios
+      //     .get(`http://localhost:4000/candidates/${args.id}`)
+      //     .then(resp => resp.data);
+      // },
       resolve(parentValue, args) {
-        return axios
-          .get(`http://localhost:3000/candidates/${args.id}`)
-          .then(resp => resp.data);
-      },
+        const query = `SELECT * FROM "candidates" WHERE id=${args.id}`;
+        return db.conn.one(query)
+           .then(data => {
+              return data;
+           })
+           .catch(err => {
+               return 'The error is' + err;
+           });
+     }
     },
   },
 });
