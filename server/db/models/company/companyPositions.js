@@ -26,13 +26,13 @@ const CompanyPositions = db.define('companyPositions', {
   datePosted: {
     type: Sequelize.DATE
   },
-  ScreeningQ1: {
+  screeningQ1: {
     type: Sequelize.TEXT
   },
-  ScreeningQ2: {
+  screeningQ2: {
     type: Sequelize.TEXT
   },
-  ScreeningQ3: {
+  screeningQ3: {
     type: Sequelize.TEXT
   },
 })

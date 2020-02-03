@@ -1,16 +1,16 @@
 const db = require('./server/db/index')
 const {
   Candidate,
-<<<<<<< HEAD
-  Company
-=======
   Education,
   CurrentJob,
   PreviousJob,
   Skill,
-  CandidateSkill
->>>>>>> 9cbf0f13017623dc6f8d36b84fde720fe68c4492
-} = require('./server/db/models')
+  Company,
+  CompanyPosition,
+  CompanyUser,
+  CandidateSkill,
+  PositionsSkill
+  } = require('./server/db/models')
 
 async function seed() {
   await db.sync({force: true})
@@ -70,8 +70,17 @@ async function seed() {
         address: '10 w 10th Street',
         phone: '111-222-1234',
         intro: 'React Master',
-<<<<<<< HEAD
         admin: true
+    }),
+    Candidate.create({
+      firstName: 'Remi',
+      lastName: 'Mendoza',
+      email: 'remi@gmail.com',
+      password: '123',
+      address: 'Bronx New York',
+      phone: '646-646-6464',
+      intro: 'React-Native Master',
+      admin: true
     }),
   ])
 
@@ -83,6 +92,7 @@ async function seed() {
       perks: 'free Lunch',
       website: 'google.com',
       imgUrl: 'http://tny.im/kFW',
+      companyId: 3
     }),
     Company.create({
       name: 'Twitter',
@@ -96,17 +106,38 @@ async function seed() {
       name: 'Facebook',
       location: '770 Broadway, New York, NY 10003',
       industry: 'Tech',
-      perks: 'Unilimted Pizza',
+      perks: 'Unlimited Pizza',
       website: 'facebook.com',
       imgUrl: 'http://tny.im/kFY',
     }),
-=======
-        admin: true,
-        imageURL: 'https://media-exp1.licdn.com/dms/image/C4D03AQGvl34LG-jI_A/profile-displayphoto-shrink_800_800/0?e=1586390400&v=beta&t=J5zBVYUVaIQADOYhZjT9fuy-STyHAfnw_sdbyHUTbCc',
-        // videoURL: '',
-        currentjobId: 3
+  ])
+  const CompanyPositions = await Promise.all([
+    Company.create({
+      title: 'Front-End Developer',
+      description: 'Looking for a Front-End Developer. skilled in frameworks such as React or Angular based in the New York City area!',
+      salaryRange: '$85,0000',
+      screeningQ1: 'What are JavaScript Data Types?',
+      screeningQ2: 'What is Recursion?',
+      screeningQ3: 'Explain the difference between "==" and "==="?'
+    }),
+    Company.create({
+      title: 'Front-End Developer',
+      description: 'Looking for a Back-End Developer. skilled in Javascript Concepts',
+      salaryRange: '$95,0000',
+      screeningQ1: 'Explain what is pop()method in JavaScript?',
+      screeningQ2: 'Explain OOP?',
+      screeningQ3: 'explain closures in JavaScript?'
+    }),
+    Company.create({
+      title: 'React-Native Developer',
+      description: 'Looking for a React-Native Developer. skilled in Javascript Concepts',
+      salaryRange: '$75,0000',
+      screeningQ1: 'What are the advantages of React Native?',
+      screeningQ2: 'How many threads run in React Native?',
+      screeningQ3: 'What are Hybrid Apps?'
     }),
   ])
+
 
   const Educations = await Promise.all([
     Education.create({
@@ -145,7 +176,7 @@ async function seed() {
 
   ])
 
-  const Skiils = await Promise.all([
+  const Skills = await Promise.all([
     Skill.create({
       type: 'JavaScript'
     }),
@@ -167,7 +198,9 @@ async function seed() {
     Skill.create({
       type: 'CSS'
     }),
-
+    Skill.create({
+      type: 'React-Native'
+    }),
   ])
 
   const CandidateSkills = await Promise.all([
@@ -220,11 +253,7 @@ async function seed() {
       skillId: 6
     }),
 
->>>>>>> 9cbf0f13017623dc6f8d36b84fde720fe68c4492
   ])
-
-  
-
 
   console.log(`seeded successfully`)
 }
