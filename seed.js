@@ -35,7 +35,7 @@ async function seed() {
     Candidate.create({
       firstName: 'Tina',
       lastName: 'Fun',
-      email: 'tina@email.com',
+      email: 'tina@gmail.com',
       password: '123',
       address: 'NYC',
       phone: '123-123-1234',
@@ -48,7 +48,7 @@ async function seed() {
     Candidate.create({
       firstName: 'John',
       lastName: 'Doe',
-      email: 'john@email.com',
+      email: 'john@gmail.com',
       password: '123',
       address: '10 Wall Street',
       phone: '111-123-1234',
@@ -61,7 +61,7 @@ async function seed() {
     Candidate.create({
         firstName: 'Depak',
         lastName: 'Borhara',
-        email: 'depak@email.com',
+        email: 'depak@gmail.com',
         password: '123',
         address: '10 w 10th Street',
         phone: '111-222-1234',
