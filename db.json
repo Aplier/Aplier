@@ -124,13 +124,29 @@
       "id": "1",
       "title": "engineer",
       "datePosted":  "02/3/3",
-      "employers": "1"
+      "employers": "1",
+      "skill": "React, Javascript"
     },
     {
       "id": "2",
       "title": "UX Designer",
       "datePosted":  "02/01/20",
-      "employers": "1"
+      "employers": "1",
+      "skill": "Javascript"
+    }
+  ],
+  "skills": [
+    {
+      "id": "1",
+      "skill": "Javascript"
+    },
+    {
+      "id": "2",
+      "skill": "React"
+    },
+    {
+      "id": "3",
+      "skill": "Express"
     }
   ]
 }
