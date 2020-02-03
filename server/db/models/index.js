@@ -4,10 +4,10 @@ const CurrentJob = require('./candidate/currentJob')
 const PreviousJob = require('./candidate/previousJob')
 const Skill = require('./candidate/skill')
 const Company = require('./company/company')
-const CompanyPositions = require('./company/companyPositions')
+const CompanyPosition = require('./company/companyPositions')
 const CompanyUser = require('./company/companyUser')
 const CandidateSkill = require('./candidate/candidateSkill')
-
+const PositionsSkill = require('./company/positionsSkill')
 // Associations
 
 //1-1
@@ -25,14 +25,22 @@ Candidate.hasMany(Education)
 PreviousJob.belongsTo(Candidate)
 Candidate.hasMany(PreviousJob)
 
+CompanyPosition.belongsTo(Company)
+Company.hasMany(CompanyPosition)
 
+CompanyUser.belongsTo(Company)
+Company.hasMany(CompanyUser)
+
+CompanyPosition.belongsTo(CompanyUser)
+CompanyUser.hasMany(CompanyPosition)
 
 // many-many
 // skill and candidate? candidate can have many skills, skills can belong to many candidate?
 
 Candidate.belongsToMany(Skill, {through: CandidateSkill})
 Skill.belongsToMany(Candidate, {through: CandidateSkill})
-
+CompanyPosition.belongsToMany(Skill, {through: PositionsSkill})
+Skill.belongsToMany(CompanyPosition, {through: PositionsSkill})
 
 
 module.exports = {
@@ -42,7 +50,8 @@ module.exports = {
     PreviousJob,
     Skill,
     Company,
-    CompanyPositions,
+    CompanyPosition,
     CompanyUser,
-    CandidateSkill
+    CandidateSkill,
+    PositionsSkill
   }

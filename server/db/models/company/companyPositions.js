@@ -23,9 +23,6 @@ const CompanyPositions = db.define('companyPositions', {
       notEmpty: true
     }
   },
-  skillsRequired: {
-    type: Sequelize.STRING
-  },
   datePosted: {
     type: Sequelize.DATE
   },
