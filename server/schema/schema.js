@@ -8,6 +8,7 @@ const {
   GraphQLID,
   GraphQLList,
   GraphQLNonNull,
+  GraphQLBoolean
 } = graphql;
 
 const PositionType = new GraphQLObjectType({
@@ -22,40 +23,60 @@ const PositionType = new GraphQLObjectType({
     screeningQuestion1: { type: GraphQLString },
     screeningQuestion2: { type: GraphQLString },
     screeningQuestion3: { type: GraphQLString },
-    employer: {
-      type: EmployerType,
+    company: {
+      type: CompanyType,
       resolve(parentValue, args) {
         return axios
-        .get(`http://localhost:3000/positions/${parentValue.id}/employer`)
+        .get(`http://localhost:3000/positions/${parentValue.id}/company`)
         .then(res => res.data);
       }
     }
   })
 })
 
-const EmployerType = new GraphQLObjectType({
-  name: 'Employer',
+const CompanyUserType = new GraphQLObjectType({
+  name: 'CompanyUser',
   fields: () => ({
     id: { type: GraphQLID },
-    companyName: { type: GraphQLString },
+    companyId: { type: GraphQLID },
+    positionId: { type: GraphQLID },
+    email: { type: GraphQLString},
+    password: { type: GraphQLString },
+    isAdmin: { type: GraphQLBoolean}
+  })
+})
+
+
+const CompanyType = new GraphQLObjectType({
+  name: 'Company',
+  fields: () => ({
+    id: { type: GraphQLID },
+    name: { type: GraphQLString },
     location: { type: GraphQLString },
     industry: { type: GraphQLString },
     perks: { type: GraphQLString },
     website: { type: GraphQLString },
     imgURL: { type: GraphQLString },
     vidURL: { type: GraphQLString },
-    email: { type: GraphQLString },
-    password: { type: GraphQLString },
+    user: {
+      type: new GraphQLObjectType(CompanyUserType),
+      resolve(parentValue, args) {
+        return axios
+          .get(`http://localhost:3000/company/${parentValue.id}/${args.id}`)
+          .then(res => res.data);
+      }
+    },
     positions: {
       type: new GraphQLList(PositionType),
       resolve(parentValue, args) {
         return axios
-        .get(`http://localhost:3000/employers/${parentValue.id}/positions`)
+        .get(`http://localhost:3000/company/${parentValue.id}/positions`)
         .then(res => res.data);
       }
       },
   }),
 });
+
 
 
 
