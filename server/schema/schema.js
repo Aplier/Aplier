@@ -10,6 +10,29 @@ const {
   GraphQLNonNull,
 } = graphql;
 
+const PositionType = new GraphQLObjectType({
+  name: 'Position',
+  fields: () => ({
+    id: {type:GraphQLID},
+    title: { type: GraphQLString },
+    description: { type: GraphQLString },
+    salaryRange: { type: GraphQLString },
+    skillsRequired: { type: GraphQLString },
+    datePosted: { type: GraphQLString },
+    screeningQuestion1: { type: GraphQLString },
+    screeningQuestion2: { type: GraphQLString },
+    screeningQuestion3: { type: GraphQLString },
+    employer: {
+      type: EmployerType,
+      resolve(parentValue, args) {
+        return axios
+        .get(`http://localhost:3000/positions/${parentValue.id}/employer`)
+        .then(res => res.data);
+      }
+    }
+  })
+})
+
 const EmployerType = new GraphQLObjectType({
   name: 'Employer',
   fields: () => ({
@@ -23,9 +46,18 @@ const EmployerType = new GraphQLObjectType({
     vidURL: { type: GraphQLString },
     email: { type: GraphQLString },
     password: { type: GraphQLString },
-    positions: { type: GraphQLString },
+    positions: {
+      type: new GraphQLList(PositionType),
+      resolve(parentValue, args) {
+        return axios
+        .get(`http://localhost:3000/employers/${parentValue.id}/positions`)
+        .then(res => res.data);
+      }
+      },
   }),
 });
+
+
 
 const EducationType = new GraphQLObjectType({
   name: 'Education',
