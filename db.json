@@ -94,27 +94,27 @@
     },
     {
       "id": "2",
-      "companyName": "Microsoft",
+      "name": "Microsoft",
       "startDate": "12/2/18",
       "title": "Developer"
     },
     {
       "id": "3",
-      "companyName": "Google",
+      "name": "Google",
       "startDate": "2/5/17",
       "title": "Technical Lead"
     },
     {
       "id": "4",
-      "companyName": "Netflix",
+      "name": "Netflix",
       "startDate": "3/22/16",
       "title": "Architect"
     }
   ],
-  "employers": [
+  "company": [
     {
       "id": "1",
-      "companyName": "google",
+      "name": "google",
       "location": "nyc",
       "positions": "1"
     }
@@ -131,6 +131,21 @@
       "title": "UX Designer",
       "datePosted":  "02/01/20",
       "employers": "1"
+    }
+  ],
+  "companyUser": [
+    {
+      "id": "1",
+      "companyId": "1",
+      "positionId": "1",
+      "email": "userGuy@gmail.com",
+      "isAdmin": true
+    },
+    {
+      "id": "2",
+      "companyId": "1",
+      "positionId": "2",
+      "email": "secondGirl@gmail.com"
     }
   ]
 }
