@@ -51,6 +51,12 @@ const Candidate = db.define('candidate', {
       },
       intro: {
         type:Sequelize.STRING,
+      },
+      imgURL: {
+        type: Sequelize.TEXT
+      },
+      videoURL: {
+        type: Sequelize.TEXT
       }
 
 })
