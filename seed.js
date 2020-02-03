@@ -1,6 +1,7 @@
 const db = require('./server/db/index')
 const {
-  Candidate
+  Candidate,
+  Company
 } = require('./server/db/models')
 
 async function seed() {
@@ -38,16 +39,33 @@ async function seed() {
         intro: 'React Master',
         admin: true
     }),
-    //   Candidate.create({
-    //     firstName: 'John',
-    //     lastName: 'Doe',
-    //     email: 'john@email.com',
-    //     password: '123',
-    //     address: '10 Wall Street',
-    //     phone: '111-123-1234',
-    //     intro: 'The best dev you can ever hire',
-    //     admin: false
-    // }),
+  ])
+
+  const Companies = await Promise.all([
+    Company.create({
+      name: 'Google',
+      location: '111 8th Avenue, NY 10011',
+      industry: 'Tech',
+      perks: 'free Lunch',
+      website: 'google.com',
+      imgUrl: 'http://tny.im/kFW',
+    }),
+    Company.create({
+      name: 'Twitter',
+      location: '249 West 17th Street, NY 10011',
+      industry: 'Tech',
+      perks: 'Summer Fridays',
+      website: 'twitter.com',
+      imgUrl: 'http://tny.im/kFX',
+    }),
+    Company.create({
+      name: 'Facebook',
+      location: '770 Broadway, New York, NY 10003',
+      industry: 'Tech',
+      perks: 'Unilimted Pizza',
+      website: 'facebook.com',
+      imgUrl: 'http://tny.im/kFY',
+    }),
   ])
 
   console.log(`seeded successfully`)

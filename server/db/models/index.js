@@ -3,7 +3,9 @@ const Education = require('./education')
 const CurrentJob = require('./currentJob')
 const PreviousJob = require('./previousJob')
 const Skill = require('./skill')
-
+const Company = require('./company/company')
+const CompanyPositions = require('./company/companyPositions')
+const CompanyUser = require('./company/companyUser')
 // Associations
 
 //1-1
@@ -23,9 +25,12 @@ const Skill = require('./skill')
 
 
 module.exports = {
-    Candidate, 
+    Candidate,
     Education,
     CurrentJob,
     PreviousJob,
-    Skill
+    Skill,
+    Company,
+    CompanyPositions,
+    CompanyUser
   }
