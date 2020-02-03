@@ -4,6 +4,7 @@ const schema = require('./schema/schema');
 const app = express();
 const cors = require('cors');
 
+//CORS FOR DEV
 app.use(cors());
 app.use(
   '/graphql',

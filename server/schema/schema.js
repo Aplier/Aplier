@@ -10,55 +10,6 @@ const {
   GraphQLNonNull,
 } = graphql;
 
-const PositionType = new GraphQLObjectType({
-  name: 'Position',
-  fields: () => ({
-    id: {type:GraphQLID},
-    title: { type: GraphQLString },
-    description: { type: GraphQLString },
-    salaryRange: { type: GraphQLString },
-    skillsRequired: { type: GraphQLString },
-    datePosted: { type: GraphQLString },
-    screeningQuestion1: { type: GraphQLString },
-    screeningQuestion2: { type: GraphQLString },
-    screeningQuestion3: { type: GraphQLString },
-    employer: {
-      type: EmployerType,
-      resolve(parentValue, args) {
-        return axios
-        .get(`http://localhost:3000/positions/${parentValue.id}/employer`)
-        .then(res => res.data);
-      }
-    }
-  })
-})
-
-const EmployerType = new GraphQLObjectType({
-  name: 'Employer',
-  fields: () => ({
-    id: { type: GraphQLID },
-    companyName: { type: GraphQLString },
-    location: { type: GraphQLString },
-    industry: { type: GraphQLString },
-    perks: { type: GraphQLString },
-    website: { type: GraphQLString },
-    imgURL: { type: GraphQLString },
-    vidURL: { type: GraphQLString },
-    email: { type: GraphQLString },
-    password: { type: GraphQLString },
-    positions: {
-      type: new GraphQLList(PositionType),
-      resolve(parentValue, args) {
-        return axios
-        .get(`http://localhost:3000/employers/${parentValue.id}/positions`)
-        .then(res => res.data);
-      }
-      },
-  }),
-});
-
-
-
 const EducationType = new GraphQLObjectType({
   name: 'Education',
   fields: () => ({
@@ -237,6 +188,62 @@ const mutation = new GraphQLObjectType({
       args: {
         id: { type: new GraphQLNonNull(GraphQLID) },
         firstName: { type: GraphQLString },
+        lastName: { type: GraphQLString },
+        intro: { type: GraphQLString },
+        email: { type: GraphQLString },
+        password: { type: GraphQLString },
+        address: { type: GraphQLString },
+        industry: { type: GraphQLString },
+        imgURL: { type: GraphQLString },
+        vidURL: { type: GraphQLString },
+      },
+      resolve(parentValue, args) {
+        return axios
+          .patch(`http://localhost:3000/candidates/${args.id}`, args)
+          .then(res => res.data);
+      },
+    },
+    //ADD A COMPANY
+    addCompany: {
+      type: CompanyType,
+      args: {
+        // new GraphQLNonNull(GraphQLString) is validation for required
+        name: { type: new GraphQLNonNull(GraphQLString) },
+        email: { type: new GraphQLNonNull(GraphQLString) },
+        password: { type: new GraphQLNonNull(GraphQLString) },
+        address: { type: GraphQLString },
+        industry: { type: GraphQLString },
+        imgURL: { type: GraphQLString },
+        vidURL: { type: GraphQLString },
+      },
+      resolve(parentValue, { name, email, password }) {
+        return axios
+          .post(`http://localhost:3000/companies`, {
+            name,
+            email,
+            password,
+          })
+          .then(res => res.data);
+      },
+    },
+    //DELETE A COMPANY ADMIN
+    deleteCompany: {
+      type: CompanyType,
+      args: {
+        id: { type: new GraphQLNonNull(GraphQLID) },
+      },
+      resolve(parentValue, { id }) {
+        return axios
+          .delete(`http://localhost:3000/companies/${id}`)
+          .then(res => res.data);
+      },
+    },
+    // EDIT A COMPANY TO DO UPDATE WITH PROPER PARAMS
+    editCompany: {
+      type: CompanyType,
+      args: {
+        id: { type: new GraphQLNonNull(GraphQLID) },
+        companyName: { type: GraphQLString },
         lastName: { type: GraphQLString },
         intro: { type: GraphQLString },
         email: { type: GraphQLString },
