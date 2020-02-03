@@ -1,5 +1,5 @@
 const crypto = require('crypto')
-const db = require('../database')
+const db = require('../db')
 const Sequelize = require('sequelize')
 
 const Candidate = db.define('candidate', {
