@@ -1,12 +1,12 @@
-const Candidate = require('./candidate')
-const Education = require('./education')
-const CurrentJob = require('./currentJob')
-const PreviousJob = require('./previousJob')
-const Skill = require('./skill')
+const Candidate = require('./candidate/candidate')
+const Education = require('./candidate/education')
+const CurrentJob = require('./candidate/currentJob')
+const PreviousJob = require('./candidate/previousJob')
+const Skill = require('./candidate/skill')
 const Company = require('./company/company')
 const CompanyPositions = require('./company/companyPositions')
 const CompanyUser = require('./company/companyUser')
-const CandidateSkill = require('./candidateSkill')
+const CandidateSkill = require('./candidate/candidateSkill')
 
 // Associations
 
