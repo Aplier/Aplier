@@ -3,40 +3,112 @@
     {
       "id": "1",
       "firstName": "Depak",
-      "age": "35",
-      "employerId": "3",
-      "educationId": "1"
+      "lastName": "Borhara",
+      "intro": "I am Depak",
+      "email": "depak@aplier.com",
+      "password": "fullstack",
+      "address": "123 Google Way",
+      "educationId": 1,
+      "currentPos": "fillInLater",
+      "empHistory": "fillInLaster",
+      "industry": "tech",
+      "imgURL": "testimgDepak",
+      "vidURL": "testvidDepak"
     },
     {
       "id": "2",
       "firstName": "Tina",
-      "age": "20",
-      "employerId": "1",
-      "educationId": "3"
+      "lastName": "Fun",
+      "intro": "I am Tina",
+      "email": "tina@aplier.com",
+      "password": "academy",
+      "address": "123 Google Way",
+      "educationId": 2,
+      "currentPosId": "fillInLater",
+      "empHistoryId": "fillInLaster",
+      "industry": "tech",
+      "imgURL": "testimgTina",
+      "vidURL": "testvidTina"
     },
     {
       "id": "3",
       "firstName": "Remi",
-      "age": "21",
-      "employerId": "1",
-      "educationId": "1"
+      "lastName": "Mendoza",
+      "intro": "I am Remi",
+      "email": "Remi@aplier.com",
+      "password": "fullstack1",
+      "address": "123 Google Way",
+      "educationId": 1,
+      "currentPosId": "fillInLater",
+      "empHistoryId": "fillInLaster",
+      "industry": "tech",
+      "imgURL": "testimgRemi",
+      "vidURL": "testvidRemi"
     },
     {
       "id": "4",
       "firstName": "Marvin",
-      "age": "22",
-      "employerId": "2",
-      "educationId": "2"
+      "lastName": "Huang",
+      "intro": "I am Marvin",
+      "email": "Marvink@aplier.com",
+      "password": "academy1",
+      "address": "123 Google Way",
+      "educationId": 3,
+      "currentPos": "fillInLater",
+      "empHistory": "fillInLaster",
+      "industry": "tech",
+      "imgURL": "testimgMarvin",
+      "vidURL": "testvidMarvin"
+    },
+    {
+      "firstName": "Noelle",
+      "lastName": "Laureano",
+      "email": "noelle@fsa.com",
+      "password": "aplier",
+      "id": "YNZBKTO"
     }
   ],
-  "employers": [
-    { "id": "1", "name": "Google", "Jobs": "yes" },
-    { "id": "2", "name": "Amazon", "Jobs": "yes" },
-    { "id": "3", "name": "Netflix", "Jobs": "yes" }
-  ],
   "education": [
-    { "id": "1", "schoolName": "FullStack", "degreeType": "Certificate" },
-    { "id": "2", "schoolName": "Harvard", "degreeType": "BA" },
-    { "id": "3", "schoolName": "Yale", "degreeType": "BS" }
+    {
+      "id": "1",
+      "schoolName": "FullStack",
+      "degreeType": "Certificate"
+    },
+    {
+      "id": "2",
+      "schoolName": "Harvard",
+      "degreeType": "BA"
+    },
+    {
+      "id": "3",
+      "schoolName": "Yale",
+      "degreeType": "BS"
+    }
+  ],
+  "currentPos": [
+    {
+      "id": "1",
+      "companyName": "Apple",
+      "startDate": "1/1/20",
+      "title": "Engineer"
+    },
+    {
+      "id": "2",
+      "companyName": "Microsoft",
+      "startDate": "12/2/18",
+      "title": "Developer"
+    },
+    {
+      "id": "3",
+      "companyName": "Google",
+      "startDate": "2/5/17",
+      "title": "Technical Lead"
+    },
+    {
+      "id": "4",
+      "companyName": "Netflix",
+      "startDate": "3/22/16",
+      "title": "Architect"
+    }
   ]
 }
