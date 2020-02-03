@@ -8,6 +8,7 @@ const {
   GraphQLID,
   GraphQLList,
   GraphQLNonNull,
+  GraphQLBoolean,
 } = graphql;
 
 const EducationType = new GraphQLObjectType({
