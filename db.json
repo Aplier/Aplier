@@ -45,7 +45,6 @@
       "imgURL": "testimgRemi",
       "vidURL": "testvidRemi"
     },
-
     {
       "id": "4",
       "firstName": "Marvin",
@@ -60,12 +59,31 @@
       "industry": "tech",
       "imgURL": "testimgMarvin",
       "vidURL": "testvidMarvin"
+    },
+    {
+      "firstName": "Noelle",
+      "lastName": "Laureano",
+      "email": "noelle@fsa.com",
+      "password": "aplier",
+      "id": "YNZBKTO"
     }
   ],
   "education": [
-    { "id": "1", "schoolName": "FullStack", "degreeType": "Certificate" },
-    { "id": "2", "schoolName": "Harvard", "degreeType": "BA" },
-    { "id": "3", "schoolName": "Yale", "degreeType": "BS" }
+    {
+      "id": "1",
+      "schoolName": "FullStack",
+      "degreeType": "Certificate"
+    },
+    {
+      "id": "2",
+      "schoolName": "Harvard",
+      "degreeType": "BA"
+    },
+    {
+      "id": "3",
+      "schoolName": "Yale",
+      "degreeType": "BS"
+    }
   ],
   "currentPos": [
     {
