@@ -138,14 +138,15 @@
       "id": "1",
       "companyId": "1",
       "positionId": "1",
-      "email": "userGuy@gmail.com",
+      "email": "Depak@gmail.com",
       "isAdmin": true
     },
     {
       "id": "2",
       "companyId": "1",
       "positionId": "2",
-      "email": "secondGirl@gmail.com"
+      "email": "Remi@gmail.com",
+      "isAdmin": false
     }
   ]
 }
