@@ -111,33 +111,53 @@ async function seed() {
       imgUrl: 'http://tny.im/kFY',
     }),
   ])
+
+  const CompanyUsers = await Promise.all([
+    CompanyUser.create({
+      email: 'employee@gmail.com',
+      password: '123',
+    }),
+    CompanyUser.create({
+      email: 'employee2@gmail.com',
+      password: '123',
+    }),
+    CompanyUser.create({
+      email: 'employee3@gmail.com',
+      password: '123',
+    })
+  ])
   const CompanyPositions = await Promise.all([
-    Company.create({
+    CompanyPosition.create({
       title: 'Front-End Developer',
       description: 'Looking for a Front-End Developer. skilled in frameworks such as React or Angular based in the New York City area!',
       salaryRange: '$85,0000',
       screeningQ1: 'What are JavaScript Data Types?',
       screeningQ2: 'What is Recursion?',
-      screeningQ3: 'Explain the difference between "==" and "==="?'
+      screeningQ3: 'Explain the difference between "==" and "==="?',
+      companyId: 1,
+      companyuserId: 3
     }),
-    Company.create({
+    CompanyPosition.create({
       title: 'Front-End Developer',
       description: 'Looking for a Back-End Developer. skilled in Javascript Concepts',
       salaryRange: '$95,0000',
       screeningQ1: 'Explain what is pop()method in JavaScript?',
       screeningQ2: 'Explain OOP?',
-      screeningQ3: 'explain closures in JavaScript?'
+      screeningQ3: 'explain closures in JavaScript?',
+      companyId: 2,
+      companyuserId: 1
     }),
-    Company.create({
+    CompanyPosition.create({
       title: 'React-Native Developer',
       description: 'Looking for a React-Native Developer. skilled in Javascript Concepts',
       salaryRange: '$75,0000',
       screeningQ1: 'What are the advantages of React Native?',
       screeningQ2: 'How many threads run in React Native?',
-      screeningQ3: 'What are Hybrid Apps?'
+      screeningQ3: 'What are Hybrid Apps?',
+      companyId: 3,
+      companyuserId: 1
     }),
   ])
-
 
   const Educations = await Promise.all([
     Education.create({
@@ -162,7 +182,6 @@ async function seed() {
       gradDate: new Date(2014, 5, 30),
       candidateId: 3
     }),
-
   ])
 
   const PreviousJobs = await Promise.all([
