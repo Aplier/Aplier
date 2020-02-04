@@ -110,6 +110,14 @@ async function seed() {
       website: 'facebook.com',
       imgUrl: 'http://tny.im/kFY',
     }),
+    Company.create({
+      name: 'VaynerMedia',
+      location: '10 Hudson yards, New York, NY 10001',
+      industry: 'Tech',
+      perks: '6 months parental leave',
+      website: 'vaynerMedia.com',
+      imgUrl: 'http://tny.im/kG0',
+    })
   ])
 
   const CompanyUsers = await Promise.all([
@@ -123,6 +131,10 @@ async function seed() {
     }),
     CompanyUser.create({
       email: 'employee3@gmail.com',
+      password: '123',
+    }),
+    CompanyUser.create({
+      email: 'employee4@gmail.com',
       password: '123',
     })
   ])
