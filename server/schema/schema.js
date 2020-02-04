@@ -85,12 +85,12 @@ const EducationType = new GraphQLObjectType({
   name: 'Education',
   fields: () => ({
     id: { type: GraphQLID },
-    schoolName: { type: GraphQLString },
-    degreeType: { type: GraphQLString },
+    name: { type: GraphQLString },
+    degree: { type: GraphQLString },
     major: { type: GraphQLString },
     minor: { type: GraphQLString },
     gradDate: { type: GraphQLString },
-    candidates: {
+    candidateId: {
       type: new GraphQLList(CandidateType),
       resolve(parentValue, args) {
         return axios
@@ -101,7 +101,7 @@ const EducationType = new GraphQLObjectType({
   }),
 });
 
-const currentJobType = new GraphQLObjectType({
+const currentjobType = new GraphQLObjectType({
   name: 'currentJob',
   fields: () => ({
     id: { type: GraphQLID },
@@ -133,24 +133,41 @@ const CandidateType = new GraphQLObjectType({
     password: { type: GraphQLString },
     phone: { type: GraphQLString },
     address: { type: GraphQLString },
+    imgURL: { type: GraphQLString },
+    vidURL: { type: GraphQLString },
     // admin?
     education: {
       type: EducationType,
-      resolve(parentValue, args) {
-        
-        // return axios
-        //   .get(`http://localhost:4000/education/${parentValue.educationId}`)
-        //   .then(res => res.data);
-
-        // write return in SQL or join monster
-      },
+      args: { candidateId: { type: GraphQLID } },
+        resolve(parentValue, args) {
+          const query = `SELECT * FROM "candidates" 
+          FULL JOIN "education"
+          ON candidates.id = education."candidateId"
+          `;
+          return db.conn.one(query)
+            .then(data => {
+              return data;
+            })
+            .catch(err => {
+              return 'The error is' + err;
+            });
+        }
     }, //to change
-    currentJob: {
-      type: currentJobType,
+    currentjob: {
+      type: currentjobType,
+      // args: { id: { type: GraphQLID } },
       resolve(parentValue, args) {
-        // return axios
-        //   .get(`http://localhost:3000/currentPos/${parentValue.currentPosId}`)
-        //   .then(res => res.data);
+        const query = `SELECT * FROM "candidates" 
+        FULL JOIN "currentjobs"
+        ON candidates."currentjobId" = currentjobs.id`;
+        return db.conn.one(query)
+          .then(data => {
+            return data;
+          })
+          .catch(err => {
+            return 'The error is' + err;
+          });
+
       },
     }, //to change
     previousJob: {
@@ -162,8 +179,7 @@ const CandidateType = new GraphQLObjectType({
       },
     }, //to change
     // industry: { type: GraphQLString },
-    imgURL: { type: GraphQLString },
-    vidURL: { type: GraphQLString },
+
   }),
 });
 
@@ -224,8 +240,8 @@ const RootQuery = new GraphQLObjectType({
         return axios.get(`http://localhost:3000/empHistory/${args.id}`);
       },
     },
-    currentJob: {
-      type: currentJobType,
+    currentjob: {
+      type: currentjobType,
       args: { id: { type: GraphQLID } },
       resolve(parentValue, args) {
         return axios.get(`http://localhost:3000/currentPos/${args.id}`);
