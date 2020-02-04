@@ -1,3 +1,4 @@
+const crypto = require('crypto')
 const Sequelize = require('sequelize');
 const db = require('../../db');
 
@@ -37,8 +38,8 @@ module.exports = CompanyUser
 /**
  * instanceMethods
  */
-CompanyUser.prototype.correctPassword = function(CompanyUserPwd) {
-  return CompanyUser.encryptPassword(CompanyUserPwd, this.salt()) === this.password()
+CompanyUser.prototype.correctPassword = function(companyUserPwd) {
+  return CompanyUser.encryptPassword(companyUserPwd, this.salt()) === this.password()
 }
 
 /**
@@ -59,15 +60,15 @@ CompanyUser.encryptPassword = function(plainText, salt) {
 /**
  * hooks
  */
-const setSaltAndPassword = CompanyUser => {
-  if (CompanyUser.changed('password')) {
-    CompanyUser.salt = CompanyUser.generateSalt()
-    CompanyUser.password = CompanyUser.encryptPassword(CompanyUser.password(), CompanyUser.salt())
+const setSaltAndPassword = companyUser => {
+  if (companyUser.changed('password')) {
+    companyUser.salt = CompanyUser.generateSalt()
+    companyUser.password = CompanyUser.encryptPassword(companyUser.password(), companyUser.salt())
   }
 }
 
 CompanyUser.beforeCreate(setSaltAndPassword)
 CompanyUser.beforeUpdate(setSaltAndPassword)
-CompanyUser.beforeBulkCreate(CompanyUser => {
-    CompanyUser.forEach(setSaltAndPassword)
+CompanyUser.beforeBulkCreate(companyUser => {
+    companyUser.forEach(setSaltAndPassword)
 })

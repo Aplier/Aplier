@@ -1,7 +1,7 @@
 const Sequelize = require('sequelize');
 const db = require('../../db');
 
-const CompanyPositions = db.define('companyPositions', {
+const CompanyPosition = db.define('companyPosition', {
   title: {
     type: Sequelize.STRING,
     allowNull: false,
@@ -37,4 +37,4 @@ const CompanyPositions = db.define('companyPositions', {
   },
 })
 
-module.export = CompanyPositions
+module.exports = CompanyPosition

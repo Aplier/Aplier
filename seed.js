@@ -9,7 +9,7 @@ const {
   CompanyPosition,
   CompanyUser,
   CandidateSkill,
-  PositionsSkill
+  // PositionsSkill
   } = require('./server/db/models')
 
 async function seed() {
@@ -92,7 +92,6 @@ async function seed() {
       perks: 'free Lunch',
       website: 'google.com',
       imgUrl: 'http://tny.im/kFW',
-      companyId: 3
     }),
     Company.create({
       name: 'Twitter',
@@ -124,18 +123,22 @@ async function seed() {
     CompanyUser.create({
       email: 'employee@gmail.com',
       password: '123',
+      companyId: 3
     }),
     CompanyUser.create({
       email: 'employee2@gmail.com',
       password: '123',
+      companyId:2
     }),
     CompanyUser.create({
       email: 'employee3@gmail.com',
       password: '123',
+      companyId:1
     }),
     CompanyUser.create({
       email: 'employee4@gmail.com',
       password: '123',
+      companyId:4
     })
   ])
   const CompanyPositions = await Promise.all([
@@ -147,7 +150,7 @@ async function seed() {
       screeningQ2: 'What is Recursion?',
       screeningQ3: 'Explain the difference between "==" and "==="?',
       companyId: 1,
-      companyuserId: 3
+      companyUserId: 3
     }),
     CompanyPosition.create({
       title: 'Front-End Developer',
@@ -156,8 +159,8 @@ async function seed() {
       screeningQ1: 'Explain what is pop()method in JavaScript?',
       screeningQ2: 'Explain OOP?',
       screeningQ3: 'explain closures in JavaScript?',
-      companyId: 2,
-      companyuserId: 1
+      companyId: 3,
+      companyUserId: 1
     }),
     CompanyPosition.create({
       title: 'React-Native Developer',
@@ -167,7 +170,7 @@ async function seed() {
       screeningQ2: 'How many threads run in React Native?',
       screeningQ3: 'What are Hybrid Apps?',
       companyId: 3,
-      companyuserId: 1
+      companyUserId: 1
     }),
   ])
 
