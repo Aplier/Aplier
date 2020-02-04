@@ -4,7 +4,7 @@ const CurrentJob = require('./candidate/currentJob')
 const PreviousJob = require('./candidate/previousJob')
 const Skill = require('./candidate/skill')
 const Company = require('./company/company')
-const CompanyPosition = require('./company/companyPositions')
+const CompanyPosition = require('./company/companyPosition')
 const CompanyUser = require('./company/companyUser')
 const CandidateSkill = require('./candidate/candidateSkill')
 const PositionsSkill = require('./company/positionsSkill')
@@ -39,6 +39,7 @@ CompanyUser.hasMany(CompanyPosition)
 
 Candidate.belongsToMany(Skill, {through: CandidateSkill})
 Skill.belongsToMany(Candidate, {through: CandidateSkill})
+
 CompanyPosition.belongsToMany(Skill, {through: PositionsSkill})
 Skill.belongsToMany(CompanyPosition, {through: PositionsSkill})
 
