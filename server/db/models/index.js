@@ -8,6 +8,7 @@ const CompanyPosition = require('./company/companyPosition')
 const CompanyUser = require('./company/companyUser')
 const CandidateSkill = require('./candidate/candidateSkill')
 const PositionsSkill = require('./company/positionsSkill')
+const CandidatePositions = require('./candidate/candidatePositions')
 // Associations
 
 //1-1
@@ -43,6 +44,8 @@ Skill.belongsToMany(Candidate, {through: CandidateSkill})
 CompanyPosition.belongsToMany(Skill, {through: PositionsSkill})
 Skill.belongsToMany(CompanyPosition, {through: PositionsSkill})
 
+Candidate.belongsToMany(CompanyPosition, {through: CandidatePositions})
+CompanyPosition.belongsToMany(Candidate, {through: CandidatePositions})
 
 module.exports = {
     Candidate,
@@ -54,5 +57,6 @@ module.exports = {
     CompanyPosition,
     CompanyUser,
     CandidateSkill,
-    PositionsSkill
+    PositionsSkill,
+    CandidatePositions
   }
