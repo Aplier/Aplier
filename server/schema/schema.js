@@ -101,8 +101,8 @@ const EducationType = new GraphQLObjectType({
   }),
 });
 
-const currentPosType = new GraphQLObjectType({
-  name: 'CurrentPosition',
+const currentJobType = new GraphQLObjectType({
+  name: 'currentJob',
   fields: () => ({
     id: { type: GraphQLID },
     companyName: { type: GraphQLString },
@@ -111,8 +111,8 @@ const currentPosType = new GraphQLObjectType({
   }),
 });
 
-const empHistoryType = new GraphQLObjectType({
-  name: 'EmploymentHistory',
+const previousJobType = new GraphQLObjectType({
+  name: 'previousJob',
   fields: () => ({
     id: { type: GraphQLID },
     companyName: { type: GraphQLString },
@@ -131,32 +131,37 @@ const CandidateType = new GraphQLObjectType({
     intro: { type: GraphQLString },
     email: { type: GraphQLString },
     password: { type: GraphQLString },
+    phone: { type: GraphQLString },
     address: { type: GraphQLString },
+    // admin?
     education: {
       type: EducationType,
       resolve(parentValue, args) {
-        return axios
-          .get(`http://localhost:4000/education/${parentValue.educationId}`)
-          .then(res => res.data);
+        
+        // return axios
+        //   .get(`http://localhost:4000/education/${parentValue.educationId}`)
+        //   .then(res => res.data);
+
+        // write return in SQL or join monster
       },
     }, //to change
-    currentPos: {
-      type: currentPosType,
+    currentJob: {
+      type: currentJobType,
       resolve(parentValue, args) {
-        return axios
-          .get(`http://localhost:3000/currentPos/${parentValue.currentPosId}`)
-          .then(res => res.data);
+        // return axios
+        //   .get(`http://localhost:3000/currentPos/${parentValue.currentPosId}`)
+        //   .then(res => res.data);
       },
     }, //to change
-    empHistory: {
-      type: empHistoryType,
+    previousJob: {
+      type: previousJobType,
       resolve(parentValue, args) {
-        return axios
-          .get(`http://localhost:3000/empHistory/${parentValue.empHistoryId}`)
-          .then(res => res.data);
+        // return axios
+        //   .get(`http://localhost:3000/empHistory/${parentValue.empHistoryId}`)
+        //   .then(res => res.data);
       },
     }, //to change
-    industry: { type: GraphQLString },
+    // industry: { type: GraphQLString },
     imgURL: { type: GraphQLString },
     vidURL: { type: GraphQLString },
   }),
@@ -190,9 +195,17 @@ const RootQuery = new GraphQLObjectType({
     candidates: {
       type: new GraphQLList(CandidateType),
       resolve(parentValue, args) {
-        return axios
-          .get(`http://localhost:3000/candidates/`)
-          .then(resp => resp.data);
+        // return axios
+        //   .get(`http://localhost:3000/candidates/`)
+        //   .then(resp => resp.data);
+        const query = `SELECT * FROM "candidates"`;
+        return db.conn.one(query)
+           .then(data => {
+              return data;
+           })
+           .catch(err => {
+               return 'The error is' + err;
+           });
       },
     },
     education: {
@@ -204,15 +217,15 @@ const RootQuery = new GraphQLObjectType({
           .then(resp => resp.data);
       },
     },
-    employmentHistory: {
-      type: empHistoryType,
+    previousJob: {
+      type: previousJobType,
       args: { id: { type: GraphQLID } },
       resolve(parentValue, args) {
         return axios.get(`http://localhost:3000/empHistory/${args.id}`);
       },
     },
-    currentPosition: {
-      type: currentPosType,
+    currentJob: {
+      type: currentJobType,
       args: { id: { type: GraphQLID } },
       resolve(parentValue, args) {
         return axios.get(`http://localhost:3000/currentPos/${args.id}`);
