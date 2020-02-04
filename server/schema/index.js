@@ -1,11 +1,11 @@
 const graphql = require('graphql');
 const axios = require('axios');
 // const connectionString = 'postgresql://tinafunmacpro@:5432/aplier';
-const connectionString =
-  'postgresql://aplier@aplierdb.czniy2ofqmqo.us-east-2.rds.amazonaws.com:5432/aplier';
-const pgp = require('pg-promise')();
-const db = {};
-db.conn = pgp(connectionString);
+// const connectionString =
+// 'postgresql://aplier@aplierdb.czniy2ofqmqo.us-east-2.rds.amazonaws.com:5432/aplier';
+// const pgp = require('pg-promise')();
+// const db = {};
+// db.conn = pgp(connectionString);
 
 const {
   GraphQLObjectType,
@@ -29,7 +29,14 @@ const PositionType = new GraphQLObjectType({
     screeningQuestion1: { type: GraphQLString },
     screeningQuestion2: { type: GraphQLString },
     screeningQuestion3: { type: GraphQLString },
-    // company: {},
+    companies: {
+      type: new GraphQLList(CompanyType),
+      resolve(parentValue, args) {
+        return axios
+          .get(`http://localhost:3000/positions/${parentValue.id}/companies`)
+          .then(resp => resp.data);
+      },
+    },
   }),
 });
 
@@ -38,7 +45,14 @@ const UserType = new GraphQLObjectType({
   fields: () => ({
     id: { type: GraphQLID },
     // company: {},
-    // positions: {},
+    positions: {
+      type: new GraphQLList(PositionType),
+      resolve(parentValue, args) {
+        return axios
+          .get(`http://localhost:3000/users/${parentValue.id}/positions`)
+          .then(resp => resp.data);
+      },
+    },
     email: { type: GraphQLString },
     password: { type: GraphQLString },
     isAdmin: { type: GraphQLBoolean },
@@ -56,8 +70,22 @@ const CompanyType = new GraphQLObjectType({
     website: { type: GraphQLString },
     imgURL: { type: GraphQLString },
     vidURL: { type: GraphQLString },
-    // users: {},
-    // positions: {},
+    users: {
+      type: new GraphQLList(UserType),
+      resolve(parentValue, args) {
+        return axios
+          .get(`http://localhost:30000/companies/${parentValue.id}/users`)
+          .then(resp => resp.data);
+      },
+    },
+    positions: {
+      type: new GraphQLList(PositionType),
+      resolve(parentValue, args) {
+        return axios
+          .get(`http://localhost:30000/companies/${parentValue.id}/positions`)
+          .then(resp => resp.data);
+      },
+    },
   }),
 });
 
@@ -70,7 +98,14 @@ const EducationType = new GraphQLObjectType({
     major: { type: GraphQLString },
     minor: { type: GraphQLString },
     gradDate: { type: GraphQLString },
-    // candidates: {},
+    candidates: {
+      type: new GraphQLList(CandidateType),
+      resolve(parentValue, args) {
+        return axios
+          .get(`http://localhost:3000/education/${parentValue.id}/candidates`)
+          .then(resp => resp.data);
+      },
+    },
   }),
 });
 
@@ -105,9 +140,31 @@ const CandidateType = new GraphQLObjectType({
     email: { type: GraphQLString },
     password: { type: GraphQLString },
     address: { type: GraphQLString },
-    // education: {}, //to change
-    // currentPos: {}, //to change
-    // empHistory: {}, //to change
+    education: {
+      type: EducationType,
+      resolve(parentValue, args) {
+        console.log('parentValue', parentValue);
+        return axios
+          .get(`http://localhost:3000/education/${parentValue.id}`)
+          .then(resp => resp.data);
+      },
+    },
+    currentPos: {
+      type: CurrentPosType,
+      resolve(parentValue, args) {
+        return axios
+          .get(`http://localhost:3000/currentPos/${parentValue.id}`)
+          .then(resp => resp.data);
+      },
+    },
+    empHistory: {
+      type: empHistoryType,
+      resolve(parentValue, args) {
+        return axios
+          .get(`http://localhost:3000/empHistory/${parentValue.id}`)
+          .then(resp => resp.data);
+      },
+    },
     industry: { type: GraphQLString },
     imgURL: { type: GraphQLString },
     vidURL: { type: GraphQLString },
@@ -160,14 +217,18 @@ const RootQuery = new GraphQLObjectType({
       type: empHistoryType,
       args: { id: { type: GraphQLID } },
       resolve(parentValue, args) {
-        return axios.get(`http://localhost:3000/empHistory/${args.id}`);
+        return axios
+          .get(`http://localhost:3000/empHistory/${args.id}`)
+          .then(resp => resp.data);
       },
     },
     currentPosition: {
       type: CurrentPosType,
       args: { id: { type: GraphQLID } },
       resolve(parentValue, args) {
-        return axios.get(`http://localhost:3000/currentPos/${args.id}`);
+        return axios
+          .get(`http://localhost:3000/currentPos/${args.id}`)
+          .then(resp => resp.data);
       },
     },
     company: {
@@ -249,7 +310,7 @@ const mutation = new GraphQLObjectType({
             email,
             password,
           })
-          .then(res => res.data);
+          .then(resp => resp.data);
       },
     },
     //DELETE CANDIDATE
@@ -261,7 +322,7 @@ const mutation = new GraphQLObjectType({
       resolve(parentValue, { id }) {
         return axios
           .delete(`http://localhost:3000/candidates/${id}`)
-          .then(res => res.data);
+          .then(resp => resp.data);
       },
     },
     //UPDATE CANDIDATE INFORMATION
@@ -282,7 +343,7 @@ const mutation = new GraphQLObjectType({
       resolve(parentValue, args) {
         return axios
           .patch(`http://localhost:3000/candidates/${args.id}`, args)
-          .then(res => res.data);
+          .then(resp => resp.data);
       },
     },
     //ADD A COMPANY
@@ -307,7 +368,7 @@ const mutation = new GraphQLObjectType({
           .post(`http://localhost:3000/companies`, {
             name,
           })
-          .then(res => res.data);
+          .then(resp => resp.data);
       },
     },
     //DELETE A COMPANY(ADMIN PRIV??)
@@ -319,7 +380,7 @@ const mutation = new GraphQLObjectType({
       resolve(parentValue, { id }) {
         return axios
           .delete(`http://localhost:3000/companies/${id}`)
-          .then(res => res.data);
+          .then(resp => resp.data);
       },
     },
     // EDIT A COMPANY TO DO UPDATE WITH PROPER PARAMS (ADMIN PRIV??)
@@ -340,7 +401,7 @@ const mutation = new GraphQLObjectType({
       resolve(parentValue, args) {
         return axios
           .patch(`http://localhost:3000/companies/${args.id}`, args)
-          .then(res => res.data);
+          .then(resp => resp.data);
       },
     },
 
@@ -361,9 +422,9 @@ const mutation = new GraphQLObjectType({
         company: { type: new GraphQLNonNull(GraphQLID) },
       },
       resolve(parentValue, args) {
-        return axios.post(
-          `http://localhost:3000/positions/${parentValue.name}/company`
-        );
+        return axios
+          .post(`http://localhost:3000/positions/${parentValue.name}/company`)
+          .then(resp => resp.data);
       },
     },
     //DELETE A JOB POSITION
@@ -373,9 +434,9 @@ const mutation = new GraphQLObjectType({
         id: { type: new GraphQLNonNull(GraphQLID) },
       },
       resolve(parentValue, { id }) {
-        return axios.delete(
-          `http://localhost:3000/position/${parentValue.id}/${id}`
-        );
+        return axios
+          .delete(`http://localhost:3000/position/${parentValue.id}/${id}`)
+          .then(resp => resp.data);
       },
     },
     //EDIT A JOB POSITION
@@ -392,9 +453,9 @@ const mutation = new GraphQLObjectType({
         company: { type: new GraphQLNonNull(GraphQLID) },
       },
       resolve(parentValue, args) {
-        return axios.patch(
-          `http://localhost:3000/positions/${parentValue.id}/${args.id}`
-        );
+        return axios
+          .patch(`http://localhost:3000/positions/${parentValue.id}/${args.id}`)
+          .then(resp => resp.data);
       },
     },
   },

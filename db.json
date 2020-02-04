@@ -8,7 +8,7 @@
       "email": "depak@aplier.com",
       "password": "fullstack",
       "address": "123 Google Way",
-      "educationId": 1,
+      "educationId": 2,
       "currentPos": "fillInLater",
       "empHistory": "fillInLaster",
       "industry": "tech",
@@ -23,7 +23,7 @@
       "email": "tina@aplier.com",
       "password": "academy",
       "address": "123 Google Way",
-      "educationId": 2,
+      "educationId": 1,
       "currentPosId": "fillInLater",
       "empHistoryId": "fillInLaster",
       "industry": "tech",
@@ -46,33 +46,19 @@
       "vidURL": "testvidRemi"
     },
     {
-      "id": "4",
+      "id": "5",
       "firstName": "Marvin",
       "lastName": "Huang",
       "intro": "I am Marvin",
       "email": "Marvink@aplier.com",
       "password": "academy1",
       "address": "123 Google Way",
-      "educationId": 3,
+      "educationId": 1,
       "currentPos": "fillInLater",
       "empHistory": "fillInLater",
       "industry": "tech",
       "imgURL": "testimgMarvin",
       "vidURL": "testvidMarvin"
-    },
-    {
-      "firstName": "Noelle",
-      "lastName": "Laureano",
-      "email": "noelle@fsa.com",
-      "password": "aplier",
-      "id": "YNZBKTO"
-    },
-    {
-      "firstName": "Adel",
-      "lastName": "Jabbar",
-      "email": "muscleOHunk@Ineedvalidation.com",
-      "password": "Yoshi",
-      "id": "IVrj6ek"
     }
   ],
   "education": [
