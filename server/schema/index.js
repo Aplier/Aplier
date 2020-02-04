@@ -1,11 +1,11 @@
 const graphql = require('graphql');
 const axios = require('axios');
-// const connectionString = 'postgresql://tinafunmacpro@:5432/aplier';
+const connectionString = 'postgresql://tinafunmacpro@:5432/aplier';
 // const connectionString =
 // 'postgresql://aplier@aplierdb.czniy2ofqmqo.us-east-2.rds.amazonaws.com:5432/aplier';
-// const pgp = require('pg-promise')();
-// const db = {};
-// db.conn = pgp(connectionString);
+const pgp = require('pg-promise')();
+const db = {};
+db.conn = pgp(connectionString);
 
 const {
   GraphQLObjectType,
@@ -15,9 +15,10 @@ const {
   GraphQLList,
   GraphQLNonNull,
   GraphQLBoolean,
+  GraphQL,
 } = graphql;
 
-const PositionType = new GraphQLObjectType({
+const CompanyPositionType = new GraphQLObjectType({
   name: 'Position',
   fields: () => ({
     id: { type: GraphQLID },
@@ -40,13 +41,20 @@ const PositionType = new GraphQLObjectType({
   }),
 });
 
-const UserType = new GraphQLObjectType({
-  name: 'User',
+const CompanyUserType = new GraphQLObjectType({
+  name: 'CompanyUser',
   fields: () => ({
     id: { type: GraphQLID },
-    // company: {},
+    company: {
+      type: CompanyType,
+      resolve(parentValue, args) {
+        return axios
+          .get(`http://localhost:3000/users/${parentValue.id}/companies`)
+          .then(resp => resp.data);
+      },
+    },
     positions: {
-      type: new GraphQLList(PositionType),
+      type: new GraphQLList(CompanyPositionType),
       resolve(parentValue, args) {
         return axios
           .get(`http://localhost:3000/users/${parentValue.id}/positions`)
@@ -71,18 +79,18 @@ const CompanyType = new GraphQLObjectType({
     imgURL: { type: GraphQLString },
     vidURL: { type: GraphQLString },
     users: {
-      type: new GraphQLList(UserType),
+      type: new GraphQLList(CompanyUserType),
       resolve(parentValue, args) {
         return axios
-          .get(`http://localhost:30000/companies/${parentValue.id}/users`)
+          .get(`http://localhost:3000/companies/${parentValue.id}/users`)
           .then(resp => resp.data);
       },
     },
     positions: {
-      type: new GraphQLList(PositionType),
+      type: new GraphQLList(CompanyPositionType),
       resolve(parentValue, args) {
         return axios
-          .get(`http://localhost:30000/companies/${parentValue.id}/positions`)
+          .get(`http://localhost:3000/companies/${parentValue.id}/positions`)
           .then(resp => resp.data);
       },
     },
@@ -143,9 +151,8 @@ const CandidateType = new GraphQLObjectType({
     education: {
       type: EducationType,
       resolve(parentValue, args) {
-        console.log('parentValue', parentValue);
         return axios
-          .get(`http://localhost:3000/education/${parentValue.id}`)
+          .get(`http://localhost:3000/education/${parentValue.educationId}`)
           .then(resp => resp.data);
       },
     },
@@ -153,7 +160,7 @@ const CandidateType = new GraphQLObjectType({
       type: CurrentPosType,
       resolve(parentValue, args) {
         return axios
-          .get(`http://localhost:3000/currentPos/${parentValue.id}`)
+          .get(`http://localhost:3000/currentPos/${parentValue.currentPosId}`)
           .then(resp => resp.data);
       },
     },
@@ -161,7 +168,7 @@ const CandidateType = new GraphQLObjectType({
       type: empHistoryType,
       resolve(parentValue, args) {
         return axios
-          .get(`http://localhost:3000/empHistory/${parentValue.id}`)
+          .get(`http://localhost:3000/empHistory/${parentValue.empHistoryId}`)
           .then(resp => resp.data);
       },
     },
@@ -249,7 +256,7 @@ const RootQuery = new GraphQLObjectType({
       },
     },
     user: {
-      type: UserType,
+      type: CompanyUserType,
       args: { id: { type: GraphQLID } },
       resolve(parentValue, args) {
         return axios
@@ -258,13 +265,13 @@ const RootQuery = new GraphQLObjectType({
       },
     },
     users: {
-      type: GraphQLList(UserType),
+      type: GraphQLList(CompanyUserType),
       resolve(parentValue, args) {
         return axios.get('http://localhost:3000/users').then(resp => resp.data);
       },
     },
     position: {
-      type: PositionType,
+      type: CompanyPositionType,
       args: { id: { type: GraphQLID } },
       resolve(parentValue, args) {
         return axios
@@ -273,7 +280,7 @@ const RootQuery = new GraphQLObjectType({
       },
     },
     positions: {
-      type: GraphQLList(PositionType),
+      type: GraphQLList(CompanyPositionType),
       resolve(parentValue, args) {
         return axios
           .get('http://localhost:3000/positions')
@@ -287,11 +294,10 @@ const RootQuery = new GraphQLObjectType({
 const mutation = new GraphQLObjectType({
   name: 'Mutation',
   fields: {
-    //CREATE CANDIDATE
+    //CANDIDATE MUTATIONS
     addCandidate: {
       type: CandidateType,
       args: {
-        // new GraphQLNonNull(GraphQLString) is validation for required
         firstName: { type: new GraphQLNonNull(GraphQLString) },
         lastName: { type: new GraphQLNonNull(GraphQLString) },
         intro: { type: GraphQLString },
@@ -313,7 +319,6 @@ const mutation = new GraphQLObjectType({
           .then(resp => resp.data);
       },
     },
-    //DELETE CANDIDATE
     deleteCandidate: {
       type: CandidateType,
       args: {
@@ -325,7 +330,6 @@ const mutation = new GraphQLObjectType({
           .then(resp => resp.data);
       },
     },
-    //UPDATE CANDIDATE INFORMATION
     editCandidate: {
       type: CandidateType,
       args: {
@@ -346,32 +350,26 @@ const mutation = new GraphQLObjectType({
           .then(resp => resp.data);
       },
     },
-    //ADD A COMPANY
+    //COMPANY MUTATIONS
     addCompany: {
       type: CompanyType,
       args: {
-        // new GraphQLNonNull(GraphQLString) is validation for required
-        name: { type: new GraphQLNonNull(GraphQLString) },
-        location: { type: GraphQLString },
-        industry: { type: new GraphQLNonNull(GraphQLString) },
+        name: { type: GraphQLNonNull(GraphQLString) },
+        location: { type: GraphQLNonNull(GraphQLString) },
+        industry: { type: GraphQLNonNull(GraphQLString) },
         perks: { type: GraphQLString },
         website: { type: GraphQLString },
-        email: { type: new GraphQLNonNull(GraphQLString) },
-        password: { type: new GraphQLNonNull(GraphQLString) },
         imgURL: { type: GraphQLString },
         vidURL: { type: GraphQLString },
-        users: { type: GraphQLID },
-        positions: { type: GraphQLID },
+        // CompanyPosition: {},
+        // CompanyUser: {},
       },
-      resolve(parentValue, { name, industry }) {
+      resolve(parentValue, { name, location, industry }) {
         return axios
-          .post(`http://localhost:3000/companies`, {
-            name,
-          })
+          .post(`http://localhost:3000/companies`, { name, location, industry })
           .then(resp => resp.data);
       },
     },
-    //DELETE A COMPANY(ADMIN PRIV??)
     deleteCompany: {
       type: CompanyType,
       args: {
@@ -383,7 +381,6 @@ const mutation = new GraphQLObjectType({
           .then(resp => resp.data);
       },
     },
-    // EDIT A COMPANY TO DO UPDATE WITH PROPER PARAMS (ADMIN PRIV??)
     editCompany: {
       type: CompanyType,
       args: {
@@ -395,8 +392,6 @@ const mutation = new GraphQLObjectType({
         website: { type: GraphQLString },
         imgURL: { type: GraphQLString },
         vidURL: { type: GraphQLString },
-        users: { type: GraphQLID },
-        positions: { type: GraphQLID },
       },
       resolve(parentValue, args) {
         return axios
@@ -404,63 +399,103 @@ const mutation = new GraphQLObjectType({
           .then(resp => resp.data);
       },
     },
-
-    //COMPANY USER TYPE
-
-    //ADD A NEW JOB POSITION
-    addPosition: {
-      type: PositionType,
+    //COMPANY POSITION MUTATIONS
+    addCompanyPosition: {
+      type: CompanyPositionType,
       args: {
-        title: { type: new GraphQLNonNull(GraphQLString) },
-        description: { type: new GraphQLNonNull(GraphQLString) },
+        title: { type: GraphQLString },
+        description: { type: GraphQLString },
         salaryRange: { type: GraphQLString },
-        skillsRequired: { type: new GraphQLNonNull(GraphQLString) },
-        datePosted: { type: new GraphQLNonNull(GraphQLString) },
-        screeningQuestion1: { type: new GraphQLNonNull(GraphQLString) },
+        skillsRequired: { type: GraphQLString },
+        datePosted: { type: GraphQLString },
+        screeningQuestion1: { type: GraphQLString },
         screeningQuestion2: { type: GraphQLString },
         screeningQuestion3: { type: GraphQLString },
-        company: { type: new GraphQLNonNull(GraphQLID) },
+        // companyId:{}
       },
       resolve(parentValue, args) {
         return axios
-          .post(`http://localhost:3000/positions/${parentValue.name}/company`)
+          .post(`http://localhost:3000/companyPositions`, args)
           .then(resp => resp.data);
       },
     },
-    //DELETE A JOB POSITION
-    deletePosition: {
-      type: PositionType,
+    deleteCompanyPosition: {
+      type: CompanyPositionType,
       args: {
         id: { type: new GraphQLNonNull(GraphQLID) },
       },
       resolve(parentValue, { id }) {
         return axios
-          .delete(`http://localhost:3000/position/${parentValue.id}/${id}`)
+          .delete(`http://localhost:3000/companyPositions/${id}`)
           .then(resp => resp.data);
       },
     },
-    //EDIT A JOB POSITION
-    editPosition: {
-      type: PositionType,
+    editCompanyPosition: {
+      type: CompanyPositionType,
       args: {
-        title: { type: new GraphQLNonNull(GraphQLString) },
-        description: { type: new GraphQLNonNull(GraphQLString) },
+        id: { type: new GraphQLNonNull(GraphQLID) },
+        title: { type: GraphQLString },
+        description: { type: GraphQLString },
         salaryRange: { type: GraphQLString },
-        skillsRequired: { type: new GraphQLNonNull(GraphQLString) },
-        screeningQuestion1: { type: new GraphQLNonNull(GraphQLString) },
+        skillsRequired: { type: GraphQLString },
+        datePosted: { type: GraphQLString },
+        screeningQuestion1: { type: GraphQLString },
         screeningQuestion2: { type: GraphQLString },
         screeningQuestion3: { type: GraphQLString },
-        company: { type: new GraphQLNonNull(GraphQLID) },
+        // companyId:{}
       },
       resolve(parentValue, args) {
         return axios
-          .patch(`http://localhost:3000/positions/${parentValue.id}/${args.id}`)
+          .patch(`http://localhost:3000/companyPositions/${args.id}`, args)
+          .then(resp => resp.data);
+      },
+    },
+    addCompanyUser: {
+      type: CompanyUserType,
+      args: {
+        email: { type: GraphQLNonNull(GraphQLString) },
+        password: { type: GraphQLNonNull(GraphQLString) },
+        isAdmin: { type: GraphQLNonNull(GraphQLBoolean) },
+        companyId: { type: GraphQLNonNull(GraphQLString) },
+        // companyPositions:{}
+      },
+      resolve(parentValue, { email, password, isAdmin, companyId }) {
+        return axios.post(`http://localhost:3000/companyUsers`, {
+          email,
+          password,
+          isAdmin,
+          companyId,
+        });
+      },
+    },
+    deleteCompanyUser: {
+      type: CompanyUserType,
+      args: {
+        id: { type: new GraphQLNonNull(GraphQLID) },
+      },
+      resolve(parentValue, { id }) {
+        return axios
+          .delete(`http://localhost:3000/companyUsers/${id}`)
+          .then(resp => resp.data);
+      },
+    },
+    editCompanyUser: {
+      type: CompanyUserType,
+      args: {
+        id: { type: GraphQLNonNull(GraphQLID) },
+        email: { type: GraphQLString },
+        password: { type: GraphQLString },
+        isAdmin: { type: GraphQLBoolean },
+        companyId: { type: GraphQLString },
+      },
+      resolve(parentValue, args) {
+        return axios
+          .patch(`http://localhost:3000/companyUsers/${args.id}`, args)
           .then(resp => resp.data);
       },
     },
   },
 });
-
 module.exports = new GraphQLSchema({
   query: RootQuery,
   mutation: mutation,

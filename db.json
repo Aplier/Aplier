@@ -1,14 +1,14 @@
 {
   "candidates": [
     {
-      "id": "1",
+      "id": 1,
       "firstName": "Depak",
       "lastName": "Borhara",
       "intro": "I am Depak",
       "email": "depak@aplier.com",
       "password": "fullstack",
       "address": "123 Google Way",
-      "educationId": 2,
+      "educationId": 1,
       "currentPos": "fillInLater",
       "empHistory": "fillInLaster",
       "industry": "tech",
@@ -16,49 +16,11 @@
       "vidURL": "testvidDepak"
     },
     {
-      "id": "2",
-      "firstName": "Tina",
-      "lastName": "Fun",
-      "intro": "I am Tina",
-      "email": "tina@aplier.com",
-      "password": "academy",
-      "address": "123 Google Way",
-      "educationId": 1,
-      "currentPosId": "fillInLater",
-      "empHistoryId": "fillInLaster",
-      "industry": "tech",
-      "imgURL": "testimgTina",
-      "vidURL": "testvidTina"
-    },
-    {
-      "id": "3",
-      "firstName": "Remi",
-      "lastName": "Mendoza",
-      "intro": "I am Remi",
-      "email": "Remi@aplier.com",
-      "password": "fullstack1",
-      "address": "123 Google Way",
-      "educationId": 1,
-      "currentPosId": "fillInLater",
-      "empHistoryId": "fillInLaster",
-      "industry": "tech",
-      "imgURL": "testimgRemi",
-      "vidURL": "testvidRemi"
-    },
-    {
-      "id": "5",
-      "firstName": "Marvin",
-      "lastName": "Huang",
-      "intro": "I am Marvin",
-      "email": "Marvink@aplier.com",
-      "password": "academy1",
-      "address": "123 Google Way",
-      "educationId": 1,
-      "currentPos": "fillInLater",
-      "empHistory": "fillInLater",
-      "industry": "tech",
-      "imgURL": "testimgMarvin",
-      "vidURL": "testvidMarvin"
+      "id": 5,
+      "firstName": "Erik",
+      "lastName": "Yaaang",
+      "email": "ey@eymoney.com",
+      "password": "eyaaang"
     }
   ],
   "education": [
@@ -116,9 +78,15 @@
       "name": "Amazon",
       "location": "Seattle",
       "positions": "2"
+    },
+    {
+      "name": "Vandaly",
+      "location": "NJ",
+      "industry": "Architecture",
+      "id": "J6hcPmD"
     }
   ],
-  "positions": [
+  "companyPositions": [
     {
       "id": "1",
       "title": "engineer",
@@ -127,12 +95,12 @@
     },
     {
       "id": "2",
-      "title": "UX Designer",
+      "title": "UI Designer",
       "datePosted": "02/01/20",
       "company": "1"
     }
   ],
-  "users": [
+  "companyUsers": [
     {
       "id": "1",
       "companyId": "1",
