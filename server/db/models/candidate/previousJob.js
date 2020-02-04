@@ -1,4 +1,4 @@
-const db = require('../db')
+const db = require('../../db')
 const Sequelize = require('sequelize')
 
 const PreviousJob = db.define('previousjob', {
@@ -14,7 +14,7 @@ const PreviousJob = db.define('previousjob', {
     endDate: {
         type: Sequelize.DATE,
     },
-    
+
 })
 
 module.exports = PreviousJob

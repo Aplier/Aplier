@@ -1,4 +1,4 @@
-const db = require('../db')
+const db = require('../../db')
 const Sequelize = require('sequelize')
 
 const Education = db.define('education', {
@@ -17,7 +17,7 @@ const Education = db.define('education', {
     gradDate: {
         type: Sequelize.DATE,
     },
-    
+
 })
 
 module.exports = Education
