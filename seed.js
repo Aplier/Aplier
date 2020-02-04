@@ -9,7 +9,8 @@ const {
   CompanyPosition,
   CompanyUser,
   CandidateSkill,
-  // PositionsSkill
+  CandidatePositions,
+  PositionsSkill
   } = require('./server/db/models')
 
 async function seed() {
@@ -47,7 +48,7 @@ async function seed() {
       admin: true,
       imageURL: 'https://www.vettedpetcare.com/vetted-blog/wp-content/uploads/2018/08/How-To-Travel-With-a-Super-Anxious-Cat-square.jpeg',
       // videoURL: '',
-      currentjobId: 1
+      currentjobId: 1,
     }),
     Candidate.create({
       firstName: 'John',
@@ -237,6 +238,30 @@ async function seed() {
     }),
   ])
 
+
+  const CandidatePosition = await Promise.all([
+    CandidatePositions.create({
+      candidateId: 1,
+      companyPositionId: 1,
+      applied: true,
+    }),
+    CandidatePositions.create({
+      candidateId: 1,
+      companyPositionId: 2,
+      applied: false,
+    }),
+    CandidatePositions.create({
+      candidateId: 2,
+      companyPositionId: 1,
+      applied: false,
+    }),
+    CandidatePositions.create({
+      candidateId: 3,
+      companyPositionId: 3,
+      applied: false,
+    })
+  ])
+
   const CandidateSkills = await Promise.all([
     CandidateSkill.create({
       candidateId:1,
@@ -284,6 +309,58 @@ async function seed() {
     }),
     CandidateSkill.create({
       candidateId:3,
+      skillId: 6
+    }),
+
+  ])
+
+  const PositionSkill = await Promise.all([
+    PositionsSkill.create({
+      companyPositionId:1,
+      skillId: 1
+    }),
+    PositionsSkill.create({
+      companyPositionId:1,
+      skillId: 2
+    }),
+    PositionsSkill.create({
+      companyPositionId:1,
+      skillId: 5
+    }),
+    PositionsSkill.create({
+      companyPositionId:1,
+      skillId: 7
+    }),
+    PositionsSkill.create({
+      companyPositionId:2,
+      skillId: 1
+    }),
+    PositionsSkill.create({
+      companyPositionId:2,
+      skillId: 2
+    }),
+    PositionsSkill.create({
+      companyPositionId:2,
+      skillId: 3
+    }),
+    PositionsSkill.create({
+      companyPositionId:2,
+      skillId: 4
+    }),
+    PositionsSkill.create({
+      companyPositionId:3,
+      skillId: 1
+    }),
+    PositionsSkill.create({
+      companyPositionId:3,
+      skillId: 2
+    }),
+    PositionsSkill.create({
+      companyPositionId:3,
+      skillId: 4
+    }),
+    PositionsSkill.create({
+      companyPositionId:3,
       skillId: 6
     }),
 
