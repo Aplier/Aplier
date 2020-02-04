@@ -184,13 +184,13 @@ const RootQuery = new GraphQLObjectType({
       resolve(parentValue, args) {
         const query = `SELECT * FROM "candidates" WHERE id=${args.id}`;
         return db.conn.one(query)
-           .then(data => {
-              return data;
-           })
-           .catch(err => {
-               return 'The error is' + err;
-           });
-     }
+          .then(data => {
+            return data;
+          })
+          .catch(err => {
+            return 'The error is' + err;
+          });
+      }
     },
     candidates: {
       type: GraphQLList(CandidateType),
