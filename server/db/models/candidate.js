@@ -48,6 +48,15 @@ const Candidate = db.define('candidate', {
         type: Sequelize.BOOLEAN,
         allowNull: false,
         defaultValue: false
+      },
+      intro: {
+        type:Sequelize.STRING,
+      },
+      imgURL: {
+        type: Sequelize.TEXT
+      },
+      videoURL: {
+        type: Sequelize.TEXT
       }
 
 })
