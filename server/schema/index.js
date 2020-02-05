@@ -294,7 +294,7 @@ const RootQuery = new GraphQLObjectType({
 const mutation = new GraphQLObjectType({
   name: 'Mutation',
   fields: {
-    //CANDIDATE MUTATIONS
+    //CANDIDATE MUTATIONS WORKS
     addCandidate: {
       type: CandidateType,
       args: {
@@ -350,7 +350,7 @@ const mutation = new GraphQLObjectType({
           .then(resp => resp.data);
       },
     },
-    //COMPANY MUTATIONS
+    //COMPANY MUTATIONS WORKS
     addCompany: {
       type: CompanyType,
       args: {
@@ -399,7 +399,7 @@ const mutation = new GraphQLObjectType({
           .then(resp => resp.data);
       },
     },
-    //COMPANY POSITION MUTATIONS
+    //COMPANY POSITION MUTATIONS WORKS
     addCompanyPosition: {
       type: CompanyPositionType,
       args: {
@@ -450,6 +450,7 @@ const mutation = new GraphQLObjectType({
           .then(resp => resp.data);
       },
     },
+    //COMPANY USERS WORKS
     addCompanyUser: {
       type: CompanyUserType,
       args: {

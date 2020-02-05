@@ -16,6 +16,21 @@
       "vidURL": "testvidDepak"
     },
     {
+      "id": 2,
+      "firstName": "Remi",
+      "lastName": "Mendoza",
+      "intro": "I am Remi",
+      "email": "Remi@aplier.com",
+      "password": "fullstack",
+      "address": "456 Google Way",
+      "educationId": 2,
+      "currentPos": "fillInLater",
+      "empHistory": "fillInLaster",
+      "industry": "design",
+      "imgURL": "testimgRemi",
+      "vidURL": "testvidRemi"
+    },
+    {
       "id": 5,
       "firstName": "Erik",
       "lastName": "Yaaang",
@@ -71,12 +86,14 @@
       "id": "1",
       "name": "Google",
       "location": "NYC",
+      "industry": "Tech",
       "positions": "1"
     },
     {
       "id": "2",
       "name": "Amazon",
       "location": "Seattle",
+      "industry": "Architecture",
       "positions": "2"
     },
     {
