@@ -1,7 +1,7 @@
 {
   "candidates": [
     {
-      "id": "1",
+      "id": 1,
       "firstName": "Depak",
       "lastName": "Borhara",
       "intro": "I am Depak",
@@ -16,56 +16,26 @@
       "vidURL": "testvidDepak"
     },
     {
-      "id": "2",
-      "firstName": "Tina",
-      "lastName": "Fun",
-      "intro": "I am Tina",
-      "email": "tina@aplier.com",
-      "password": "academy",
-      "address": "123 Google Way",
-      "educationId": 2,
-      "currentPosId": "fillInLater",
-      "empHistoryId": "fillInLaster",
-      "industry": "tech",
-      "imgURL": "testimgTina",
-      "vidURL": "testvidTina"
-    },
-    {
-      "id": "3",
+      "id": 2,
       "firstName": "Remi",
       "lastName": "Mendoza",
       "intro": "I am Remi",
       "email": "Remi@aplier.com",
-      "password": "fullstack1",
-      "address": "123 Google Way",
-      "educationId": 1,
-      "currentPosId": "fillInLater",
-      "empHistoryId": "fillInLaster",
-      "industry": "tech",
+      "password": "fullstack",
+      "address": "456 Google Way",
+      "educationId": 2,
+      "currentPos": "fillInLater",
+      "empHistory": "fillInLaster",
+      "industry": "design",
       "imgURL": "testimgRemi",
       "vidURL": "testvidRemi"
     },
     {
-      "id": "4",
-      "firstName": "Marvin",
-      "lastName": "Huang",
-      "intro": "I am Marvin",
-      "email": "Marvink@aplier.com",
-      "password": "academy1",
-      "address": "123 Google Way",
-      "educationId": 3,
-      "currentPos": "fillInLater",
-      "empHistory": "fillInLaster",
-      "industry": "tech",
-      "imgURL": "testimgMarvin",
-      "vidURL": "testvidMarvin"
-    },
-    {
-      "firstName": "Noelle",
-      "lastName": "Laureano",
-      "email": "noelle@fsa.com",
-      "password": "aplier",
-      "id": "YNZBKTO"
+      "id": 5,
+      "firstName": "Erik",
+      "lastName": "Yaaang",
+      "email": "ey@eymoney.com",
+      "password": "eyaaang"
     }
   ],
   "education": [
@@ -111,29 +81,55 @@
       "title": "Architect"
     }
   ],
-  "company": [
+  "companies": [
     {
       "id": "1",
-      "name": "google",
-      "location": "nyc",
+      "name": "Google",
+      "location": "NYC",
+      "industry": "Tech",
       "positions": "1"
-    }
-  ],
-  "positions": [
-    {
-      "id": "1",
-      "title": "engineer",
-      "datePosted":  "02/3/3",
-      "employers": "1"
     },
     {
       "id": "2",
-      "title": "UX Designer",
-      "datePosted":  "02/01/20",
-      "employers": "1"
+      "name": "Amazon",
+      "location": "Seattle",
+      "industry": "Architecture",
+      "positions": "2"
+    },
+    {
+      "name": "Vandaly",
+      "location": "NJ",
+      "industry": "Architecture",
+      "id": "J6hcPmD"
+    },
+    {
+      "name": "Aplier",
+      "location": "FiDi",
+      "industry": "coding",
+      "id": "42Bv2On"
+    },
+    {
+      "name": "FullStack",
+      "location": "FiDi",
+      "industry": "Education",
+      "id": "Nfr5-bP"
     }
   ],
-  "companyUser": [
+  "companyPositions": [
+    {
+      "id": "1",
+      "title": "engineer",
+      "datePosted": "02/3/3",
+      "company": "1"
+    },
+    {
+      "id": "2",
+      "title": "UI Designer",
+      "datePosted": "02/01/20",
+      "company": "1"
+    }
+  ],
+  "companyUsers": [
     {
       "id": "1",
       "companyId": "1",

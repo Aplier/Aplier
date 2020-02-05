@@ -16,3 +16,9 @@ img {
   height: 200px;
   width: 200px;
 }
+
+.CandidatesView {
+  height: 100vh;
+  margin-left: 30%;
+  margin-right: 30%;
+}
