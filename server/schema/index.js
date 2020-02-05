@@ -183,33 +183,35 @@ const CandidateType = new GraphQLObjectType({
 const RootQuery = new GraphQLObjectType({
   name: 'RootQueryType',
   fields: {
+
     candidate: {
       type: CandidateType,
       args: { id: { type: GraphQLID } },
       resolve(parentValue, args) {
-        return axios
-          .get(`http://localhost:3000/candidates/${args.id}`)
-          .then(resp => resp.data);
-      },
-      // resolve(parentValue, args) {
-      //   const query = `SELECT * FROM "candidates" WHERE id=${args.id}`;
-      //   return db.conn
-      //     .one(query)
-      //     .then(data => {
-      //       return data;
-      //     })
-      //     .catch(err => {
-      //       return 'The error is' + err;
-      //     });
-      // },
-    },
+        const query = `SELECT * FROM "candidates" WHERE id=${args.id}`;
+        return db.conn
+          .one(query)
+          .then(data => {
+            return data;
+          })
+          .catch(err => {
+            return 'The error is' + err;
+          });
+      },    
+     },
     candidates: {
-      type: new GraphQLList(CandidateType),
+      type: GraphQLList(CandidateType),
       resolve(parentValue, args) {
-        return axios
-          .get(`http://localhost:3000/candidates/`)
-          .then(resp => resp.data);
-      },
+        const query = 'SELECT * FROM "candidates"'
+        return db.conn
+          .many(query)
+          .then(data => {
+            return data;
+          })
+          .catch(err => {
+            return 'The error is' + err;
+          });
+      }
     },
     education: {
       type: EducationType,
@@ -287,7 +289,7 @@ const RootQuery = new GraphQLObjectType({
           .then(resp => resp.data);
       },
     },
-  },
+  }
 });
 
 //ALL OF OUR MUTATIONS CREATE,UPDATE,DELETE

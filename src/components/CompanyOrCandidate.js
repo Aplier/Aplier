@@ -12,6 +12,9 @@ class CompanyOrCandidate extends Component {
           <div>
             <Link to="/CandidateSignup"> Candidate </Link>
           </div>
+          <div>
+          <Link to="/candidates"> View All Candidates </Link>
+          </div>
         </div>
       </div>
     )

@@ -5,7 +5,7 @@ import { ApolloProvider } from 'react-apollo';
 import Router from './router'
 //Apollo Client
 const client = new ApolloClient({
-  uri: 'http://localhost:4000/graphql',
+  uri: 'http://localhost:5000/graphql',
 });
 
 class App extends Component {

@@ -3,7 +3,8 @@ import { BrowserRouter, Switch, Route } from 'react-router-dom';
 
 //components
 import TestCompanyForm from './components/company/TestCompanyForm';
-import LandingPage from './components/landingPage';
+import TestCandidateForm from './components/candidate/TestCandidateForm'
+import LandingPage from './components/LandingPage';
 import CompanyOrCandidate from './components/CompanyOrCandidate'
 import Candidates from './components/candidate/Candidate'
 
@@ -22,7 +23,9 @@ class Router extends Component {
           <Route exact path="/" component={LandingPage} />
           <Route path="/user" component={CompanyOrCandidate} />
           <Route path="/companysignup" component={TestCompanyForm} />
+          {/* <Route path="/candidatesignup" component={TestCandidateForm} /> */}
           <Route path="/candidates" component={Candidates} />
+
         </Switch>
       </BrowserRouter>
     );
