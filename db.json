@@ -101,6 +101,18 @@
       "location": "NJ",
       "industry": "Architecture",
       "id": "J6hcPmD"
+    },
+    {
+      "name": "Aplier",
+      "location": "FiDi",
+      "industry": "coding",
+      "id": "42Bv2On"
+    },
+    {
+      "name": "FullStack",
+      "location": "FiDi",
+      "industry": "Education",
+      "id": "Nfr5-bP"
     }
   ],
   "companyPositions": [

@@ -20,6 +20,13 @@ class TestCompanyForm extends Component {
 
   onSubmit(event) {
     event.preventDefault();
+    this.props.mutate({
+      variables: {
+        name: this.state.name,
+        location: this.state.location,
+        industry: this.state.industry,
+      },
+    });
   }
 
   render() {
@@ -42,6 +49,7 @@ class TestCompanyForm extends Component {
             onChange={event => this.setState({ location: event.target.value })}
             value={this.state.location}
           />
+          <button type="submit">Submit</button>
         </form>
       </div>
     );
@@ -59,4 +67,4 @@ const mutation = gql`
   }
 `;
 
-export default TestCompanyForm;
+export default graphql(mutation)(TestCompanyForm);
