@@ -20,7 +20,6 @@ const getCandidateQuery = gql`
       intro
       address
       email
-      phone
     }
   }
 `;
@@ -32,8 +31,9 @@ const getCandidateQuery = gql`
 //     }
 // }
 
-class Candidate extends Component {
+class Candidates extends Component {
   displayCandidates() {
+    console.log(this.props.data)
     let data = this.props.data;
     if (data.loading) {
       return <div>Loading Candidates...</div>;
@@ -45,7 +45,6 @@ class Candidate extends Component {
             <img src={candidate.imgURL} alt="candidate img"/>
             <h5>{candidate.firstName} {candidate.lastName}</h5>
             <p>{candidate.address}</p>
-            <p>{candidate.phone}</p>
             <p>{candidate.email}</p>
             <p>{candidate.intro}</p>
             <p>PLACE HOLDER FOR EDU</p>
@@ -83,9 +82,7 @@ class Candidate extends Component {
 
   render() {
       return (
-        <SwipeableViews>
         <div>{this.displayCandidates()}</div>
-        </SwipeableViews>
 
       )
   }
@@ -98,4 +95,4 @@ class Candidate extends Component {
     // )
   
 
-export default graphql(getCandidateQuery)(Candidate);
+export default graphql(getCandidateQuery)(Candidates);
