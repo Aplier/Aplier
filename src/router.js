@@ -3,7 +3,7 @@ import { BrowserRouter, Switch, Route } from 'react-router-dom';
 
 //components
 import TestCompanyForm from './components/company/TestCompanyForm';
-import TestCandidateForm from './components/candidate/TestCandidateForm'
+// import TestCandidateForm from './components/candidate/TestCandidateForm'
 import LandingPage from './components/LandingPage';
 import CompanyOrCandidate from './components/CompanyOrCandidate'
 import Candidates from './components/candidate/Candidate'

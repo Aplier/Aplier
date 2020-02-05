@@ -4,7 +4,9 @@ import {getCandidateQuery} from '../../queries/queries'
 
 class Candidate extends Component {
   displayCandidates() {
+
     let data = this.props.data;
+    console.log(data)
     if (data.loading) {
       return <div>Loading Candidates...</div>;
     } else {
@@ -15,7 +17,7 @@ class Candidate extends Component {
             <h5>{candidate.firstName} {candidate.lastName}</h5>
             <p>{candidate.intro}</p>
             <p>{candidate.address}</p>
-            <p>{candidate.phone}</p>
+            {/* <p>{candidate.phone}</p> */}
             <p>{candidate.email}</p>
             <p>{candidate.intro}</p>
             <p>PLACE HOLDER FOR EDU</p>

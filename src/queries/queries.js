@@ -10,7 +10,6 @@ const getCandidateQuery = gql`
       intro
       address
       email
-      phone
     }
   }
 `;
