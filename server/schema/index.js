@@ -1,6 +1,8 @@
 const graphql = require('graphql');
 const axios = require('axios');
-const connectionString = 'postgresql://tinafunmacpro@:5432/aplier';
+// const connectionString = 'postgresql://tinafunmacpro@:5432/aplier';
+const connectionString = 'postgresql://DoZa@:5432/aplier';
+
 // const connectionString =
 // 'postgresql://aplier@aplierdb.czniy2ofqmqo.us-east-2.rds.amazonaws.com:5432/aplier';
 const pgp = require('pg-promise')();
@@ -200,7 +202,7 @@ const RootQuery = new GraphQLObjectType({
           .catch(err => {
             return 'The error is' + err;
           });
-      },    
+      },
      },
     candidates: {
       type: GraphQLList(CandidateType),
