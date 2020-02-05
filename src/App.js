@@ -2,11 +2,11 @@ import React, { Component } from 'react';
 import ApolloClient from 'apollo-boost';
 import { ApolloProvider } from 'react-apollo';
 //components
-import Candidate from './components/candidates';
+import Candidates from './components/candidates';
 // import MyComponent from './components/Test'
 //Apollo Client
 const client = new ApolloClient({
-  uri: 'http://localhost:4000/graphql',
+  uri: 'http://localhost:5000/graphql',
 });
 
 class App extends Component {
@@ -15,7 +15,7 @@ class App extends Component {
       <ApolloProvider client={client}>
         <div className="App">
           {/* <h1>TEST</h1> */}
-          <Candidate/>
+          <Candidates/>
           {/* <MyComponent/> */}
         </div>
       </ApolloProvider>
