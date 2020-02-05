@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import { gql } from 'apollo-boost';
 import { graphql } from 'react-apollo';
+import {addCompanyMutation} from '../../queries/queries'
 
 class TestCompanyForm extends Component {
   constructor(props) {
@@ -38,6 +38,7 @@ class TestCompanyForm extends Component {
           <input
             onChange={event => this.setState({ name: event.target.value })}
             value={this.state.name}
+            required
           />
           <label>Enter industry:</label>
           <input
@@ -56,15 +57,4 @@ class TestCompanyForm extends Component {
   }
 }
 
-const mutation = gql`
-  mutation AddCompany($name: String!, $location: String!, $industry: String!) {
-    addCompany(name: $name, location: $location, industry: $industry) {
-      id
-      name
-      location
-      industry
-    }
-  }
-`;
-
-export default graphql(mutation)(TestCompanyForm);
+export default graphql(addCompanyMutation)(TestCompanyForm);

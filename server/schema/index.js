@@ -312,13 +312,14 @@ const mutation = new GraphQLObjectType({
         imgURL: { type: GraphQLString },
         vidURL: { type: GraphQLString },
       },
-      resolve(parentValue, { firstName, lastName, email, password }) {
+      resolve(parentValue, { firstName, lastName, email, password, address }) {
         return axios
           .post(`http://localhost:3000/candidates`, {
             firstName,
             lastName,
             email,
             password,
+            address
           })
           .then(resp => resp.data);
       },
