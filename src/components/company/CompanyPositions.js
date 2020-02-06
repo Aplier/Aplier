@@ -23,7 +23,7 @@ class CompanyPositions extends Component {
   render() {
     return (
       <div>
-          <div> {this.displayCompanyPositions()}</div>
+        <div> {this.displayCompanyPositions()}</div>
       </div>
     )
   }
