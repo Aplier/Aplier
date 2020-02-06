@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
 
 //components
-import TestCompanyForm from './components/forms/TestCompanyForm';
+import CompanyForm from './components/forms/CompanyForm';
 import CandidateForm from './components/forms/CandidateForm'
 import LandingPage from './components/LandingPage';
 import CompanyOrCandidate from './components/CompanyOrCandidate'
@@ -23,7 +23,7 @@ class Router extends Component {
         <Switch>
           <Route exact path="/" component={LandingPage} />
           <Route path="/user" component={CompanyOrCandidate} />
-          <Route path="/companysignup" component={TestCompanyForm} />
+          <Route path="/companysignup" component={CompanyForm} />
           <Route path="/candidatesignup" component={CandidateForm} />
           <Route path="/candidates" component={Candidates} />
           <Route path="/companies" component={Companies} />
