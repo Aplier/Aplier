@@ -1,11 +1,10 @@
 const chai = require('chai');
 const expect = chai.expect;
-const sinon = require('sinon');
 const sinonChai = require('sinon-chai');
 chai.use(sinonChai);
 
-const Candidate = require('./candidate')
-const db = require('../../db')
+const Candidate = require('../server/db/models/candidate/candidate')
+const db = require('../server/db/db')
 
 describe('The `Candidate` model', () => {
 
@@ -13,9 +12,10 @@ describe('The `Candidate` model', () => {
     return db.sync({force: true})
   })
 
-  let john;
+
   beforeEach(() => {
-    john = Candidate.build({
+
+    let john = Candidate.build({
       firstName: 'john',
       lastName: 'bond'
     });

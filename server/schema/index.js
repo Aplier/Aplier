@@ -3,7 +3,7 @@ const axios = require('axios');
 
 // const connectionString = 'postgresql://dborhara@:5432/aplier';
 // const connectionString = 'postgresql://DoZa@:5432/aplier';
-const connectionString = 'postgresql://dborhara@:5432/aplier';
+const connectionString = 'postgresql://localhost:5432/aplier';
 
 
 // const connectionString =
