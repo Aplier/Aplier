@@ -9,14 +9,14 @@ import {Link} from 'react-router-dom'
 
 configure({ adapter: new Adapter() });
 
+test('renders without crashing', () => {
+  shallow(<App />);
+});
+
 test('App renders LandingPage which renders "Aplier" in a h1', () => {
   const { getByText } = render(<App />);
   const linkElement = getByText(/Aplier/i);
   expect(linkElement).toBeInTheDocument();
-});
-
-test('renders without crashing', () => {
-  shallow(<App />);
 });
 
 test('renders a "Continue with LinkedIn" button', () => {

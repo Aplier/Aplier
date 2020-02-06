@@ -2,8 +2,8 @@ import React, { Component } from 'react';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
 
 //components
-import TestCompanyForm from './components/forms/TestCompanyForm';
-import CandidateForm from './components/forms/CandidateForm';
+import CompanyForm from './components/forms/CompanyForm';
+import CandidateForm from './components/forms/CandidateForm'
 import LandingPage from './components/LandingPage';
 import CompanyOrCandidate from './components/CompanyOrCandidate';
 import Candidates from './components/candidate/Candidate';
