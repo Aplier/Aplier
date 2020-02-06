@@ -73,7 +73,7 @@ class TestCandidateForm extends Component {
             onChange={event => this.setState({ intro: event.target.value })}
             value={this.state.intro}
           />
-          <button type="submit">Submit</button>
+          <button type="submit">Sign up!</button>
         </form>
       </div>
     );

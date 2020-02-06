@@ -2,7 +2,7 @@ const graphql = require('graphql');
 const axios = require('axios');
 // const connectionString = 'postgresql://tinafun@:5432/aplier';
 // const connectionString = 'postgresql://DoZa@:5432/aplier';
-const connectionString = 'postgresql://dborhara@:5432/aplier';
+const connectionString = 'postgresql://localhost:5432/aplier';
 
 // const connectionString =
 //   'postgresql://aplierdb.czniy2ofqmqo.us-east-2.rds.amazonaws.com:5432/aplier';
