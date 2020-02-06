@@ -10,12 +10,11 @@ class Candidate extends Component {
     } else {
       return data.candidates.map(candidate => {
         return (
-          <div key={candidate.id}>
+          <div  className="mapCandidates" key={candidate.id}>
             <img src={candidate.imgURL} alt="candidate img" />
             <h5>
               {candidate.firstName} {candidate.lastName}
             </h5>
-            <p>{candidate.intro}</p>
             <p>{candidate.address}</p>
             {/* <p>{candidate.phone}</p> */}
             <p>{candidate.email}</p>
@@ -31,7 +30,7 @@ class Candidate extends Component {
   render() {
     return (
       <div>
-        <div> {this.displayCandidates()}</div>
+        <div className='allCandidates'> {this.displayCandidates()}</div>
       </div>
     );
   }

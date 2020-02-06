@@ -4,8 +4,8 @@ import { Link } from 'react-router-dom'
 class LandingPage extends Component {
   render() {
     return (
-      <div>
-        <div className="AplierTitleContainer">
+      <div className="landing">
+        <div className="AplierTitler">
           <h1>Aplier</h1>
         </div>
         <div className="AplierButtonContainer">

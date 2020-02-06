@@ -25,17 +25,31 @@ const getCompaniesQuery = gql`
 }
 `;
 
-const getCompanyPositionsQuery = gql`
-{
-  companyPositions {
+const getCompanyByIdQuery = gql`
+query($id: ID){
+  company(id: $id) {
     id
-    title
-    description
-    salarayRange
-    datePosted
+    name
+    location
+    perks
+    website
   }
 }
 `;
+
+const getPositionsQuery = gql`
+{
+  positions {
+    id
+    title
+    description
+    salaryRange
+    datePosted
+    companyId
+  }
+}
+`;
+
 
 const addCompanyMutation = gql`
   mutation AddCompany($name: String!, $location: String!, $industry: String!) {
@@ -75,8 +89,9 @@ const addCompanyPositionMutation = gql`
 export {
   getCandidateQuery,
   getCompaniesQuery,
-  getCompanyPositionsQuery,
+  getPositionsQuery,
   addCompanyMutation,
   addCandidateMutation,
-  addCompanyPositionMutation
+  addCompanyPositionMutation,
+  getCompanyByIdQuery
 }

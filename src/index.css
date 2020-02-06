@@ -17,8 +17,28 @@ img {
   width: 200px;
 }
 
-.CandidatesView {
+.mapCandidates {
+  color: black;
+}
+
+.allCandidates {
+  display: block;
+  margin-left: 20px;
+  margin-right: 20px;
+}
+
+.landing {
+  background: url(landing.jpg);
   height: 100vh;
-  margin-left: 30%;
-  margin-right: 30%;
+  width: 100vw;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.AplierTitle {
+  color: #42556F;
+  widows: 155px;
+  height:71px;
+  text-align: center;
+  padding-top: 200px;
 }
