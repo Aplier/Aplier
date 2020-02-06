@@ -1,7 +1,10 @@
 const graphql = require('graphql');
 const axios = require('axios');
-const connectionString = 'postgresql://tinafunmacpro@:5432/aplier';
+
+// const connectionString = 'postgresql://dborhara@:5432/aplier';
 // const connectionString = 'postgresql://DoZa@:5432/aplier';
+const connectionString = 'postgresql://dborhara@:5432/aplier';
+
 
 // const connectionString =
 // 'postgresql://aplier@aplierdb.czniy2ofqmqo.us-east-2.rds.amazonaws.com:5432/aplier';
@@ -32,6 +35,7 @@ const CompanyPositionType = new GraphQLObjectType({
     screeningQuestion1: { type: GraphQLString },
     screeningQuestion2: { type: GraphQLString },
     screeningQuestion3: { type: GraphQLString },
+
     companyId: {type: GraphQLID}
       // type: new GraphQLList(CompanyType),
       // resolve(parentValue, args) {
@@ -108,7 +112,9 @@ const EducationType = new GraphQLObjectType({
     major: { type: GraphQLString },
     minor: { type: GraphQLString },
     gradDate: { type: GraphQLString },
-    candidateId: { type: GraphQLID}
+
+    candidateId: { type: GraphQLID },
+
   }),
 });
 
@@ -117,9 +123,11 @@ const CurrentJobType = new GraphQLObjectType({
   fields: () => ({
     id: { type: GraphQLID },
     companyName: { type: GraphQLString },
-    position: {type: GraphQLString},
+
+    position: { type: GraphQLString },
     startDate: { type: GraphQLString },
-    candidateId: { type: GraphQLID}
+    candidateId: { type: GraphQLID },
+
   }),
 });
 
@@ -131,7 +139,8 @@ const PreviousJobType = new GraphQLObjectType({
     position: { type: GraphQLString },
     startDate: { type: GraphQLString },
     endDate: { type: GraphQLString },
-    candidateId: { type: GraphQLID}
+
+    candidateId: { type: GraphQLID },
 
   }),
 });
@@ -145,7 +154,9 @@ const CandidateType = new GraphQLObjectType({
     address: { type: GraphQLString },
     email: { type: GraphQLString },
     password: { type: GraphQLString },
-    phone: {type: GraphQLString},
+
+    phone: { type: GraphQLString },
+
     intro: { type: GraphQLString },
     imgURL: { type: GraphQLString },
     vidURL: { type: GraphQLString },
@@ -157,7 +168,6 @@ const CandidateType = new GraphQLObjectType({
 const RootQuery = new GraphQLObjectType({
   name: 'RootQueryType',
   fields: {
-
     candidate: {
       type: CandidateType,
       args: { id: { type: GraphQLID } },
@@ -172,11 +182,11 @@ const RootQuery = new GraphQLObjectType({
             return 'The error is' + err;
           });
       },
-     },
+    },
     candidates: {
       type: GraphQLList(CandidateType),
       resolve(parentValue, args) {
-        const query = 'SELECT * FROM "candidates"'
+        const query = 'SELECT * FROM "candidates"';
         return db.conn
           .many(query)
           .then(data => {
@@ -185,13 +195,15 @@ const RootQuery = new GraphQLObjectType({
           .catch(err => {
             return 'The error is' + err;
           });
-      }
+      },
     },
     education: {
       type: GraphQLList(EducationType),
       args: { candidateId: { type: GraphQLID } },
       resolve(parentValue, args) {
-        const query = `SELECT * FROM "education"WHERE education."candidateId"=${args.candidateId}`
+
+        const query = `SELECT * FROM "education"WHERE education."candidateId"=${args.candidateId}`;
+
         return db.conn
           .many(query)
           .then(data => {
@@ -303,12 +315,13 @@ const RootQuery = new GraphQLObjectType({
           .catch(err => {
             return 'The error is' + err;
           });
-      }, 
+
+      },
     },
     positions: {
       type: GraphQLList(CompanyPositionType),
       resolve(parentValue, args) {
-        const query = 'SELECT * FROM "companyPositions"'
+        const query = 'SELECT * FROM "companyPositions"';
         return db.conn
           .many(query)
           .then(data => {
@@ -317,9 +330,9 @@ const RootQuery = new GraphQLObjectType({
           .catch(err => {
             return 'The error is' + err;
           });
-      }
+      },
     },
-  }
+  },
 });
 
 //ALL OF OUR MUTATIONS CREATE,UPDATE,DELETE
@@ -347,7 +360,7 @@ const mutation = new GraphQLObjectType({
             lastName,
             email,
             password,
-            address
+            address,
           })
           .then(resp => resp.data);
       },

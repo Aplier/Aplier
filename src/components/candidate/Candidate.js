@@ -1,10 +1,9 @@
 import React, { Component } from 'react';
 import { graphql } from 'react-apollo';
-import {getCandidateQuery} from '../../queries/queries'
+import { getCandidateQuery } from '../../queries/queries';
 
 class Candidate extends Component {
   displayCandidates() {
-
     let data = this.props.data;
     if (data.loading) {
       return <div>Loading Candidates...</div>;
@@ -12,8 +11,10 @@ class Candidate extends Component {
       return data.candidates.map(candidate => {
         return (
           <div key={candidate.id}>
-            <img src={candidate.imgURL} alt="candidate img"/>
-            <h5>{candidate.firstName} {candidate.lastName}</h5>
+            <img src={candidate.imgURL} alt="candidate img" />
+            <h5>
+              {candidate.firstName} {candidate.lastName}
+            </h5>
             <p>{candidate.intro}</p>
             <p>{candidate.address}</p>
             {/* <p>{candidate.phone}</p> */}
@@ -30,9 +31,9 @@ class Candidate extends Component {
   render() {
     return (
       <div>
-          <div> {this.displayCandidates()}</div>
+        <div> {this.displayCandidates()}</div>
       </div>
-    )
+    );
   }
 }
 
