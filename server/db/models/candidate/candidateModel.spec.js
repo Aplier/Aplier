@@ -3,8 +3,8 @@ const expect = chai.expect;
 const sinonChai = require('sinon-chai');
 chai.use(sinonChai);
 
-const Candidate = require('../server/db/models/candidate/candidate')
-const db = require('../server/db/db')
+const Candidate = require('./candidate')
+const db = require('../../db')
 
 describe('The `Candidate` model', () => {
 

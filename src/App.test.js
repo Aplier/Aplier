@@ -1,10 +1,10 @@
 import React from 'react';
 import { render } from '@testing-library/react';
-import App from '../src/App';
+import App from './App';
 import { shallow } from 'enzyme';
 import { configure } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
-import LandingPage from '../src/components/LandingPage'
+import LandingPage from './components/LandingPage'
 import {Link} from 'react-router-dom'
 
 configure({ adapter: new Adapter() });
