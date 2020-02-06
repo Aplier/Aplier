@@ -6,14 +6,18 @@ class CompanyOrCandidate extends Component {
     return (
       <div>
         <div className="container">
+        <h1>Are you a ?</h1>
           <div>
-            <Link to="/Companysignup"> Company </Link>
+            <Link to="/companysignup"> Company </Link>
           </div>
           <div>
-            <Link to="/CandidateSignup"> Candidate </Link>
+            <Link to="/candidatesignup"> Candidate </Link>
           </div>
           <div>
           <Link to="/candidates"> View All Candidates </Link>
+          </div>
+          <div>
+          <Link to="/companies"> View All Companies </Link>
           </div>
         </div>
       </div>

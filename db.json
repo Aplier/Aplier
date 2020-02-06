@@ -36,6 +36,56 @@
       "lastName": "Yaaang",
       "email": "ey@eymoney.com",
       "password": "eyaaang"
+    },
+    {
+      "firstName": "Remi",
+      "lastName": "123",
+      "email": "remi@gmaail.com",
+      "password": "lion",
+      "id": 6
+    },
+    {
+      "firstName": "Remi",
+      "lastName": "123",
+      "email": "remi@gmaail.com",
+      "password": "lion",
+      "id": 7
+    },
+    {
+      "firstName": "Remi",
+      "lastName": "123",
+      "email": "remi@gmaail.com",
+      "password": "lion",
+      "id": 8
+    },
+    {
+      "firstName": "Remi",
+      "lastName": "123",
+      "email": "remi@gmaail.com",
+      "password": "lion",
+      "id": 9
+    },
+    {
+      "firstName": "Remi",
+      "lastName": "123",
+      "email": "remi@gmaail.com",
+      "password": "lion",
+      "id": 10
+    },
+    {
+      "firstName": "Remi",
+      "lastName": "123",
+      "email": "remi@gmaail.com",
+      "password": "lion",
+      "id": 11
+    },
+    {
+      "firstName": "Remi",
+      "lastName": "123",
+      "email": "remi@gmaail.com",
+      "password": "lion",
+      "address": "102streeth",
+      "id": 12
     }
   ],
   "education": [
@@ -113,6 +163,12 @@
       "location": "FiDi",
       "industry": "Education",
       "id": "Nfr5-bP"
+    },
+    {
+      "name": "Remi",
+      "location": "123",
+      "industry": "tech",
+      "id": "Z3aRvuo"
     }
   ],
   "companyPositions": [
@@ -127,6 +183,12 @@
       "title": "UI Designer",
       "datePosted": "02/01/20",
       "company": "1"
+    },
+    {
+      "title": "front end job",
+      "description": "you must be able to write js",
+      "salaryRange": "100,000",
+      "id": "SdsyMXV"
     }
   ],
   "companyUsers": [
