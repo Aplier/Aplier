@@ -1,8 +1,10 @@
 const graphql = require('graphql');
 const axios = require('axios');
+
 // const connectionString = 'postgresql://dborhara@:5432/aplier';
 // const connectionString = 'postgresql://DoZa@:5432/aplier';
 const connectionString = 'postgresql://dborhara@:5432/aplier';
+
 
 // const connectionString =
 // 'postgresql://aplier@aplierdb.czniy2ofqmqo.us-east-2.rds.amazonaws.com:5432/aplier';
@@ -33,13 +35,14 @@ const CompanyPositionType = new GraphQLObjectType({
     screeningQuestion1: { type: GraphQLString },
     screeningQuestion2: { type: GraphQLString },
     screeningQuestion3: { type: GraphQLString },
-    companyId: { type: GraphQLID },
-    // type: new GraphQLList(CompanyType),
-    // resolve(parentValue, args) {
-    //   return axios
-    //     .get(`http://localhost:3000/positions/${parentValue.id}/companies`)
-    //     .then(resp => resp.data);
-    // },
+
+    companyId: {type: GraphQLID}
+      // type: new GraphQLList(CompanyType),
+      // resolve(parentValue, args) {
+      //   return axios
+      //     .get(`http://localhost:3000/positions/${parentValue.id}/companies`)
+      //     .then(resp => resp.data);
+      // },
     // },
   }),
 });
@@ -109,7 +112,9 @@ const EducationType = new GraphQLObjectType({
     major: { type: GraphQLString },
     minor: { type: GraphQLString },
     gradDate: { type: GraphQLString },
+
     candidateId: { type: GraphQLID },
+
   }),
 });
 
@@ -118,9 +123,11 @@ const CurrentJobType = new GraphQLObjectType({
   fields: () => ({
     id: { type: GraphQLID },
     companyName: { type: GraphQLString },
+
     position: { type: GraphQLString },
     startDate: { type: GraphQLString },
     candidateId: { type: GraphQLID },
+
   }),
 });
 
@@ -132,7 +139,9 @@ const PreviousJobType = new GraphQLObjectType({
     position: { type: GraphQLString },
     startDate: { type: GraphQLString },
     endDate: { type: GraphQLString },
+
     candidateId: { type: GraphQLID },
+
   }),
 });
 
@@ -145,7 +154,9 @@ const CandidateType = new GraphQLObjectType({
     address: { type: GraphQLString },
     email: { type: GraphQLString },
     password: { type: GraphQLString },
+
     phone: { type: GraphQLString },
+
     intro: { type: GraphQLString },
     imgURL: { type: GraphQLString },
     vidURL: { type: GraphQLString },
@@ -190,7 +201,9 @@ const RootQuery = new GraphQLObjectType({
       type: GraphQLList(EducationType),
       args: { candidateId: { type: GraphQLID } },
       resolve(parentValue, args) {
+
         const query = `SELECT * FROM "education"WHERE education."candidateId"=${args.candidateId}`;
+
         return db.conn
           .many(query)
           .then(data => {
@@ -302,6 +315,7 @@ const RootQuery = new GraphQLObjectType({
           .catch(err => {
             return 'The error is' + err;
           });
+
       },
     },
     positions: {
