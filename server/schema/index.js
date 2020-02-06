@@ -1,7 +1,8 @@
 const graphql = require('graphql');
 const axios = require('axios');
-// const connectionString = 'postgresql://tinafunmacpro@:5432/aplier';
-const connectionString = 'postgresql://DoZa@:5432/aplier';
+// const connectionString = 'postgresql://dborhara@:5432/aplier';
+// const connectionString = 'postgresql://DoZa@:5432/aplier';
+const connectionString = 'postgresql://dborhara@:5432/aplier';
 
 // const connectionString =
 // 'postgresql://aplier@aplierdb.czniy2ofqmqo.us-east-2.rds.amazonaws.com:5432/aplier';
@@ -185,7 +186,6 @@ const CandidateType = new GraphQLObjectType({
 const RootQuery = new GraphQLObjectType({
   name: 'RootQueryType',
   fields: {
-
     candidate: {
       type: CandidateType,
       args: { id: { type: GraphQLID } },
@@ -200,11 +200,11 @@ const RootQuery = new GraphQLObjectType({
             return 'The error is' + err;
           });
       },
-     },
+    },
     candidates: {
       type: GraphQLList(CandidateType),
       resolve(parentValue, args) {
-        const query = 'SELECT * FROM "candidates"'
+        const query = 'SELECT * FROM "candidates"';
         return db.conn
           .many(query)
           .then(data => {
@@ -213,7 +213,7 @@ const RootQuery = new GraphQLObjectType({
           .catch(err => {
             return 'The error is' + err;
           });
-      }
+      },
     },
     education: {
       type: EducationType,
@@ -291,7 +291,7 @@ const RootQuery = new GraphQLObjectType({
           .then(resp => resp.data);
       },
     },
-  }
+  },
 });
 
 //ALL OF OUR MUTATIONS CREATE,UPDATE,DELETE
