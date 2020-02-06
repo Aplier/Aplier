@@ -1,10 +1,9 @@
 import React from 'react';
-import { render } from '@testing-library/react';
 import { shallow } from 'enzyme';
 import { configure } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 import {Link} from 'react-router-dom'
-import CompanyOrCandidate from './CompanyOrCandidate';
+import CompanyOrCandidate from '../components/CompanyOrCandidate';
 
 configure({ adapter: new Adapter() });
 

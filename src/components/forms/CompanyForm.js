@@ -50,7 +50,7 @@ class TestCompanyForm extends Component {
             onChange={event => this.setState({ location: event.target.value })}
             value={this.state.location}
           />
-          <button type="submit">Submit</button>
+          <button type="submit">Sign up!</button>
         </form>
       </div>
     );
