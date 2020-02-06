@@ -86,6 +86,13 @@
       "password": "lion",
       "address": "102streeth",
       "id": 12
+    },
+    {
+      "firstName": "amazon",
+      "lastName": "test",
+      "email": "test@test.com",
+      "password": "amazon123",
+      "id": 13
     }
   ],
   "education": [
