@@ -14,8 +14,8 @@ import LoginSelector from './components/Login/LoginSelector/LoginSelector';
 import CompanyPositions from './components/company/CompanyPositions';
 import Positions from './components/company/compostTest';
 import NewPositionForm from './components/forms/NewPositionForm';
-import CandidateAccountView from './components/candidate/CandidateAccountView'
-
+import CandidateAccountView from './components/candidate/CandidateAccountView';
+import TestComp from './components/company/testComp';
 
 class Router extends Component {
   constructor(props) {
@@ -56,9 +56,7 @@ class Router extends Component {
 
         <Route exact path="/companies/:id" component={TestComp} />
 
-
         <Route path="/fml" component={Positions} />
-
       </Switch>
     );
   }
