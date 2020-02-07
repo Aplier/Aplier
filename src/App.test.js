@@ -14,9 +14,9 @@ test('renders without crashing', () => {
 });
 
 test('App renders LandingPage which renders "Aplier" in a h1', () => {
-  const { getByText } = render(<App />);
-  const linkElement = getByText(/Aplier/i);
-  expect(linkElement).toBeInTheDocument();
+  const wrapper = shallow(<LandingPage />);
+  const linkElement = <h1>Aplier</h1>;
+  expect(wrapper.contains(linkElement)).toEqual(true);
 });
 
 test('renders a "Continue with LinkedIn" button', () => {

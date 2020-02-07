@@ -13,7 +13,7 @@ test('renders without crashing', () => {
 
 test('renders a Link to "/companysignup" ', () => {
   const wrapper = shallow(<CompanyOrCandidate />);
-  const companySignup = <Link to="/companysignup"> Company </Link>
+  const companySignup = <Link to="/companysignup"> Employer </Link>
 
   expect(wrapper.contains(companySignup)).toEqual(true);
 });
