@@ -81,7 +81,7 @@ class TestCandidateForm extends Component {
             value={this.state.password}
             required
           /> <br/> <br/>
-          <label className="Clabel">Phone Number</label>
+          {/* <label className="Clabel">Phone Number</label>
           <input
             className="Cinput"
             onChange={event => this.setState({ phone: event.target.value })}
@@ -92,7 +92,7 @@ class TestCandidateForm extends Component {
             className="Cinput"
             onChange={event => this.setState({ intro: event.target.value })}
             value={this.state.intro}
-          /> <br/> <br/>
+          /> <br/> <br/> */}
           <button className="customeButton" type="submit">Sign up!</button>
         </form>
         </div>
