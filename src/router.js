@@ -8,6 +8,9 @@ import LandingPage from './components/LandingPage';
 import CompanyOrCandidate from './components/CompanyOrCandidate';
 import Candidates from './components/candidate/Candidate';
 import Companies from './components/company/Companies';
+import UserLogin from './components/Login/UserLogin/UserLogin';
+import CandidateLogin from './components/Login/CandidateLogin/CandidateLogin';
+import LoginSelector from './components/Login/LoginSelector/LoginSelector';
 
 class Router extends Component {
   constructor(props) {
@@ -21,11 +24,15 @@ class Router extends Component {
     return (
       <Switch>
         <Route exact path="/" component={LandingPage} />
+        <Route path="/signup" component={CandidateLogin} />
         <Route path="/user" component={CompanyOrCandidate} />
         <Route path="/companysignup" component={CompanyForm} />
         <Route path="/candidatesignup" component={CandidateForm} />
         <Route path="/candidates" component={Candidates} />
         <Route path="/companies" component={Companies} />
+        <Route path="/login" component={LoginSelector} />
+        <Route path="/candidatelogin" component={CandidateLogin} />
+        <Route path="/userlogin" component={UserLogin} />
       </Switch>
     );
   }
