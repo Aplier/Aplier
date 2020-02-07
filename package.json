@@ -18,11 +18,8 @@
     "express": "^4.17.1",
     "express-graphql": "^0.9.0",
     "graphql": "^14.6.0",
-<<<<<<< HEAD
     "graphql-tools": "^4.0.6",
-=======
     "history": "^4.10.1",
->>>>>>> master
     "json-server": "^0.15.1",
     "lodash": "^4.17.15",
     "lodash-es": "^4.17.15",
