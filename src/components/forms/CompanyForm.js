@@ -32,27 +32,31 @@ class TestCompanyForm extends Component {
   render() {
     return (
       <div>
-        <h3>CREATE A NEW COMPANY</h3>
-        <form onSubmit={this.onSubmit.bind(this)}>
-          <label>Enter company name:</label>
-          <input
-            onChange={event => this.setState({ name: event.target.value })}
-            value={this.state.name}
-            required
-          />
-          <label>Enter industry:</label>
-          <input
-            onChange={event => this.setState({ industry: event.target.value })}
-            value={this.state.industry}
-          />
-          <label>Enter location</label>
-          <input
-            onChange={event => this.setState({ location: event.target.value })}
-            value={this.state.location}
-          />
-          <button type="submit">Sign up!</button>
-        </form>
+        <p className="miniLogo">Aplier</p>
+        <div className="selectContainer">
+          <h3>Company Signup</h3>
+          <form onSubmit={this.onSubmit.bind(this)}>
+            <label>Company Name</label> <br />
+            <input
+              onChange={event => this.setState({ name: event.target.value })}
+              value={this.state.name}
+              required
+            /> <br />
+            <label>Industry</label> <br />
+            <input
+              onChange={event => this.setState({ industry: event.target.value })}
+              value={this.state.industry}
+            /> <br />
+            <label>Location</label> <br />
+            <input
+              onChange={event => this.setState({ location: event.target.value })}
+              value={this.state.location}
+            /> <br />
+            <button type="submit">Sign up!</button>
+          </form>
+        </div>
       </div>
+
     );
   }
 }
