@@ -24,7 +24,7 @@ class Router extends Component {
     return (
         <Switch>
           <Route exact path="/" component={LandingPage} />
-          <Route path="/user" component={CompanyOrCandidate} />
+          <Route path="/signup" component={CompanyOrCandidate} />
           <Route path="/companysignup" component={CompanyForm} />
           <Route path="/candidatesignup" component={CandidateForm} />
           <Route path="/newPosition" component={NewPositionForm} />

@@ -9,14 +9,14 @@ class LandingPage extends Component {
           <h1>Aplier</h1>
         </div>
         <div className="landingInfo">
-        <button className='customeButton'>
-          Continue with LinkedIn
-        </button>
-        <div>
-        <Link to="/user">Or Continue With Email</Link>
+          <button className="customeButton">
+            <Link to="/signup">Signup</Link>
+          </button> <br />
+          <button className='customeButton'>
+            <Link to="/login">Login</Link>
+          </button>
         </div>
-        </div>
-        </div>
+      </div>
     )
   }
 }
