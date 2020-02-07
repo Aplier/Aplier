@@ -7,10 +7,11 @@ import Router from './router';
 import Navbar from './components/UI/Navbar/Navbar';
 //Apollo Client
 const client = new ApolloClient({
-  link: new HttpLink({
-    uri: 'https://aplierdb.czniy2ofqmqo.us-east-2.rds.amazonaws.com',
-  }),
-  cache: new InMemoryCache(),
+//   link: new HttpLink({
+//     uri: 'https://aplierdb.czniy2ofqmqo.us-east-2.rds.amazonaws.com',
+//   }),
+//   cache: new InMemoryCache(),
+    uri: 'http://localhost:5000/graphql',
 });
 
 class App extends Component {
