@@ -1,9 +1,7 @@
 const graphql = require('graphql');
 const axios = require('axios');
 
-// const connectionString = 'postgresql://dborhara@:5432/aplier';
-// const connectionString = 'postgresql://DoZa@:5432/aplier';
-const connectionString = 'postgresql://dborhara@:5432/aplier';
+const connectionString = 'postgresql://localhost:5432/aplier'
 
 // const connectionString =
 // 'postgresql://aplier@aplierdb.czniy2ofqmqo.us-east-2.rds.amazonaws.com:5432/aplier';
@@ -23,7 +21,7 @@ const {
 } = graphql;
 
 const CompanyPositionType = new GraphQLObjectType({
-  name: 'Position',
+  name: 'companyPosition',
   fields: () => ({
     id: { type: GraphQLID },
     title: { type: GraphQLString },
@@ -34,41 +32,19 @@ const CompanyPositionType = new GraphQLObjectType({
     screeningQuestion1: { type: GraphQLString },
     screeningQuestion2: { type: GraphQLString },
     screeningQuestion3: { type: GraphQLString },
-
-    companyId: { type: GraphQLID },
-    // type: new GraphQLList(CompanyType),
-    // resolve(parentValue, args) {
-    //   return axios
-    //     .get(`http://localhost:3000/positions/${parentValue.id}/companies`)
-    //     .then(resp => resp.data);
-    // },
-    // },
+    companyId: {type: GraphQLID},
+    companyUserId: {type: GraphQLID}
   }),
 });
 
 const CompanyUserType = new GraphQLObjectType({
-  name: 'CompanyUser',
+  name: 'companyUser',
   fields: () => ({
     id: { type: GraphQLID },
-    company: {
-      type: CompanyType,
-      resolve(parentValue, args) {
-        return axios
-          .get(`http://localhost:3000/users/${parentValue.id}/companies`)
-          .then(resp => resp.data);
-      },
-    },
-    positions: {
-      type: new GraphQLList(CompanyPositionType),
-      resolve(parentValue, args) {
-        return axios
-          .get(`http://localhost:3000/users/${parentValue.id}/positions`)
-          .then(resp => resp.data);
-      },
-    },
     email: { type: GraphQLString },
     password: { type: GraphQLString },
     isAdmin: { type: GraphQLBoolean },
+    companyId: {type: GraphQLID},
   }),
 });
 
@@ -83,22 +59,6 @@ const CompanyType = new GraphQLObjectType({
     website: { type: GraphQLString },
     imgURL: { type: GraphQLString },
     vidURL: { type: GraphQLString },
-    users: {
-      type: new GraphQLList(CompanyUserType),
-      resolve(parentValue, args) {
-        return axios
-          .get(`http://localhost:3000/companies/${parentValue.id}/users`)
-          .then(resp => resp.data);
-      },
-    },
-    positions: {
-      type: new GraphQLList(CompanyPositionType),
-      resolve(parentValue, args) {
-        return axios
-          .get(`http://localhost:3000/companies/${parentValue.id}/positions`)
-          .then(resp => resp.data);
-      },
-    },
   }),
 });
 
@@ -297,11 +257,11 @@ const RootQuery = new GraphQLObjectType({
           });
       },
     },
-    position: {
-      type: CompanyPositionType,
-      args: { id: { type: GraphQLID } },
+    positionCompanyInfo: {
+      type: CompanyType,
+      args: { companyId: { type: GraphQLID } },
       resolve(parentValue, args) {
-        const query = `SELECT * FROM "companyPositions" WHERE id=${args.id}`;
+        const query = `SELECT * FROM "companies" WHERE companies.id=${args.companyId}`;
         return db.conn
           .one(query)
           .then(data => {
