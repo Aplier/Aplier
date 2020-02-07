@@ -13,7 +13,7 @@ import CandidateLogin from './components/Login/CandidateLogin/CandidateLogin';
 import LoginSelector from './components/Login/LoginSelector/LoginSelector';
 import CompanyPositions from './components/company/CompanyPositions';
 import Positions from './components/company/compostTest';
-import NewPositionForm from './components/forms/newPositionForm';
+import NewPositionForm from './components/forms/NewPositionForm';
 
 class Router extends Component {
   constructor(props) {
