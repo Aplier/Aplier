@@ -13,7 +13,7 @@ const Candidate = db.define('candidate', {
     },
     address: {
         type: Sequelize.STRING,
-        allowNull: false,
+        // allowNull: false,
     },
     email: {
         type: Sequelize.STRING,
@@ -34,7 +34,7 @@ const Candidate = db.define('candidate', {
       },
       phone: {
         type: Sequelize.STRING,
-        allowNull: false
+        // allowNull: false
       },
       salt: {
         type: Sequelize.STRING,
@@ -46,7 +46,7 @@ const Candidate = db.define('candidate', {
       },
       admin: {
         type: Sequelize.BOOLEAN,
-        allowNull: false,
+        // allowNull: false,
         defaultValue: false
       },
       intro: {

@@ -1,17 +1,16 @@
-const { db } = require('./db/index');
 const express = require('express');
-const expressGraphQL = require('express-graphql');
-const schema = require('./schema/index');
+const graphqlHTTP = require('express-graphql');
+const schema = require('./schema/schema');
 const app = express();
 const cors = require('cors');
 
 //CORS FOR DEV
 app.use(cors());
+
 app.use(
   '/graphql',
-  expressGraphQL({
+  graphqlHTTP({
     schema,
-    //Allows us to make GraphQL queries against our development server
     graphiql: true,
   })
 );
