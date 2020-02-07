@@ -36,7 +36,7 @@
       "lastName": "Yaaang",
       "email": "ey@eymoney.com",
       "password": "eyaaang"
-    }
+    },
   ],
   "education": [
     {
@@ -113,6 +113,12 @@
       "location": "FiDi",
       "industry": "Education",
       "id": "Nfr5-bP"
+    },
+    {
+      "name": "Remi",
+      "location": "123",
+      "industry": "tech",
+      "id": "Z3aRvuo"
     }
   ],
   "companyPositions": [
@@ -127,6 +133,12 @@
       "title": "UI Designer",
       "datePosted": "02/01/20",
       "company": "1"
+    },
+    {
+      "title": "front end job",
+      "description": "you must be able to write js",
+      "salaryRange": "100,000",
+      "id": "SdsyMXV"
     }
   ],
   "companyUsers": [

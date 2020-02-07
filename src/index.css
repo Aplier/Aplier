@@ -17,8 +17,138 @@ img {
   width: 200px;
 }
 
-.CandidatesView {
+.landing {
+  background: url(landing.jpg);
   height: 100vh;
-  margin-left: 30%;
-  margin-right: 30%;
+  width: 100vw;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.AplierTitle {
+  color: #42556F;
+  padding-top: 200px;
+  text-align: center;
+  font-size: larger;
+}
+
+.customeButton{
+  widows: 400px;
+  height: 56px;
+  background-color: #42556F;
+  border-radius:30px;
+  padding-right: 30px;
+  padding-left: 30px;
+  color: white;
+  font-size: large;
+  border:none;
+  transition-duration: 0.4s;
+}
+
+.customeButton:hover {
+  background-color: rgb(70, 106, 226); /* Green */
+  color: white;
+}
+
+.landingInfo{
+  padding-top: 400px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.miniLogo {
+  color: #42556F;
+  text-align: center;
+}
+
+a:-webkit-any-link {
+  color: white;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.selectContainer {
+  text-align: center;
+  padding-top: 200px;
+}
+.candidateOrCompany{
+  text-align: center;
+  padding: 10px;
+}
+
+.allCandidates {
+  display: flex;
+  flex-grow: 2;
+}
+
+.mapCandidates {
+width: 100vw;
+padding-right: 25%;
+padding-left: 25%;
+padding-top:20px
+
+}
+
+.rating {
+  display: inline-block;
+  width: 100%;
+  margin-top: 40px;
+  padding-top: 40px;
+  text-align: center;
+}
+
+.like,
+.dislike {
+  display: inline-block;
+  cursor: pointer;
+  margin: 10px;
+}
+
+.dislike:hover,
+.like:hover {
+  color: #2EBDD1;
+  transition: all .2s ease-in-out;
+  transform: scale(1.1);
+}
+
+.active {
+  color: #2EBDD1;
+}
+
+.thumbs {
+  width: 50px;
+  height: 50px;
+}
+
+.formContainer{
+  padding: 30px;
+  text-align: center;
+}
+
+.Cinput{
+  background-color: rgb(218, 213, 213);
+  border-radius: 30px;
+  padding: 7px;
+  width: 80%;
+  transition-duration: 0.4s;
+}
+
+.Cinput:hover{
+  background-color: rgb(91, 121, 219); /* Green */
+  color: white;
+}
+
+.Clabel {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+.circleCompany {
+  padding-bottom: 15px;
+  width: 150px;
+  height: 150px;
+}
+.Cform{
+  background-color: rgb(115, 149, 173);
 }
