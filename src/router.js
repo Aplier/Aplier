@@ -22,17 +22,18 @@ class Router extends Component {
 
   render() {
     return (
-      <Switch>
-        <Route exact path="/" component={LandingPage} />
-        <Route path="/user" component={CompanyOrCandidate} />
-        <Route path="/companysignup" component={CompanyForm} />
-        <Route path="/candidatesignup" component={CandidateForm} />
-        <Route path="/newPosition" component={NewPositionForm} />
-        <Route path="/candidates" component={Candidates} />
-        <Route path="/companies" component={Companies} />
-        <Route path="/positions" component={CompanyPositions} />
-        <Route path="/fml" component={TestComp} />
-      </Switch>
+        <Switch>
+          <Route exact path="/" component={LandingPage} />
+          <Route path="/signup" component={CompanyOrCandidate} />
+          <Route path="/companysignup" component={CompanyForm} />
+          <Route path="/candidatesignup" component={CandidateForm} />
+          <Route path="/newPosition" component={NewPositionForm} />
+          <Route path="/candidates" component={Candidates} />
+          <Route path="/companies" component={Companies} />
+          <Route path="/positions" component={CompanyPositions} />
+          <Route path="/fml" component={TestComp} />
+        </Switch>
+
     );
   }
 }

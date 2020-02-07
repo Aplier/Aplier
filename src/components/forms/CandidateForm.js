@@ -43,7 +43,7 @@ class TestCandidateForm extends Component {
         <p className="miniLogo">Aplier</p>
         <div className="formContainer">
           <img className="circleCompany"
-          src="http://tny.im/kIm"
+          src="http://tny.im/kIU"
           alt="CandidateImage"
           /> <br/>
         <form onSubmit={this.onSubmit.bind(this)}>
@@ -94,8 +94,12 @@ class TestCandidateForm extends Component {
             value={this.state.intro}
           /> <br/> <br/> */}
           <button className="customeButton" type="submit">Sign up!</button>
-        </form>
+        </form> <br/>
+        <button className="customeButton">
+            Continue with LinkedIn
+          </button> <br/>
         </div>
+
       </div>
     );
   }
