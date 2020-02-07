@@ -11,7 +11,7 @@ const {
 
 const {
   company, companyResolvers,
-  companyPositions,
+  companyPositions, companyPositionsResolvers,
   companyUser, companyUserResolvers,
   candidatePositions,
   positionSkills
@@ -30,9 +30,8 @@ const Mutation = `
 `;
 
 const schema = makeExecutableSchema({
-  typeDefs: [Query, Mutation, candidate, currentJob, previousJob, education, skill],
-  resolvers: merge(candidateResolvers, currentJobResolvers, previousJobResolvers,
-                   educationResolvers)
+  typeDefs: [Query, Mutation, candidate, currentJob, previousJob, education, skill, company, companyPositions, companyUser, candidatePositions, positionSkills],
+  resolvers: merge(candidateResolvers, currentJobResolvers, previousJobResolvers, educationResolvers, companyResolvers, companyPositionsResolvers, companyUserResolvers)
 });
 
 module.exports = schema;
