@@ -51,6 +51,7 @@ const getPositionsQuery = gql`
 `;
 
 
+
 const addCompanyMutation = gql`
   mutation AddCompany($name: String!, $location: String!, $industry: String!) {
     addCompany(name: $name, location: $location, industry: $industry) {
