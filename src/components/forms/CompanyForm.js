@@ -38,7 +38,7 @@ class TestCompanyForm extends Component {
         <p className="miniLogo">Aplier</p>
         <div className="formContainer">
           <img className="circleCompany"
-          src="http://tny.im/kIl"
+          src="https://i.imgur.com/vENrb8T.png"
           alt="companyImage"
           /> <br />
           <form onSubmit={this.onSubmit.bind(this)}>
