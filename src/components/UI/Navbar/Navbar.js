@@ -16,7 +16,7 @@ class Navbar extends Component {
               <Link to="/Companysignup">Company Sign Up</Link>
             </li>
             <li>
-              <Link to="/jobs">Apply</Link>
+              <Link to="/positions">Apply</Link>
             </li>
           </ul>
         </nav>
