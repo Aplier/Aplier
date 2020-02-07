@@ -10,6 +10,7 @@ import Candidates from './components/candidate/Candidate'
 import Companies from './components/company/Companies'
 import CompanyPositions from './components/company/CompanyPositions'
 import TestComp from './components/company/testComp'
+import NewPositionForm from './components/forms/NewPositionForm'
 
 class Router extends Component {
   constructor(props) {
@@ -26,6 +27,7 @@ class Router extends Component {
           <Route path="/user" component={CompanyOrCandidate} />
           <Route path="/companysignup" component={CompanyForm} />
           <Route path="/candidatesignup" component={CandidateForm} />
+          <Route path="/newPosition" component={NewPositionForm} />
           <Route path="/candidates" component={Candidates} />
           <Route path="/companies" component={Companies} />
           <Route path="/positions" component={CompanyPositions} />

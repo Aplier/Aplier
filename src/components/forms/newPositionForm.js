@@ -27,30 +27,41 @@ class NewPositionForm extends Component {
         screeningQ3: this.state.screeningQ1
       },
     });
+    this.props.history.push('/')
   }
 
   render() {
     return (
       <div>
-        <h3>ADD NEW POSITION</h3>
-        <form onSubmit={this.onSubmit.bind(this)}>
-          <label>Enter Position title:</label>
-          <input
-            onChange={event => this.setState({ title: event.target.value })}
-            value={this.state.title}
-          />
-          <label>Enter Description:</label>
-          <input
-            onChange={event => this.setState({ description: event.target.value })}
-            value={this.state.description}
-          />
-          <label>Enter Salary</label>
-          <input
-            onChange={event => this.setState({ salarayRange: event.target.value })}
-            value={this.state.salarayRange}
-          />
-          <button type="submit">Submit</button>
-        </form>
+        <p className="miniLogo">Aplier</p>
+        <div className="formContainer">
+        <img className="circleCompany"
+          src="http://tny.im/kIr"
+          alt="companyImage"
+          /> <br />
+          <h3>Add Position</h3>
+          <form onSubmit={this.onSubmit.bind(this)}>
+            <label className="Clabel">Position title</label> <br/>
+            <input
+              className="Cinput"
+              onChange={event => this.setState({ title: event.target.value })}
+              value={this.state.title}
+            /> <br/> <br/>
+            <label className="Clabel">Description</label> <br/>
+            <input
+              className="Cinput"
+              onChange={event => this.setState({ description: event.target.value })}
+              value={this.state.description}
+            /> <br/> <br/>
+            <label className="Clabel">Salary</label>
+            <input
+              className="Cinput"
+              onChange={event => this.setState({ salarayRange: event.target.value })}
+              value={this.state.salarayRange}
+            /> <br/><br/>
+            <button className="customeButton" type="submit">Add Position</button>
+          </form>
+        </div>
       </div>
     );
   }

@@ -86,6 +86,27 @@
       "password": "lion",
       "address": "102streeth",
       "id": 12
+    },
+    {
+      "firstName": "Remi",
+      "lastName": "Mendoza",
+      "email": "remiMendoza@gmail.com",
+      "password": "123",
+      "id": 13
+    },
+    {
+      "firstName": "Remi",
+      "lastName": "Mendoza",
+      "email": "remiMendoza@gmail.com",
+      "password": "123",
+      "id": 14
+    },
+    {
+      "firstName": "Remi",
+      "lastName": "Mendoza",
+      "email": "remiMendoza@gmail.com",
+      "password": "123",
+      "id": 15
     }
   ],
   "education": [

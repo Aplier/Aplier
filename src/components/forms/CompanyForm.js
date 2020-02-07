@@ -27,6 +27,7 @@ class TestCompanyForm extends Component {
         industry: this.state.industry,
       },
     });
+    this.props.history.push('/candidates')
   }
 
   render() {

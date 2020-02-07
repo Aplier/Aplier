@@ -20,6 +20,7 @@ class TestCandidateForm extends Component {
 
   onSubmit(event) {
     event.preventDefault();
+    console.log(this.props)
     this.props.mutate({
       variables: {
         firstName: this.state.firstName,
@@ -28,9 +29,10 @@ class TestCandidateForm extends Component {
         email: this.state.email,
         password: this.state.password,
         phone: this.state.phone,
-        into: this.state.intro
+        intro: this.state.intro
       },
     });
+    this.props.history.push('/positions')
   }
 
   render() {
