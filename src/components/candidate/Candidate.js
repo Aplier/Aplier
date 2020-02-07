@@ -20,11 +20,6 @@ class Candidate extends Component {
     if (data.loading) {
       return <div>Loading Candidates...</div>;
     } else {
-<<<<<<< HEAD
-      console.log(data.candidates);
-=======
-      console.log('STATE', this.state)
->>>>>>> 67717de8dd56de9c6301965ac963620c5442e9a8
       return data.candidates.map(candidate => {
         return (
           <div className="mapCandidates" key={candidate.id}>
@@ -39,16 +34,13 @@ class Candidate extends Component {
             <p>PLACE HOLDER FOR EDU</p>
             <p>PLACE HOLDER FOR CURRENT JOB</p>
             <p>PLACE HOLDER FOR PREVIOUS JOB</p>
-<<<<<<< HEAD
             <img
               className="thumbs"
               alt="up"
               src="https://img.icons8.com/cotton/2x/thumb-up.png"
             />
-=======
             <img className="thumbs" alt='down'src="https://img.icons8.com/ultraviolet/40/000000/poor-quality.png"></img>
             <img onClick={()=>this.onClick(candidate.id)}className="thumbs" alt='up'src="https://img.icons8.com/ultraviolet/40/000000/good-quality.png"></img>
->>>>>>> 67717de8dd56de9c6301965ac963620c5442e9a8
           </div>
         );
       });
