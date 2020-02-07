@@ -14,6 +14,8 @@ import LoginSelector from './components/Login/LoginSelector/LoginSelector';
 import CompanyPositions from './components/company/CompanyPositions';
 import Positions from './components/company/compostTest';
 import NewPositionForm from './components/forms/NewPositionForm';
+import CandidateAccountView from './components/candidate/CandidateAccountView'
+
 
 class Router extends Component {
   constructor(props) {
@@ -46,11 +48,17 @@ class Router extends Component {
         <Route path="/candidates" component={Candidates} />
         <Route path="/newposition" component={NewPositionForm} />
         <Route path="/positions" component={CompanyPositions} />
-        <Route path="/companies" component={Companies} />
+        <Route exact path="/companies" component={Companies} />
+        <Route path="/candidateAccount/:id" component={CandidateAccountView} />
         <Route path="/login" component={LoginSelector} />
         <Route path="/candidatelogin" component={CandidateLogin} />
         <Route path="/userlogin" component={UserLogin} />
+
+        <Route exact path="/companies/:id" component={TestComp} />
+
+
         <Route path="/fml" component={Positions} />
+
       </Switch>
     );
   }

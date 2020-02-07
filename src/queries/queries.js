@@ -13,6 +13,17 @@ const getCandidateQuery = gql`
     }
   }
 `;
+const getCandidateByIdQuery = gql`
+query($id: ID){
+  candidate(id: $id) {
+    id
+    firstName
+    lastName
+    address
+    email
+  }
+}
+`;
 
 const getCompaniesQuery = gql`
 {
@@ -36,6 +47,7 @@ query($id: ID){
   }
 }
 `;
+
 
 const getPositionsQuery = gql`
 {
@@ -94,5 +106,6 @@ export {
   addCompanyMutation,
   addCandidateMutation,
   addCompanyPositionMutation,
-  getCompanyByIdQuery
+  getCompanyByIdQuery,
+  getCandidateByIdQuery
 }
