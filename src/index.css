@@ -94,6 +94,10 @@ a:-webkit-any-link {
   text-align: center;
   padding-top: 200px;
 }
+.candidateOrCompany{
+  text-align: center;
+  padding: 10px;
+}
 
 .allCandidates {
   display: flex;

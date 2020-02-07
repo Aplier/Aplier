@@ -85,7 +85,7 @@ class TestCandidateForm extends Component {
             onChange={event => this.setState({ phone: event.target.value })}
             value={this.state.phone}
           /> <br/> <br/>
-          <label className="Clabel">Short Intro</label>
+          <label className="Clabel">Intro</label>
           <input
             className="Cinput"
             onChange={event => this.setState({ intro: event.target.value })}
