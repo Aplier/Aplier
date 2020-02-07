@@ -2,7 +2,7 @@ import React from 'react';
 import { shallow } from 'enzyme';
 import { configure } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
-import CandidateForm from './CandidateForm'
+import CandidateForm from './CandidateForm';
 
 configure({ adapter: new Adapter() });
 
