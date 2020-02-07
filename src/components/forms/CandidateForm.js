@@ -20,6 +20,7 @@ class TestCandidateForm extends Component {
 
   onSubmit(event) {
     event.preventDefault();
+    console.log(this.props)
     this.props.mutate({
       variables: {
         firstName: this.state.firstName,
@@ -28,53 +29,77 @@ class TestCandidateForm extends Component {
         email: this.state.email,
         password: this.state.password,
         phone: this.state.phone,
-        into: this.state.intro
+        intro: this.state.intro
       },
     });
+    this.props.history.push('/positions')
   }
 
   render() {
     return (
+      // turns background blue
+      // <div className="Cform">
       <div>
-        <h3>CREATE A NEW CANDIDATE ACCOUNT</h3>
+        <p className="miniLogo">Aplier</p>
+        <div className="formContainer">
+          <img className="circleCompany"
+          src="https://i.imgur.com/cPUORG1.png"
+          alt="CandidateImage"
+          /> <br/>
         <form onSubmit={this.onSubmit.bind(this)}>
-          <label>Enter First Name:</label>
+          <label className="Clabel">First Name</label>
           <input
+            className="Cinput"
             onChange={event => this.setState({ firstName: event.target.value })}
             value={this.state.firstName}
-          />
-          <label>Enter Last Name:</label>
+            required
+          /> <br/> <br/>
+          <label className="Clabel">Last Name</label>
           <input
+            className="Cinput"
             onChange={event => this.setState({ lastName: event.target.value })}
             value={this.state.lastName}
-          />
-          <label>Enter Address</label>
+          /> <br/> <br/>
+          <label className="Clabel">Address</label>
           <input
+            className="Cinput"
             onChange={event => this.setState({ address: event.target.value })}
             value={this.state.address}
-          />
-          <label>Enter Email</label>
+            required
+          /> <br/> <br/>
+          <label className="Clabel">Email</label>
           <input
+            className="Cinput"
             onChange={event => this.setState({ email: event.target.value })}
             value={this.state.email}
-          />
-          <label>Enter Password</label>
+            required
+          /> <br/> <br/>
+          <label className="Clabel">Password</label>
           <input
+            className="Cinput"
             onChange={event => this.setState({ password: event.target.value })}
             value={this.state.password}
-          />
-          <label>Enter Phone</label>
+            required
+          /> <br/> <br/>
+          {/* <label className="Clabel">Phone Number</label>
           <input
+            className="Cinput"
             onChange={event => this.setState({ phone: event.target.value })}
             value={this.state.phone}
-          />
-          <label>Enter Intro</label>
+          /> <br/> <br/>
+          <label className="Clabel">Intro</label>
           <input
+            className="Cinput"
             onChange={event => this.setState({ intro: event.target.value })}
             value={this.state.intro}
-          />
-          <button type="submit">Sign up!</button>
-        </form>
+          /> <br/> <br/> */}
+          <button className="customeButton" type="submit">Sign up!</button>
+        </form> <br/>
+        <button className="customeButton">
+            Continue with LinkedIn
+          </button> <br/>
+        </div>
+
       </div>
     );
   }

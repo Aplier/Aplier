@@ -11,7 +11,6 @@ class CompanyPositions extends Component {
       return <div>Loading Positions...</div>;
     } else {
       console.log('WHAT IS MY PROPS', this.props)
-      console.log(this.props.data.company)
       return data.positions.map(position => {
         return (
           

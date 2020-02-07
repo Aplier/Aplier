@@ -27,32 +27,45 @@ class TestCompanyForm extends Component {
         industry: this.state.industry,
       },
     });
+    this.props.history.push('/candidates')
   }
 
   render() {
     return (
+      // turns background blue
+      // <div className="Cform">
       <div>
-        <h3>CREATE A NEW COMPANY</h3>
-        <form onSubmit={this.onSubmit.bind(this)}>
-          <label>Enter company name:</label>
-          <input
-            onChange={event => this.setState({ name: event.target.value })}
-            value={this.state.name}
-            required
-          />
-          <label>Enter industry:</label>
-          <input
-            onChange={event => this.setState({ industry: event.target.value })}
-            value={this.state.industry}
-          />
-          <label>Enter location</label>
-          <input
-            onChange={event => this.setState({ location: event.target.value })}
-            value={this.state.location}
-          />
-          <button type="submit">Sign up!</button>
-        </form>
+        <p className="miniLogo">Aplier</p>
+        <div className="formContainer">
+          <img className="circleCompany"
+          src="https://i.imgur.com/vENrb8T.png"
+          alt="companyImage"
+          /> <br />
+          <form onSubmit={this.onSubmit.bind(this)}>
+            <label className="Clabel">Company Name</label> <br />
+            <input
+              className="Cinput"
+              onChange={event => this.setState({ name: event.target.value })}
+              value={this.state.name}
+              required
+            /> <br /> <br />
+            <label className="Clabel">Industry</label> <br />
+            <input
+              className="Cinput"
+              onChange={event => this.setState({ industry: event.target.value })}
+              value={this.state.industry}
+            /> <br /> <br />
+            <label className="Clabel">Location</label> <br />
+            <input
+              className="Cinput"
+              onChange={event => this.setState({ location: event.target.value })}
+              value={this.state.location}
+            /> <br /> <br />
+            <button className="customeButton" type="submit">Sign up!</button>
+          </form>
+        </div>
       </div>
+
     );
   }
 }

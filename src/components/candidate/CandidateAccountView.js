@@ -8,7 +8,12 @@ class CandidateAccount extends Component {
     if (data.loading) {
       return <div>Loading Candidate Account...</div>;
     } else {
+      return (
+      <div>
+        <h1>Welcome</h1>
 
+      </div>
+      )
     }
   }
   render() {
