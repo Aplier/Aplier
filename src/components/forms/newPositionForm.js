@@ -36,7 +36,7 @@ class NewPositionForm extends Component {
         <p className="miniLogo">Aplier</p>
         <div className="formContainer">
         <img className="circleCompany"
-          src="http://tny.im/kIr"
+          src="https://i.imgur.com/nP6CxET.png"
           alt="companyImage"
           /> <br />
           <h3>Add Position</h3>

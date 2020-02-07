@@ -12,7 +12,7 @@ import UserLogin from './components/Login/UserLogin/UserLogin';
 import CandidateLogin from './components/Login/CandidateLogin/CandidateLogin';
 import LoginSelector from './components/Login/LoginSelector/LoginSelector';
 import CompanyPositions from './components/company/CompanyPositions';
-import TestComp from './components/company/testComp';
+import Positions from './components/company/compostTest';
 import NewPositionForm from './components/forms/NewPositionForm';
 
 class Router extends Component {
@@ -30,6 +30,7 @@ class Router extends Component {
       <Switch>
         <Route exact path="/" component={LandingPage} />
         <Route path="/signup" component={CompanyOrCandidate} />
+<<<<<<< HEAD
         <Route path="/login" component={LoginSelector} />
         <Route path="/companysignup" component={CompanyForm} />
         <Route path="/candidatesignup" component={CandidateForm} />
@@ -41,6 +42,19 @@ class Router extends Component {
         {this.state.isLoggedInCandidate && (
           <Route path="/companies" component={Companies} />
         )}
+=======
+        <Route path="/companysignup" component={CompanyForm} />
+        <Route path="/candidatesignup" component={CandidateForm} />
+        <Route path="/candidates" component={Candidates} />
+        <Route path="/newposition" component={NewPositionForm} />
+        <Route path="/positions" component={CompanyPositions} />
+        <Route path="/companies" component={Companies} />
+        <Route path="/login" component={LoginSelector} />
+        <Route path="/candidatelogin" component={CandidateLogin} />
+        <Route path="/userlogin" component={UserLogin} />
+        <Route path="/fml" component={Positions} />
+
+>>>>>>> 67717de8dd56de9c6301965ac963620c5442e9a8
       </Switch>
     );
   }

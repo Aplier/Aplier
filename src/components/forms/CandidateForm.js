@@ -43,7 +43,7 @@ class TestCandidateForm extends Component {
         <p className="miniLogo">Aplier</p>
         <div className="formContainer">
           <img className="circleCompany"
-          src="http://tny.im/kIU"
+          src="https://i.imgur.com/cPUORG1.png"
           alt="CandidateImage"
           /> <br/>
         <form onSubmit={this.onSubmit.bind(this)}>

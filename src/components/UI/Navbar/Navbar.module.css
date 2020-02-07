@@ -49,7 +49,7 @@ App .Navbar {
 .App .Navbar ul li {
   /* separate the list items more prominently */
   margin: 0 0.75rem;
-  font-size: 1.4rem;
+  font-size: 1rem;
   text-transform: uppercase;
 }
 

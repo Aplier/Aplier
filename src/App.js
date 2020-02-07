@@ -26,8 +26,15 @@ class App extends Component {
   render() {
     return (
       <ApolloProvider client={client}>
+<<<<<<< HEAD
         <Navbar />
         <Router />
+=======
+        <div>
+          {/* <Navbar /> */}
+          <Router />
+          </div>
+>>>>>>> 67717de8dd56de9c6301965ac963620c5442e9a8
       </ApolloProvider>
     );
   }
