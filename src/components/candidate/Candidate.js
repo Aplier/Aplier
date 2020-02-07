@@ -3,11 +3,24 @@ import { graphql } from 'react-apollo';
 import { getCandidateQuery } from '../../queries/queries';
 
 class Candidate extends Component {
+  constructor(){
+    super()
+    this.state = {
+      liked:[]
+    }
+    this.onClick= this.onClick.bind(this)
+  }
+  onClick(candidateId){
+    this.state.liked.push(candidateId)
+    this.props.history.push('/candidates')
+  }
+
   displayCandidates() {
     let data = this.props.data;
     if (data.loading) {
       return <div>Loading Candidates...</div>;
     } else {
+      console.log('STATE', this.state)
       return data.candidates.map(candidate => {
         return (
           <div  className="mapCandidates" key={candidate.id}>
@@ -22,7 +35,8 @@ class Candidate extends Component {
             <p>PLACE HOLDER FOR EDU</p>
             <p>PLACE HOLDER FOR CURRENT JOB</p>
             <p>PLACE HOLDER FOR PREVIOUS JOB</p>
-            <img className='thumbs'alt='up'src="https://img.icons8.com/cotton/2x/thumb-up.png"/>
+            <img className="thumbs" alt='down'src="https://img.icons8.com/ultraviolet/40/000000/poor-quality.png"></img>
+            <img onClick={()=>this.onClick(candidate.id)}className="thumbs" alt='up'src="https://img.icons8.com/ultraviolet/40/000000/good-quality.png"></img>
           </div>
         );
       });

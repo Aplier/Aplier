@@ -12,7 +12,7 @@ import UserLogin from './components/Login/UserLogin/UserLogin';
 import CandidateLogin from './components/Login/CandidateLogin/CandidateLogin';
 import LoginSelector from './components/Login/LoginSelector/LoginSelector';
 import CompanyPositions from './components/company/CompanyPositions';
-import TestComp from './components/company/testComp';
+import Positions from './components/company/compostTest';
 import NewPositionForm from './components/forms/NewPositionForm';
 import CandidateAccountView from './components/candidate/CandidateAccountView'
 
@@ -33,7 +33,7 @@ class Router extends Component {
         <Route path="/companysignup" component={CompanyForm} />
         <Route path="/candidatesignup" component={CandidateForm} />
         <Route path="/candidates" component={Candidates} />
-        <Route path="/newPosition" component={NewPositionForm} />
+        <Route path="/newposition" component={NewPositionForm} />
         <Route path="/positions" component={CompanyPositions} />
         <Route exact path="/companies" component={Companies} />
         <Route path="/candidateAccount/:id" component={CandidateAccountView} />
@@ -41,6 +41,7 @@ class Router extends Component {
         <Route path="/candidatelogin" component={CandidateLogin} />
         <Route path="/userlogin" component={UserLogin} />
         <Route exact path="/companies/:id" component={TestComp} />
+
       </Switch>
     );
   }
