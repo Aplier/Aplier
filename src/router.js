@@ -19,18 +19,18 @@ class Router extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      isLoggedInUser: false,
+      isLoggedInUser: true,
       isLoggedInCandidate: false,
     };
   }
+  componentDidMount() {}
 
   render() {
     return (
       <Switch>
         <Route exact path="/" component={LandingPage} />
+        <Route path="/signup" component={CompanyOrCandidate} />
         <Route path="/login" component={LoginSelector} />
-        <Route path="/user" component={CompanyOrCandidate} />
-        <Route path="/signup" component={CandidateLogin} />
         <Route path="/companysignup" component={CompanyForm} />
         <Route path="/candidatesignup" component={CandidateForm} />
         <Route path="/userlogin" component={UserLogin} />

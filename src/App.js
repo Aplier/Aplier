@@ -6,7 +6,13 @@ import { ApolloProvider } from 'react-apollo';
 import Router from './router';
 import Navbar from './components/UI/Navbar/Navbar';
 //Apollo Client
-
+const connection = {
+  host: 'aplierdb.czniy2ofqmqo.us-east-2.rds.amazonaws.com',
+  port: 5432,
+  database: 'aplier',
+  user: 'aplier',
+  password: 'fsa-1911',
+};
 const client = new ApolloClient({
   link: new HttpLink({
     uri: 'https://aplierdb.czniy2ofqmqo.us-east-2.rds.amazonaws.com',
