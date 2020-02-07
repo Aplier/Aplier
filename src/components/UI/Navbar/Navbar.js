@@ -20,7 +20,6 @@ class Navbar extends Component {
             </li>
           </ul>
         </nav>
-
         <Switch>
           <Route exact path="/">
             <h1>Home</h1>
