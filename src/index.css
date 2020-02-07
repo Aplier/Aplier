@@ -12,6 +12,7 @@ code {
     monospace;
 }
 
+
 img {
   height: 200px;
   width: 200px;
@@ -41,16 +42,43 @@ img {
   padding-left: 30px;
   color: white;
   font-size: large;
-  border:none
+  border:none;
+
 }
 
+
+.circleCompany {
+  padding-bottom: 15px;
+  width: 150px;
+  height: 150px;
+}
+.Cform{
+  background-color: rgb(115, 149, 173);
+}
 .landingInfo{
   padding-top: 400px;
   display: flex;
   align-items: center;
   flex-direction: column;
 }
+.formContainer{
+  padding: 30px;
+  text-align: center;
 
+
+}
+
+.Cinput{
+  background-color: rgb(218, 213, 213);
+  border-radius: 30px;
+  padding: 7px;
+  width: 80%;
+}
+
+.Clabel {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
 .miniLogo {
   color: #42556F;
   text-align: center;

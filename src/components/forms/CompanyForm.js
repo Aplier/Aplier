@@ -31,28 +31,36 @@ class TestCompanyForm extends Component {
 
   render() {
     return (
+      // turns background blue
+      // <div className="Cform">
       <div>
         <p className="miniLogo">Aplier</p>
-        <div className="selectContainer">
-          <h3>Company Signup</h3>
+        <div className="formContainer">
+          <img className="circleCompany"
+          src="http://tny.im/kIl"
+          alt="companyImage"
+          /> <br />
           <form onSubmit={this.onSubmit.bind(this)}>
-            <label>Company Name</label> <br />
+            <label className="Clabel">Company Name</label> <br />
             <input
+              className="Cinput"
               onChange={event => this.setState({ name: event.target.value })}
               value={this.state.name}
               required
-            /> <br />
-            <label>Industry</label> <br />
+            /> <br /> <br />
+            <label className="Clabel">Industry</label> <br />
             <input
+              className="Cinput"
               onChange={event => this.setState({ industry: event.target.value })}
               value={this.state.industry}
-            /> <br />
-            <label>Location</label> <br />
+            /> <br /> <br />
+            <label className="Clabel">Location</label> <br />
             <input
+              className="Cinput"
               onChange={event => this.setState({ location: event.target.value })}
               value={this.state.location}
-            /> <br />
-            <button type="submit">Sign up!</button>
+            /> <br /> <br />
+            <button className="customeButton" type="submit">Sign up!</button>
           </form>
         </div>
       </div>
