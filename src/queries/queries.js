@@ -47,8 +47,16 @@ const getPositionsQuery = gql`
     datePosted
     companyId
   }
+  company(id: $id) {
+    id
+    name
+    location
+    perks
+    website
+  }
 }
 `;
+
 
 
 const addCompanyMutation = gql`

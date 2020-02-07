@@ -22,7 +22,8 @@ class Candidate extends Component {
             <p>PLACE HOLDER FOR EDU</p>
             <p>PLACE HOLDER FOR CURRENT JOB</p>
             <p>PLACE HOLDER FOR PREVIOUS JOB</p>
-            <img className='thumbs'alt='up'src="https://img.icons8.com/cotton/2x/thumb-up.png"/>
+            <img className="thumbs" alt='down'src="https://img.icons8.com/ultraviolet/40/000000/poor-quality.png"></img>
+            <img className="thumbs" alt='up'src="https://img.icons8.com/ultraviolet/40/000000/good-quality.png"></img>
           </div>
         );
       });

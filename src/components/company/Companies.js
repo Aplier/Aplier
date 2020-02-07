@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { graphql } from 'react-apollo';
 import {getCompaniesQuery} from '../../queries/queries'
 
-// NOT WORKING GETTING 404 ONCE COMPONENT IS HIT
 class Companies extends Component {
   displayCompanies() {
     let data = this.props.data;

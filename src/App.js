@@ -15,7 +15,7 @@ class App extends Component {
     return (
       <ApolloProvider client={client}>
         <div>
-          <Navbar />
+          {/* <Navbar /> */}
           <Router />
         </div>
       </ApolloProvider>

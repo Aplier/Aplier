@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { graphql} from 'react-apollo';
 import TestComp from './testComp'
-// import * as compose from 'lodash.flowright';
+import * as compose from 'lodash.flowright';
 import {getPositionsQuery} from '../../queries/queries'
 
 class CompanyPositions extends Component {
@@ -10,7 +10,8 @@ class CompanyPositions extends Component {
     if (data.loading) {
       return <div>Loading Positions...</div>;
     } else {
-      console.log(this.props.data)
+      console.log('WHAT IS MY PROPS', this.props)
+      console.log(this.props.data.company)
       return data.positions.map(position => {
         return (
           
@@ -20,7 +21,7 @@ class CompanyPositions extends Component {
             <p>{position.salaryRange}</p>
             <p>{position.datePosted}</p>
             {/* <React.Fragment> */}
-            <TestComp id={position.companyId}/>
+            {/* <TestComp id={position.companyId}/> */}
             {/* </React.Fragment> */}
             </div>
           
@@ -37,5 +38,25 @@ class CompanyPositions extends Component {
   }
 }
 
-// export default compose(graphql(getPositionsQuery, {name: "getPositionsQuery"}),graphql(getCompanyByIdQuery, {name:"getCompanyByIdQuery"}))(CompanyPositions);
-export default graphql(getPositionsQuery)(CompanyPositions)
+// export default compose(graphql(getPositionsQuery),graphql(getCompanyByIdQuery
+//   , {
+//     options:(props) => {
+//         return {
+//             variables:{
+//                 id:1
+//             }
+//         }
+//     }
+// }
+//   ))(CompanyPositions);
+export default graphql(getPositionsQuery
+  , {
+    options:(props) => {
+        return {
+            variables:{
+                id:1
+            }
+        }
+    }
+  }
+  )(CompanyPositions)
