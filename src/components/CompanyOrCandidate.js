@@ -5,20 +5,35 @@ class CompanyOrCandidate extends Component {
   render() {
     return (
       <div>
-        <div className="container">
-        <h1>Are you a ?</h1>
+        <p className="miniLogo">Aplier</p>
+
+        <div className="candidateOrCompany">
+        <img className="circleCompany"
+          src="http://tny.im/kIp"
+          alt="companyImage"
+          /> <br />
+        <h3>Are you a/an?</h3>
           <div>
-            <Link to="/companysignup"> Company </Link>
+            <button className="customeButton">
+            <Link to="/companysignup"> Employer </Link>
+            </button>
           </div>
+          <br></br>
           <div>
+          <button className="customeButton">
             <Link to="/candidatesignup"> Candidate </Link>
+            </button>
           </div>
-          <div>
+          {/* <div>
           <Link to="/candidates"> View All Candidates </Link>
           </div>
           <div>
           <Link to="/companies"> View All Companies </Link>
           </div>
+          <div>
+          <Link to="/positions"> View All Positions</Link>
+
+          </div> */}
         </div>
       </div>
     )
