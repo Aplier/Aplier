@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom'
+import { Link } from 'react-router-dom';
 
 class LandingPage extends Component {
   render() {
@@ -9,17 +9,14 @@ class LandingPage extends Component {
           <h1>Aplier</h1>
         </div>
         <div className="landingInfo">
-        <button className='customeButton'>
-          Continue with LinkedIn
-        </button>
-        <div>
-        <Link to="/user">Or Continue With Email</Link>
+          <button className="customeButton">Continue with LinkedIn</button>
+          <div>
+            <Link to="/user">Or Continue With Email</Link>
+          </div>
         </div>
-        </div>
-        </div>
-    )
+      </div>
+    );
   }
 }
-
 
 export default LandingPage;
