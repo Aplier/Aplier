@@ -76,12 +76,11 @@ const addCompanyMutation = gql`
 `;
 
 const addCandidateMutation = gql`
-  mutation AddCandidate($firstName: String!, $lastName: String!, $address: String!, $email: String!, $password: String!) {
-    addCandidate(firstName: $firstName,lastName: $lastName email: $email, password: $password) {
+  mutation AddCandidate($firstName: String!, $lastName: String!, $email: String!, $password: String!) {
+    addCandidate(firstName: $firstName,lastName: $lastName, email: $email, password: $password) {
       id
       firstName
       lastName
-      address
       email
       password
     }

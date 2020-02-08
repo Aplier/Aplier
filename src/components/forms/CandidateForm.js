@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { graphql } from 'react-apollo';
 import { addCandidateMutation } from '../../queries/queries';
 
-class TestCandidateForm extends Component {
+class CandidateForm extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -60,13 +60,13 @@ class TestCandidateForm extends Component {
             onChange={event => this.setState({ lastName: event.target.value })}
             value={this.state.lastName}
           /> <br/> <br/>
-          <label className="Clabel">Address</label>
+          {/* <label className="Clabel">Address</label>
           <input
             className="Cinput"
             onChange={event => this.setState({ address: event.target.value })}
             value={this.state.address}
             required
-          /> <br/> <br/>
+          /> <br/> <br/> */}
           <label className="Clabel">Email</label>
           <input
             className="Cinput"
@@ -105,4 +105,4 @@ class TestCandidateForm extends Component {
   }
 }
 
-export default graphql(addCandidateMutation)(TestCandidateForm);
+export default graphql(addCandidateMutation)(CandidateForm);
