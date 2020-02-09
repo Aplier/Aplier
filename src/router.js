@@ -49,7 +49,7 @@ class Router extends Component {
         <Route path="/newposition" component={NewPositionForm} />
         <Route path="/positions" component={CompanyPositions} />
         <Route exact path="/companies" component={Companies} />
-        <Route path="/candidateAccount/:id" component={CandidateAccountView} />
+        <Route path="/myaccount" component={CandidateAccountView} />
         <Route path="/login" component={LoginSelector} />
         <Route path="/candidatelogin" component={CandidateLogin} />
         <Route path="/userlogin" component={UserLogin} />
