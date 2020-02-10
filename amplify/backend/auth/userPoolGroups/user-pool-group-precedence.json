@@ -1,0 +1,18 @@
+[
+    {
+        "groupName": "Candidates",
+        "precedence": 1
+    },
+    {
+        "groupName": "Users",
+        "precedence": 2
+    },
+    {
+        "groupName": "Companies",
+        "precedence": 3
+    },
+    {
+        "groupName": "Admins",
+        "precedence": 4
+    }
+]

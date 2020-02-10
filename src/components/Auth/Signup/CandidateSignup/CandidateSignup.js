@@ -28,11 +28,11 @@ class TestCandidateForm extends Component {
     Auth.signUp({
       username: email,
       password: password,
-      attributes: {
-        firstName: firstName,
-        lastName: lastName,
-        address: address,
-      },
+      // attributes: {
+      //   firstName: firstName,
+      //   lastName: lastName,
+      //   address: address,
+      // },
     })
       .then(() => {
         console.log('Welcome to Aplier');
