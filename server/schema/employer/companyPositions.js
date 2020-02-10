@@ -14,6 +14,7 @@ const companyPositions = `
     companyUser: CompanyUser
     skills: [Skill]
     candidates: [Candidate]
+
   }
 
   extend type Query {

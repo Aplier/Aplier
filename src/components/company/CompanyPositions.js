@@ -1,23 +1,21 @@
 import React, { Component } from 'react';
-import { graphql} from 'react-apollo';
+import { graphql } from 'react-apollo';
 // import TestComp from './testComp'
 // import * as compose from 'lodash.flowright';
-import compose from 'lodash.flowright'
-import {getPositionsQuery} from '../../queries/queries'
-
-
+import compose from 'lodash.flowright';
+import { getPositionsQuery } from '../../queries/queries';
 
 class CompanyPositions extends Component {
-  constructor(){
-    super()
+  constructor() {
+    super();
     this.state = {
-      liked:[]
-    }
-    this.onClick= this.onClick.bind(this)
+      liked: [],
+    };
+    this.onClick = this.onClick.bind(this);
   }
-  onClick(candidateId){
-    this.state.liked.push(candidateId)
-    this.props.history.push('/candidates')
+  onClick(candidateId) {
+    this.state.liked.push(candidateId);
+    this.props.history.push('/candidates');
   }
 
   displayCompanyPositions() {
@@ -25,12 +23,15 @@ class CompanyPositions extends Component {
     if (data.loading) {
       return <div>Loading Positions...</div>;
     } else {
-      console.log('WHAT IS MY PROPS', this.props)
+      console.log('WHAT IS MY PROPS', this.props);
       return data.companyPositions.map(position => {
         return (
-
           <div className="mapPos" key={position.id}>
-          <img className="compImg"src={position.company.imgURL} alt="candidate img" />
+            <img
+              className="compImg"
+              src={position.company.imgURL}
+              alt="candidate img"
+            />
 
             <h3>{position.title}</h3>
             <p>{position.description}</p>
@@ -39,12 +40,20 @@ class CompanyPositions extends Component {
             <p>{position.company.name}</p>
             <p>{position.company.location}</p>
             <p>{position.company.website}</p>
-           <div>
-            <img className="thumbs" alt='down'src="https://img.icons8.com/ultraviolet/40/000000/poor-quality.png"></img>
-            <img onClick={()=>this.onClick(position.id)}className="thumbs" alt='up'src="https://img.icons8.com/ultraviolet/40/000000/good-quality.png"></img>
+            <div>
+              <img
+                className="thumbs"
+                alt="down"
+                src="https://img.icons8.com/ultraviolet/40/000000/poor-quality.png"
+              ></img>
+              <img
+                onClick={() => this.onClick(position.id)}
+                className="thumbs"
+                alt="up"
+                src="https://img.icons8.com/ultraviolet/40/000000/good-quality.png"
+              ></img>
             </div>
-            </div>
-
+          </div>
         );
       });
     }
@@ -53,9 +62,9 @@ class CompanyPositions extends Component {
     return (
       <div>
         <p className="miniLogo">Aplier</p>
-        <div className='allPos'> {this.displayCompanyPositions()}</div>
+        <div className="allPos"> {this.displayCompanyPositions()}</div>
       </div>
-    )
+    );
   }
 }
 
@@ -70,4 +79,4 @@ class CompanyPositions extends Component {
 //     }
 // }
 //   ))(CompanyPositions);
-export default graphql(getPositionsQuery)(CompanyPositions)
+export default graphql(getPositionsQuery)(CompanyPositions);
