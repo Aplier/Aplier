@@ -29,12 +29,22 @@ class Router extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      isLoggedInUser: true,
-      isLoggedInCandidate: false,
+      userSignedUp: false,
+      candidateSignedUp: false,
     };
   }
 
+  handleCandidateToggle = () => {
+    const { candidateSignedUp } = this.state;
+
+    this.setState({
+      candidateSignedUp: !candidateSignedUp,
+    });
+  };
+
   render() {
+    const { candidateSignedUp, userSignedUp } = this.state;
+
     return (
       <Switch>
         <Route exact path="/" component={LandingPage} />
@@ -44,14 +54,14 @@ class Router extends Component {
         <Route path="/candidatesignup" component={CandidateSignup} />
         <Route path="/userlogin" component={UserLogin} />
         <Route path="/candidatelogin" component={CandidateLogin} />
-        {this.state.isLoggedInUser && (
+        {userSignedUp && (
           <Fragment>
             <Route path="/candidates" component={Candidates} />
             <Route path="/newposition" component={NewPositionForm} />
             <Route path="/positions" component={CompanyPositions} />
           </Fragment>
         )}
-        {this.state.isLoggedInCandidate && (
+        {candidateSignedUp && (
           <Fragment>
             <Route
               path="/candidateAccount/:id"
