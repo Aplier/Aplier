@@ -1,16 +1,15 @@
-const dbConn = require('../pg-promise');
-
 const companyUser = `
   type CompanyUser {
     id: ID
     email: String
     password: String
     companyId: ID
+    company: Company
   }
 
   extend type Query {
-    user(id: Int!): CompanyUser
-    users: [CompanyUser!]!
+    companyUser(id: Int!): CompanyUser
+    companyUsers: [CompanyUser!]!
   }
 
   extend type Mutation {
@@ -27,47 +26,62 @@ const companyUser = `
 
 const companyUserResolvers = {
   Query: {
-    user: (parent, args) => {
-      const query = `SELECT * FROM "companyUsers" WHERE id=${args.id}`;
-      return dbConn
-      .one(query)
-      .then(data => data)
-      .catch(err => console.error(err));
+    companyUser: (parent, { id }, { models }) => {
+      try{
+        return models.CompanyUser.findByPk(id, {
+          include: {
+            model: models.Company
+          }
+        });
+      }catch(err){
+        console.error(err);
+      }
     },
-    users: (parent, args) => {
-      const query = `SELECT * FROM "companyUsers"`;
-      return dbConn
-      .many(query)
-      .then(data => data)
-      .catch(err => console.error(err));
+
+    companyUsers: (parent, args, { models }) => {
+      try{
+        return models.CompanyUser.findAll({
+          include: {
+            model: models.Company
+          }
+        });
+      }catch(err){
+        console.error(err);
+      }
     }
   },
+
   Mutation: {
-    addCompanyUser: (parent, {email, password, companyId}) => {
-      const query = `INSERT INTO "companyUsers" ("email", "password", "companyId", "createdAt", "updatedAt")
-                     VALUES ($1, $2, $3, $4, $5)`;
-      dbConn
-      .none(query, [email, password, companyId, new Date(), new Date()])
-      .then(data => console.log('Added company user'))
-      .catch(err => console.error(err));
+    addCompanyUser: (parent, args, { models }) => {
+      try{
+        return models.CompanyUser.create(args);
+      }catch(err){
+        console.error(err);
+      }
     },
-    deleteCompanyUser: (parent, {id}) => {
-      const query = `DELETE FROM "companyUsers" WHERE id = ${id}`;
-      dbConn
-      .none(query)
-      .then(data => console.log('Deleted company user'))
-      .catch(err => console.error(err));
+
+    deleteCompanyUser: (parent, { id }, { models }) => {
+      try{
+        models.CompanyUser.destroy({
+          where: {
+            id: id
+          }
+        });
+      }catch(err){
+        console.error(err);
+      }
     },
-    editCompanyUser: (parent, {id, email, password, companyId}) => {
-      const query = `UPDATE "companyUsers"
-                     SET "email" = $1,
-                         "password" = $2,
-                         "companyId" = $3
-                     WHERE id = ${id}`;
-      dbConn
-      .none(query, [email, password, companyId])
-      .then(data => console.log('Edited company user'))
-      .catch(err => console.error(err));
+
+    editCompanyUser: (parent, args, { models }) => {
+      try{
+        return models.CompanyUser.update(args, {
+          where: {
+            id: args.id
+          }
+        })
+      }catch(err){
+        console.error(err);
+      }
     }
   }
 };

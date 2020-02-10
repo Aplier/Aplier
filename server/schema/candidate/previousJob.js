@@ -1,5 +1,3 @@
-const dbConn = require('../pg-promise');
-
 const previousJob = `
   type PreviousJob {
     id: ID
@@ -8,6 +6,7 @@ const previousJob = `
     startDate: String
     endDate: String
     candidateId: ID
+    candidate: Candidate
   }
 
   extend type Query {
@@ -17,12 +16,17 @@ const previousJob = `
 
 const previousJobResolvers = {
   Query: {
-    previousJob: (parent, args) => {
-      const query = `SELECT * FROM "previousjobs" WHERE previousjobs."candidateId"=${args.candidateId}`;
-      return dbConn
-      .many(query)
-      .then(data => data)
-      .catch(err => console.error(err));
+    previousJob: (parent, args, { models }) => {
+      try{
+        return models.PreviousJob.findAll({
+          where: args,
+          include: {
+            model: models.Candidate
+          }
+        });
+      }catch(err){
+        console.error(err);
+      }
     }
   }
 };
