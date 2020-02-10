@@ -32,12 +32,14 @@ const getCompaniesQuery = gql`
     name
     location
     industry
+    perks
+    website
   }
 }
 `;
 
 const getCompanyByIdQuery = gql`
-query($id: ID){
+query($id: Int!){
   company(id: $id) {
     id
     name
@@ -48,19 +50,37 @@ query($id: ID){
 }
 `;
 
+const getCurrentJobByIdQuery = gql`
+query($candidateId: Int!){
+  currentJob(candidateId: $candidateId) {
+    id
+    companyName
+    position
+    startDate
+  }
+}
+`;
+
 
 const getPositionsQuery = gql`
 {
-  positions {
+  companyPositions {
     id
     title
     description
     salaryRange
     datePosted
-    companyId
+    company{
+      imgURL
+      name
+      location
+      website
+    }
   }
 }
 `;
+
+
 
 
 
@@ -76,12 +96,11 @@ const addCompanyMutation = gql`
 `;
 
 const addCandidateMutation = gql`
-  mutation AddCandidate($firstName: String!, $lastName: String!, $address: String!, $email: String!, $password: String!) {
-    addCandidate(firstName: $firstName,lastName: $lastName email: $email, password: $password) {
+  mutation AddCandidate($firstName: String!, $lastName: String!, $email: String!, $password: String!) {
+    addCandidate(firstName: $firstName,lastName: $lastName, email: $email, password: $password) {
       id
       firstName
       lastName
-      address
       email
       password
     }
@@ -107,5 +126,6 @@ export {
   addCandidateMutation,
   addCompanyPositionMutation,
   getCompanyByIdQuery,
-  getCandidateByIdQuery
+  getCandidateByIdQuery,
+  getCurrentJobByIdQuery
 }

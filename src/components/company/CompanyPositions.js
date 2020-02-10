@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { graphql } from 'react-apollo';
 // import TestComp from './testComp'
 // import * as compose from 'lodash.flowright';
+import compose from 'lodash.flowright';
 import { getPositionsQuery } from '../../queries/queries';
 
 class CompanyPositions extends Component {
@@ -23,27 +24,35 @@ class CompanyPositions extends Component {
       return <div>Loading Positions...</div>;
     } else {
       console.log('WHAT IS MY PROPS', this.props);
-      return data.positions.map(position => {
+      return data.companyPositions.map(position => {
         return (
           <div className="mapPos" key={position.id}>
+            <img
+              className="compImg"
+              src={position.company.imgURL}
+              alt="candidate img"
+            />
+
             <h3>{position.title}</h3>
             <p>{position.description}</p>
             <p>{position.salaryRange}</p>
             <p>{position.datePosted}</p>
-            {/* <React.Fragment> */}
-            {/* <TestComp id={position.companyId}/> */}
-            {/* </React.Fragment> */}
-            <img
-              className="thumbs"
-              alt="down"
-              src="https://img.icons8.com/ultraviolet/40/000000/poor-quality.png"
-            ></img>
-            <img
-              onClick={() => this.onClick(position.id)}
-              className="thumbs"
-              alt="up"
-              src="https://img.icons8.com/ultraviolet/40/000000/good-quality.png"
-            ></img>
+            <p>{position.company.name}</p>
+            <p>{position.company.location}</p>
+            <p>{position.company.website}</p>
+            <div>
+              <img
+                className="thumbs"
+                alt="down"
+                src="https://img.icons8.com/ultraviolet/40/000000/poor-quality.png"
+              ></img>
+              <img
+                onClick={() => this.onClick(position.id)}
+                className="thumbs"
+                alt="up"
+                src="https://img.icons8.com/ultraviolet/40/000000/good-quality.png"
+              ></img>
+            </div>
           </div>
         );
       });

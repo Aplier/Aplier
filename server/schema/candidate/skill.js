@@ -1,25 +1,27 @@
-const dbConn = require('../pg-promise');
-
 const skill = `
   type Skill {
     id: ID
     skill: String
-    candidateId: ID
+    candidates: [Candidate]
   }
 
   extend type Query {
-    skill(candidateId: Int!): [Skill!]!
+    skills(id: Int!): Skill
   }
 `;
 
 const skillResolvers = {
   Query: {
-    skill: (parent, args) => {
-      const query = `SELECT * FROM "candidateSkills" WHERE candidateSkills."candidateId"=${args.candidateId}`;
-      return dbConn
-      .many(query)
-      .then(data => data)
-      .catch(err => console.error(err));
+    skills: (parent, { id }, { models }) => {
+      try{
+        return models.Skill.findByPk(id, {
+          include: {
+            model: models.Candidate
+          }
+        });
+      }catch(err){
+        console.error(err);
+      }
     }
   }
 };

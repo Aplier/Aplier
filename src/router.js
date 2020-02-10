@@ -17,13 +17,10 @@ import CandidateLogin from './components/Auth/Login/CandidateLogin/CandidateLogi
 import Candidates from './components/candidate/Candidate';
 import Companies from './components/company/Companies';
 
-//UserCompanyPages
-
-import CompanyPositions from './components/company/CompanyPositions';
-import Positions from './components/company/compostTest';
+// import Positions from './components/company/Positions';
 import NewPositionForm from './components/NewPositionSignup/NewPositionForm';
 import CandidateAccountView from './components/candidate/CandidateAccountView';
-import TestComp from './components/company/testComp';
+import CompanyPositions from './components/company/CompanyPositions';
 
 class Router extends Component {
   constructor(props) {
@@ -73,9 +70,7 @@ class Router extends Component {
         </Fragment>
         {/*)}*/}
 
-        <Route exact path="/companies/:id" component={TestComp} />
-
-        <Route path="/fml" component={Positions} />
+        {/* <Route exact path="/companies/:id" component={Positions} /> */}
       </Switch>
     );
   }

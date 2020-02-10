@@ -7,11 +7,6 @@ import ApolloClient from 'apollo-client';
 import { HttpLink } from 'apollo-boost';
 import Router from './router';
 
-// const client = new ApolloClient({
-//   link: { uri: new HttpLink('/graphql') },
-//   cache: new InMemoryCache(),
-// });
-
 //components
 // import Navbar from './components/UI/Navbar/Navbar';
 // Apollo Client
