@@ -13,6 +13,17 @@ const getCandidateQuery = gql`
     }
   }
 `;
+const getCandidateByIdQuery = gql`
+query($id: ID){
+  candidate(id: $id) {
+    id
+    firstName
+    lastName
+    address
+    email
+  }
+}
+`;
 
 const getCompaniesQuery = gql`
 {
@@ -38,6 +49,7 @@ query($id: Int!){
   }
 }
 `;
+
 
 const getPositionsQuery = gql`
 {
@@ -67,7 +79,7 @@ const addCompanyMutation = gql`
 
 const addCandidateMutation = gql`
   mutation AddCandidate($firstName: String!, $lastName: String!, $email: String!, $password: String!) {
-    addCandidate(firstName: $firstName,lastName: $lastName email: $email, password: $password) {
+    addCandidate(firstName: $firstName,lastName: $lastName, email: $email, password: $password) {
       id
       firstName
       lastName
@@ -95,5 +107,6 @@ export {
   addCompanyMutation,
   addCandidateMutation,
   addCompanyPositionMutation,
-  getCompanyByIdQuery
+  getCompanyByIdQuery,
+  getCandidateByIdQuery
 }

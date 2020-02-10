@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { graphql} from 'react-apollo';
 import compose from 'lodash.flowright'
 import { gql } from 'apollo-boost';
@@ -93,7 +93,7 @@ const Positions = ({loadingComp, loadingPos, companies, positions}) => {
             <img className="thumbs" alt='down'src="https://img.icons8.com/ultraviolet/40/000000/poor-quality.png"></img>
             <img onClick={()=>this.onClick(position.id)}className="thumbs" alt='up'src="https://img.icons8.com/ultraviolet/40/000000/good-quality.png"></img>
             </div>
-          
+
         );
       })
 }

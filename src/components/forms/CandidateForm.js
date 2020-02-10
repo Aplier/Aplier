@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { graphql } from 'react-apollo';
 import { addCandidateMutation } from '../../queries/queries';
 
-class TestCandidateForm extends Component {
+class CandidateForm extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -105,4 +105,4 @@ class TestCandidateForm extends Component {
   }
 }
 
-export default graphql(addCandidateMutation)(TestCandidateForm);
+export default graphql(addCandidateMutation)(CandidateForm);

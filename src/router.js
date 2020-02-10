@@ -15,20 +15,34 @@ import CompanyPositions from './components/company/CompanyPositions';
 import Positions from './components/company/compostTest';
 import NewPositionForm from './components/forms/newPositionForm';
 import TestComp from './components/company/testComp'
+import CandidateAccountView from './components/candidate/CandidateAccountView';
 
 class Router extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      isLoggedIn: false,
+      isLoggedInUser: true,
+      isLoggedInCandidate: false,
     };
   }
+  componentDidMount() {}
 
   render() {
     return (
       <Switch>
         <Route exact path="/" component={LandingPage} />
         <Route path="/signup" component={CompanyOrCandidate} />
+        <Route path="/login" component={LoginSelector} />
+        <Route path="/companysignup" component={CompanyForm} />
+        <Route path="/candidatesignup" component={CandidateForm} />
+        <Route path="/userlogin" component={UserLogin} />
+        <Route path="/candidatelogin" component={CandidateLogin} />
+        {this.state.isLoggedInUser && (
+          <Route path="/candidates" component={Candidates} />
+        )}
+        {this.state.isLoggedInCandidate && (
+          <Route path="/companies" component={Companies} />
+        )}
         <Route path="/companysignup" component={CompanyForm} />
         <Route path="/candidatesignup" component={CandidateForm} />
         <Route path="/candidates" component={Candidates} />
@@ -39,8 +53,15 @@ class Router extends Component {
         <Route path="/candidatelogin" component={CandidateLogin} />
         <Route path="/userlogin" component={UserLogin} />
         <Route path="/positions" component={Positions} />
-        <Route path="/fmml" component={TestComp} />
 
+        <Route path="/positions" component={Positions} />
+        <Route exact path="/companies" component={Companies} />
+        <Route path="/candidateAccount/:id" component={CandidateAccountView} />
+        <Route path="/login" component={LoginSelector} />
+        <Route path="/candidatelogin" component={CandidateLogin} />
+        <Route path="/userlogin" component={UserLogin} />
+
+        <Route exact path="/companies/:id" component={Positions} />
 
       </Switch>
     );
