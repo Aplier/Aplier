@@ -12,12 +12,12 @@ class Companies extends Component {
       return data.companies.map(company => {
         return (
           <div key={company.id}>
-            <img src={company.imgURL} alt="company img" />
-            <h5>{company.name}</h5>
+            {/* <img src={company.imgURL} alt="company img" /> */}
+            <h4>{company.name}</h4>
             <p>{company.location}</p>
-            <h5>{company.industry}</h5>
-            <p>PLACE HOLDER FOR PERKS</p>
-            <p>PLACE HOLDER FOR WEBSITE</p>
+            <p>{company.industry}</p>
+            <p>{company.perks}</p>
+            <p>{company.website}</p>
           </div>
         );
       });

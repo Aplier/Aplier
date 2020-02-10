@@ -32,12 +32,14 @@ const getCompaniesQuery = gql`
     name
     location
     industry
+    perks
+    website
   }
 }
 `;
 
 const getCompanyByIdQuery = gql`
-query($id: ID){
+query($id: Int!){
   company(id: $id) {
     id
     name
