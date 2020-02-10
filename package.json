@@ -9,6 +9,7 @@
     "@testing-library/user-event": "^7.2.1",
     "apollo-boost": "^0.4.7",
     "apollo-client": "^2.6.8",
+    "aws-amplify": "^2.2.4",
     "axios": "^0.19.2",
     "chai": "^4.2.0",
     "cors": "^2.8.5",

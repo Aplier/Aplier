@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { graphql } from 'react-apollo';
-import {addCompanyMutation} from '../../queries/queries'
+import { addCompanyMutation } from '../../../../queries/queries';
 
 class TestCompanyForm extends Component {
   constructor(props) {
@@ -15,6 +15,11 @@ class TestCompanyForm extends Component {
       vidURL: '',
       users: [],
       positions: [],
+      errors: {
+        cognito: null,
+        blankfield: false,
+        passwordmatch: false,
+      },
     };
   }
 
@@ -27,7 +32,7 @@ class TestCompanyForm extends Component {
         industry: this.state.industry,
       },
     });
-    this.props.history.push('/candidates')
+    this.props.history.push('/candidates');
   }
 
   render() {
@@ -37,10 +42,12 @@ class TestCompanyForm extends Component {
       <div>
         <p className="miniLogo">Aplier</p>
         <div className="formContainer">
-          <img className="circleCompany"
-          src="https://i.imgur.com/vENrb8T.png"
-          alt="companyImage"
-          /> <br />
+          <img
+            className="circleCompany"
+            src="https://i.imgur.com/vENrb8T.png"
+            alt="companyImage"
+          />{' '}
+          <br />
           <form onSubmit={this.onSubmit.bind(this)}>
             <label className="Clabel">Company Name</label> <br />
             <input
@@ -48,24 +55,32 @@ class TestCompanyForm extends Component {
               onChange={event => this.setState({ name: event.target.value })}
               value={this.state.name}
               required
-            /> <br /> <br />
+            />{' '}
+            <br /> <br />
             <label className="Clabel">Industry</label> <br />
             <input
               className="Cinput"
-              onChange={event => this.setState({ industry: event.target.value })}
+              onChange={event =>
+                this.setState({ industry: event.target.value })
+              }
               value={this.state.industry}
-            /> <br /> <br />
+            />{' '}
+            <br /> <br />
             <label className="Clabel">Location</label> <br />
             <input
               className="Cinput"
-              onChange={event => this.setState({ location: event.target.value })}
+              onChange={event =>
+                this.setState({ location: event.target.value })
+              }
               value={this.state.location}
-            /> <br /> <br />
-            <button className="customeButton" type="submit">Sign up!</button>
+            />{' '}
+            <br /> <br />
+            <button className="customeButton" type="submit">
+              Sign up!
+            </button>
           </form>
         </div>
       </div>
-
     );
   }
 }
