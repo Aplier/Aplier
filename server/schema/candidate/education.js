@@ -1,5 +1,3 @@
-const dbConn = require('../pg-promise');
-
 const education = `
   type Education {
     id: ID
@@ -9,6 +7,7 @@ const education = `
     minor: String
     gradDate: String
     candidateId: ID
+    candidate: Candidate
   }
 
   extend type Query {
@@ -18,12 +17,17 @@ const education = `
 
 const educationResolvers = {
   Query: {
-    education: (parent, args) => {
-      const query = `SELECT * FROM "education" WHERE education."candidateId"=${args.candidateId}`;
-      return dbConn
-      .many(query)
-      .then(data => data)
-      .catch(err => `This error is ${err}`);
+    education: (parent, args, { models }) => {
+      try{
+        return models.Education.findAll({
+          where: args,
+          include: {
+            model: models.Candidate
+          }
+        });
+      }catch(err){
+        console.error(err);
+      }
     }
   }
 };

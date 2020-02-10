@@ -6,57 +6,58 @@ import CompanyForm from './components/forms/CompanyForm';
 import CandidateForm from './components/forms/CandidateForm';
 // import NewPositionForm from './components/forms/NewPositionForm'
 import LandingPage from './components/LandingPage';
-import CompanyOrCandidate from './components/CompanyOrCandidate';
+//Auth
+//Signup
+import SignupSelector from './components/Auth/Signup/SignUpSelector';
+//Login
+import LoginSelector from './components//Auth/Login/LoginSelector/LoginSelector';
+import UserLogin from './components/Auth/Login/UserLogin/UserLogin';
+import CandidateLogin from './components/Auth/Login/CandidateLogin/CandidateLogin';
+
+//CandidatePages
 import Candidates from './components/candidate/Candidate';
 import Companies from './components/company/Companies';
-import UserLogin from './components/Header/Login/UserLogin/UserLogin';
-import CandidateLogin from './components/Header/Login/CandidateLogin/CandidateLogin';
-import LoginSelector from './components/Header/Login/LoginSelector/LoginSelector';
 import CompanyPositions from './components/company/CompanyPositions';
-import Positions from './components/company/compostTest';
+
+// import Positions from './components/company/Positions';
+import NewPositionForm from './components/NewPositionSignup/NewPositionForm';
 import CandidateAccountView from './components/candidate/CandidateAccountView';
-import TestComp from './components/company/testComp';
+
 
 class Router extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      isLoggedInUser: true,
-      isLoggedInCandidate: false,
+      userSignedUp: true,
+      candidateSignedUp: true,
     };
   }
-  componentDidMount() {}
+
+  handleCandidateToggle = () => {
+    const { candidateSignedUp } = this.state;
+    this.setState({
+      candidateSignedUp: !candidateSignedUp,
+    });
+  };
 
   render() {
+    const { candidateSignedUp, userSignedUp } = this.state;
+
     return (
       <Switch>
         <Route exact path="/" component={LandingPage} />
-        <Route path="/signup" component={CompanyOrCandidate} />
+        <Route path="/signup" component={SignupSelector} />
         <Route path="/login" component={LoginSelector} />
-        <Route path="/companysignup" component={CompanyForm} />
-        <Route path="/candidatesignup" component={CandidateForm} />
-        <Route path="/userlogin" component={UserLogin} />
-        <Route path="/candidatelogin" component={CandidateLogin} />
-        {this.state.isLoggedInUser && (
-          <Route path="/candidates" component={Candidates} />
-        )}
-        {this.state.isLoggedInCandidate && (
-          <Route path="/companies" component={Companies} />
-        )}
-        <Route path="/companysignup" component={CompanyForm} />
-        <Route path="/candidatesignup" component={CandidateForm} />
         <Route path="/candidates" component={Candidates} />
-        {/* <Route path="/newposition" component={NewPositionForm} /> */}
+        <Route path="/companyform" component={CompanyForm} />
+        <Route path="/newposition" component={NewPositionForm} />
         <Route path="/positions" component={CompanyPositions} />
-        <Route exact path="/companies" component={Companies} />
-        <Route path="/myaccount" component={CandidateAccountView} />
-        <Route path="/login" component={LoginSelector} />
-        <Route path="/candidatelogin" component={CandidateLogin} />
+        <Route path="/candidatesform" component={CandidateForm} />
         <Route path="/userlogin" component={UserLogin} />
-
-        <Route exact path="/companies/:id" component={TestComp} />
-
-        <Route path="/fml" component={Positions} />
+        <Route path="/candidatelogin" component={CandidateLogin} />
+        <Route path="/candidateAccount/:id" component={CandidateAccountView}/>
+        <Route path="/positions" component={CompanyPositions} />
+        <Route path="/companies" component={Companies} />
       </Switch>
     );
   }

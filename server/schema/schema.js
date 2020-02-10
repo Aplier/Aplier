@@ -6,14 +6,14 @@ const {
   currentJob, currentJobResolvers,
   previousJob, previousJobResolvers,
   education, educationResolvers,
-  skill
+  skill, skillResolvers
 } = require('./candidate');
 
 const {
   company, companyResolvers,
   companyPositions, companyPositionsResolvers,
   companyUser, companyUserResolvers,
-  candidatePositions,
+  candidatePositions, candidatePositionsResolvers,
   positionSkills
 } = require('./employer');
 
@@ -31,7 +31,7 @@ const Mutation = `
 
 const schema = makeExecutableSchema({
   typeDefs: [Query, Mutation, candidate, currentJob, previousJob, education, skill, company, companyPositions, companyUser, candidatePositions, positionSkills],
-  resolvers: merge(candidateResolvers, currentJobResolvers, previousJobResolvers, educationResolvers, companyResolvers, companyPositionsResolvers, companyUserResolvers)
+  resolvers: merge(candidateResolvers, currentJobResolvers, previousJobResolvers, educationResolvers, skillResolvers, companyResolvers, companyPositionsResolvers, companyUserResolvers, candidatePositionsResolvers)
 });
 
 module.exports = schema;
