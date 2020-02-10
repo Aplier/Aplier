@@ -2,6 +2,22 @@ import React, { Component } from 'react';
 import { graphql } from 'react-apollo';
 import { getCandidateQuery } from '../../queries/queries';
 
+// const getCandidate = graphql(getCandidateQuery,{
+//   props:({data}) => ({
+//       loadingCandidate :data.loading,
+//       candidates:data.candidates,
+//   })
+// })
+
+// const getCandidate = graphql(getCandidateQuery,{
+//   props:({data}) => ({
+//       loadingCandidate :data.loading,
+//       candidates:data.candidates,
+//   })
+// })
+
+
+
 class Candidate extends Component {
   constructor(){
     super()
@@ -14,6 +30,8 @@ class Candidate extends Component {
     this.state.liked.push(candidateId)
     this.props.history.push('/candidates')
   }
+
+
 
   displayCandidates() {
     let data = this.props.data;
