@@ -8,9 +8,9 @@ import LandingPage from './components/LandingPage';
 import CompanyOrCandidate from './components/CompanyOrCandidate';
 import Candidates from './components/candidate/Candidate';
 import Companies from './components/company/Companies';
-import UserLogin from './components/Login/UserLogin/UserLogin';
-import CandidateLogin from './components/Login/CandidateLogin/CandidateLogin';
-import LoginSelector from './components/Login/LoginSelector/LoginSelector';
+import UserLogin from './components/Header/Login/UserLogin/UserLogin';
+import CandidateLogin from './components/Header/Login/CandidateLogin/CandidateLogin';
+import LoginSelector from './components/Header/Login/LoginSelector/LoginSelector';
 import CompanyPositions from './components/company/CompanyPositions';
 import Positions from './components/company/compostTest';
 import NewPositionForm from './components/forms/NewPositionForm'

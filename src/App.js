@@ -4,9 +4,9 @@ import { ApolloProvider }  from 'react-apollo';
 
 //components
 import Router from './router';
-import Navbar from './components/Navbar/Navbar';
-import SideDrawer from './components/SideDrawer/SideDrawer'
-import Backdrop from './components/Backdrop/Backdrop'
+import Navbar from './components/Header/Navbar/Navbar';
+import SideDrawer from './components/Header/SideDrawer/SideDrawer'
+import Backdrop from './components/Header/Backdrop/Backdrop'
 
 //Apollo Client
 const client = new ApolloClient({
