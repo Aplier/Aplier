@@ -57,9 +57,11 @@ const candidateResolvers = {
     candidates: (parent, args, { models }) => {
       try{
         return models.Candidate.findAll({
-          include: {
+          include: [{
             model: models.Skill
-          }
+          },{
+            model: models.CompanyPositions
+          }]
         });
       }catch(err){
         console.error(err);
