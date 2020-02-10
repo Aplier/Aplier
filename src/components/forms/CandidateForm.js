@@ -60,13 +60,13 @@ class TestCandidateForm extends Component {
             onChange={event => this.setState({ lastName: event.target.value })}
             value={this.state.lastName}
           /> <br/> <br/>
-          <label className="Clabel">Address</label>
+          {/* <label className="Clabel">Address</label>
           <input
             className="Cinput"
             onChange={event => this.setState({ address: event.target.value })}
             value={this.state.address}
             required
-          /> <br/> <br/>
+          /> <br/> <br/> */}
           <label className="Clabel">Email</label>
           <input
             className="Cinput"

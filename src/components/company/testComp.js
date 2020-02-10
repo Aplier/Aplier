@@ -9,7 +9,7 @@ class TestComp extends Component {
     if (data.loading) {
       return <div>Loading Companies...</div>;
     } else {
-        console.log('WHAT IS PROPS', this.props.data.company)
+        console.log('WHAT IS PROPS', this.props)
         const {name, location, perks, website} = this.props.data.company
 
     return (
@@ -36,7 +36,7 @@ export default graphql(getCompanyByIdQuery, {
     options:(props) => {
         return {
             variables:{
-                id:props.companyId
+                id:1
             }
         }
     }

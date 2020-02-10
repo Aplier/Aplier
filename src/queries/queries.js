@@ -21,12 +21,14 @@ const getCompaniesQuery = gql`
     name
     location
     industry
+    perks
+    website
   }
 }
 `;
 
 const getCompanyByIdQuery = gql`
-query($id: ID){
+query($id: Int!){
   company(id: $id) {
     id
     name
@@ -64,12 +66,11 @@ const addCompanyMutation = gql`
 `;
 
 const addCandidateMutation = gql`
-  mutation AddCandidate($firstName: String!, $lastName: String!, $address: String!, $email: String!, $password: String!) {
+  mutation AddCandidate($firstName: String!, $lastName: String!, $email: String!, $password: String!) {
     addCandidate(firstName: $firstName,lastName: $lastName email: $email, password: $password) {
       id
       firstName
       lastName
-      address
       email
       password
     }

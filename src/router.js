@@ -14,6 +14,7 @@ import LoginSelector from './components/Login/LoginSelector/LoginSelector';
 import CompanyPositions from './components/company/CompanyPositions';
 import Positions from './components/company/compostTest';
 import NewPositionForm from './components/forms/newPositionForm';
+import TestComp from './components/company/testComp'
 
 class Router extends Component {
   constructor(props) {
@@ -32,12 +33,14 @@ class Router extends Component {
         <Route path="/candidatesignup" component={CandidateForm} />
         <Route path="/candidates" component={Candidates} />
         <Route path="/newposition" component={NewPositionForm} />
-        <Route path="/positions" component={CompanyPositions} />
+        {/* <Route path="/positions" component={CompanyPositions} /> */}
         <Route path="/companies" component={Companies} />
         <Route path="/login" component={LoginSelector} />
         <Route path="/candidatelogin" component={CandidateLogin} />
         <Route path="/userlogin" component={UserLogin} />
-        <Route path="/fml" component={Positions} />
+        <Route path="/positions" component={Positions} />
+        <Route path="/fmml" component={TestComp} />
+
 
       </Switch>
     );
