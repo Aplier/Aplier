@@ -46,6 +46,7 @@ Skill.belongsToMany(CompanyPosition, {through: PositionsSkill})
 Candidate.belongsToMany(CompanyPosition, {through: CandidatePositions})
 CompanyPosition.belongsToMany(Candidate, {through: CandidatePositions})
 
+
 module.exports = {
     Candidate,
     Education,
