@@ -12,6 +12,8 @@ const companyPositions = `
     companyUserId: ID
     company: Company
     companyUser: CompanyUser
+    skills: [Skill]
+    candidates: [Candidate]
   }
 
   extend type Query {
@@ -47,6 +49,10 @@ const companyPositionsResolvers = {
             model: models.Company
           },{
             model: models.CompanyUser
+          },{
+            model: models.Skill
+          },{
+            model: models.Candidate
           }]
         });
       }catch(err){
@@ -61,6 +67,10 @@ const companyPositionsResolvers = {
             model: models.Company
           },{
             model: models.CompanyUser
+          },{
+            model: models.Skill
+          },{
+            model: models.Candidate
           }]
         });
       }catch(err){
