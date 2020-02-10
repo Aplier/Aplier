@@ -110,8 +110,6 @@ class TestCandidateForm extends Component {
       );
     } else {
       return (
-        // turns background blue
-        // <div className="Cform">
         <div>
           <p className="miniLogo">Aplier</p>
           <div className="formContainer">
