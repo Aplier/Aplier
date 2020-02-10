@@ -1,6 +1,24 @@
 import React, { Component } from 'react';
 import { graphql } from 'react-apollo';
-import { getCandidateQuery } from '../../queries/queries';
+import { getCandidateQuery} from '../../queries/queries';
+
+// const getCandidate = graphql(getCandidateQuery,{
+//   props:({data}) => ({
+//       loadingCandidate :data.loading,
+//       candidates:data.candidates,
+//   })
+// })
+
+// const getCandidate = graphql(getCandidateQuery,{
+//   props:({data}) => ({
+//       loadingCandidate :data.loading,
+//       candidates:data.candidates,
+//   })
+// })
+
+
+
+
 
 class Candidate extends Component {
   constructor(){
@@ -14,6 +32,8 @@ class Candidate extends Component {
     this.state.liked.push(candidateId)
     this.props.history.push('/candidates')
   }
+
+
 
   displayCandidates() {
     let data = this.props.data;
@@ -34,9 +54,11 @@ class Candidate extends Component {
             <p>PLACE HOLDER FOR EDU</p>
             <p>PLACE HOLDER FOR CURRENT JOB</p>
             <p>PLACE HOLDER FOR PREVIOUS JOB</p>
-            
+            <div>
+  
             <img className="thumbs" alt='down'src="https://img.icons8.com/ultraviolet/40/000000/poor-quality.png"></img>
             <img onClick={()=>this.onClick(candidate.id)}className="thumbs" alt='up'src="https://img.icons8.com/ultraviolet/40/000000/good-quality.png"></img>
+            </div>
           </div>
         );
       });

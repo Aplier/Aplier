@@ -5,16 +5,16 @@ import { gql } from 'apollo-boost';
 
 
 
-const getCompaniesQuery = gql`
-{
-  companies {
-    id
-    name
-    location
-    industry
-  }
-}
-`
+// const getCompaniesQuery = gql`
+// {
+//   companies {
+//     id
+//     name
+//     location
+//     industry
+//   }
+// }
+// `
 
 // const getCompanyByIdQuery = gql`
 // query($id: Int!){
@@ -30,7 +30,7 @@ const getCompaniesQuery = gql`
 
 const getPositionsQuery = gql`
 {
-  positions {
+  companyPositions {
     id
     title
     description
@@ -56,12 +56,12 @@ const getPositionsQuery = gql`
 //     }
 // })
 
-const getComp = graphql(getCompaniesQuery,{
-    props:({data}) => ({
-        loadingComp :data.loading,
-        companies:data.companies,
-    })
-})
+// const getComp = graphql(getCompaniesQuery,{
+//     props:({data}) => ({
+//         loadingComp :data.loading,
+//         companies:data.companies,
+//     })
+// })
 
 const getPos = graphql(getPositionsQuery,{
     props:({data}) => ({
@@ -70,11 +70,10 @@ const getPos = graphql(getPositionsQuery,{
     })
 })
 
-const Positions = ({loadingComp, loadingPos, companies, positions}) => {
-    if(loadingComp || loadingPos) return <p>loading</p>
+const Positions = ({loadingPos,positions}) => {
+    if(loadingPos) return <p>loading</p>
     return positions.map(position => {
         
-        console.log('WHAT IS', companies)
         
         return (
           <div className="mapPos" key={position.id}>
@@ -82,10 +81,10 @@ const Positions = ({loadingComp, loadingPos, companies, positions}) => {
             <p>{position.description}</p>
             <p>{position.salaryRange}</p>
             <p>{position.datePosted}</p>
-            <p>{companies[position.companyId].name}</p>
+            {/* <p>{companies[position.companyId].name}</p>
             <p>{companies[position.companyId].location}</p>
             <p>{companies[position.companyId].perks}</p>
-            <p>{companies[position.companyId].website}</p>
+            <p>{companies[position.companyId].website}</p> */}
             {/* <p>{company}</p> */}
             {/* <React.Fragment> */}
             {/* <TestComp id={position.companyId}/> */}
@@ -99,4 +98,4 @@ const Positions = ({loadingComp, loadingPos, companies, positions}) => {
 }
 
 
-export default compose(getPos, getComp)(Positions)
+export default compose(getPos)(Positions)

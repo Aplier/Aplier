@@ -50,19 +50,37 @@ query($id: Int!){
 }
 `;
 
+const getCurrentJobByIdQuery = gql`
+query($candidateId: Int!){
+  currentJob(candidateId: $candidateId) {
+    id
+    companyName
+    position
+    startDate
+  }
+}
+`;
+
 
 const getPositionsQuery = gql`
 {
-  positions {
+  companyPositions {
     id
     title
     description
     salaryRange
     datePosted
-    companyId
+    company{
+      imgURL
+      name
+      location
+      website
+    }
   }
 }
 `;
+
+
 
 
 
@@ -108,5 +126,6 @@ export {
   addCandidateMutation,
   addCompanyPositionMutation,
   getCompanyByIdQuery,
-  getCandidateByIdQuery
+  getCandidateByIdQuery,
+  getCurrentJobByIdQuery
 }

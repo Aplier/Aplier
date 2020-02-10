@@ -11,11 +11,10 @@ import Companies from './components/company/Companies';
 import UserLogin from './components/Login/UserLogin/UserLogin';
 import CandidateLogin from './components/Login/CandidateLogin/CandidateLogin';
 import LoginSelector from './components/Login/LoginSelector/LoginSelector';
-import CompanyPositions from './components/company/CompanyPositions';
-import Positions from './components/company/compostTest';
+// import Positions from './components/company/Positions';
 import NewPositionForm from './components/forms/newPositionForm';
-import TestComp from './components/company/testComp'
 import CandidateAccountView from './components/candidate/CandidateAccountView';
+import CompanyPositions from './components/company/CompanyPositions'
 
 class Router extends Component {
   constructor(props) {
@@ -47,21 +46,20 @@ class Router extends Component {
         <Route path="/candidatesignup" component={CandidateForm} />
         <Route path="/candidates" component={Candidates} />
         <Route path="/newposition" component={NewPositionForm} />
-        {/* <Route path="/positions" component={CompanyPositions} /> */}
         <Route path="/companies" component={Companies} />
         <Route path="/login" component={LoginSelector} />
         <Route path="/candidatelogin" component={CandidateLogin} />
         <Route path="/userlogin" component={UserLogin} />
-        <Route path="/positions" component={Positions} />
+        <Route path="/positions" component={CompanyPositions} />
 
-        <Route path="/positions" component={Positions} />
+        {/* <Route path="/positions" component={Positions} /> */}
         <Route exact path="/companies" component={Companies} />
         <Route path="/candidateAccount/:id" component={CandidateAccountView} />
         <Route path="/login" component={LoginSelector} />
         <Route path="/candidatelogin" component={CandidateLogin} />
         <Route path="/userlogin" component={UserLogin} />
 
-        <Route exact path="/companies/:id" component={Positions} />
+        {/* <Route exact path="/companies/:id" component={Positions} /> */}
 
       </Switch>
     );
