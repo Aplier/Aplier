@@ -11,9 +11,10 @@ import Companies from './components/company/Companies';
 import UserLogin from './components/Login/UserLogin/UserLogin';
 import CandidateLogin from './components/Login/CandidateLogin/CandidateLogin';
 import LoginSelector from './components/Login/LoginSelector/LoginSelector';
-import Positions from './components/company/Positions';
+// import Positions from './components/company/Positions';
 import NewPositionForm from './components/forms/newPositionForm';
 import CandidateAccountView from './components/candidate/CandidateAccountView';
+import CompanyPositions from './components/company/CompanyPositions'
 
 class Router extends Component {
   constructor(props) {
@@ -49,7 +50,7 @@ class Router extends Component {
         <Route path="/login" component={LoginSelector} />
         <Route path="/candidatelogin" component={CandidateLogin} />
         <Route path="/userlogin" component={UserLogin} />
-        <Route path="/positions" component={Positions} />
+        <Route path="/positions" component={CompanyPositions} />
 
         {/* <Route path="/positions" component={Positions} /> */}
         <Route exact path="/companies" component={Companies} />

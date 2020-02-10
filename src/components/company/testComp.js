@@ -1,43 +1,99 @@
 import React, { Component } from 'react';
 import { graphql } from 'react-apollo';
-import {getCompanyByIdQuery} from '../../queries/queries'
+import compose from 'lodash.flowright'
+import { getCandidateQuery, getCurrentJobByIdQuery } from '../../queries/queries';
 
-class TestComp extends Component {
-  displayCompany() {
-    let data = this.props.data;
-    console.log(data)
-    if (data.loading) {
-      return <div>Loading Companies...</div>;
-    } else {
-        console.log('WHAT IS PROPS', this.props)
-        const {name, location, perks, website} = this.props.data.company
+// const getCandidate = graphql(getCandidateQuery,{
+//   props:({data}) => ({
+//       loadingCandidate :data.loading,
+//       candidates:data.candidates,
+//   })
+// })
 
-    return (
-        <div>
-    <p>{name}</p>
-    <p>{location}</p>
-    <p>{perks}</p>
-    <p>{website}</p>
-    </div>
-    )
-  }
-}
-  render() {
-    return (
-      <div>
-         <div> {this.displayCompany()}</div>
-       </div>
-    )
-  }
+// const getCandidate = graphql(getCandidateQuery,{
+//   props:({data}) => ({
+//       loadingCandidate :data.loading,
+//       candidates:data.candidates,
+//   })
+// })
 
-}
+const getCandidate = graphql(getCandidateQuery,{
+  props:({data}) => ({
+      loadingCandidate :data.loading,
+      candidates:data.candidates
+  })
+})
 
-export default graphql(getCompanyByIdQuery, {
-    options:(props) => {
+const getCurrentJob = graphql(getCurrentJobByIdQuery,{
+    props:({data}) => ({
+        loadingComp :data.loading,
+        currentJob:data.currentJob,
+    }),
+   
+    options:() =>{
         return {
             variables:{
-                id:1
+                id: 1
             }
         }
     }
-})(TestComp);
+})
+
+
+
+class Candidate extends Component {
+  constructor(){
+    super()
+    this.state = {
+      liked:[]
+    }
+    this.onClick= this.onClick.bind(this)
+  }
+  onClick(candidateId){
+    this.state.liked.push(candidateId)
+    this.props.history.push('/candidates')
+  }
+
+
+
+  displayCandidates() {
+    let data = this.props.data;
+    if (data.loading) {
+      return <div>Loading Candidates...</div>;
+    } else {
+      return data.candidates.map(candidate => {
+        return (
+          <div className="mapCandidates" key={candidate.id}>
+            <img src={candidate.imgURL} alt="candidate img" />
+            <h3>
+              {candidate.firstName} {candidate.lastName}
+            </h3>
+            <p>{candidate.address}</p>
+            {/* <p>{candidate.phone}</p> */}
+            <p>{candidate.email}</p>
+            <p>{candidate.intro}</p>
+            <p>PLACE HOLDER FOR EDU</p>
+            <p>PLACE HOLDER FOR CURRENT JOB</p>
+            <p>PLACE HOLDER FOR PREVIOUS JOB</p>
+            <div>
+  
+            <img className="thumbs" alt='down'src="https://img.icons8.com/ultraviolet/40/000000/poor-quality.png"></img>
+            <img onClick={()=>this.onClick(candidate.id)}className="thumbs" alt='up'src="https://img.icons8.com/ultraviolet/40/000000/good-quality.png"></img>
+            </div>
+          </div>
+        );
+      });
+    }
+  }
+  render() {
+    console.log('object');
+    return (
+      <div>
+        <p className="miniLogo">Aplier</p>
+        <div className="allCandidates"> {this.displayCandidates()}</div>
+      </div>
+    );
+  }
+}
+
+export default graphql(getCandidateQuery)(Candidate);

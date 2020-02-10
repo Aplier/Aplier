@@ -12,6 +12,7 @@ const companyPositions = `
     companyUserId: ID
     company: Company
     companyUser: CompanyUser
+    candidate:[Candidate]
   }
 
   extend type Query {
