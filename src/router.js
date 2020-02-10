@@ -4,7 +4,7 @@ import { Switch, Route } from 'react-router-dom';
 //components
 import CompanyForm from './components/forms/CompanyForm';
 import CandidateForm from './components/forms/CandidateForm';
-import NewPositionForm from './components/forms/NewPositionForm'
+// import NewPositionForm from './components/forms/NewPositionForm'
 import LandingPage from './components/LandingPage';
 import CompanyOrCandidate from './components/CompanyOrCandidate';
 import Candidates from './components/candidate/Candidate';
@@ -46,7 +46,7 @@ class Router extends Component {
         <Route path="/companysignup" component={CompanyForm} />
         <Route path="/candidatesignup" component={CandidateForm} />
         <Route path="/candidates" component={Candidates} />
-        <Route path="/newposition" component={NewPositionForm} />
+        {/* <Route path="/newposition" component={NewPositionForm} /> */}
         <Route path="/positions" component={CompanyPositions} />
         <Route exact path="/companies" component={Companies} />
         <Route path="/myaccount" component={CandidateAccountView} />
