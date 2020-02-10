@@ -1,6 +1,6 @@
 import React from 'react';
 import Amplify from 'aws-amplify';
-import aws_exports from './aws-exports';
+// import aws_exports from './aws-exports';
 import { ApolloProvider } from 'react-apollo';
 import { InMemoryCache } from 'apollo-cache-inmemory';
 import ApolloClient from 'apollo-client';
@@ -22,7 +22,7 @@ const App = props => {
     cache: new InMemoryCache(),
   });
 
-  Amplify.configure(aws_exports);
+  // Amplify.configure(aws_exports);
 
   return (
     <ApolloProvider client={client}>

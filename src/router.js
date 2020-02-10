@@ -26,8 +26,8 @@ class Router extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      userSignedUp: false,
-      candidateSignedUp: false,
+      userSignedUp: true,
+      candidateSignedUp: true,
     };
   }
 
@@ -51,6 +51,7 @@ class Router extends Component {
         <Route path="/candidatesignup" component={CandidateSignup} />
         <Route path="/userlogin" component={UserLogin} />
         <Route path="/candidatelogin" component={CandidateLogin} />
+        <Route path="/companies" component={Companies} />
         {/*{userSignedUp && (*/}
         <Fragment>
           <Route path="/candidates" component={Candidates} />
@@ -66,7 +67,7 @@ class Router extends Component {
           />
           <Route path="/positions" component={CompanyPositions} />
           <Route path="/companies" component={Companies} />
-          <Route exact path="/companies" component={Companies} />
+          {/* <Route exact path="/companies" component={Companies} /> */}
         </Fragment>
         {/*)}*/}
 
