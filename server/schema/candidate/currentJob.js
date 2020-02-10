@@ -1,5 +1,3 @@
-const dbConn = require('../pg-promise');
-
 const currentJob = `
   type CurrentJob {
     id: ID
@@ -7,6 +5,7 @@ const currentJob = `
     position: String
     startDate: String
     candidateId: ID
+    candidate: Candidate
   }
 
   extend type Query {
@@ -16,12 +15,17 @@ const currentJob = `
 
 const currentJobResolvers = {
   Query: {
-    currentJob: (parent, args) => {
-      const query = `SELECT * FROM "currentjobs" WHERE currentjobs."candidateId"=${args.candidateId}`;
-      return dbConn
-      .one(query)
-      .then(data => data)
-      .catch(err => console.error(err));
+    currentJob: (parent, args, { models }) => {
+      try{
+        return models.CurrentJob.findOne({
+          where: args,
+          include: {
+            model: models.Candidate
+          }
+        });
+      }catch(err){
+        console.error(err);
+      }
     }
   }
 };
