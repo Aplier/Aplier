@@ -79,6 +79,17 @@ const getPositionsQuery = gql`
   }
 }
 `;
+const getScreeningQuestionsQuery = gql`
+{
+  screeningQuestions {
+    id
+    title
+    screeningQ1
+    screeningQ2
+    screeningQ3
+  }
+}
+`;
 
 
 

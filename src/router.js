@@ -23,7 +23,7 @@ import CompanyPositions from './components/company/CompanyPositions';
 // import Positions from './components/company/Positions';
 import NewPositionForm from './components/NewPositionSignup/NewPositionForm';
 import CandidateAccountView from './components/candidate/CandidateAccountView';
-
+import ScreeningQuestions from './components/ScreeningQuestions';
 
 class Router extends Component {
   constructor(props) {
@@ -59,6 +59,8 @@ class Router extends Component {
         <Route path="/candidateAccount/:id" component={CandidateAccountView}/>
         <Route path="/positions" component={CompanyPositions} />
         <Route path="/companies" component={Companies} />
+
+        <Route path="/screening" component={ScreeningQuestions} />
       </Switch>
     );
   }
