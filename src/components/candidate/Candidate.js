@@ -38,8 +38,11 @@ class Candidate extends Component {
   displayCandidates() {
     let data = this.props.data;
     if (data.loading) {
+      console.log(('WHAT IS DATA', data))
+
       return <div>Loading Candidates...</div>;
     } else {
+      console.log(("WHAT IS DATA ---->", data))
       return data.candidates.map(candidate => {
         return (
           <div className="mapCandidates" key={candidate.id}>
@@ -65,7 +68,6 @@ class Candidate extends Component {
     }
   }
   render() {
-    console.log('object');
     return (
       <div>
         <p className="miniLogo">Aplier</p>

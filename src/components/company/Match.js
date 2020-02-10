@@ -24,8 +24,15 @@ class Match extends Component {
     return (
       <div>
         <p className="miniLogo">Aplier</p>
-        <h2>Candidates you have matched with!</h2>
+        <div className="matchPage">
+          <img alt="matchImg"src="https://media0.giphy.com/media/13k4VSc3ngLPUY/giphy.gif"/>
+    <h3>Congradulations!</h3>
+    <p> You've matched with: </p>
         <div> {this.displayCandidates()}</div>
+        <br></br>
+        <br></br>
+        <p>Additional information coming...</p>
+        </div>
       </div>
     )
   }
