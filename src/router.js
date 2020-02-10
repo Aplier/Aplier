@@ -4,6 +4,7 @@ import { Switch, Route } from 'react-router-dom';
 //components
 import CompanyForm from './components/forms/CompanyForm';
 import CandidateForm from './components/forms/CandidateForm';
+import NewPositionForm from './components/forms/NewPositionForm'
 import LandingPage from './components/LandingPage';
 import CompanyOrCandidate from './components/CompanyOrCandidate';
 import Candidates from './components/candidate/Candidate';
@@ -13,7 +14,6 @@ import CandidateLogin from './components/Header/Login/CandidateLogin/CandidateLo
 import LoginSelector from './components/Header/Login/LoginSelector/LoginSelector';
 import CompanyPositions from './components/company/CompanyPositions';
 import Positions from './components/company/compostTest';
-import NewPositionForm from './components/forms/NewPositionForm'
 import CandidateAccountView from './components/candidate/CandidateAccountView';
 import TestComp from './components/company/testComp';
 
