@@ -21,6 +21,7 @@ import Companies from './components/company/Companies';
 import NewPositionForm from './components/NewPositionSignup/NewPositionForm';
 import CandidateAccountView from './components/candidate/CandidateAccountView';
 import CompanyPositions from './components/company/CompanyPositions';
+import Match from './components/company/Match'
 
 class Router extends Component {
   constructor(props) {
@@ -52,6 +53,9 @@ class Router extends Component {
         <Route path="/userlogin" component={UserLogin} />
         <Route path="/candidatelogin" component={CandidateLogin} />
         <Route path="/companies" component={Companies} />
+        <Route path="/match" component={Match} />
+
+
         {/*{userSignedUp && (*/}
         <Fragment>
           <Route path="/candidates" component={Candidates} />

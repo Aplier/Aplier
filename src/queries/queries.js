@@ -118,6 +118,19 @@ const addCompanyPositionMutation = gql`
   }
 `;
 
+const getMatchByPositionQuery = gql`
+query($id: Int!){
+  companyPosition(id: $id) {
+    title
+    candidates{
+      id
+      firstName
+      lastName
+    }
+  }
+}
+`;
+
 export {
   getCandidateQuery,
   getCompaniesQuery,
@@ -127,5 +140,6 @@ export {
   addCompanyPositionMutation,
   getCompanyByIdQuery,
   getCandidateByIdQuery,
-  getCurrentJobByIdQuery
+  getCurrentJobByIdQuery,
+  getMatchByPositionQuery
 }
