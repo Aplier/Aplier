@@ -54,24 +54,24 @@ class Router extends Component {
         <Route path="/candidatesignup" component={CandidateSignup} />
         <Route path="/userlogin" component={UserLogin} />
         <Route path="/candidatelogin" component={CandidateLogin} />
-        {userSignedUp && (
-          <Fragment>
-            <Route path="/candidates" component={Candidates} />
-            <Route path="/newposition" component={NewPositionForm} />
-            <Route path="/positions" component={CompanyPositions} />
-          </Fragment>
-        )}
-        {candidateSignedUp && (
-          <Fragment>
-            <Route
-              path="/candidateAccount/:id"
-              component={CandidateAccountView}
-            />
-            <Route path="/positions" component={CompanyPositions} />
-            <Route path="/companies" component={Companies} />
-            <Route exact path="/companies" component={Companies} />
-          </Fragment>
-        )}
+        {/*{userSignedUp && (*/}
+        <Fragment>
+          <Route path="/candidates" component={Candidates} />
+          <Route path="/newposition" component={NewPositionForm} />
+          <Route path="/positions" component={CompanyPositions} />
+        </Fragment>
+        {/*)}*/}
+        {/* {candidateSignedUp && (*/}
+        <Fragment>
+          <Route
+            path="/candidateAccount/:id"
+            component={CandidateAccountView}
+          />
+          <Route path="/positions" component={CompanyPositions} />
+          <Route path="/companies" component={Companies} />
+          <Route exact path="/companies" component={Companies} />
+        </Fragment>
+        {/*)}*/}
 
         <Route exact path="/companies/:id" component={TestComp} />
 
