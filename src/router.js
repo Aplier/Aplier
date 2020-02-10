@@ -59,6 +59,24 @@ class Router extends Component {
         <Route path="/candidateAccount/:id" component={CandidateAccountView}/>
         <Route path="/positions" component={CompanyPositions} />
         <Route path="/companies" component={Companies} />
+        {/*{userSignedUp && (*/}
+//         <Fragment>
+//           <Route path="/candidates" component={Candidates} />
+//           <Route path="/newposition" component={NewPositionForm} />
+//           <Route path="/positions" component={CompanyPositions} />
+//         </Fragment>
+        {/*)}*/}
+        {/* {candidateSignedUp && (*/}
+//         <Fragment>
+//           <Route
+//             path="/candidateAccount/:id"
+//             component={CandidateAccountView}
+//           />
+//           <Route path="/positions" component={CompanyPositions} />
+//           <Route path="/companies" component={Companies} />
+//           {/* <Route exact path="/companies" component={Companies} /> */}
+//         </Fragment>
+        {/*)}*/}
 
         <Route path="/screening" component={ScreeningQuestions} />
       </Switch>
