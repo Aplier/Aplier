@@ -51,20 +51,24 @@ class Candidate extends Component {
 
       return <div>Loading Candidates...</div>;
     } else {
+      console.log('CANDIDATE DATA======>', data.candidates)
       return data.candidates.map(candidate => {
         return (
           <div className="mapCandidates" key={candidate.id}>
-            <img src={candidate.imgURL} alt="candidate img" />
-            <h3>
+            <img className='candidateImg'src={candidate.imgURL} alt="candidate img" />
+            <h3><center>
               {candidate.firstName} {candidate.lastName}
+              </center>
             </h3>
+            <p><img alt="icon"className="icon" src="https://png.pngtree.com/svg/20151015/7cc2f4999d.png"/>&nbsp;&nbsp;{candidate.intro}</p>
             
-            <p> <img alt="icon"className="icon" src="https://cdn3.iconfinder.com/data/icons/unicons-vector-icons-pack/32/location-512.png"/> {candidate.address}</p>
+            <p> <img alt="icon"className="icon" src="https://cdn3.iconfinder.com/data/icons/unicons-vector-icons-pack/32/location-512.png"/>&nbsp;&nbsp;{candidate.address}</p>
             {/* <p>{candidate.phone}</p> */}
-            <p>{candidate.email}</p>
-            <p>{candidate.intro}</p>
+            <p><img alt="icon"className="icon" src="https://cdn3.iconfinder.com/data/icons/project-management-32/48/51-512.png"/>&nbsp;&nbsp;{candidate.email}</p>
+            <p><img alt='icon' className="icon" src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQ5Cj2qaC9RxT9qngLCMvMvsx7V3sAsIhTkCZdROsdiY7BUypCf"/>&nbsp;&nbsp;{candidate.currentjob.position} @ {candidate.currentjob.companyName}</p>
             <Education candidateId={candidate.id}/>
-            <div>
+            
+            <div className='buttonsDiv'>
               <img className="thumbs"
                    alt='down'src="https://img.icons8.com/ultraviolet/40/000000/poor-quality.png"
                    onClick={()=>this.clickThumb({id: candidate.id, thumb: "down"})}>
@@ -82,13 +86,14 @@ class Candidate extends Component {
   }
   render() {
     const candidateArr = this.props.data.candidates
-    console.log('MY ARR', candidateArr)
 
       return (
-        <div>
-          <p className="miniLogo">Aplier</p>
+        <div >
+          
             {candidateArr&&candidateArr.length>0?
-            <div className="allCandidates"> {this.displayCandidates()}</div>
+            <div className="candidateContainer">
+            <div> {this.displayCandidates()}</div>
+            </div>
             :
             <div className="noCandidates">
               <p>You've reached the end of the Candidate list...</p>

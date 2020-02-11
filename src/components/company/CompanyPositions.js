@@ -44,14 +44,16 @@ class CompanyPositions extends Component {
               alt="candidate img"
             />
 
-            <h3>{position.title}</h3>
+            <h3><center>{position.title}</center></h3>
+            <div className="positionInfo">
             <p>{position.description}</p>
             <p>{position.salaryRange}</p>
             <p>{position.datePosted}</p>
             <p>{position.company.name}</p>
             <p>{position.company.location}</p>
             <p>{position.company.website}</p>
-            <div>
+            </div>
+            <div className='buttonsDiv'>
               <img className="thumbs"
                    alt="down" src="https://img.icons8.com/ultraviolet/40/000000/poor-quality.png"
                    onClick={()=>this.clickThumb({id: position.id, thumb: "down"})}>
@@ -71,10 +73,11 @@ class CompanyPositions extends Component {
 
     return (
       <div>
-        <p className="miniLogo">Aplier</p>
         {
           positionArr && positionArr.length > 0 ?
-          <div className="allPos"> {this.displayCompanyPositions()}</div>
+          <div className="allPos"> 
+          <div>{this.displayCompanyPositions()}</div>
+          </div>
           :
           <div className="noCandidates">
               <p>You've reached the end of the postions availible...</p>
