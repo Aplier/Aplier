@@ -32,7 +32,6 @@ class App extends Component {
 }
 
   componentDidMount() {
-    console.log('WHAT IS BROKENNN')
     if(Auth.currentAuthenticatedUser()){
 
       this.setState({isCandidateLoggedIn: true})
@@ -54,10 +53,10 @@ class App extends Component {
 
   render() {
 
-    const {isCandidateLoggedIn, isUserLoggedIn} = this.state
 
     const candidateSideDrawer = (props) => {
-      if(isCandidateLoggedIn){
+      console.log("THIS IS CADNIDATE -SIDEDRAWER")
+      if(this.state.isCandidateLoggedIn){
         return <SideDrawerCandidate show={this.state.sideDrawerOpen}/>
       }else{
         return <SideDrawer show={this.state.sideDrawerOpen}/>
@@ -65,7 +64,8 @@ class App extends Component {
     }
 
     const companySideDrawer = (props) => {
-      if(isUserLoggedIn){
+      console.log("THIS IS COMPANY-SIDEDRAWER")
+      if(this.state.isUserLoggedIn){
         return <SideDrawerCompany show={this.state.sideDrawerOpen}/>
       }else{
         return <SideDrawer show={this.state.sideDrawerOpen}/>
