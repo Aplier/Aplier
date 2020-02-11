@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import axios from 'axios';
+import { Auth } from 'aws-amplify';
 
 class CandidateLogin extends Component {
   constructor(props) {
@@ -7,74 +7,91 @@ class CandidateLogin extends Component {
     this.state = {
       email: '',
       password: '',
-      isLoggedIn: '',
+      isCandidateLoggedIn: false,
     };
   }
 
-  handleChange = event => {
-    this.setState({
-      [event.target.name]: event.target.value,
-    });
-  };
+  componentDidMount() {
+    Auth.currentUserInfo()
+      .then(res => console.log('res', res.attributes.given_name))
+      .catch(err => console.log('err', err));
+  }
+
+  // handleSignIn = () => {
+  //   const { email, password } = this.state;
+  //   Auth.signIn(email, password)
+  //     .then(user => console.log('user', user))
+  //     .then(this.setState({ isLogged: true }))
+  //     .catch(err => console.log('Failed', err));
+  // };
 
   handleSubmit = event => {
-    const { email, password } = this.state;
-
-    axios
-      .post('http://localhost:4000/sessions', {
-        candidate: {
-          email: email,
-          password: password,
-        },
-      })
-      .then(res => {
-        console.log('response', res);
-      })
-      .catch(err => {
-        console.error('Login Error', err);
-      });
     event.preventDefault();
+    const { isCandidateLoggedIn, email, password } = this.state;
+
+    if (!isCandidateLoggedIn) {
+      Auth.signIn({
+        username: email,
+        password: password,
+      })
+        .then(user => console.log('Signed In', user))
+        .catch(err => console.log('Failed Sign In', err));
+
+      this.setState({
+        isCandidateLoggedIn: true,
+      });
+      this.props.history.push('/myaccount');
+    } else {
+      Auth.confirmSignIn(email)
+        .then(() => console.log('email', email))
+        .catch(err => console.log('Failed Confirm', err));
+    }
   };
+
   render() {
-    const { login, email, password, name } = this.state;
-    return (
-      <div>
-        <h4 className="mv3">{login ? 'Login' : 'Sign Up'}</h4>
-        <div className="flex flex-column">
-          {!login && (
-            <input
-              value={name}
-              onChange={e => this.setState({ name: e.target.value })}
-              type="text"
-              placeholder="Your name"
-            />
-          )}
-          <input
-            value={email}
-            onChange={e => this.setState({ email: e.target.value })}
-            type="text"
-            placeholder="Your email address"
-          />
-          <input
-            value={password}
-            onChange={e => this.setState({ password: e.target.value })}
-            type="password"
-            placeholder="Choose a safe password"
-          />
-        </div>
-        <div className="flex mt3">
-          <div className="pointer mr2 button" onClick={() => this._confirm()}>
-            {login ? 'login' : 'create account'}
+    const { isCandidateLoggedIn } = this.state;
+
+    if (isCandidateLoggedIn) {
+      return <h1>Candidate has logged In!</h1>;
+    } else {
+      return (
+        <div>
+          <form onSubmit={this.handleSubmit}>
+            <h4 className="mv3">{this.isLoggedIn ? 'Login' : 'Sign Up'}</h4>
+            <div className="flex flex-column">
+              <input
+                value={this.email}
+                onChange={event => this.setState({ email: event.target.value })}
+                type="text"
+                placeholder="Your email address"
+              />
+              <input
+                value={this.password}
+                onChange={event =>
+                  this.setState({ password: event.target.value })
+                }
+                type="password"
+                placeholder="Choose a safe password"
+              />
+              <button type="submit">Sign In</button>
+            </div>
+          </form>
+          <div className="flex mt3">
+            <div className="pointer mr2 button">
+              {this.isLoggedIn ? 'login' : 'create account'}
+            </div>
+            <div
+              className="pointer button"
+              onClick={() => this.setState({ login: !this.isLoggedIn })}
+            >
+              {this.isLoggedIn
+                ? 'need to create an account?'
+                : 'already have an account?'}
+            </div>
           </div>
-          <div
-            className="pointer button"
-            onClick={() => this.setState({ login: !login })}
-          >
-            {login ? 'need to create an account?' : 'already have an account?'}
-          </div>
         </div>
-      </div>
-    );
+      );
+    }
   }
 
   // _confirm = async () => {
