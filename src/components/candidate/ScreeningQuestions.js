@@ -80,7 +80,7 @@ export default graphql(getScreeningByPositionByIdQuery, {
   options: () => {
     return {
       variables: {
-        id: 1
+        id:1
       }
     }
   }

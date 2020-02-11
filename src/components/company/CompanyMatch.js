@@ -31,7 +31,7 @@ class CompanyMatch extends Component {
         <div> {this.displayCandidates()}</div>
         <br></br>
         <br></br>
-        <p>Additional information coming...</p>
+        <p>Confirmation email coming soon once candidates submit screening questions.</p>
         </div>
       </div>
     )

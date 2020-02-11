@@ -1,20 +1,25 @@
 import React, { Component } from 'react';
 import { graphql } from 'react-apollo';
-import {getMatchByPositionQuery} from '../../queries/queries'
-import Candidate from '../candidate/Candidate';
+import {getMatchByCandidateQuery} from '../../queries/queries'
+import ScreeningQuestions from './ScreeningQuestions'
+import { Link } from 'react-router-dom';
+
 
 class CandidateMatch extends Component {
-  displayCandidates() {
+  displayPositions() {
     let data = this.props.data;
-    console.log(data)
     if (data.loading) {
-      return <div>Loading Candidates...</div>;
+      return <div>Loading Matches...</div>;
     } else {
-      return data.companyPosition.candidates.map(candidate => {
+      return data.candidate.companyPositions.map(position => {
         return (
-          <div key={candidate.id}>
+          <div className="screeningLinks"key={position.id}>
             {/* <img src={company.imgURL} alt="company img" /> */}
-            <p>{candidate.firstName} {candidate.lastName}</p>
+            <Link to={'/screening'}>
+            <font color="black">
+            <p>{position.title}</p>
+            </font>
+            </Link>
           </div>
         );
       });
@@ -28,7 +33,8 @@ class CandidateMatch extends Component {
           <img alt="matchImg"src="https://media0.giphy.com/media/13k4VSc3ngLPUY/giphy.gif"/>
     <h3>Congradulations!</h3>
     <p> You've matched with: </p>
-        <div> {this.displayCandidates()}</div>
+        <div> {this.displayPositions()}</div>
+        
         <br></br>
         <br></br>
         <p>Additional information coming...</p>
@@ -38,7 +44,7 @@ class CandidateMatch extends Component {
   }
 }
 
-export default graphql(getMatchByPositionQuery, {
+export default graphql(getMatchByCandidateQuery, {
     options: () => {
         return{
             variables: {
