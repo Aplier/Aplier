@@ -14,7 +14,7 @@ import Backdrop from './components/Header/Backdrop/Backdrop';
 
 //Apollo Client
 const client = new ApolloClient({
-  uri: 'http://localhost:4000/graphql',
+  uri: 'http://localhost:5000/graphql',
 });
 
 class App extends Component {
@@ -51,24 +51,5 @@ class App extends Component {
     );
   }
 }
-
-// import { InMemoryCache } from 'apollo-cache-inmemory';
-// import ApolloClient from 'apollo-client';
-// import { HttpLink } from 'apollo-boost';
-
-//components
-// import Navbar from './components/UI/Navbar/Navbar';
-// Apollo Client
-
-// const App = props => {
-//   const link = new HttpLink({
-//     uri: 'http://localhost:4000/graphql',
-//     credentials: 'same-origin',
-//   });
-
-//   const client = new ApolloClient({
-//     link: link,
-//     cache: new InMemoryCache(),
-//   });
 
 export default App;

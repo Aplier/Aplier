@@ -11,6 +11,12 @@ class CandidateLogin extends Component {
     };
   }
 
+  componentDidMount() {
+    Auth.currentUserInfo()
+      .then(res => console.log('res', res.attributes.given_name))
+      .catch(err => console.log('err', err));
+  }
+
   // handleSignIn = () => {
   //   const { email, password } = this.state;
   //   Auth.signIn(email, password)
@@ -29,12 +35,12 @@ class CandidateLogin extends Component {
         password: password,
       })
         .then(user => console.log('Signed In', user))
-        .then(console.log('object', Auth.currentAuthenticatedUser().attributes))
         .catch(err => console.log('Failed Sign In', err));
 
       this.setState({
         isCandidateLoggedIn: true,
       });
+      this.props.history.push('/myaccount');
     } else {
       Auth.confirmSignIn(email)
         .then(() => console.log('email', email))

@@ -20,7 +20,7 @@ const createApp = () => {
   app.use(express.urlencoded({ extended: true }));
 
   // compression middleware
-  app.use(compression());
+  // app.use(compression());
 
   // session middleware with passport
   app.use(
@@ -35,7 +35,7 @@ const createApp = () => {
   app.use(passport.session());
 
   // auth and api routes
-  app.use('/auth', require('./auth'));
+  // app.use('/auth', require('./auth'));
 
   // static file-serving middleware
   app.use(express.static(path.join(__dirname, '..', 'public')));
@@ -75,14 +75,14 @@ app.use(
 
 const startListening = () => {
   // start listening (and create a 'server' object representing our server)
-  const PORT = 4000;
+  const PORT = 5000;
   app.listen(PORT, () => {
     console.log(`Listening on port ${PORT}`);
   });
 
   // set up our socket control center
-  const io = socketio(server);
-  require('./socket')(io);
+  // const io = socketio(server);
+  // require('./socket')(io);
 };
 
 const syncDb = () => db.sync();

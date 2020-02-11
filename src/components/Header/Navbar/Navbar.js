@@ -11,10 +11,10 @@ const handleSubmit = () => {
     .then('User has signed out')
     .catch(err => console.log(err));
 
-  Auth.signOut({ global: true })
-    .then(data => console.log(data))
-    .then('User has globally signed out')
-    .catch(err => console.log(err));
+  // Auth.signOut({ global: true })
+  //   .then(data => console.log(data))
+  //   .then('User has globally signed out')
+  //   .catch(err => console.log(err));
 };
 
 const Navbar = props => (
