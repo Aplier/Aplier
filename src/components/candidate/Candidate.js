@@ -22,27 +22,30 @@ class Candidate extends Component {
   constructor(){
     super()
     this.state = {
-      liked:[]
+      liked:[],
+      isHidden: true
     }
-    this.onClick= this.onClick.bind(this)
+    this.clickLike= this.clickLike.bind(this)
+    this.toggleHidden = this.toggleHidden.bind(this)
   }
-  onClick(candidateId){
+  clickLike(candidateId){
     this.state.liked.push(candidateId)
     this.props.history.push('/candidates')
   }
-
+  toggleHidden(){
+    this.setState({
+      isHidden:!this.state.isHidden
+    })
+  }
 
 
   displayCandidates() {
     let data = this.props.data;
     if (data.loading) {
-      console.log(('WHAT IS DATA', data))
 
       return <div>Loading Candidates...</div>;
     } else {
-      console.log(("WHAT IS DATA ---->", data))
       return data.candidates.map(candidate => {
-        console.log(data)
         return (
           <div className="mapCandidates" key={candidate.id}>
             <img src={candidate.imgURL} alt="candidate img" />
@@ -57,16 +60,17 @@ class Candidate extends Component {
             <p>PLACE HOLDER FOR CURRENT JOB</p>
             <p>PLACE HOLDER FOR PREVIOUS JOB</p>
             <div>
-
-            <img className="thumbs" alt='down'src="https://img.icons8.com/ultraviolet/40/000000/poor-quality.png"></img>
-            <img onClick={()=>this.onClick(candidate.id)}className="thumbs" alt='up'src="https://img.icons8.com/ultraviolet/40/000000/good-quality.png"></img>
+            <img onClick={()=>this.toggleHidden()}className="thumbs" alt='down'src="https://img.icons8.com/ultraviolet/40/000000/poor-quality.png"></img>
+            <img onClick={()=>this.clickLike(candidate.id)}className="thumbs" alt='up'src="https://img.icons8.com/ultraviolet/40/000000/good-quality.png"></img>
             </div>
           </div>
-        );
-      });
+
+        )
+      })
     }
   }
   render() {
+    console.log('STATE', this.state)
     return (
       <div>
         <p className="miniLogo">Aplier</p>

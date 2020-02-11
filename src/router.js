@@ -23,8 +23,9 @@ import Companies from './components/company/Companies';
 import NewPositionForm from './components/NewPositionSignup/NewPositionForm';
 import CandidateAccountView from './components/candidate/CandidateAccountView';
 import CompanyPositions from './components/company/CompanyPositions';
-import Match from './components/company/Match'
-import ScreeningQuestions from './components/ScreeningQuestions';
+import CompanyMatch from './components/company/CompanyMatch'
+import ScreeningQuestions from './components/candidate/ScreeningQuestions';
+import ScreeningConfirmation from './components/candidate/ScreeningConfirmation'
 
 class Router extends Component {
   constructor(props) {
@@ -43,7 +44,7 @@ class Router extends Component {
   };
 
   render() {
-    const { candidateSignedUp, userSignedUp } = this.state;
+    // const { candidateSignedUp, userSignedUp } = this.state;
 
     return (
       <Switch>
@@ -60,9 +61,10 @@ class Router extends Component {
         <Route path="/candidateAccount/:id" component={CandidateAccountView}/>
         <Route path="/positions" component={CompanyPositions} />
         <Route path="/companies" component={Companies} />
-        <Route path="/matches" component={Match} />
+        <Route path="/companymatches" component={CompanyMatch} />
         <Route path="/screening" component={ScreeningQuestions} />
-
+        <Route path="/screeningconfirmation" component={ScreeningConfirmation} />
+        <Route path="/myaccount" component={CandidateAccountView} />
 
 
         {/*{userSignedUp && (*/}

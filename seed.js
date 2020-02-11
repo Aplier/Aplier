@@ -17,6 +17,29 @@ async function seed() {
   await db.sync({force: true})
   console.log('db synced!')
 
+  const CurrentJobs = await Promise.all([
+    CurrentJob.create({
+      companyName: 'Amazon',
+      position: 'Software Developer',
+      startDate: new Date(2018, 1, 1),
+    }),
+    CurrentJob.create({
+      companyName: 'Facebook',
+      position: 'Senior Software Developer',
+      startDate: new Date(2019, 2, 2),
+    }),
+    CurrentJob.create({
+      companyName: 'Google',
+      position: 'Backend Developer',
+      startDate: new Date(2018, 2, 2),
+    }),
+    CurrentJob.create({
+      companyName: 'Apple',
+      position: 'Fullstack Developer',
+      startDate: new Date(2018, 2, 2),
+    })
+  ])
+
   const Candidates = await Promise.all([
     Candidate.create({
       firstName: 'Tina',
@@ -29,7 +52,29 @@ async function seed() {
       admin: true,
       imgURL: 'https://www.vettedpetcare.com/vetted-blog/wp-content/uploads/2018/08/How-To-Travel-With-a-Super-Anxious-Cat-square.jpeg',
       // videoURL: '',
-
+      currentjobId: 1
+    }),
+    Candidate.create({
+      firstName: 'Jane',
+      lastName: 'Bing',
+      email: 'Bing@gmail.com',
+      password: '123',
+      address: '685 5th avenue,NY, New York',
+      phone: '777-777-7777',
+      intro: 'Test Unit Designer',
+      admin: true,
+      imgURL: 'https://i.imgur.com/dmo3oL0.png',
+    }),
+    Candidate.create({
+      firstName: 'Mike',
+      lastName: 'Daniels',
+      email: 'Mike@gmail.com',
+      password: '123',
+      address: '132th St, Queens, New York',
+      phone: '777-777-7777',
+      intro: 'UX-UI Designer',
+      admin: true,
+      imgURL: 'https://i.imgur.com/kKgdwyu.png',
     }),
     Candidate.create({
       firstName: 'John',
@@ -41,7 +86,19 @@ async function seed() {
       intro: 'The best dev you can ever hire',
       admin: false,
       imgURL: 'https://vignette.wikia.nocookie.net/characters/images/6/6b/309.png/revision/latest?cb=20141230071329',
+    }),
+    Candidate.create({
+      firstName: 'Tony',
+      lastName: 'Melendez',
+      email: 'tony@gmail.com',
+      password: '123',
+      address: 'Goya Street, Santos Drive, LA',
+      phone: '111-123-1234',
+      intro: 'Cyber security Expert',
+      admin: false,
+      imgURL: 'https://i.imgur.com/fuBJCqx.png',
       // videoURL: '',
+      currentjobId: 2
     }),
     Candidate.create({
         firstName: 'Depak',
@@ -53,47 +110,20 @@ async function seed() {
         intro: 'React Master',
         admin: true,
         imgURL: 'https://www.vettedpetcare.com/vetted-blog/wp-content/uploads/2018/08/How-To-Travel-With-a-Super-Anxious-Cat-square.jpeg',
-
+        currentjobId: 3
     }),
     Candidate.create({
       firstName: 'Remi',
       lastName: 'Mendoza',
       email: 'remi@gmail.com',
       password: '123',
-      address: 'Bronx New York',
+      address: '165th St, Bronx, New York',
       phone: '646-646-6464',
       intro: 'React-Native Master',
       admin: true,
-      imgURL: 'https://www.vettedpetcare.com/vetted-blog/wp-content/uploads/2018/08/How-To-Travel-With-a-Super-Anxious-Cat-square.jpeg',
-
+      currentjobId: 4,
+      imgURL: 'https://i.imgur.com/Q7kyCzR.png',
     }),
-  ])
-
-  const CurrentJobs = await Promise.all([
-    CurrentJob.create({
-      companyName: 'Amazon',
-      position: 'Software Developer',
-      startDate: new Date(2018, 1, 1),
-      candidateId:1
-    }),
-    CurrentJob.create({
-      companyName: 'Facebook',
-      position: 'Senior Software Developer',
-      startDate: new Date(2019, 2, 2),
-      candidateId:2
-    }),
-    CurrentJob.create({
-      companyName: 'Google',
-      position: 'Backend Developer',
-      startDate: new Date(2018, 2, 2),
-      candidateId:3
-    }),
-    CurrentJob.create({
-      companyName: 'Apple',
-      position: 'Fullstack Developer',
-      startDate: new Date(2018, 2, 2),
-      candidateId:4
-    })
   ])
 
   const Companies = await Promise.all([
@@ -103,7 +133,7 @@ async function seed() {
       industry: 'Tech',
       perks: 'free Lunch',
       website: 'google.com',
-      imgUrl: 'http://tny.im/kFW',
+      imgURL: 'http://tny.im/kFW',
     }),
     Company.create({
       name: 'Twitter',
@@ -111,7 +141,7 @@ async function seed() {
       industry: 'Tech',
       perks: 'Summer Fridays',
       website: 'twitter.com',
-      imgUrl: 'http://tny.im/kFX',
+      imgURL: 'http://tny.im/kFX',
     }),
     Company.create({
       name: 'Facebook',
@@ -119,7 +149,7 @@ async function seed() {
       industry: 'Tech',
       perks: 'Unlimited Pizza',
       website: 'facebook.com',
-      imgUrl: 'http://tny.im/kFY',
+      imgURL: 'http://tny.im/kFY',
     }),
     Company.create({
       name: 'VaynerMedia',
@@ -127,7 +157,15 @@ async function seed() {
       industry: 'Tech',
       perks: '6 months parental leave',
       website: 'vaynerMedia.com',
-      imgUrl: 'http://tny.im/kG0',
+      imgURL: 'http://tny.im/kG0',
+    }),
+    Company.create({
+      name: 'Etsy',
+      location: '10 Hudson yards, New York, NY 10001',
+      industry: 'Tech',
+      perks: 'Free trips to Europe',
+      website: 'Etsy.com',
+      imgURL: 'https://i.imgur.com/idXCIgi.png',
     })
   ])
 
@@ -151,8 +189,14 @@ async function seed() {
       email: 'employee4@gmail.com',
       password: '123',
       companyId:4
+    }),
+    CompanyUser.create({
+      email: 'employee5@gmail.com',
+      password: '123',
+      companyId:5
     })
   ])
+
   const CompanyPositions = await Promise.all([
     CompanyPosition.create({
       title: 'Front-End Developer',
@@ -161,7 +205,7 @@ async function seed() {
       screeningQ1: 'What are JavaScript Data Types?',
       screeningQ2: 'What is Recursion?',
       screeningQ3: 'Explain the difference between "==" and "==="?',
-      companyId: 1,
+      companyId: 1, // google
       companyUserId: 3
     }),
     CompanyPosition.create({
@@ -170,8 +214,8 @@ async function seed() {
       salaryRange: '$95,000',
       screeningQ1: 'Explain what is pop()method in JavaScript?',
       screeningQ2: 'Explain OOP?',
-      screeningQ3: 'explain closures in JavaScript?',
-      companyId: 3,
+      screeningQ3: 'Explain closures in JavaScript?',
+      companyId: 3, // facebook
       companyUserId: 1
     }),
     CompanyPosition.create({
@@ -181,8 +225,28 @@ async function seed() {
       screeningQ1: 'What are the advantages of React Native?',
       screeningQ2: 'How many threads run in React Native?',
       screeningQ3: 'What are Hybrid Apps?',
-      companyId: 3,
-      companyUserId: 1
+      companyId: 4, // vayner
+      companyUserId: 4
+    }),
+    CompanyPosition.create({
+      title: 'GraphQl-Apollo Developer',
+      description: 'Looking for a GraphQl-Apollo Developer. skilled in Prisma',
+      salaryRange: '$124,000',
+      screeningQ1: 'What are the advantages of GraphQl?',
+      screeningQ2: 'Describe Prisma?',
+      screeningQ3: 'What is State',
+      companyId: 2, //twitter
+      companyUserId: 2
+    }),
+    CompanyPosition.create({
+      title: 'UI Designer',
+      description: 'Looking for a UI Designer.',
+      salaryRange: '$95,000',
+      screeningQ1: 'What is UI?',
+      screeningQ2: 'Walk me thru a great UX?',
+      screeningQ3: 'React native or Swift/Java & why',
+      companyId: 5, // Etsy
+      companyUserId: 5,
     }),
   ])
 
@@ -247,6 +311,9 @@ async function seed() {
     Skill.create({
       skill: 'React-Native'
     }),
+    Skill.create({
+      skill: 'GraphQl'
+    })
   ])
 
 

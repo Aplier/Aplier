@@ -1,5 +1,3 @@
-const dbConn = require('../pg-promise');
-
 const candidatePositions = `
   type CandidatePositions {
     id: ID
@@ -10,16 +8,19 @@ const candidatePositions = `
   }
 
   extend type Query {
-    positionApplied(candidateId: Int!): [CandidatePositions]
+    appliedPositions(candidateId: Int!): [CandidatePositions]
   }
 `;
 
 const candidatePositionsResolvers = {
   Query: {
-    positionApplied: (parent, args, { models }) => {
+    appliedPositions: (parent, { candidateId }, { models }) => {
       try{
         return models.CandidatePositions.findAll({
-          where: args
+          where: {
+            candidateId,
+            applied: true
+          }
         });
       }catch(err){
         console.error(err);

@@ -180,10 +180,6 @@ class TestCandidateForm extends Component {
               </button>
             </form>{' '}
             <br />
-            <button className="customeButton">
-              Continue with LinkedIn
-            </button>{' '}
-            <br />
           </div>
         </div>
       );
