@@ -14,7 +14,7 @@ const getCandidateQuery = gql`
   }
 `;
 const getCandidateByIdQuery = gql`
-query($id: ID){
+query($id: Int!){
   candidate(id: $id) {
     id
     firstName
@@ -91,6 +91,7 @@ query($id: Int!){
   }
 }
 `;
+
 
 const addCompanyMutation = gql`
   mutation AddCompany($name: String!, $location: String!, $industry: String!) {

@@ -25,6 +25,7 @@ import CandidateAccountView from './components/Candidate/CandidateAccountView';
 import CompanyPositions from './components/Company/CompanyPositions';
 import Match from './components/Company/Match'
 import ScreeningQuestions from './components/Candidate/ScreeningQuestions';
+import ScreeningConfirmation from './components/Candidate/ScreeningConfirmation'
 
 class Router extends Component {
   constructor(props) {
@@ -62,7 +63,8 @@ class Router extends Component {
         <Route path="/companies" component={Companies} />
         <Route path="/matches" component={Match} />
         <Route path="/screening" component={ScreeningQuestions} />
-
+        <Route path="/screeningconfirmation" component={ScreeningConfirmation} />
+        <Route path="/myaccount" component={CandidateAccountView} />
 
 
         {/*{userSignedUp && (*/}
