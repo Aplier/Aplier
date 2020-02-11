@@ -16,6 +16,7 @@ const Navbar = props => (
       <div className="navbar_navigation-items">
         <ul>
           <li><a href="/myaccount">My Account</a></li>
+          <li><a href="/companyaccount">Company Account</a></li>
           <li><a href="/companymatches">Matches</a></li>
           <li><a href="/candidatematches">C-Matches</a></li>
           <li><a href="/candidates">Candidates</a></li>
