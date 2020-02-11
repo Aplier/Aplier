@@ -16,16 +16,16 @@ import UserLogin from './components/Auth/Login/UserLogin/UserLogin';
 import CandidateLogin from './components/Auth/Login/CandidateLogin/CandidateLogin';
 
 //CandidatePages
-import Candidates from './components/Candidate/Candidate';
-import Companies from './components/Company/Companies';
+import Candidates from './components/candidate/Candidate';
+import Companies from './components/company/Companies';
 
 // import Positions from './components/company/Positions';
 import NewPositionForm from './components/NewPositionSignup/NewPositionForm';
-import CandidateAccountView from './components/Candidate/CandidateAccountView';
-import CompanyPositions from './components/Company/CompanyPositions';
-import Match from './components/Company/Match'
-import ScreeningQuestions from './components/Candidate/ScreeningQuestions';
-import ScreeningConfirmation from './components/Candidate/ScreeningConfirmation'
+import CandidateAccountView from './components/candidate/CandidateAccountView';
+import CompanyPositions from './components/company/CompanyPositions';
+import CompanyMatch from './components/company/CompanyMatch'
+import ScreeningQuestions from './components/candidate/ScreeningQuestions';
+import ScreeningConfirmation from './components/candidate/ScreeningConfirmation'
 
 class Router extends Component {
   constructor(props) {
@@ -61,7 +61,7 @@ class Router extends Component {
         <Route path="/candidateAccount/:id" component={CandidateAccountView}/>
         <Route path="/positions" component={CompanyPositions} />
         <Route path="/companies" component={Companies} />
-        <Route path="/matches" component={Match} />
+        <Route path="/companymatches" component={CompanyMatch} />
         <Route path="/screening" component={ScreeningQuestions} />
         <Route path="/screeningconfirmation" component={ScreeningConfirmation} />
         <Route path="/myaccount" component={CandidateAccountView} />

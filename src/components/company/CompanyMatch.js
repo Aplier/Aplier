@@ -3,7 +3,7 @@ import { graphql } from 'react-apollo';
 import {getMatchByPositionQuery} from '../../queries/queries'
 // import Candidate from '../Candidate/Candidate';
 
-class Match extends Component {
+class CompanyMatch extends Component {
   displayCandidates() {
     let data = this.props.data;
     console.log(data)
@@ -46,4 +46,4 @@ export default graphql(getMatchByPositionQuery, {
             }
         }
     }
-})(Match);
+})(CompanyMatch);
