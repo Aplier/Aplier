@@ -79,15 +79,15 @@ const getPositionsQuery = gql`
   }
 `;
 const getScreeningQuestionsQuery = gql`
-{
-  screeningQuestions {
-    id
-    title
-    screeningQ1
-    screeningQ2
-    screeningQ3
+  {
+    screeningQuestions {
+      id
+      title
+      screeningQ1
+      screeningQ2
+      screeningQ3
+    }
   }
-}
 `;
 
 const addCompanyMutation = gql`
@@ -127,8 +127,18 @@ const addCandidateMutation = gql`
 `;
 
 const addCompanyPositionMutation = gql`
-  mutation addCompanyPosition($title: String!, $description: String!, $salaryRange: String!, $companyId:Int!) {
-    addCompanyPosition(title: $title, description: $description, salaryRange: $salaryRange, companyId: $companyId ) {
+  mutation addCompanyPosition(
+    $title: String!
+    $description: String!
+    $salaryRange: String!
+    $companyId: Int!
+  ) {
+    addCompanyPosition(
+      title: $title
+      description: $description
+      salaryRange: $salaryRange
+      companyId: $companyId
+    ) {
       id
       title
       description
@@ -139,16 +149,16 @@ const addCompanyPositionMutation = gql`
 `;
 
 const getMatchByPositionQuery = gql`
-query($id: Int!){
-  companyPosition(id: $id) {
-    title
-    candidates{
-      id
-      firstName
-      lastName
+  query($id: Int!) {
+    companyPosition(id: $id) {
+      title
+      candidates {
+        id
+        firstName
+        lastName
+      }
     }
   }
-}
 `;
 
 export {
@@ -161,5 +171,5 @@ export {
   getCompanyByIdQuery,
   getCandidateByIdQuery,
   getCurrentJobByIdQuery,
-  getMatchByPositionQuery
-}
+  getMatchByPositionQuery,
+};

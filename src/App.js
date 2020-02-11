@@ -6,8 +6,8 @@ import { InMemoryCache } from 'apollo-cache-inmemory';
 import { HttpLink } from 'apollo-boost';
 
 //Auth
-// import Amplify from 'aws-amplify';
-// import aws_exports from './aws-exports';
+import Amplify from 'aws-amplify';
+import aws_exports from './aws-exports';
 
 //components
 import Router from './router';
