@@ -8,7 +8,7 @@ const companyUser = `
   }
 
   extend type Query {
-    companyUser(id: Int!): CompanyUser
+    companyUser(id: Int, email: String): CompanyUser
     companyUsers: [CompanyUser!]!
   }
 
@@ -16,8 +16,8 @@ const companyUser = `
     addCompanyUser(email: String,
                    password: String
                    companyId: Int!): CompanyUser
-    deleteCompanyUser(id: Int!): CompanyUser
-    editCompanyUser(id: Int!,
+    deleteCompanyUser(id: Int, email: String): CompanyUser
+    editCompanyUser(id: Int,
                     email: String,
                     password: String,
                     companyId: Int!): CompanyUser
@@ -26,9 +26,10 @@ const companyUser = `
 
 const companyUserResolvers = {
   Query: {
-    companyUser: (parent, { id }, { models }) => {
+    companyUser: (parent, args, { models }) => {
       try{
-        return models.CompanyUser.findByPk(id, {
+        return models.CompanyUser.findOne({
+          where: args,
           include: {
             model: models.Company
           }
@@ -60,12 +61,10 @@ const companyUserResolvers = {
       }
     },
 
-    deleteCompanyUser: (parent, { id }, { models }) => {
+    deleteCompanyUser: (parent, args, { models }) => {
       try{
         models.CompanyUser.destroy({
-          where: {
-            id: id
-          }
+          where: args
         });
       }catch(err){
         console.error(err);
@@ -76,7 +75,7 @@ const companyUserResolvers = {
       try{
         return models.CompanyUser.update(args, {
           where: {
-            id: args.id
+            companyId: args.companyId
           }
         })
       }catch(err){

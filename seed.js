@@ -17,6 +17,29 @@ async function seed() {
   await db.sync({force: true})
   console.log('db synced!')
 
+  const CurrentJobs = await Promise.all([
+    CurrentJob.create({
+      companyName: 'Amazon',
+      position: 'Software Developer',
+      startDate: new Date(2018, 1, 1),
+    }),
+    CurrentJob.create({
+      companyName: 'Facebook',
+      position: 'Senior Software Developer',
+      startDate: new Date(2019, 2, 2),
+    }),
+    CurrentJob.create({
+      companyName: 'Google',
+      position: 'Backend Developer',
+      startDate: new Date(2018, 2, 2),
+    }),
+    CurrentJob.create({
+      companyName: 'Apple',
+      position: 'Fullstack Developer',
+      startDate: new Date(2018, 2, 2),
+    })
+  ])
+
   const Candidates = await Promise.all([
     Candidate.create({
       firstName: 'Tina',
@@ -29,6 +52,7 @@ async function seed() {
       admin: true,
       imgURL: 'https://www.vettedpetcare.com/vetted-blog/wp-content/uploads/2018/08/How-To-Travel-With-a-Super-Anxious-Cat-square.jpeg',
       // videoURL: '',
+      currentjobId: 1
     }),
     Candidate.create({
       firstName: 'Jane',
@@ -74,6 +98,7 @@ async function seed() {
       admin: false,
       imgURL: 'https://i.imgur.com/fuBJCqx.png',
       // videoURL: '',
+      currentjobId: 2
     }),
     Candidate.create({
         firstName: 'Depak',
@@ -85,6 +110,7 @@ async function seed() {
         intro: 'React Master',
         admin: true,
         imgURL: 'https://www.vettedpetcare.com/vetted-blog/wp-content/uploads/2018/08/How-To-Travel-With-a-Super-Anxious-Cat-square.jpeg',
+        currentjobId: 3
     }),
     Candidate.create({
       firstName: 'Remi',
@@ -95,35 +121,9 @@ async function seed() {
       phone: '646-646-6464',
       intro: 'React-Native Master',
       admin: true,
+      currentjobId: 4
       imgURL: 'https://i.imgur.com/Q7kyCzR.png',
     }),
-  ])
-
-  const CurrentJobs = await Promise.all([
-    CurrentJob.create({
-      companyName: 'Amazon',
-      position: 'Software Developer',
-      startDate: new Date(2018, 1, 1),
-      candidateId:1
-    }),
-    CurrentJob.create({
-      companyName: 'Facebook',
-      position: 'Senior Software Developer',
-      startDate: new Date(2019, 2, 2),
-      candidateId:2
-    }),
-    CurrentJob.create({
-      companyName: 'Google',
-      position: 'Backend Developer',
-      startDate: new Date(2018, 2, 2),
-      candidateId:3
-    }),
-    CurrentJob.create({
-      companyName: 'Apple',
-      position: 'Fullstack Developer',
-      startDate: new Date(2018, 2, 2),
-      candidateId:4
-    })
   ])
 
   const Companies = await Promise.all([
