@@ -58,7 +58,7 @@ class App extends Component {
 
 // const App = props => {
 //   const link = new HttpLink({
-//     uri: 'http://localhost:5000/graphql',
+//     uri: 'http://localhost:4000/graphql',
 //     credentials: 'same-origin',
 //   });
 

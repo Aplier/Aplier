@@ -18,11 +18,12 @@ import CandidateLogin from './components/Auth/Login/CandidateLogin/CandidateLogi
 //CandidatePages
 import Candidates from './components/candidate/Candidate';
 import Companies from './components/company/Companies';
-import CompanyPositions from './components/company/CompanyPositions';
 
 // import Positions from './components/company/Positions';
 import NewPositionForm from './components/NewPositionSignup/NewPositionForm';
 import CandidateAccountView from './components/candidate/CandidateAccountView';
+import CompanyPositions from './components/company/CompanyPositions';
+import Match from './components/company/Match'
 import ScreeningQuestions from './components/ScreeningQuestions';
 
 class Router extends Component {
@@ -59,28 +60,31 @@ class Router extends Component {
         <Route path="/candidateAccount/:id" component={CandidateAccountView}/>
         <Route path="/positions" component={CompanyPositions} />
         <Route path="/companies" component={Companies} />
+        <Route path="/matches" component={Match} />
+        <Route path="/screening" component={ScreeningQuestions} />
+
+
+
         {/*{userSignedUp && (*/}
-//         <Fragment>
-//           <Route path="/candidates" component={Candidates} />
-//           <Route path="/newposition" component={NewPositionForm} />
-//           <Route path="/positions" component={CompanyPositions} />
-//         </Fragment>
+         {/* <Fragment>
+           <Route path="/candidates" component={Candidates} />
+           <Route path="/newposition" component={NewPositionForm} />
+           <Route path="/positions" component={CompanyPositions} />
+         </Fragment> */}
         {/*)}*/}
         {/* {candidateSignedUp && (*/}
-//         <Fragment>
-//           <Route
-//             path="/candidateAccount/:id"
-//             component={CandidateAccountView}
-//           />
-//           <Route path="/positions" component={CompanyPositions} />
-//           <Route path="/companies" component={Companies} />
-//           {/* <Route exact path="/companies" component={Companies} /> */}
-//         </Fragment>
-        {/*)}*/}
+       {/* <Fragment>
+           <Route
+             path="/candidateAccount/:id"
+            component={CandidateAccountView}
+          />
+         <Route path="/positions" component={CompanyPositions} />
+         <Route path="/companies" component={Companies} />
+          {/* <Route exact path="/companies" component={Companies} /> */}
+        {/* </Fragment> */}
 
-        <Route path="/screening" component={ScreeningQuestions} />
       </Switch>
-    );
+    )
   }
 }
 

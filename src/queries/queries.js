@@ -119,14 +119,28 @@ const addCandidateMutation = gql`
 `;
 
 const addCompanyPositionMutation = gql`
-  mutation AddCompanyPosition($title: String!, $description: String!, $salaryRange: String!) {
-    addCompanyPosition(title: $title, description: $description, salaryRange: $salaryRange) {
+  mutation addCompanyPosition($title: String!, $description: String!, $salaryRange: String!, $companyId:Int!) {
+    addCompanyPosition(title: $title, description: $description, salaryRange: $salaryRange, companyId: $companyId ) {
       id
       title
       description
       salaryRange
+      companyId
     }
   }
+`;
+
+const getMatchByPositionQuery = gql`
+query($id: Int!){
+  companyPosition(id: $id) {
+    title
+    candidates{
+      id
+      firstName
+      lastName
+    }
+  }
+}
 `;
 
 export {
@@ -138,5 +152,6 @@ export {
   addCompanyPositionMutation,
   getCompanyByIdQuery,
   getCandidateByIdQuery,
-  getCurrentJobByIdQuery
+  getCurrentJobByIdQuery,
+  getMatchByPositionQuery
 }

@@ -25,7 +25,7 @@ const companyPositions = `
   extend type Mutation {
     addCompanyPosition(title: String,
                        description: String,
-                       datePosted: String,
+                       salaryRange: String,
                        companyId: Int!): CompanyPositions
     deleteCompanyPosition(id: Int!): CompanyPositions
     editCompanyPosition(id: Int!,
