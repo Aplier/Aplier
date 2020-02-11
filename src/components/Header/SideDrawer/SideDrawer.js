@@ -12,7 +12,9 @@ const sideDrawer = props => {
     <nav className={drawerClasses}>
       <ul>
         <li><a href="/myaccount">My Account</a></li>
+        <li><a href="/companyaccount">Company Account</a></li>
         <li><a href="/companymatches">Matches</a></li>
+        <li><a href="/candidatematches">C-Matches</a></li>
         <li><a href="/candidates">Candidates</a></li>
         <li><a href="/newposition">Add Position</a></li>
         <li><a href="/positions">Positions</a></li>

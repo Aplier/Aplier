@@ -22,7 +22,6 @@ class CompanyPositions extends Component {
     if (data.loading) {
       return <div>Loading Positions...</div>;
     } else {
-      console.log('WHAT IS MY PROPS', this.props);
       return data.companyPositions.map(position => {
         return (
           <div className="mapPos" key={position.id}>

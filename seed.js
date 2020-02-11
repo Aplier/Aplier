@@ -37,6 +37,21 @@ async function seed() {
       companyName: 'Apple',
       position: 'Fullstack Developer',
       startDate: new Date(2018, 2, 2),
+    }),
+    CurrentJob.create({
+      companyName: 'Etsy',
+      position: 'ios Developer',
+      startDate: new Date(2018, 2, 2),
+    }),
+    CurrentJob.create({
+      companyName: 'Fullstack Academy',
+      position: 'Fullstack Instructor',
+      startDate: new Date(2018, 2, 2),
+    }),
+    CurrentJob.create({
+      companyName: 'Samsung',
+      position: 'Andriod Developer',
+      startDate: new Date(2018, 2, 2),
     })
   ])
 
@@ -64,6 +79,7 @@ async function seed() {
       intro: 'Test Unit Designer',
       admin: true,
       imgURL: 'https://i.imgur.com/dmo3oL0.png',
+      currentjobId: 2
     }),
     Candidate.create({
       firstName: 'Mike',
@@ -75,6 +91,7 @@ async function seed() {
       intro: 'UX-UI Designer',
       admin: true,
       imgURL: 'https://i.imgur.com/kKgdwyu.png',
+      currentjobId: 3
     }),
     Candidate.create({
       firstName: 'John',
@@ -86,6 +103,7 @@ async function seed() {
       intro: 'The best dev you can ever hire',
       admin: false,
       imgURL: 'https://vignette.wikia.nocookie.net/characters/images/6/6b/309.png/revision/latest?cb=20141230071329',
+      currentjobId: 4
     }),
     Candidate.create({
       firstName: 'Tony',
@@ -98,7 +116,7 @@ async function seed() {
       admin: false,
       imgURL: 'https://i.imgur.com/fuBJCqx.png',
       // videoURL: '',
-      currentjobId: 2
+      currentjobId: 5
     }),
     Candidate.create({
         firstName: 'Depak',
@@ -110,7 +128,7 @@ async function seed() {
         intro: 'React Master',
         admin: true,
         imgURL: 'https://www.vettedpetcare.com/vetted-blog/wp-content/uploads/2018/08/How-To-Travel-With-a-Super-Anxious-Cat-square.jpeg',
-        currentjobId: 3
+        currentjobId: 6
     }),
     Candidate.create({
       firstName: 'Remi',
@@ -121,8 +139,8 @@ async function seed() {
       phone: '646-646-6464',
       intro: 'React-Native Master',
       admin: true,
-      currentjobId: 4,
       imgURL: 'https://i.imgur.com/Q7kyCzR.png',
+      currentjobId: 7
     }),
   ])
 
@@ -131,7 +149,7 @@ async function seed() {
       name: 'Google',
       location: '111 8th Avenue, NY 10011',
       industry: 'Tech',
-      perks: 'free Lunch',
+      perks: 'Free Lunch, and work naps',
       website: 'google.com',
       imgURL: 'http://tny.im/kFW',
     }),
@@ -199,8 +217,8 @@ async function seed() {
 
   const CompanyPositions = await Promise.all([
     CompanyPosition.create({
-      title: 'Front-End Developer',
-      description: 'Looking for a Front-End Developer. skilled in frameworks such as React or Angular based in the New York City area!',
+      title: 'Fullstack Developer',
+      description: 'Looking for a Fullstack Developer skilled in the NERD stack and based in the New York City area!',
       salaryRange: '$85,000',
       screeningQ1: 'What are JavaScript Data Types?',
       screeningQ2: 'What is Recursion?',
@@ -272,6 +290,34 @@ async function seed() {
       major: 'Political Science and Governmenet',
       gradDate: new Date(2014, 5, 30),
       candidateId: 3
+    }),
+    Education.create({
+      name: 'NYU',
+      degree: 'Bachelor',
+      major: 'Chemical Engineering',
+      gradDate: new Date(2014, 5, 30),
+      candidateId: 4
+    }),
+    Education.create({
+      name: 'UCLA',
+      degree: 'Bachelor',
+      major: 'Accounting',
+      gradDate: new Date(2014, 5, 30),
+      candidateId: 5
+    }),
+    Education.create({
+      name: 'USC',
+      degree: 'Bachelor',
+      major: 'Finance',
+      gradDate: new Date(2014, 5, 30),
+      candidateId: 6
+    }),
+    Education.create({
+      name: 'Columbia University',
+      degree: 'Bachelor',
+      major: 'Electrical Engineering',
+      gradDate: new Date(2014, 5, 30),
+      candidateId: 7
     }),
   ])
 

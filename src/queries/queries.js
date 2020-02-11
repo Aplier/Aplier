@@ -10,6 +10,11 @@ const getCandidateQuery = gql`
       intro
       address
       email
+      currentjob{
+        id
+        companyName
+        position
+      }
     }
   }
 `;
@@ -21,6 +26,9 @@ query($id: Int!){
     lastName
     address
     email
+    imgURL
+    phone
+    intro
   }
 }
 `;
@@ -46,6 +54,7 @@ query($id: Int!){
     location
     perks
     website
+    imgURL
   }
 }
 `;
@@ -60,6 +69,15 @@ query($candidateId: Int!){
   }
 }
 `;
+
+const getEduById = gql`
+query($candidateId: Int!){
+  education(candidateId:$candidateId){
+    name
+    major
+  }
+}
+`
 
 
 const getPositionsQuery = gql`
@@ -141,6 +159,17 @@ query($id: Int!){
 }
 `;
 
+const getMatchByCandidateQuery = gql`
+query($id: Int!){
+  candidate(id: $id) {
+    companyPositions{
+      id
+      title
+    }
+  }
+}
+`;
+
 export {
   getCandidateQuery,
   getCompaniesQuery,
@@ -152,5 +181,7 @@ export {
   getCandidateByIdQuery,
   getCurrentJobByIdQuery,
   getMatchByPositionQuery,
-  getScreeningByPositionByIdQuery
+  getScreeningByPositionByIdQuery,
+  getMatchByCandidateQuery,
+  getEduById
 }

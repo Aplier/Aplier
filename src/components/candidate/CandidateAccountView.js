@@ -24,11 +24,40 @@ class CandidateAccount extends Component {
     } else {
       return (
         <div>
-          <h1>
-            Welcome {given_name} {family_name}
-          </h1>
-          <p>{address}</p>
-          <p>{email}</p>
+          <div className="formContainer">
+            <h3 className="welcomeAccount">
+              Welcome {data.candidate.firstName}
+            </h3>
+            <img
+              className="circleAccount"
+              src={data.candidate.imgURL}
+              alt="screeningImage"
+            />{' '}
+            <button className="customeButton" type="submit">
+              Change Photo
+            </button>{' '}
+            <br />
+            <h4 className="accountList">Full Name</h4>
+            <p className="accountListData">
+              {given_name} {family_name}
+            </p>
+            <hr></hr>
+            <h4 className="accountList">Address</h4>
+            <p className="accountListData">{address}</p>
+            <hr></hr>
+            <h4 className="accountList">Email</h4>
+            <p className="accountListData">{email}</p>
+            <hr></hr>
+            <h4 className="accountList">Phone</h4>
+            <p className="accountListData">{data.candidate.phone}</p>
+            <hr></hr>
+            <h4 className="accountList">Intro</h4>
+            <p className="accountListData">{data.candidate.intro}</p>
+            <hr></hr>
+            <button className="customeButton" type="submit">
+              Edit Account
+            </button>
+          </div>
         </div>
       );
     }
@@ -44,10 +73,10 @@ class CandidateAccount extends Component {
 }
 
 export default graphql(getCandidateByIdQuery, {
-  options: props => {
+  options: () => {
     return {
       variables: {
-        id: props.candidateId,
+        id: 1,
       },
     };
   },

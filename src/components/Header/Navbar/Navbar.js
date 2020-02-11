@@ -34,7 +34,13 @@ const Navbar = props => (
             <a href="/myaccount">My Account</a>
           </li>
           <li>
+            <a href="/companyaccount">Company Account</a>
+          </li>
+          <li>
             <a href="/companymatches">Matches</a>
+          </li>
+          <li>
+            <a href="/candidatematches">C-Matches</a>
           </li>
           <li>
             <a href="/candidates">Candidates</a>
@@ -51,7 +57,7 @@ const Navbar = props => (
           <li>
             <a href="/screening">Screening</a>
           </li>
-          <li type="submit" onSubmit={handleSubmit}>
+          <li>
             <a href="/">Sign out</a>
           </li>
         </ul>
