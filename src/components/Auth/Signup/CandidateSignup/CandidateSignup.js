@@ -17,27 +17,27 @@ class TestCandidateForm extends Component {
       intro: '',
       imgURL: '',
       vidURL: '',
-      candidateSignedUp: false,
+      candidateSignedUp: '',
       confirmationCode: '',
     };
   }
 
   signUp = () => {
-    // const { email, password, firstName, lastName, address } = this.state;
-    const { email, password } = this.state;
+    const { email, password, firstName, lastName, address } = this.state;
     Auth.signUp({
       username: email,
       password: password,
-      // attributes: {
-      //   firstName: firstName,
-      //   lastName: lastName,
-      //   address: address,
-      // },
+      attributes: {
+        given_name: firstName,
+        family_name: lastName,
+        address: address,
+      },
     })
+      .then(data => console.log('SIgned Up', data))
       .then(() => {
         console.log('Welcome to Aplier');
       })
-      .catch(err => console.log('Error', err));
+      .catch(err => console.log('Failed', err));
   };
 
   confirmSignUp = () => {
@@ -85,12 +85,6 @@ class TestCandidateForm extends Component {
     event.target.reset();
   };
 
-  handleChange = event => {
-    this.setState({
-      [event.target.name]: event.target.value,
-    });
-  };
-
   render() {
     const { candidateSignedUp } = this.state;
 
@@ -102,7 +96,9 @@ class TestCandidateForm extends Component {
             <input
               id="confirmationCode"
               type="text"
-              onChange={this.handleChange}
+              onChange={event =>
+                this.setState({ confirmationCode: event.target.value })
+              }
             />
             <button>Confirm Sign Up</button>
           </form>
@@ -117,6 +113,7 @@ class TestCandidateForm extends Component {
               className="circleCompany"
               src="https://i.imgur.com/cPUORG1.png"
               alt="CandidateImage"
+              type="image"
             />{' '}
             <br />
             <form onSubmit={this.handleSubmit}>
@@ -127,6 +124,7 @@ class TestCandidateForm extends Component {
                   this.setState({ firstName: event.target.value })
                 }
                 value={this.state.firstName}
+                type="text"
                 required
               />{' '}
               <br /> <br />
@@ -137,6 +135,7 @@ class TestCandidateForm extends Component {
                   this.setState({ lastName: event.target.value })
                 }
                 value={this.state.lastName}
+                type="text"
               />{' '}
               <br /> <br />
               <label className="Clabel">Address</label>
@@ -146,6 +145,7 @@ class TestCandidateForm extends Component {
                   this.setState({ address: event.target.value })
                 }
                 value={this.state.address}
+                type="text"
                 required
               />{' '}
               <br /> <br />
@@ -154,6 +154,7 @@ class TestCandidateForm extends Component {
                 className="Cinput"
                 onChange={event => this.setState({ email: event.target.value })}
                 value={this.state.email}
+                type="email"
                 required
               />{' '}
               <br /> <br />
@@ -164,6 +165,7 @@ class TestCandidateForm extends Component {
                   this.setState({ password: event.target.value })
                 }
                 value={this.state.password}
+                type="password"
                 required
               />{' '}
               <br /> <br />
