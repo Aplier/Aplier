@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { graphql } from 'react-apollo';
 
-import { getPositionsQuery } from '../queries/queries'
+import { getPositionsQuery } from '../../queries/queries'
 
 class ScreeningQuestions extends Component {
 

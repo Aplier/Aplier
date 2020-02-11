@@ -23,8 +23,8 @@ class TestCandidateForm extends Component {
   }
 
   signUp = () => {
-    const { email, password, firstName, lastName, address } = this.state;
-
+    // const { email, password, firstName, lastName, address } = this.state;
+    const { email, password } = this.state;
     Auth.signUp({
       username: email,
       password: password,

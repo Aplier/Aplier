@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { graphql } from 'react-apollo';
 import {getMatchByPositionQuery} from '../../queries/queries'
-import Candidate from '../candidate/Candidate';
+// import Candidate from '../Candidate/Candidate';
 
 class Match extends Component {
   displayCandidates() {
