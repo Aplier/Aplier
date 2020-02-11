@@ -14,7 +14,7 @@ const getCandidateQuery = gql`
   }
 `;
 const getCandidateByIdQuery = gql`
-query($id: ID){
+query($id: Int!){
   candidate(id: $id) {
     id
     firstName
@@ -79,9 +79,10 @@ const getPositionsQuery = gql`
   }
 }
 `;
-const getScreeningQuestionsQuery = gql`
-{
-  screeningQuestions {
+
+const getScreeningByPositionByIdQuery = gql`
+query($id: Int!){
+  companyPosition(id: $id){
     id
     title
     screeningQ1
@@ -90,9 +91,6 @@ const getScreeningQuestionsQuery = gql`
   }
 }
 `;
-
-
-
 
 
 const addCompanyMutation = gql`
@@ -153,5 +151,6 @@ export {
   getCompanyByIdQuery,
   getCandidateByIdQuery,
   getCurrentJobByIdQuery,
-  getMatchByPositionQuery
+  getMatchByPositionQuery,
+  getScreeningByPositionByIdQuery
 }
