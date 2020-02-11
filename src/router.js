@@ -68,6 +68,8 @@ class Router extends Component {
         <Route path="/screening" component={ScreeningQuestions} />
         <Route path="/screeningconfirmation" component={ScreeningConfirmation} />
         <Route path='/edu' component={Education} />
+        <Route path="/positions" component={CompanyPositions} />
+
 
         <Route path="/myaccount" component={CandidateAccount} />
         <Route path="/companyaccount" component={CompanyAccount} />
