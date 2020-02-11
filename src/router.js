@@ -77,12 +77,8 @@ class Router extends Component {
         )}
         {this.state.isCandidateLoggedIn && (
           <Switch>
-            <Route path="/myaccount" component={CandidateAccountView} />
+            <Route path="/myaccount" component={CandidateAccount} />
             <Route path="/positions" component={CompanyPositions} />
-            <Route
-              path="/candidateAccount/:id"
-              component={CandidateAccountView}
-            />
           </Switch>
         )}
 
