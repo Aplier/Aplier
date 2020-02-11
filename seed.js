@@ -149,7 +149,7 @@ async function seed() {
       name: 'Google',
       location: '111 8th Avenue, NY 10011',
       industry: 'Tech',
-      perks: 'free Lunch',
+      perks: 'Free Lunch, and work naps',
       website: 'google.com',
       imgURL: 'http://tny.im/kFW',
     }),
