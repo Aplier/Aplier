@@ -58,7 +58,8 @@ class Candidate extends Component {
             <h3>
               {candidate.firstName} {candidate.lastName}
             </h3>
-            <p>{candidate.address}</p>
+            
+            <p> <img alt="icon"className="icon" src="https://cdn3.iconfinder.com/data/icons/unicons-vector-icons-pack/32/location-512.png"/> {candidate.address}</p>
             {/* <p>{candidate.phone}</p> */}
             <p>{candidate.email}</p>
             <p>{candidate.intro}</p>
@@ -89,8 +90,12 @@ class Candidate extends Component {
             {candidateArr&&candidateArr.length>0?
             <div className="allCandidates"> {this.displayCandidates()}</div>
             :
-            <div>
-              <p>HAI</p>
+            <div className="noCandidates">
+              <p>You've reached the end of the Candidate list...</p>
+              <img alt="comeback_later" src="https://acegif.com/wp-content/uploads/tea.gif"/>
+              <p>Take a coffee break and come back later,</p>
+              <p>we will have more candidates waiting for you!</p>
+
             </div>
           }
         </div>

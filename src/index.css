@@ -237,3 +237,13 @@ border-radius: 0%;
   border:none;
   transition-duration: 0.4s;
 }
+
+.noCandidates{
+  padding-top: 100px;
+  text-align: center;
+}
+
+img.icon{
+  width: 20px;
+  height:20px
+}

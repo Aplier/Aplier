@@ -36,8 +36,8 @@ class Router extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      isCandidateLoggedIn: false,
-      isUserLoggedIn: false,
+      isCandidateLoggedIn: true,
+      isUserLoggedIn: true,
     };
   }
 
