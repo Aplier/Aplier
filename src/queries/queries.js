@@ -79,9 +79,10 @@ const getPositionsQuery = gql`
   }
 }
 `;
-const getScreeningQuestionsQuery = gql`
-{
-  screeningQuestions {
+
+const getScreeningByPositionByIdQuery = gql`
+query($id: Int!){
+  companyPosition(id: $id){
     id
     title
     screeningQ1
@@ -90,10 +91,6 @@ const getScreeningQuestionsQuery = gql`
   }
 }
 `;
-
-
-
-
 
 const addCompanyMutation = gql`
   mutation AddCompany($name: String!, $location: String!, $industry: String!) {
@@ -153,5 +150,6 @@ export {
   getCompanyByIdQuery,
   getCandidateByIdQuery,
   getCurrentJobByIdQuery,
-  getMatchByPositionQuery
+  getMatchByPositionQuery,
+  getScreeningByPositionByIdQuery
 }

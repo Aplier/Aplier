@@ -170,7 +170,7 @@ async function seed() {
       salaryRange: '$95,000',
       screeningQ1: 'Explain what is pop()method in JavaScript?',
       screeningQ2: 'Explain OOP?',
-      screeningQ3: 'explain closures in JavaScript?',
+      screeningQ3: 'Explain closures in JavaScript?',
       companyId: 3,
       companyUserId: 1
     }),

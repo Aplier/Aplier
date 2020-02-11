@@ -160,6 +160,14 @@ padding-top: 50px
   width: 150px;
   height: 150px;
 }
+.circleScreening {
+  margin-top: 20%;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  width: 150px;
+  height: 150px;
+}
+
 .Cform{
   background-color: rgb(115, 149, 173);
 
