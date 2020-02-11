@@ -26,7 +26,7 @@ class CandidateAccount extends Component {
         <div>
           <div className="formContainer">
             <h3 className="welcomeAccount">
-              Welcome {data.candidate.firstName}
+              Welcome {give_name}
             </h3>
             <img
               className="circleAccount"
