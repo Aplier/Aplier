@@ -25,9 +25,7 @@ class CandidateAccount extends Component {
       return (
         <div>
           <div className="formContainer">
-            <h3 className="welcomeAccount">
-              Welcome {give_name}
-            </h3>
+            <h3 className="welcomeAccount">Welcome {given_name}</h3>
             <img
               className="circleAccount"
               src={data.candidate.imgURL}

@@ -113,6 +113,7 @@ class TestCandidateForm extends Component {
               className="circleCompany"
               src="https://i.imgur.com/cPUORG1.png"
               alt="CandidateImage"
+              type="image"
             />{' '}
             <br />
             <form onSubmit={this.handleSubmit}>
@@ -123,6 +124,7 @@ class TestCandidateForm extends Component {
                   this.setState({ firstName: event.target.value })
                 }
                 value={this.state.firstName}
+                type="text"
                 required
               />{' '}
               <br /> <br />
@@ -133,6 +135,7 @@ class TestCandidateForm extends Component {
                   this.setState({ lastName: event.target.value })
                 }
                 value={this.state.lastName}
+                type="text"
               />{' '}
               <br /> <br />
               <label className="Clabel">Address</label>
@@ -142,6 +145,7 @@ class TestCandidateForm extends Component {
                   this.setState({ address: event.target.value })
                 }
                 value={this.state.address}
+                type="text"
                 required
               />{' '}
               <br /> <br />
@@ -150,6 +154,7 @@ class TestCandidateForm extends Component {
                 className="Cinput"
                 onChange={event => this.setState({ email: event.target.value })}
                 value={this.state.email}
+                type="email"
                 required
               />{' '}
               <br /> <br />
@@ -160,6 +165,7 @@ class TestCandidateForm extends Component {
                   this.setState({ password: event.target.value })
                 }
                 value={this.state.password}
+                type="password"
                 required
               />{' '}
               <br /> <br />
