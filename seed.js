@@ -157,7 +157,7 @@ async function seed() {
     CompanyPosition.create({
       title: 'Front-End Developer',
       description: 'Looking for a Front-End Developer. skilled in frameworks such as React or Angular based in the New York City area!',
-      salaryRange: '$85,0000',
+      salaryRange: '$85,000',
       screeningQ1: 'What are JavaScript Data Types?',
       screeningQ2: 'What is Recursion?',
       screeningQ3: 'Explain the difference between "==" and "==="?',
@@ -167,7 +167,7 @@ async function seed() {
     CompanyPosition.create({
       title: 'Front-End Developer',
       description: 'Looking for a Back-End Developer. skilled in Javascript Concepts',
-      salaryRange: '$95,0000',
+      salaryRange: '$95,000',
       screeningQ1: 'Explain what is pop()method in JavaScript?',
       screeningQ2: 'Explain OOP?',
       screeningQ3: 'explain closures in JavaScript?',
@@ -177,7 +177,7 @@ async function seed() {
     CompanyPosition.create({
       title: 'React-Native Developer',
       description: 'Looking for a React-Native Developer. skilled in Javascript Concepts',
-      salaryRange: '$75,0000',
+      salaryRange: '$75,000',
       screeningQ1: 'What are the advantages of React Native?',
       screeningQ2: 'How many threads run in React Native?',
       screeningQ3: 'What are Hybrid Apps?',

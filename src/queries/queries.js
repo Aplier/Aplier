@@ -79,6 +79,17 @@ const getPositionsQuery = gql`
   }
 }
 `;
+const getScreeningQuestionsQuery = gql`
+{
+  screeningQuestions {
+    id
+    title
+    screeningQ1
+    screeningQ2
+    screeningQ3
+  }
+}
+`;
 
 
 
@@ -108,12 +119,13 @@ const addCandidateMutation = gql`
 `;
 
 const addCompanyPositionMutation = gql`
-  mutation AddCompanyPosition($title: String!, $description: String!, $salaryRange: String!) {
-    addCompanyPosition(title: $title, description: $description, salaryRange: $salaryRange) {
+  mutation addCompanyPosition($title: String!, $description: String!, $salaryRange: String!, $companyId:Int!) {
+    addCompanyPosition(title: $title, description: $description, salaryRange: $salaryRange, companyId: $companyId ) {
       id
       title
       description
       salaryRange
+      companyId
     }
   }
 `;

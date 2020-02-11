@@ -18,8 +18,6 @@ import { getCandidateQuery} from '../../queries/queries';
 
 
 
-
-
 class Candidate extends Component {
   constructor(){
     super()
@@ -44,6 +42,7 @@ class Candidate extends Component {
     } else {
       console.log(("WHAT IS DATA ---->", data))
       return data.candidates.map(candidate => {
+        console.log(data)
         return (
           <div className="mapCandidates" key={candidate.id}>
             <img src={candidate.imgURL} alt="candidate img" />
@@ -58,7 +57,7 @@ class Candidate extends Component {
             <p>PLACE HOLDER FOR CURRENT JOB</p>
             <p>PLACE HOLDER FOR PREVIOUS JOB</p>
             <div>
-  
+
             <img className="thumbs" alt='down'src="https://img.icons8.com/ultraviolet/40/000000/poor-quality.png"></img>
             <img onClick={()=>this.onClick(candidate.id)}className="thumbs" alt='up'src="https://img.icons8.com/ultraviolet/40/000000/good-quality.png"></img>
             </div>

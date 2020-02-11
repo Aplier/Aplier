@@ -11,8 +11,8 @@ const candidate = `
     imgURL: String
     videoURL: String
     skills: [Skill]
-    positions: [CompanyPositions]
-  }
+    companyPositions: [CompanyPositions]
+    }
 
   extend type Query {
     candidate(id: Int!): Candidate

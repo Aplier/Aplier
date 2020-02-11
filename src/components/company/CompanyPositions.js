@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { graphql } from 'react-apollo';
 // import TestComp from './testComp'
 // import * as compose from 'lodash.flowright';
-import compose from 'lodash.flowright';
 import { getPositionsQuery } from '../../queries/queries';
 
 class CompanyPositions extends Component {
