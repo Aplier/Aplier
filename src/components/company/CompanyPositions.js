@@ -10,11 +10,24 @@ class CompanyPositions extends Component {
     this.state = {
       liked: [],
     };
-    this.onClick = this.onClick.bind(this);
+    this.clickThumb = this.clickThumb.bind(this);
   }
-  onClick(candidateId) {
-    this.state.liked.push(candidateId);
-    this.props.history.push('/candidates');
+
+  clickThumb(click){
+    const {id, thumb} = click;
+    const positions = this.props.data.companyPositions;
+    const val = positions.find(position => position.id === id);
+    const index = positions.indexOf(val);
+    this.props.data.companyPositions.splice(index,1);
+    if(thumb === "up") {
+      this.setState({
+        liked: [...this.state.liked, id]
+      });
+    } else {
+      this.setState({
+        liked: [...this.state.liked]
+      });
+    }
   }
 
   displayCompanyPositions() {
@@ -39,17 +52,14 @@ class CompanyPositions extends Component {
             <p>{position.company.location}</p>
             <p>{position.company.website}</p>
             <div>
-              <img
-                className="thumbs"
-                alt="down"
-                src="https://img.icons8.com/ultraviolet/40/000000/poor-quality.png"
-              ></img>
-              <img
-                onClick={() => this.onClick(position.id)}
-                className="thumbs"
-                alt="up"
-                src="https://img.icons8.com/ultraviolet/40/000000/good-quality.png"
-              ></img>
+              <img className="thumbs"
+                   alt="down" src="https://img.icons8.com/ultraviolet/40/000000/poor-quality.png"
+                   onClick={()=>this.clickThumb({id: position.id, thumb: "down"})}>
+              </img>
+              <img className="thumbs"
+                   alt="up" src="https://img.icons8.com/ultraviolet/40/000000/good-quality.png"
+                   onClick={()=>this.clickThumb({id: position.id, thumb: "up"})}>
+              </img>
             </div>
           </div>
         );
@@ -57,10 +67,19 @@ class CompanyPositions extends Component {
     }
   }
   render() {
+    const positionArr = this.props.data.companyPositions;
+
     return (
       <div>
         <p className="miniLogo">Aplier</p>
-        <div className="allPos"> {this.displayCompanyPositions()}</div>
+        {
+          positionArr && positionArr.length > 0 ?
+          <div className="allPos"> {this.displayCompanyPositions()}</div>
+          :
+          <div>
+            <h1>Harold</h1>
+          </div>
+        }
       </div>
     );
   }
