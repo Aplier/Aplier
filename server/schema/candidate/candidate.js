@@ -11,8 +11,8 @@ const candidate = `
     imgURL: String
     videoURL: String
     skills: [Skill]
-    positions: [CompanyPositions]
-  }
+    companyPositions: [CompanyPositions]
+    }
 
   extend type Query {
     candidate(id: Int!): Candidate
@@ -57,9 +57,13 @@ const candidateResolvers = {
     candidates: (parent, args, { models }) => {
       try{
         return models.Candidate.findAll({
-          include: {
+          include: [{
             model: models.Skill
           }
+          // ,{
+          //   model: models.CompanyPositions
+          // }
+        ]
         });
       }catch(err){
         console.error(err);

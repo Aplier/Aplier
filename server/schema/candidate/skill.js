@@ -3,6 +3,7 @@ const skill = `
     id: ID
     skill: String
     candidates: [Candidate]
+    companyPositions: [CompanyPositions]
   }
 
   extend type Query {

@@ -22,6 +22,7 @@ class NewPositionForm extends Component {
         title: this.state.title,
         description: this.state.description,
         salaryRange: this.state.salarayRange,
+        companyId: 1,
         screeningQ1: this.state.screeningQ1,
         screeningQ2: this.state.screeningQ1,
         screeningQ3: this.state.screeningQ1,
