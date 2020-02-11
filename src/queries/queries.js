@@ -21,6 +21,9 @@ query($id: Int!){
     lastName
     address
     email
+    imgURL
+    phone
+    intro
   }
 }
 `;
@@ -46,6 +49,7 @@ query($id: Int!){
     location
     perks
     website
+    imgURL
   }
 }
 `;
