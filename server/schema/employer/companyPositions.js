@@ -18,7 +18,9 @@ const companyPositions = `
   }
 
   extend type Query {
-    companyPosition(id: Int!): CompanyPositions
+    companyPosition(id: Int,
+                    title: String,
+                    companyId: Int): CompanyPositions
     companyPositions: [CompanyPositions!]!
   }
 
@@ -43,9 +45,10 @@ const companyPositions = `
 
 const companyPositionsResolvers = {
   Query: {
-    companyPosition: (parent, { id }, { models }) => {
+    companyPosition: (parent, args, { models }) => {
       try{
-        return models.CompanyPosition.findByPk(id, {
+        return models.CompanyPosition.findOne({
+          where: args,
           include: [{
             model: models.Company
           },{

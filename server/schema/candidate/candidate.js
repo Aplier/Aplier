@@ -10,6 +10,7 @@ const candidate = `
     intro: String
     imgURL: String
     videoURL: String
+    currentjob: CurrentJob
     skills: [Skill]
     companyPositions: [CompanyPositions]
     }
@@ -44,6 +45,8 @@ const candidateResolvers = {
       try{
         return models.Candidate.findByPk(id, {
           include: [{
+            model: models.CurrentJob
+          },{
             model: models.Skill
           },{
             model: models.CompanyPosition
@@ -58,12 +61,12 @@ const candidateResolvers = {
       try{
         return models.Candidate.findAll({
           include: [{
+            model: models.CurrentJob
+          },{
             model: models.Skill
-          }
-          // ,{
-          //   model: models.CompanyPositions
-          // }
-        ]
+          },{
+            model: models.CompanyPosition
+          }]
         });
       }catch(err){
         console.error(err);

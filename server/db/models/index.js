@@ -13,8 +13,8 @@ const CandidatePositions = require('./candidate/candidatePositions')
 
 //1-1
 // currentJob and Candidate? candidate should have 1 currentJob, current job can belong to 1 candidate?
-CurrentJob.belongsTo(Candidate)
-Candidate.hasOne(CurrentJob)
+Candidate.belongsTo(CurrentJob)
+CurrentJob.hasOne(Candidate)
 
 // 1-many
 // edu and candidate? candidate can have multiple edu, edu can belong to only 1 candidate?

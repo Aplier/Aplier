@@ -1,5 +1,3 @@
-const dbConn = require('../pg-promise');
-
 const positionSkills = `
   type PositionSkills {
     companyPositionId: ID

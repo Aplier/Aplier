@@ -4,23 +4,37 @@ const currentJob = `
     companyName: String
     position: String
     startDate: String
-    candidateId: ID
-    candidate: Candidate
   }
 
   extend type Query {
-    currentJob(candidateId: Int!): CurrentJob
+    currentJob(id: Int!): CurrentJob
+  }
+
+  extend type Mutation {
+    editCurrentJob(id: Int!,
+                   companyName: String,
+                   position: String,
+                   startDate: String): CurrentJob
   }
 `;
 
 const currentJobResolvers = {
   Query: {
-    currentJob: (parent, args, { models }) => {
+    currentJob: (parent, { id }, { models }) => {
       try{
-        return models.CurrentJob.findOne({
-          where: args,
-          include: {
-            model: models.Candidate
+        return models.CurrentJob.findByPk(id);
+      }catch(err){
+        console.error(err);
+      }
+    }
+  },
+
+  Mutation: {
+    editCurrentJob: (parent, args, { models }) => {
+      try{
+        return models.CurrentJob.update(args, {
+          where: {
+            id: args.id
           }
         });
       }catch(err){

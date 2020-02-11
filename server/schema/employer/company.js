@@ -11,7 +11,7 @@ const company = `
   }
 
   extend type Query {
-    company(id: Int!): Company
+    company(id: Int, name: String): Company
     companies: [Company!]!
   }
 
@@ -19,7 +19,7 @@ const company = `
     addCompany(name: String!,
                industry: String!,
                location: String!): Company
-    deleteCompany(id: Int!): Company
+    deleteCompany(id: Int, name: String): Company
     editCompany(id: Int!,
                 name: String,
                 location: String,
@@ -33,9 +33,11 @@ const company = `
 
 const companyResolvers = {
   Query: {
-    company: (parent, { id }, { models }) => {
+    company: (parent, args, { models }) => {
       try{
-        return models.Company.findByPk(id);
+        return models.Company.findOne({
+          where: args
+        });
       }catch(err){
         console.error(err);
       }
@@ -59,12 +61,10 @@ const companyResolvers = {
       }
     },
 
-    deleteCompany: (parent, { id }, { models }) => {
+    deleteCompany: (parent, args, { models }) => {
       try{
         models.Company.destroy({
-          where: {
-            id: id
-          }
+          where: args
         });
       }catch(err){
         console.error(err);
