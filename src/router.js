@@ -18,6 +18,8 @@ import CandidateLogin from './components/Auth/Login/CandidateLogin/CandidateLogi
 //CandidatePages
 import Candidates from './components/candidate/Candidate';
 import Companies from './components/company/Companies';
+import CandidateMatch from './components/candidate/CandidateMatch'
+import Education from './components/candidate/CandidateEdu'
 
 // import Positions from './components/company/Positions';
 import NewPositionForm from './components/NewPositionSignup/NewPositionForm';
@@ -62,9 +64,11 @@ class Router extends Component {
         <Route path="/positions" component={CompanyPositions} />
         <Route path="/companies" component={Companies} />
         <Route path="/companymatches" component={CompanyMatch} />
+        <Route path='/candidatematches' component={CandidateMatch}/>
         <Route path="/screening" component={ScreeningQuestions} />
         <Route path="/screeningconfirmation" component={ScreeningConfirmation} />
         <Route path="/myaccount" component={CandidateAccountView} />
+        <Route path='/edu' component={Education} />
 
 
         {/*{userSignedUp && (*/}

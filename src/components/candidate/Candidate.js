@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { graphql } from 'react-apollo';
 import { getCandidateQuery} from '../../queries/queries';
+import Education from './CandidateEdu'
 
 // const getCandidate = graphql(getCandidateQuery,{
 //   props:({data}) => ({
@@ -56,9 +57,7 @@ class Candidate extends Component {
             {/* <p>{candidate.phone}</p> */}
             <p>{candidate.email}</p>
             <p>{candidate.intro}</p>
-            <p>PLACE HOLDER FOR EDU</p>
-            <p>PLACE HOLDER FOR CURRENT JOB</p>
-            <p>PLACE HOLDER FOR PREVIOUS JOB</p>
+            <Education candidateId={candidate.id}/>
             <div>
             <img onClick={()=>this.toggleHidden()}className="thumbs" alt='down'src="https://img.icons8.com/ultraviolet/40/000000/poor-quality.png"></img>
             <img onClick={()=>this.clickLike(candidate.id)}className="thumbs" alt='up'src="https://img.icons8.com/ultraviolet/40/000000/good-quality.png"></img>

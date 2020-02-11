@@ -9,10 +9,10 @@ class LandingPage extends Component {
           <h1>Aplier</h1>
         </div>
         <div className="landingInfo">
-          <button className="customeButton">
+          <button className="homeButton">
             <Link to="/signup">Signup</Link>
           </button> <br />
-          <button className='customeButton'>
+          <button className='homeButton'>
             <Link to="/login">Login</Link>
           </button>
         </div>
