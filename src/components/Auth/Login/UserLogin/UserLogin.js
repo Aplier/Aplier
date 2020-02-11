@@ -7,6 +7,7 @@ class UserLogin extends Component {
     this.state = {
       email: '',
       password: '',
+      isUserLoggedIn: false,
     };
   }
 
