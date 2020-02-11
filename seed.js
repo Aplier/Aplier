@@ -121,7 +121,7 @@ async function seed() {
       phone: '646-646-6464',
       intro: 'React-Native Master',
       admin: true,
-      currentjobId: 4
+      currentjobId: 4,
       imgURL: 'https://i.imgur.com/Q7kyCzR.png',
     }),
   ])
