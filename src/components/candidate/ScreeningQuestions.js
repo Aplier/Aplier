@@ -19,8 +19,8 @@ class ScreeningQuestions extends Component {
 
   displayScreeningQuestions() {
     let data = this.props.data;
-    console.log(data)
-    if(data.loading) {
+    console.log(this.props)
+    if (data.loading) {
       return <div>Loading Screening Questions...</div>
     } else {
       return (
@@ -78,7 +78,7 @@ class ScreeningQuestions extends Component {
 
 export default graphql(getScreeningByPositionByIdQuery, {
   options: () => {
-    return{
+    return {
       variables: {
         id: 1
       }

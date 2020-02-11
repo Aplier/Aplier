@@ -19,9 +19,10 @@ import CandidateLogin from './components/Auth/Login/CandidateLogin/CandidateLogi
 import Candidates from './components/candidate/Candidate';
 import Companies from './components/company/Companies';
 
-// import Positions from './components/company/Positions';
+//CompanyPages
+import CompanyAccount from './components/company/CompanyAccountView';
 import NewPositionForm from './components/NewPositionSignup/NewPositionForm';
-import CandidateAccountView from './components/candidate/CandidateAccountView';
+import CandidateAccount from './components/candidate/CandidateAccountView';
 import CompanyPositions from './components/company/CompanyPositions';
 import CompanyMatch from './components/company/CompanyMatch'
 import ScreeningQuestions from './components/candidate/ScreeningQuestions';
@@ -58,14 +59,13 @@ class Router extends Component {
         <Route path="/candidatesignup" component={CandidateForm} />
         <Route path="/userlogin" component={UserLogin} />
         <Route path="/candidatelogin" component={CandidateLogin} />
-        <Route path="/candidateAccount/:id" component={CandidateAccountView}/>
         <Route path="/positions" component={CompanyPositions} />
         <Route path="/companies" component={Companies} />
         <Route path="/companymatches" component={CompanyMatch} />
         <Route path="/screening" component={ScreeningQuestions} />
         <Route path="/screeningconfirmation" component={ScreeningConfirmation} />
-        <Route path="/myaccount" component={CandidateAccountView} />
-
+        <Route path="/myaccount" component={CandidateAccount} />
+        <Route path="/companyaccount" component={CompanyAccount} />
 
         {/*{userSignedUp && (*/}
          {/* <Fragment>
