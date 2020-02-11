@@ -23,7 +23,7 @@ import Companies from './components/company/Companies';
 import NewPositionForm from './components/NewPositionSignup/NewPositionForm';
 import CandidateAccountView from './components/candidate/CandidateAccountView';
 import CompanyPositions from './components/company/CompanyPositions';
-import Match from './components/company/Match'
+import CompanyMatch from './components/company/CompanyMatch'
 import ScreeningQuestions from './components/ScreeningQuestions';
 
 class Router extends Component {
@@ -60,7 +60,7 @@ class Router extends Component {
         <Route path="/candidateAccount/:id" component={CandidateAccountView}/>
         <Route path="/positions" component={CompanyPositions} />
         <Route path="/companies" component={Companies} />
-        <Route path="/matches" component={Match} />
+        <Route path="/companymatches" component={CompanyMatch} />
         <Route path="/screening" component={ScreeningQuestions} />
 
 

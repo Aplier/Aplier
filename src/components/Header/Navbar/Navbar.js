@@ -16,7 +16,7 @@ const Navbar = props => (
       <div className="navbar_navigation-items">
         <ul>
           <li><a href="/myaccount">My Account</a></li>
-          <li><a href="/matches">Matches</a></li>
+          <li><a href="/companymatches">Matches</a></li>
           <li><a href="/newposition">Add Position</a></li>
           <li><a href="/">Sign out</a></li>
         </ul>
