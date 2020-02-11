@@ -1,7 +1,7 @@
-import React from 'react';
-import { graphql} from 'react-apollo';
-import compose from 'lodash.flowright'
-import { gql } from 'apollo-boost';
+import React from './node_modules/react';
+import { graphql} from './node_modules/react-apollo';
+import compose from './node_modules/lodash.flowright'
+import { gql } from './node_modules/apollo-boost';
 
 
 
@@ -46,7 +46,7 @@ const getPositionsQuery = gql`
 //         loadingComp :data.loading,
 //         company:data.company,
 //     }),
-   
+
 //     options:(compId) =>{
 //         return {
 //             variables:{
@@ -73,8 +73,8 @@ const getPos = graphql(getPositionsQuery,{
 const Positions = ({loadingPos,positions}) => {
     if(loadingPos) return <p>loading</p>
     return positions.map(position => {
-        
-        
+
+
         return (
           <div className="mapPos" key={position.id}>
             <h3>{position.title}</h3>

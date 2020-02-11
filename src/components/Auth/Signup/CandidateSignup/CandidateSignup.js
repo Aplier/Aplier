@@ -23,8 +23,8 @@ class TestCandidateForm extends Component {
   }
 
   signUp = () => {
-    const { email, password, firstName, lastName, address } = this.state;
-
+    // const { email, password, firstName, lastName, address } = this.state;
+    const { email, password } = this.state;
     Auth.signUp({
       username: email,
       password: password,
@@ -183,10 +183,6 @@ class TestCandidateForm extends Component {
                 Sign up!
               </button>
             </form>{' '}
-            <br />
-            <button className="customeButton">
-              Continue with LinkedIn
-            </button>{' '}
             <br />
           </div>
         </div>

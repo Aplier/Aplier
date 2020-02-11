@@ -160,6 +160,14 @@ padding-top: 50px
   width: 150px;
   height: 150px;
 }
+.circleScreening {
+  margin-top: 20%;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  width: 150px;
+  height: 150px;
+}
+
 .Cform{
   background-color: rgb(115, 149, 173);
 
@@ -188,6 +196,13 @@ border-radius: 0%;
 .matchPage{
   padding-top: 20px;
   padding-left: 2px;
+  padding-right: 20px;
+  text-align: center;
+}
+
+.screeningConfirmPage {
+  padding-top: 80px;
+  padding-left: 20px;
   padding-right: 20px;
   text-align: center;
 }

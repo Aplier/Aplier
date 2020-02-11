@@ -17,7 +17,11 @@ const Navbar = props => (
         <ul>
           <li><a href="/myaccount">My Account</a></li>
           <li><a href="/companymatches">Matches</a></li>
+          <li><a href="/candidates">Candidates</a></li>
           <li><a href="/newposition">Add Position</a></li>
+          <li><a href="/positions">Positions</a></li>
+          <li><a href="/companies">Companies</a></li>
+          <li><a href="/screening">Screening</a></li>
           <li><a href="/">Sign out</a></li>
         </ul>
       </div>

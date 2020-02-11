@@ -17,6 +17,7 @@ const sideDrawer = props => {
         <li><a href="/newposition">Add Position</a></li>
         <li><a href="/positions">Positions</a></li>
         <li><a href="/companies">Companies</a></li>
+        <li><a href="/screening">Screening</a></li>
         <li><a href="/">Sign out</a></li>
 
       </ul>
