@@ -31,9 +31,9 @@ class CandidateAccount extends Component {
               src={data.candidate.imgURL}
               alt="screeningImage"
             />{' '}
-            <button className="customeButton" type="submit">
+            {/* <button className="customeButton" type="submit">
               Change Photo
-            </button>{' '}
+            </button>{' '} */}
             <br />
             <h4 className="accountList">Full Name</h4>
             <p className="accountListData">
@@ -49,12 +49,12 @@ class CandidateAccount extends Component {
             <h4 className="accountList">Phone</h4>
             <p className="accountListData">{data.candidate.phone}</p>
             <hr></hr>
-            <h4 className="accountList">Intro</h4>
+            {/* <h4 className="accountList">Intro</h4>
             <p className="accountListData">{data.candidate.intro}</p>
-            <hr></hr>
-            <button className="customeButton" type="submit">
+            <hr></hr> */}
+            {/* <button className="customeButton" type="submit">
               Edit Account
-            </button>
+            </button> */}
           </div>
         </div>
       );

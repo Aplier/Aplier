@@ -29,6 +29,7 @@ const sideDrawerCompany = props => {
         <li><a href="/candidates">Candidates</a></li>
         <li><a href="/newposition">Add Position</a></li>
         <li><a href="/companies">Companies</a></li>
+        <li><a href="/aboutus">About us</a></li>
         <li onClick={handleSubmit}><a href="/">Sign out</a></li>
       </ul>
       </nav>

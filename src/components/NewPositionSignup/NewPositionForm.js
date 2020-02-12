@@ -28,7 +28,7 @@ class NewPositionForm extends Component {
         screeningQ3: this.state.screeningQ1,
       },
     });
-    this.props.history.push('/');
+    this.props.history.push('/newpositionadded');
   }
 
   render() {
