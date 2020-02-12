@@ -21,10 +21,10 @@ import CandidateLogin from './components/Auth/Login/CandidateLogin/CandidateLogi
 import Candidates from './components/candidate/Candidate';
 import Companies from './components/company/Companies';
 import CandidateMatch from './components/candidate/CandidateMatch';
-import Education from './components/candidate/CandidateEdu';
+// import Education from './components/candidate/CandidateEdu';
 
 //CompanyPages
-import CompanyAccount from './components/company/CompanyAccountView';
+// import CompanyAccount from './components/company/CompanyAccountView';
 import NewPositionForm from './components/NewPositionSignup/NewPositionForm';
 import CandidateAccount from './components/candidate/CandidateAccountView';
 import CompanyPositions from './components/company/CompanyPositions';
@@ -41,8 +41,9 @@ class Router extends Component {
     };
   }
 
-  componentDidMount() {
-    if (Auth.currentAuthenticatedUser()) {
+  async componentDidMount() {
+    let user = await Auth.currentAuthenticatedUser();
+    if (user) {
       this.setState({ isCandidateLoggedIn: true });
     } else {
       this.setState({ isCandidateLoggedIn: false });
@@ -50,7 +51,7 @@ class Router extends Component {
   }
 
   render() {
-    const { isCandidateLoggedIn } = this.state;
+    const { isCandidateLoggedIn, isUserLoggedIn } = this.state;
 
     return (
       <Switch>
@@ -70,35 +71,17 @@ class Router extends Component {
           path="/screeningconfirmation"
           component={ScreeningConfirmation}
         />
-        {this.state.isUserLoggedIn && (
+        {isUserLoggedIn && (
           <Switch>
             <Route path="/candidates" component={Candidates} />
           </Switch>
         )}
-        {this.state.isCandidateLoggedIn && (
+        {isCandidateLoggedIn && (
           <Switch>
             <Route path="/myaccount" component={CandidateAccount} />
             <Route path="/positions" component={CompanyPositions} />
           </Switch>
         )}
-
-        {/*{userSignedUp && (*/}
-        {/* <Fragment>
-           <Route path="/candidates" component={Candidates} />
-           <Route path="/newposition" component={NewPositionForm} />
-           <Route path="/positions" component={CompanyPositions} />
-         </Fragment> */}
-        {/*)}*/}
-        {/* {isCandidate && (*/}
-        {/* <Fragment>
-           <Route
-             path="/candidateAccount/:id"
-            component={CandidateAccountView}
-          />
-         <Route path="/positions" component={CompanyPositions} />
-         <Route path="/companies" component={Companies} />
-          {/* <Route exact path="/companies" component={Companies} /> */}
-        {/* </Fragment> */}
       </Switch>
     );
   }
