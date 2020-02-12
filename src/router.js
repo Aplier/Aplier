@@ -4,7 +4,7 @@ import { Switch, Route } from 'react-router-dom';
 //components
 import CompanyForm from './components/Auth/Signup/CompanySignup/CompanySignup';
 import CandidateForm from './components/Auth/Signup/CandidateSignup/CandidateSignup';
-// import NewPositionForm from './components/forms/NewPositionForm'
+import AboutUs from './components/AboutUs'
 import LandingPage from './components/LandingPage';
 //Auth
 import { Auth } from 'aws-amplify';
@@ -70,6 +70,7 @@ class Router extends Component {
         <Route path="/screening" component={ScreeningQuestions} />
         <Route path="/newpositionadded" component={PositionConfirmation} />
         <Route path="/companyaccount" component={CompanyAccount} />
+        <Route path="/aboutus" component={AboutUs} />
         <Route
           path="/screeningconfirmation"
           component={ScreeningConfirmation}

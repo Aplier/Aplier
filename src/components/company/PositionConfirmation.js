@@ -2,7 +2,6 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 const PositionConfirmation = () => {
-  console.log("HEYYYYY WASSSUP")
   return (
     <div className="screeningConfirmPage">
           <img alt="matchImg"src="https://media3.giphy.com/media/3JTrNZgdf4LJGNUN1a/giphy.gif?cid=790b76111e65be95354857bbaef8eb6cdcb61336842cc5a0&rid=giphy.gif"/>
@@ -20,7 +19,6 @@ const PositionConfirmation = () => {
             <Link to="/companyaccount">Go Back To Account</Link>
           </button>
     </div>
-
   )
 }
 
