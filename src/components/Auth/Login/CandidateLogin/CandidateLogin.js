@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Auth } from 'aws-amplify';
+import { Link } from 'react-router-dom';
 
 class CandidateLogin extends Component {
   constructor(props) {
@@ -33,7 +34,11 @@ class CandidateLogin extends Component {
       this.setState({
         isCandidateLoggedIn: true,
       });
+      console.log(this.state);
+      console.log('HISTORY ---> ', this.props.history);
       this.props.history.push('/positions');
+    } else {
+      await Auth.confirmSignIn(email);
     }
   };
 
@@ -41,7 +46,8 @@ class CandidateLogin extends Component {
     const { isCandidateLoggedIn } = this.state;
 
     if (isCandidateLoggedIn) {
-      return <h1>Candidate has logged In!</h1>;
+      console.log('Candidate has logged in');
+      return null;
     } else {
       return (
         <div>
@@ -72,22 +78,11 @@ class CandidateLogin extends Component {
                 }
                 type="password"
               />
-              <br /> <br />
+              <br /> <br />{' '}
               <button className="customeButton" type="submit">
                 Login!
-              </button>
+              </button>{' '}
             </form>
-            <div className="flex mt3">
-              <div>{/* {this.isLoggedIn ? 'login' : 'create account'} */}</div>
-              <div
-                className="pointer button"
-                // onClick={() => this.setState({ login: !this.isLoggedIn })}
-              >
-                {/* {this.isLoggedIn
-                ? 'need to create an account?'
-                : 'already have an account?'} */}
-              </div>
-            </div>
           </div>
         </div>
       );
