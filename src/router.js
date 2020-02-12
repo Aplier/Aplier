@@ -38,7 +38,7 @@ class Router extends Component {
     super(props);
     this.state = {
       isCandidateLoggedIn: false,
-      isUserLoggedIn: false,
+      isUserLoggedIn: true,
     };
   }
 
@@ -60,12 +60,10 @@ class Router extends Component {
         <Route path="/signup" component={SignupSelector} />
         <Route path="/login" component={LoginSelector} />
         <Route path="/companysignup" component={CompanyForm} />
-        <Route path="/newposition" component={NewPositionForm} />
         <Route path="/candidatesignup" component={CandidateForm} />
         <Route path="/userlogin" component={UserLogin} />
         <Route path="/candidatelogin" component={CandidateLogin} />
         <Route path="/companies" component={Companies} />
-        <Route path="/companymatches" component={CompanyMatch} />
         <Route path="/candidatematches" component={CandidateMatch} />
         <Route path="/screening" component={ScreeningQuestions} />
         <Route path="/newpositionadded" component={PositionConfirmation} />
@@ -78,6 +76,10 @@ class Router extends Component {
         {isUserLoggedIn && (
           <Switch>
             <Route path="/candidates" component={Candidates} />
+            <Route path="/companyaccount" component={CompanyAccount} />
+            <Route path="/newposition" component={NewPositionForm} />
+            <Route path="/companymatches" component={CompanyMatch} />
+
           </Switch>
         )}
         {isCandidateLoggedIn && (

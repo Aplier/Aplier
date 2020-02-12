@@ -21,24 +21,24 @@ class CompanyAccount extends Component {
               src={data.company.imgURL}
               alt="ComapanyImage"
             />{' '}
-            <button className="customeButton" type="submit">
+            {/* <button className="customeButton" type="submit">
               Change Photo
-            </button> <br/>
+            </button> <br/> */}
             <h4 className="accountlist">Company name</h4>
             <p className="accountListdata">{data.company.name}</p>
             <hr></hr>
             <h4 className="accountlist">Location</h4>
             <p className="accountListdata">{data.company.location}</p>
             <hr></hr>
-            <h4 className="accountlist">Industry</h4>
-            <p className="accountListdata">{data.company.industry}</p>
+            <h4 className="accountlist">Website</h4>
+            <p className="accountListdata">{data.company.website}</p>
             <hr></hr>
             <h4 className="accountlist">Perks</h4>
             <p className="accountListdata">{data.company.perks}</p>
             <hr></hr>
-            <button className="customeButton" type="submit">
+            {/* <button className="customeButton" type="submit">
             Edit Account
-            </button>
+            </button> */}
           </div>
         </div>
       )

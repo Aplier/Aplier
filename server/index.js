@@ -11,13 +11,13 @@ const SequelizeStore = require('connect-session-sequelize')(session.Store);
 const sessionStore = new SequelizeStore({ db });
 const path = require('path');
 const { Client } = require('pg');
-const client = new Client({
-  host: 'aplierdb.czniy2ofqmqo.us-east-2.rds.amazonaws.com',
-  user: 'aplier',
-  password: 'fsa-1911',
-  database: 'aplier',
-});
-client.connect();
+// const client = new Client({
+//   host: 'aplierdb.czniy2ofqmqo.us-east-2.rds.amazonaws.com',
+//   user: 'aplier',
+//   password: 'fsa-1911',
+//   database: 'aplier',
+// });
+// client.connect();
 
 //CORS FOR DEV
 app.use(cors());
