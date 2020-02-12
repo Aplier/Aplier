@@ -38,26 +38,38 @@ class UserLogin extends Component {
   render() {
     return (
       <div>
-        <h2>Hello User, Please Login</h2>
+        <div className="logInContainer">
+        <img
+              className="loginGif"
+              src="https://gophonebox.com/images/Phobby_WaveAnimation.gif"
+              alt="CandidateImage"
+              type="image"
+            />{' '}
+            <br />
         <form onSubmit={this.handleSubmit}>
+        <label className="Clabel">Email Address</label>
           <input
             type="email"
             name="email"
-            placeholder="Email"
+            className="Cinput"
             value={this.state.email}
             onChange={this.handleChange}
             required
           />
+          <br /> <br />
+          <label className="Clabel">Password</label>
           <input
             type="password"
             name="password"
-            placeholder="Password"
+            className="Cinput"
             value={this.state.password}
             onChange={this.handleChange}
             required
           />
-          <button type="submit">Login</button>
+          <br /> <br />
+          <button className="customeButton" type="submit">Login!</button>
         </form>
+        </div>
       </div>
     );
   }
