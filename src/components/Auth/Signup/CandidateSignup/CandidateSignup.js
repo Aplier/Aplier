@@ -17,38 +17,49 @@ class TestCandidateForm extends Component {
       intro: '',
       imgURL: '',
       vidURL: '',
+      cognitoId: '',
       candidateSignedUp: '',
       confirmationCode: '',
     };
   }
 
-  signUp = () => {
-    const { email, password, firstName, lastName, address } = this.state;
-    Auth.signUp({
+  signUp = async () => {
+    const {
+      firstName,
+      lastName,
+      address,
+      email,
+      password,
+      phone,
+      intro,
+      imgURL,
+      vidURL,
+      cognitoId,
+      candidateSignedUp,
+      confirmationCode,
+    } = this.state;
+    let data = await Auth.signUp({
       username: email,
       password: password,
       attributes: {
         given_name: firstName,
         family_name: lastName,
         address: address,
+        // picture: imgURL,
+        // sub: cognitoId,
+        // intro: intro,
+        // phone: phone,
       },
-    })
-      .then(data => console.log('SIgned Up', data))
-      .then(() => {
-        console.log('Welcome to Aplier');
-      })
-      .catch(err => console.log('Failed', err));
+    });
+    console.log('data', data);
   };
 
-  confirmSignUp = () => {
+  confirmSignUp = async () => {
     const { email, confirmationCode } = this.state;
 
-    Auth.confirmSignUp(email, confirmationCode)
-      .then(() => {
-        console.log('Confirmed Sign up');
-        this.props.handleSignUp();
-      })
-      .catch(err => console.log('Error', err));
+    let confirmed = await Auth.confirmSignUp(email, confirmationCode);
+    console.log('confirmed', confirmed);
+    this.props.handleSignUp();
   };
 
   handleSubmit = event => {
@@ -69,8 +80,10 @@ class TestCandidateForm extends Component {
           address: this.state.address,
           email: this.state.email,
           password: this.state.password,
-          // phone: this.state.phone,
-          // intro: this.state.intro,
+          phone: this.state.phone,
+          intro: this.state.intro,
+          cognitoId: this.state.cognitoId,
+          imgURL: this.state.imgURL,
         },
       });
       this.props.history.push('/positions');
@@ -169,18 +182,6 @@ class TestCandidateForm extends Component {
                 required
               />{' '}
               <br /> <br />
-              {/* <label className="Clabel">Phone Number</label>
-            <input
-              className="Cinput"
-              onChange={event => this.setState({ phone: event.target.value })}
-              value={this.state.phone}
-            /> <br/> <br/>
-            <label className="Clabel">Intro</label>
-            <input
-              className="Cinput"
-              handleChange={event => this.setState({ intro: event.target.value })}
-              value={this.state.intro}
-            /> <br/> <br/> */}
               <button className="customeButton" type="submit">
                 Sign up!
               </button>
