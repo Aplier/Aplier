@@ -12,17 +12,11 @@ class CandidateLogin extends Component {
   }
 
   async componentDidMount() {
-<<<<<<< HEAD
     try {
       await Auth.currentUserInfo();
     } catch (error) {
       console.log(error);
     }
-=======
-    Auth.currentUserInfo()
-      .then(res => console.log('res', res.attributes.given_name))
-      .catch(err => console.log('err', err));
->>>>>>> 6947a3838cba2564bbd002ed6991d2810100069d
   }
 
   handleSubmit = async event => {
