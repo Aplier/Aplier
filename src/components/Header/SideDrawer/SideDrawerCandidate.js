@@ -27,6 +27,7 @@ const sideDrawerCandidate = props => {
 
         <li><a href="/myaccount">My Account</a></li>
         <li><a href="/candidatematches">Matches</a></li>
+        <li><a href="/aboutus">About us</a></li>
         <li><a href="/positions">Positions</a></li>
         <li><a href="/companies">Companies</a></li>
         <li onClick={handleSubmit}><a href="/">Sign out</a></li>
