@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { graphql } from 'react-apollo';
 import {getCompaniesQuery} from '../../queries/queries'
+import { Link } from 'react-router-dom';
+
 
 class Companies extends Component {
   displayCompanies() {
@@ -26,7 +28,9 @@ class Companies extends Component {
         <h3><center>Companies working with us to find the top tech employees:</center></h3>
        
         <div className="allCompWrap"> {this.displayCompanies()}</div>
+        <Link to={'/'}>
         <button className="customeButton">Join us today!</button>
+        </Link>
       </div>
     )
   }

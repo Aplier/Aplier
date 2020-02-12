@@ -82,7 +82,7 @@ class CompanyPositions extends Component {
           <div className="noCandidates">
               <p>You've reached the end of the postions availible...</p>
               <img alt="comeback_later" src="https://acegif.com/wp-content/uploads/tea.gif"/>
-              <p>Take a coffee break and come back later,</p>
+              <p>Take a break and come back later,</p>
               <p>we will have more positions waiting for you!</p>
 
             </div>
