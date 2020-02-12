@@ -128,29 +128,29 @@ const addCandidateMutation = gql`
     $address: String!
     $email: String!
     $password: String!
-    $phone: String!
-    $intro: String!
-    $cognitoId: String!
-    $imgURL: String!
-  ) {
+  ) # $phone: String!
+  # $intro: String!
+  # $cognitoId: String!
+  # $imgURL: String!
+  {
     addCandidate(
       firstName: $firstName
       lastName: $lastName
       address: $address
       email: $email
       password: $password
-      phone: $phone
-      intro: $intro
-      cognitoId: $cognitoId
-      imgURL: $imgURL
-    ) {
+    ) # phone: $phone
+    # intro: $intro
+    # cognitoId: $cognitoId
+    # imgURL: $imgURL
+    {
       id
       firstName
       lastName
       email
       password
-      cognitoId
-      imgURL
+      # cognitoId
+      # imgURL
     }
   }
 `;

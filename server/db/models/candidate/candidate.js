@@ -58,9 +58,6 @@ const Candidate = db.define('candidate', {
   videoURL: {
     type: Sequelize.TEXT,
   },
-  cognitoId: {
-    type: Sequelize.STRING,
-  },
 });
 
 module.exports = Candidate;

@@ -17,7 +17,6 @@ class TestCandidateForm extends Component {
       intro: '',
       imgURL: '',
       vidURL: '',
-      cognitoId: '',
       candidateSignedUp: '',
       confirmationCode: '',
     };
@@ -30,11 +29,6 @@ class TestCandidateForm extends Component {
       address,
       email,
       password,
-      phone,
-      intro,
-      imgURL,
-      vidURL,
-      cognitoId,
       candidateSignedUp,
       confirmationCode,
     } = this.state;
@@ -45,10 +39,6 @@ class TestCandidateForm extends Component {
         given_name: firstName,
         family_name: lastName,
         address: address,
-        // picture: imgURL,
-        // sub: cognitoId,
-        // intro: intro,
-        // phone: phone,
       },
     });
     console.log('data', data);
@@ -80,10 +70,6 @@ class TestCandidateForm extends Component {
           address: this.state.address,
           email: this.state.email,
           password: this.state.password,
-          phone: this.state.phone,
-          intro: this.state.intro,
-          cognitoId: this.state.cognitoId,
-          imgURL: this.state.imgURL,
         },
       });
       this.props.history.push('/positions');
