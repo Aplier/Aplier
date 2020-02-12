@@ -27,7 +27,7 @@ class App extends Component {
   this.state = {
     sideDrawerOpen: false,
     isCandidateLoggedIn: false,
-    isUserLoggedIn: true
+    isUserLoggedIn: false
   };
 }
 
