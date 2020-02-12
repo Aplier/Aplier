@@ -19,14 +19,6 @@ class CandidateLogin extends Component {
     }
   }
 
-  // handleSignIn = () => {
-  //   const { email, password } = this.state;
-  //   Auth.signIn(email, password)
-  //     .then(user => console.log('user', user))
-  //     .then(this.setState({ isLogged: true }))
-  //     .catch(err => console.log('Failed', err));
-  // };
-
   handleSubmit = async event => {
     event.preventDefault();
     const { isCandidateLoggedIn, email, password } = this.state;
@@ -54,16 +46,16 @@ class CandidateLogin extends Component {
       return (
         <div>
           <div className="logInContainer">
-          <img
+            <img
               className="loginGif"
               src="https://gophonebox.com/images/Phobby_WaveAnimation.gif"
               alt="CandidateImage"
               type="image"
             />{' '}
             <br />
-          <form onSubmit={this.handleSubmit}>
-            {/* <h4 className="mv3">{this.isLoggedIn ? 'Login' : 'Sign Up'}</h4> */}
-            <label className="Clabel">Email Address</label>
+            <form onSubmit={this.handleSubmit}>
+              {/* <h4 className="mv3">{this.isLoggedIn ? 'Login' : 'Sign Up'}</h4> */}
+              <label className="Clabel">Email Address</label>
               <input
                 className="Cinput"
                 value={this.email}
@@ -81,21 +73,21 @@ class CandidateLogin extends Component {
                 type="password"
               />
               <br /> <br />
-              <button className="customeButton" type="submit">Login!</button>
-          </form>
-          <div className="flex mt3">
-            <div >
-              {/* {this.isLoggedIn ? 'login' : 'create account'} */}
-            </div>
-            <div
-              className="pointer button"
-              // onClick={() => this.setState({ login: !this.isLoggedIn })}
-            >
-              {/* {this.isLoggedIn
+              <button className="customeButton" type="submit">
+                Login!
+              </button>
+            </form>
+            <div className="flex mt3">
+              <div>{/* {this.isLoggedIn ? 'login' : 'create account'} */}</div>
+              <div
+                className="pointer button"
+                // onClick={() => this.setState({ login: !this.isLoggedIn })}
+              >
+                {/* {this.isLoggedIn
                 ? 'need to create an account?'
                 : 'already have an account?'} */}
+              </div>
             </div>
-          </div>
           </div>
         </div>
       );
