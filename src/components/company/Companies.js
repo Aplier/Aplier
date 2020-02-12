@@ -13,11 +13,8 @@ class Companies extends Component {
         return (
           <div key={company.id}>
             {/* <img src={company.imgURL} alt="company img" /> */}
-            <h4>{company.name}</h4>
-            <p>{company.location}</p>
-            <p>{company.industry}</p>
-            <p>{company.perks}</p>
-            <p>{company.website}</p>
+            {/* <h4>{company.name}</h4> */}
+            <img className="allcompImg"src={company.imgURL} alt="compantImg"/>
           </div>
         );
       });
@@ -25,8 +22,11 @@ class Companies extends Component {
   }
   render() {
     return (
-      <div>
-        <div> {this.displayCompanies()}</div>
+      <div className='allCompPage'>
+        <h3><center>Companies working with us to find the top tech employees:</center></h3>
+       
+        <div className="allCompWrap"> {this.displayCompanies()}</div>
+        <button className="customeButton">Join us today!</button>
       </div>
     )
   }

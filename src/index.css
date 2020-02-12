@@ -85,16 +85,42 @@ a:-webkit-any-link {
   padding-top: 50px;
 }
 
-.allCandidates {
-  display: flex;
-  flex-grow: 2;
+.candidateContainer{
+  background-color: #bfcad9;
+  height: 150%;
+  width: 100%;
+  padding-bottom: 100px;
+  padding-top: 30px;
+}
+
+.candidateImg{
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .mapCandidates {
-width: 100vw;
-padding-right: 25%;
-padding-left: 25%;
-padding-top: 50px
+width: 280px;
+height: 70vh;
+padding-right: 20px;
+padding-left: 20px;
+padding-top:50px;
+padding-bottom:50px;
+
+margin-top: 60px;
+margin-bottom: 60px;
+margin-left: auto;
+margin-right: auto;
+background-color:white;
+border-radius: 20px;
+box-shadow: 10px 10px 5px grey;
+}
+
+
+.buttonsDiv{
+  margin-right: auto;
+  margin-left: auto;
+  text-align: center;
 }
 
 .rating {
@@ -126,10 +152,16 @@ padding-top: 50px
 .thumbs {
   width: 50px;
   height: 50px;
-  padding: 10px;
+  padding: 30px;
 }
 
-
+.logInContainer{
+padding-top: 25%;
+padding-left: 30px;
+padding-right:30px;
+padding-bottom: 30px;
+text-align: center;
+}
 
 .formContainer{
   padding: 30px;
@@ -159,6 +191,8 @@ padding-top: 50px
   padding-bottom: 20px;
   width: 150px;
   height: 150px;
+  margin-left: auto;
+  margin-right: auto;
 }
 .circleScreening {
   margin-top: 20%;
@@ -193,15 +227,28 @@ padding-top: 50px
 
 
 .allPos {
-  display: flex;
-  flex-grow: 2;
+  background-color: #bfcad9;
+  height: 150%;
+  width: 100%;
+  padding-bottom: 100px;
+  padding-top: 30px;
 }
 
 .mapPos {
-width: 100vw;
-padding-right: 25%;
-padding-left: 25%;
-padding-top:50px;
+  width: 280px;
+  height: 70vh;
+  padding-right: 20px;
+  padding-left: 20px;
+  padding-top:50px;
+  padding-bottom:50px;
+  
+  margin-top: 60px;
+  margin-bottom: 60px;
+  margin-left: auto;
+  margin-right: auto;
+  background-color:white;
+  border-radius: 20px;
+  box-shadow: 10px 10px 5px grey;
 
 }
 
@@ -209,6 +256,10 @@ img.compImg{
 height: auto;
 width:150px;
 border-radius: 0%;
+display: block;
+margin-left: auto;
+margin-right: auto;
+padding-bottom: 10px;
 }
 
 .matchPage{
@@ -236,4 +287,54 @@ border-radius: 0%;
   font-size: large;
   border:none;
   transition-duration: 0.4s;
+}
+
+.noCandidates{
+  padding-top: 100px;
+  text-align: center;
+}
+
+img.icon{
+  width: 20px;
+  height:20px;
+  border-radius: 0%
+}
+
+.positionInfo{
+  padding-left: 20px;
+  padding-right:20px;
+}
+
+img.loginGif{
+width:200px;
+height:auto;
+margin-bottom: 20px;
+border-radius: 0%;
+}
+
+.allCompPage{
+  padding-top:60px;
+  margin-left: auto;
+  margin-right: auto;
+  width: 300px;
+  text-align: center;
+}
+
+.allCompWrap{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-left: auto;
+  padding-top: auto;
+  justify-content: center;
+
+}
+
+.allcompImg{
+  height: 100px;
+  width: 100px;
+  border-radius: 50%;
+  padding: 10px;
 }

@@ -53,38 +53,49 @@ class CandidateLogin extends Component {
     } else {
       return (
         <div>
+          <div className="logInContainer">
+          <img
+              className="loginGif"
+              src="https://gophonebox.com/images/Phobby_WaveAnimation.gif"
+              alt="CandidateImage"
+              type="image"
+            />{' '}
+            <br />
           <form onSubmit={this.handleSubmit}>
-            <h4 className="mv3">{this.isLoggedIn ? 'Login' : 'Sign Up'}</h4>
-            <div className="flex flex-column">
+            {/* <h4 className="mv3">{this.isLoggedIn ? 'Login' : 'Sign Up'}</h4> */}
+            <label className="Clabel">Email Address</label>
               <input
+                className="Cinput"
                 value={this.email}
                 onChange={event => this.setState({ email: event.target.value })}
                 type="text"
-                placeholder="Your email address"
               />
+              <br /> <br />
+              <label className="Clabel">Password</label>
               <input
+                className="Cinput"
                 value={this.password}
                 onChange={event =>
                   this.setState({ password: event.target.value })
                 }
                 type="password"
-                placeholder="Choose a safe password"
               />
-              <button type="submit">Sign In</button>
-            </div>
+              <br /> <br />
+              <button className="customeButton" type="submit">Login!</button>
           </form>
           <div className="flex mt3">
-            <div className="pointer mr2 button">
-              {this.isLoggedIn ? 'login' : 'create account'}
+            <div >
+              {/* {this.isLoggedIn ? 'login' : 'create account'} */}
             </div>
             <div
               className="pointer button"
-              onClick={() => this.setState({ login: !this.isLoggedIn })}
+              // onClick={() => this.setState({ login: !this.isLoggedIn })}
             >
-              {this.isLoggedIn
+              {/* {this.isLoggedIn
                 ? 'need to create an account?'
-                : 'already have an account?'}
+                : 'already have an account?'} */}
             </div>
+          </div>
           </div>
         </div>
       );
