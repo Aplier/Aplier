@@ -42,6 +42,7 @@ const getCompaniesQuery = gql`
     industry
     perks
     website
+    imgURL
   }
 }
 `;
