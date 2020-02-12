@@ -49,9 +49,9 @@ class CandidateAccount extends Component {
             <h4 className="accountList">Phone</h4>
             <p className="accountListData">{data.candidate.phone}</p>
             <hr></hr>
-            <h4 className="accountList">Intro</h4>
+            {/* <h4 className="accountList">Intro</h4>
             <p className="accountListData">{data.candidate.intro}</p>
-            <hr></hr>
+            <hr></hr> */}
             {/* <button className="customeButton" type="submit">
               Edit Account
             </button> */}

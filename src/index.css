@@ -162,7 +162,10 @@ padding-right:30px;
 padding-bottom: 30px;
 text-align: center;
 }
-
+.aboutUsColor{
+  background-color: #bfcad9;
+  padding-bottom: 100px;
+}
 .formContainer{
   padding: 30px;
   text-align: center;
@@ -193,6 +196,13 @@ text-align: center;
   height: 150px;
   margin-left: auto;
   margin-right: auto;
+}
+
+.circleAboutMe {
+  text-align: center;
+  width: 150px;
+  height: 150px;
+  margin-left: 60px;
 }
 .circleScreening {
   margin-top: 20%;
@@ -339,4 +349,10 @@ border-radius: 0%;
   width: 100px;
   border-radius: 50%;
   padding: 10px;
+}
+
+.aboutUsTitle {
+  padding-top: 50px;
+  text-align: center;
+  padding-bottom: 0px;
 }
