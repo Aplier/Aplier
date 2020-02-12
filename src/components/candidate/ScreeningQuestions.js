@@ -74,6 +74,7 @@ class ScreeningQuestions extends Component {
       </div>
     )
   }
+
 }
 
 export default graphql(getScreeningByPositionByIdQuery, {
