@@ -11,10 +11,12 @@ class CandidateLogin extends Component {
     };
   }
 
-  componentDidMount() {
-    Auth.currentUserInfo()
-      .then(res => console.log('res', res.attributes.given_name))
-      .catch(err => console.log('err', err));
+  async componentDidMount() {
+    try {
+      await Auth.currentUserInfo();
+    } catch (error) {
+      console.log(error);
+    }
   }
 
   // handleSignIn = () => {
@@ -25,26 +27,21 @@ class CandidateLogin extends Component {
   //     .catch(err => console.log('Failed', err));
   // };
 
-  handleSubmit = event => {
+  handleSubmit = async event => {
     event.preventDefault();
     const { isCandidateLoggedIn, email, password } = this.state;
 
-    if (!isCandidateLoggedIn) {
-      Auth.signIn({
-        username: email,
-        password: password,
-      })
-        .then(user => console.log('Signed In', user))
-        .catch(err => console.log('Failed Sign In', err));
+    let signedIn = await Auth.signIn({
+      username: email,
+      password: password,
+    });
 
+    if (!isCandidateLoggedIn) {
+      await signedIn;
       this.setState({
         isCandidateLoggedIn: true,
       });
-      this.props.history.push('/myaccount');
-    } else {
-      Auth.confirmSignIn(email)
-        .then(() => console.log('email', email))
-        .catch(err => console.log('Failed Confirm', err));
+      this.props.history.push('/positions');
     }
   };
 
@@ -104,14 +101,6 @@ class CandidateLogin extends Component {
       );
     }
   }
-
-  // _confirm = async () => {
-  //   // ... you'll implement this 🔜
-  // };
-
-  // _saveUserData = token => {
-  //   localStorage.setItem(AUTH_TOKEN, token);
-  // };
 }
 
 export default CandidateLogin;
