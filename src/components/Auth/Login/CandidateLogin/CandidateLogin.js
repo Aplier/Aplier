@@ -34,10 +34,11 @@ class CandidateLogin extends Component {
       this.setState({
         isCandidateLoggedIn: true,
       });
+      this.props.history.push('/positions');
       console.log(this.state);
       console.log('HISTORY ---> ', this.props.history);
-      this.props.history.push('/positions');
     } else {
+      console.log('Hit Twice?');
       await Auth.confirmSignIn(email);
     }
   };

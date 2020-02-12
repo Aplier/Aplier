@@ -16,6 +16,7 @@ import SignupSelector from './components/Auth/Signup/SignUpSelector';
 import LoginSelector from './components//Auth/Login/LoginSelector/LoginSelector';
 import UserLogin from './components/Auth/Login/UserLogin/UserLogin';
 import CandidateLogin from './components/Auth/Login/CandidateLogin/CandidateLogin';
+import EmailConfirmation from './components/Auth/Signup/EmailConfirmation';
 
 //CandidatePages
 import Candidates from './components/candidate/Candidate';
@@ -67,6 +68,7 @@ class Router extends Component {
         <Route path="/companymatches" component={CompanyMatch} />
         <Route path="/candidatematches" component={CandidateMatch} />
         <Route path="/screening" component={ScreeningQuestions} />
+        <Route path="/confirmemail" component={EmailConfirmation} />
         <Route
           path="/screeningconfirmation"
           component={ScreeningConfirmation}
