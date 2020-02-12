@@ -83,7 +83,7 @@ app.use(
 
 const startListening = () => {
   // start listening (and create a 'server' object representing our server)
-  const PORT = 5000;
+  const PORT = 4000;
   app.listen(PORT, () => {
     console.log(`Listening on port ${PORT}`);
   });
