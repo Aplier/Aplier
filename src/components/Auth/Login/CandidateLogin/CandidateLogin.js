@@ -11,7 +11,7 @@ class CandidateLogin extends Component {
     };
   }
 
-  componentDidMount() {
+  async componentDidMount() {
     Auth.currentUserInfo()
       .then(res => console.log('res', res.attributes.given_name))
       .catch(err => console.log('err', err));

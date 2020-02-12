@@ -31,11 +31,15 @@ class App extends Component {
   };
 }
 
-  componentDidMount() {
-    if(Auth.currentAuthenticatedUser()){
+  async componentDidMount() {
 
+    let user = await Auth.currentAuthenticatedUser()
+
+    if(user){
       this.setState({isCandidateLoggedIn: true})
+      console.log('authenticated')
     }else {
+      console.log('not authenticated')
       this.setState({isCandidateLoggedIn: false})
     }
   }
@@ -52,46 +56,53 @@ class App extends Component {
   };
 
   render() {
-
-
-    const candidateSideDrawer = (props) => {
-      console.log("THIS IS CADNIDATE -SIDEDRAWER")
-      if(this.state.isCandidateLoggedIn){
-        return <SideDrawerCandidate show={this.state.sideDrawerOpen}/>
-      }else{
-        return <SideDrawer show={this.state.sideDrawerOpen}/>
-      }
-    }
-
-    const companySideDrawer = (props) => {
-      console.log("THIS IS COMPANY-SIDEDRAWER")
-      if(this.state.isUserLoggedIn){
-        return <SideDrawerCompany show={this.state.sideDrawerOpen}/>
-      }else{
-        return <SideDrawer show={this.state.sideDrawerOpen}/>
-      }
-    }
-
-
     Amplify.configure(aws_exports);
     let backdrop;
 
     if (this.state.sideDrawerOpen) {
       backdrop = <Backdrop click={this.backdropClickHandler} />;
     }
-
-    return (
-      <ApolloProvider client={client}>
-        <div style={{ height: '100%' }}>
-          <Navbar drawerClickHandler={this.drawerToggleClickHandler} />
-          {candidateSideDrawer()}
-          {companySideDrawer()}
-          {backdrop}
-          <Router />
-        </div>
-      </ApolloProvider>
-    );
+      if(this.state.isCandidateLoggedIn === true) {
+      console.log('THIS IS FIRST IF STAETMENT')
+        return (
+          <ApolloProvider client={client}>
+            <div style={{ height: '100%' }}>
+              <Navbar drawerClickHandler={this.drawerToggleClickHandler} />
+              <SideDrawerCandidate show={this.state.sideDrawerOpen}/>
+              {backdrop}
+              <Router />
+            </div>
+          </ApolloProvider>
+        );
+    }
+    else if(this.state.isUserLoggedIn) {
+      console.log('THIS IS SECOND IF STAETMENT')
+      return (
+        <ApolloProvider client={client}>
+          <div style={{ height: '100%' }}>
+            <Navbar drawerClickHandler={this.drawerToggleClickHandler} />
+            <SideDrawerCompany show={this.state.sideDrawerOpen}/>
+            {backdrop}
+            <Router />
+          </div>
+        </ApolloProvider>
+      );
+    }
+    else {
+      console.log('THIS IS THIRD IF STAETMENT')
+      return (
+        <ApolloProvider client={client}>
+          <div style={{ height: '100%' }}>
+            <Navbar drawerClickHandler={this.drawerToggleClickHandler} />
+            <SideDrawer show={this.state.sideDrawerOpen}/>
+            {backdrop}
+            <Router />
+          </div>
+        </ApolloProvider>
+      );
+    }
   }
 }
+
 
 export default App;
