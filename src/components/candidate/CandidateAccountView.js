@@ -17,7 +17,7 @@ class CandidateAccount extends Component {
   displayCandidatesAccount() {
     let data = this.props.data;
     const { info } = this.state;
-    const { given_name, family_name, email, address } = info;
+    const { given_name, family_name, email, address, id } = info;
 
     if (data.loading) {
       return <div>Loading Candidate Account...</div>;

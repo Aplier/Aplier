@@ -3,18 +3,15 @@ import React from 'react';
 import '../SideDrawer/DrawerToggleButton';
 import './Navbar.css';
 import DrawerToggleButton from '../SideDrawer/DrawerToggleButton';
-import Amplify, { Auth } from 'aws-amplify';
+import { Auth } from 'aws-amplify';
 
-const handleSubmit = () => {
-  Auth.signOut()
+const handleSubmit = async () => {
+  await Auth.signOut()
     .then(data => console.log(data))
     .then('User has signed out')
     .catch(err => console.log(err));
 
-  // Auth.signOut({ global: true })
-  //   .then(data => console.log(data))
-  //   .then('User has globally signed out')
-  //   .catch(err => console.log(err));
+  await Auth.signOut({ global: true });
 };
 
 const Navbar = props => (
@@ -57,7 +54,7 @@ const Navbar = props => (
           <li>
             <a href="/screening">Screening</a>
           </li>
-          <li>
+          <li onClick={handleSubmit}>
             <a href="/">Sign out</a>
           </li>
         </ul>
