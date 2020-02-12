@@ -24,7 +24,7 @@ import CandidateMatch from './components/candidate/CandidateMatch';
 // import Education from './components/candidate/CandidateEdu';
 
 //CompanyPages
-// import CompanyAccount from './components/company/CompanyAccountView';
+import CompanyAccount from './components/company/CompanyAccountView';
 import NewPositionForm from './components/NewPositionSignup/NewPositionForm';
 import CandidateAccount from './components/candidate/CandidateAccountView';
 import CompanyPositions from './components/company/CompanyPositions';
@@ -37,7 +37,7 @@ class Router extends Component {
     super(props);
     this.state = {
       isCandidateLoggedIn: false,
-      isUserLoggedIn: false,
+      isUserLoggedIn: true,
     };
   }
 
@@ -59,12 +59,10 @@ class Router extends Component {
         <Route path="/signup" component={SignupSelector} />
         <Route path="/login" component={LoginSelector} />
         <Route path="/companysignup" component={CompanyForm} />
-        <Route path="/newposition" component={NewPositionForm} />
         <Route path="/candidatesignup" component={CandidateForm} />
         <Route path="/userlogin" component={UserLogin} />
         <Route path="/candidatelogin" component={CandidateLogin} />
         <Route path="/companies" component={Companies} />
-        <Route path="/companymatches" component={CompanyMatch} />
         <Route path="/candidatematches" component={CandidateMatch} />
         <Route path="/screening" component={ScreeningQuestions} />
         <Route
@@ -74,6 +72,10 @@ class Router extends Component {
         {isUserLoggedIn && (
           <Switch>
             <Route path="/candidates" component={Candidates} />
+            <Route path="/companyaccount" component={CompanyAccount} />
+            <Route path="/newposition" component={NewPositionForm} />
+            <Route path="/companymatches" component={CompanyMatch} />
+
           </Switch>
         )}
         {isCandidateLoggedIn && (

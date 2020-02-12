@@ -23,21 +23,30 @@ class CandidateLogin extends Component {
   handleSubmit = async event => {
     event.preventDefault();
     const { isCandidateLoggedIn, email, password } = this.state;
-
-    let signedIn = await Auth.signIn({
-      username: email,
-      password: password,
-    });
-
-    if (!isCandidateLoggedIn) {
-      await signedIn;
-      this.setState({
-        isCandidateLoggedIn: true,
+    try {
+      let signedIn = await Auth.signIn({
+        username: email,
+        password: password,
       });
-      this.props.history.push('/positions');
-    } else {
-      await Auth.confirmSignIn(email);
+  
+      if (!isCandidateLoggedIn) {
+        await signedIn;
+        this.setState({
+          isCandidateLoggedIn: true,
+        });
+        this.props.history.push('/positions');
+      } else if(isCandidateLoggedIn){
+        this.props.history.push('/positions');
+      }
+        else {
+        await Auth.confirmSignIn(email);
+      }
+      
+    } catch (error) {
+      console.log(error)
     }
+
+    
   };
 
   render() {
