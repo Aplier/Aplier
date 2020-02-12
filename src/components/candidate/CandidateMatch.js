@@ -39,7 +39,7 @@ class CandidateMatch extends Component {
 
           <br></br>
           <br></br>
-          <p>Additional information coming...</p>
+          <p>Click on the positions and fill out the screening questions.</p>
         </div>
       </div>
     );
