@@ -24,7 +24,8 @@ const candidate = `
     addCandidate(firstName: String!,
                  lastName: String!,
                  email: String!,
-                 password: String!,): Candidate
+                 password: String!,
+                 address: String!): Candidate
     deleteCandidate(id: Int!): Candidate
     editCandidate(id: Int!,
                   firstName: String,

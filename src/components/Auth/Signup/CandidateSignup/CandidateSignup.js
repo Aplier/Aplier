@@ -56,6 +56,16 @@ class TestCandidateForm extends Component {
     const { candidateSignedUp } = this.state;
     event.preventDefault();
 
+    this.props.mutate({
+      variables: {
+        firstName: this.state.firstName,
+        lastName: this.state.lastName,
+        address: this.state.address,
+        email: this.state.email,
+        password: this.state.password,
+      },
+    });
+
     if (candidateSignedUp) {
       this.confirmSignUp();
       this.setState({
@@ -63,15 +73,6 @@ class TestCandidateForm extends Component {
         email: '',
       });
 
-      this.props.mutate({
-        variables: {
-          firstName: this.state.firstName,
-          lastName: this.state.lastName,
-          address: this.state.address,
-          email: this.state.email,
-          password: this.state.password,
-        },
-      });
       this.props.history.push('/positions');
     } else {
       this.signUp();

@@ -12,9 +12,9 @@ const sessionStore = new SequelizeStore({ db });
 const path = require('path');
 const { Client } = require('pg');
 const client = new Client({
-  host: 'aplierdb.czniy2ofqmqo.us-east-2.rds.amazonaws.com',
+  host: 'aplier.cmd7ws8o8flr.us-east-2.rds-preview.amazonaws.com',
   user: 'aplier',
-  password: 'fsa-1911',
+  password: 'FSApikachu',
   database: 'aplier',
 });
 client.connect();

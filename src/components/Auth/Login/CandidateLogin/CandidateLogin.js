@@ -34,7 +34,7 @@ class CandidateLogin extends Component {
       this.setState({
         isCandidateLoggedIn: true,
       });
-      this.props.history.push('/positions');
+      this.props.history.push('/myaccount');
     } else {
       await Auth.confirmSignIn(email);
     }
