@@ -24,13 +24,14 @@ import CandidateMatch from './components/candidate/CandidateMatch';
 // import Education from './components/candidate/CandidateEdu';
 
 //CompanyPages
-// import CompanyAccount from './components/company/CompanyAccountView';
+import CompanyAccount from './components/company/CompanyAccountView';
 import NewPositionForm from './components/NewPositionSignup/NewPositionForm';
 import CandidateAccount from './components/candidate/CandidateAccountView';
 import CompanyPositions from './components/company/CompanyPositions';
 import CompanyMatch from './components/company/CompanyMatch';
 import ScreeningQuestions from './components/candidate/ScreeningQuestions';
 import ScreeningConfirmation from './components/candidate/ScreeningConfirmation';
+import PositionConfirmation from './components/company/PositionConfirmation';
 
 class Router extends Component {
   constructor(props) {
@@ -67,6 +68,8 @@ class Router extends Component {
         <Route path="/companymatches" component={CompanyMatch} />
         <Route path="/candidatematches" component={CandidateMatch} />
         <Route path="/screening" component={ScreeningQuestions} />
+        <Route path="/newpositionadded" component={PositionConfirmation} />
+        <Route path="/companyaccount" component={CompanyAccount} />
         <Route
           path="/screeningconfirmation"
           component={ScreeningConfirmation}
