@@ -4,7 +4,7 @@ import { Switch, Route } from 'react-router-dom';
 //components
 import CompanyForm from './components/Auth/Signup/CompanySignup/CompanySignup';
 import CandidateForm from './components/Auth/Signup/CandidateSignup/CandidateSignup';
-import AboutUs from './components/AboutUs'
+import AboutUs from './components/AboutUs';
 import LandingPage from './components/LandingPage';
 //Auth
 import { Auth } from 'aws-amplify';
@@ -13,7 +13,7 @@ import { Auth } from 'aws-amplify';
 import SignupSelector from './components/Auth/Signup/SignUpSelector';
 
 //Login
-import LoginSelector from './components//Auth/Login/LoginSelector/LoginSelector';
+import LoginSelector from './components/Auth/Login/LoginSelector/LoginSelector';
 import UserLogin from './components/Auth/Login/UserLogin/UserLogin';
 import CandidateLogin from './components/Auth/Login/CandidateLogin/CandidateLogin';
 import EmailConfirmation from './components/Auth/Signup/EmailConfirmation';
@@ -39,7 +39,7 @@ class Routes extends Component {
     super(props);
     this.state = {
       isCandidateLoggedIn: false,
-      isUserLoggedIn: false
+      isUserLoggedIn: false,
     };
   }
 
@@ -83,7 +83,6 @@ class Routes extends Component {
             <Route path="/companyaccount" component={CompanyAccount} />
             <Route path="/newposition" component={NewPositionForm} />
             <Route path="/companymatches" component={CompanyMatch} />
-
           </Switch>
         )}
         {isCandidateLoggedIn && (
