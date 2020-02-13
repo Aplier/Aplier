@@ -33,7 +33,7 @@ import ScreeningQuestions from './components/candidate/ScreeningQuestions';
 import ScreeningConfirmation from './components/candidate/ScreeningConfirmation';
 import PositionConfirmation from './components/company/PositionConfirmation';
 
-class Router extends Component {
+class Routes extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -69,6 +69,8 @@ class Router extends Component {
         <Route path="/newpositionadded" component={PositionConfirmation} />
         <Route path="/companyaccount" component={CompanyAccount} />
         <Route path="/aboutus" component={AboutUs} />
+        <Route path="/positions" component={CompanyPositions} />
+
         <Route
           path="/screeningconfirmation"
           component={ScreeningConfirmation}
@@ -93,4 +95,4 @@ class Router extends Component {
   }
 }
 
-export default Router;
+export default Routes;
