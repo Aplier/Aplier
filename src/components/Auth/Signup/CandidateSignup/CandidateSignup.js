@@ -191,7 +191,7 @@ class TestCandidateForm extends Component {
               />{' '}
               <br /> <br />
               <button className="customeButton" type="submit">
-                <Link to="/confirmemail">Sign up!</Link>
+                Sign up!
               </button>
             </form>{' '}
             <br />
