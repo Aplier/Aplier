@@ -52,14 +52,12 @@ class TestCandidateForm extends Component {
         // phone: phone,
       },
     });
-    console.log('data', data);
   };
 
   confirmSignUp = async () => {
     const { email, confirmationCode } = this.state;
 
     let confirmed = await Auth.confirmSignUp(email, confirmationCode);
-    console.log('confirmed', confirmed);
     this.props.handleSignUp();
   };
 
@@ -113,10 +111,8 @@ class TestCandidateForm extends Component {
       });
     }
 
-    console.log();
     this.props.history.push('/');
 
-    console.log();
     this.props.history.push('/confirmemail');
   };
 

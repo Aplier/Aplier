@@ -7,7 +7,6 @@ import { Link } from 'react-router-dom';
 class Companies extends Component {
   displayCompanies() {
     let data = this.props.data;
-    console.log(data)
     if (data.loading) {
       return <div>Loading Companies...</div>;
     } else {
@@ -26,7 +25,7 @@ class Companies extends Component {
     return (
       <div className='allCompPage'>
         <h3><center>Companies working with us to find the top tech employees:</center></h3>
-       
+
         <div className="allCompWrap"> {this.displayCompanies()}</div>
         <Link to={'/'}>
         <button className="customeButton">Join us today!</button>

@@ -11,7 +11,6 @@ class CompanyAccount extends Component {
     if (data.loading) {
       return <div>Loading Company Account...</div>;
     } else {
-      console.log(this.props)
       return (
         <div>
           <div className="formContainer">

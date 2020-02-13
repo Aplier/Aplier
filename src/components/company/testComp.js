@@ -29,7 +29,7 @@ const getCurrentJob = graphql(getCurrentJobByIdQuery,{
         loadingComp :data.loading,
         currentJob:data.currentJob,
     }),
-   
+
     options:() =>{
         return {
             variables:{
@@ -76,7 +76,7 @@ class Candidate extends Component {
             <p>PLACE HOLDER FOR CURRENT JOB</p>
             <p>PLACE HOLDER FOR PREVIOUS JOB</p>
             <div>
-  
+
             <img className="thumbs" alt='down'src="https://img.icons8.com/ultraviolet/40/000000/poor-quality.png"></img>
             <img onClick={()=>this.onClick(candidate.id)}className="thumbs" alt='up'src="https://img.icons8.com/ultraviolet/40/000000/good-quality.png"></img>
             </div>
@@ -86,7 +86,6 @@ class Candidate extends Component {
     }
   }
   render() {
-    console.log('object');
     return (
       <div>
         <p className="miniLogo">Aplier</p>

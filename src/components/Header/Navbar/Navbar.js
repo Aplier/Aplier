@@ -6,12 +6,12 @@ import DrawerToggleButton from '../SideDrawer/DrawerToggleButton';
 import { Auth } from 'aws-amplify';
 
 const handleSubmit = async () => {
-  await Auth.signOut()
-    .then(data => console.log(data))
-    .then('User has signed out')
-    .catch(err => console.log(err));
-
-  await Auth.signOut({ global: true });
+  try {
+    await Auth.signOut()
+    await Auth.signOut({ global: true });
+  } catch (error) {
+    console.log(error);
+  }
 };
 
 const Navbar = props => (

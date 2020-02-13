@@ -30,18 +30,15 @@ class CandidateLogin extends Component {
       });
 
       if (isCandidateLoggedIn === false) {
-        console.log('SHOULD BE FALSE', isCandidateLoggedIn)
         await signedIn;
         this.setState({
           isCandidateLoggedIn: true,
         });
-        console.log('STATE.CANDI ---->',this.state.isCandidateLoggedIn)
 
         this.props.history.push('/positions');
         window.location.reload()
 
       } else if(isCandidateLoggedIn === true){
-        console.log('SHOULD BE TRUE', isCandidateLoggedIn)
 
         // this.props.history.push('/positions');
       }
@@ -61,7 +58,6 @@ class CandidateLogin extends Component {
     const { isCandidateLoggedIn } = this.state;
 
     if (isCandidateLoggedIn) {
-      console.log('Candidate has logged in');
       return null;
     } else {
       return (

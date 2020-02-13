@@ -10,16 +10,13 @@ const sideDrawerCandidate = props => {
     drawerClasses = 'side-drawer open';
   }
 
-  const handleSubmit = () => {
-    Auth.signOut()
-      .then(data => console.log(data))
-      .then('User has signed out')
-      .catch(err => console.log(err));
-
-    Auth.signOut({ global: true })
-      .then(data => console.log(data))
-      .then('User has globally signed out')
-      .catch(err => console.log(err));
+  const handleSubmit = async () => {
+    try {
+      await Auth.signOut()
+      await Auth.signOut({ global: true })
+    } catch (error) {
+      console.log(error)
+    }
   };
   return (
       <nav className={drawerClasses}>

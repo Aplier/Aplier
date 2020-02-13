@@ -19,7 +19,6 @@ class ScreeningQuestions extends Component {
 
   displayScreeningQuestions() {
     let data = this.props.data;
-    console.log(this.props)
     if (data.loading) {
       return <div>Loading Screening Questions...</div>
     } else {
