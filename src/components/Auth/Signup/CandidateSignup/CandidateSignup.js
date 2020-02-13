@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { graphql } from 'react-apollo';
 import { addCandidateMutation } from '../../../../queries/queries';
 import { Auth } from 'aws-amplify';
+import { Link, Redirect } from 'react-router-dom';
 // import { last } from 'lodash-es';
 
 class TestCandidateForm extends Component {
@@ -63,7 +64,6 @@ class TestCandidateForm extends Component {
   };
 
   handleSubmit = event => {
-    const {candidateSignedUp} = this.state
     event.preventDefault();
     const {
       candidateSignedUp,
@@ -94,7 +94,7 @@ class TestCandidateForm extends Component {
         email: '',
       });
 
-      this.props.history.push('/positions');
+      this.props.history.push('/confirmemail');
     } else {
       this.signUp();
       this.setState({
@@ -104,21 +104,17 @@ class TestCandidateForm extends Component {
       });
     }
 
-      if(candidateSignedUp){
-        this.confirmSignUp();
-        this.setState({
-          password: '',
-          email: '',
-          candidateSignedUp: true,
-        });
-      }
-      
-      console.log()
-      this.props.history.push('/');
-   
-      
-    
+    if (candidateSignedUp) {
+      this.confirmSignUp();
+      this.setState({
+        password: '',
+        email: '',
+        candidateSignedUp: true,
+      });
+    }
 
+    console.log();
+    this.props.history.push('/confirmemail');
   };
 
   render() {
