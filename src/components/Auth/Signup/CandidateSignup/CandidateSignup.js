@@ -63,7 +63,6 @@ class TestCandidateForm extends Component {
   };
 
   handleSubmit = event => {
-    const {candidateSignedUp} = this.state
     event.preventDefault();
     const {
       candidateSignedUp,
@@ -112,12 +111,12 @@ class TestCandidateForm extends Component {
           candidateSignedUp: true,
         });
       }
-      
+
       console.log()
       this.props.history.push('/');
-   
-      
-    
+
+
+
 
   };
 
