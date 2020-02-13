@@ -122,27 +122,19 @@ const addCompanyMutation = gql`
 `;
 
 const addCandidateMutation = gql`
-  mutation AddCandidate(
+  mutation addCandidate(
     $firstName: String!
     $lastName: String!
-    $address: String!
     $email: String!
     $password: String!
-    $phone: String!
-    $intro: String!
-    $cognitoId: String!
-    $imgURL: String!
+    $cognitoId: String
   ) {
     addCandidate(
       firstName: $firstName
       lastName: $lastName
-      address: $address
       email: $email
       password: $password
-      phone: $phone
-      intro: $intro
       cognitoId: $cognitoId
-      imgURL: $imgURL
     ) {
       id
       firstName
@@ -150,7 +142,6 @@ const addCandidateMutation = gql`
       email
       password
       cognitoId
-      imgURL
     }
   }
 `;
