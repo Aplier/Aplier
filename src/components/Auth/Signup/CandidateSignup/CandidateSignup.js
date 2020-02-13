@@ -18,7 +18,7 @@ class TestCandidateForm extends Component {
       imgURL: '',
       vidURL: '',
       cognitoId: '',
-      candidateSignedUp: '',
+      candidateSignedUp: false,
       confirmationCode: '',
     };
   }
@@ -51,50 +51,50 @@ class TestCandidateForm extends Component {
         // phone: phone,
       },
     });
-    console.log('data', data);
+    console.log('AUTH SIGN UP data', data);
   };
 
   confirmSignUp = async () => {
     const { email, confirmationCode } = this.state;
 
     let confirmed = await Auth.confirmSignUp(email, confirmationCode);
-    console.log('confirmed', confirmed);
+    console.log('Confirmed SIGN UP', confirmed);
     this.props.handleSignUp();
   };
 
   handleSubmit = event => {
-    const { candidateSignedUp } = this.state;
+    console.log('CONFIRM --> HANDELSUBMIT')
+    const {candidateSignedUp} = this.state
     event.preventDefault();
-
-    if (candidateSignedUp) {
-      this.confirmSignUp();
+   
+    if(!candidateSignedUp){
       this.setState({
-        confirmationCode: '',
-        email: '',
-      });
-
+        candidateSignedUp: true,
+      })
       this.props.mutate({
         variables: {
           firstName: this.state.firstName,
           lastName: this.state.lastName,
-          address: this.state.address,
           email: this.state.email,
           password: this.state.password,
-          phone: this.state.phone,
-          intro: this.state.intro,
           cognitoId: this.state.cognitoId,
-          imgURL: this.state.imgURL,
         },
       });
-      this.props.history.push('/positions');
-    } else {
-      this.signUp();
-      this.setState({
-        password: '',
-        email: '',
-        candidateSignedUp: true,
-      });
+      this.signUp()
     }
+      if(candidateSignedUp){
+        this.confirmSignUp();
+        this.setState({
+          password: '',
+          email: '',
+          candidateSignedUp: true,
+        });
+      }
+      
+      // this.props.history.push('/positions');
+   
+      
+    
     event.target.reset();
   };
 

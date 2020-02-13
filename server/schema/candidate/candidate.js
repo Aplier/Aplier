@@ -10,7 +10,7 @@ const candidate = `
     intro: String
     imgURL: String
     videoURL: String
-    cognitoId:String!
+    cognitoId:String
     currentjob: CurrentJob
     skills: [Skill]
     companyPositions: [CompanyPositions]
@@ -26,7 +26,7 @@ const candidate = `
                  lastName: String!,
                  email: String!,
                  password: String!,
-                 cognitoId: String!): Candidate
+                 cognitoId: String): Candidate
     deleteCandidate(id: Int!): Candidate
     editCandidate(id: Int!,
                   firstName: String,
