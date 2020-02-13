@@ -28,7 +28,7 @@ class CandidateLogin extends Component {
         username: email,
         password: password,
       });
-  
+
       if (isCandidateLoggedIn === false) {
         console.log('SHOULD BE FALSE', isCandidateLoggedIn)
         await signedIn;
@@ -36,8 +36,10 @@ class CandidateLogin extends Component {
           isCandidateLoggedIn: true,
         });
         console.log('STATE.CANDI ---->',this.state.isCandidateLoggedIn)
+
         this.props.history.push('/positions');
-        
+        window.location.reload()
+
       } else if(isCandidateLoggedIn === true){
         console.log('SHOULD BE TRUE', isCandidateLoggedIn)
 
@@ -46,16 +48,16 @@ class CandidateLogin extends Component {
         else {
         await Auth.confirmSignIn(email);
       }
-      
+
     } catch (error) {
       console.log(error)
     }
 
-    
+
   };
 
   render() {
-    
+
     const { isCandidateLoggedIn } = this.state;
 
     if (isCandidateLoggedIn) {
@@ -63,7 +65,7 @@ class CandidateLogin extends Component {
       return null;
     } else {
       return (
-        
+
         <div>
           <div className="logInContainer">
             <img
