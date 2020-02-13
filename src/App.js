@@ -1,13 +1,15 @@
 import React, { Component } from 'react';
 import ApolloClient from 'apollo-boost';
 import { ApolloProvider } from 'react-apollo';
+// import { Router} from 'react-router-dom'
+
 
 //Auth
 import Amplify , { Auth }from 'aws-amplify';
 import aws_exports from './Util/aws-exports';
 
 //components
-import Router from './router';
+import Routes from './router';
 import Navbar from './components/Header/Navbar/Navbar';
 import SideDrawer from './components/Header/SideDrawer/SideDrawer';
 import Backdrop from './components/Header/Backdrop/Backdrop';
@@ -70,12 +72,12 @@ class App extends Component {
               <Navbar drawerClickHandler={this.drawerToggleClickHandler} />
               <SideDrawerCandidate show={this.state.sideDrawerOpen}/>
               {backdrop}
-              <Router />
+              <Routes />
             </div>
           </ApolloProvider>
         );
     }
-    else if(this.state.isUserLoggedIn) {
+    else if(this.state.isUserLoggedIn === true) {
       console.log('THIS IS SECOND IF STAETMENT')
       return (
         <ApolloProvider client={client}>
@@ -83,7 +85,7 @@ class App extends Component {
             <Navbar drawerClickHandler={this.drawerToggleClickHandler} />
             <SideDrawerCompany show={this.state.sideDrawerOpen}/>
             {backdrop}
-            <Router />
+            <Routes />
           </div>
         </ApolloProvider>
       );
@@ -96,7 +98,7 @@ class App extends Component {
             <Navbar drawerClickHandler={this.drawerToggleClickHandler} />
             <SideDrawer show={this.state.sideDrawerOpen}/>
             {backdrop}
-            <Router />
+            <Routes />
           </div>
         </ApolloProvider>
       );

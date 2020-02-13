@@ -29,14 +29,19 @@ class CandidateLogin extends Component {
         password: password,
       });
   
-      if (!isCandidateLoggedIn) {
+      if (isCandidateLoggedIn === false) {
+        console.log('SHOULD BE FALSE', isCandidateLoggedIn)
         await signedIn;
         this.setState({
           isCandidateLoggedIn: true,
         });
+        console.log('STATE.CANDI ---->',this.state.isCandidateLoggedIn)
         this.props.history.push('/positions');
-      } else if(isCandidateLoggedIn){
-        this.props.history.push('/positions');
+        
+      } else if(isCandidateLoggedIn === true){
+        console.log('SHOULD BE TRUE', isCandidateLoggedIn)
+
+        // this.props.history.push('/positions');
       }
         else {
         await Auth.confirmSignIn(email);
@@ -50,6 +55,7 @@ class CandidateLogin extends Component {
   };
 
   render() {
+    
     const { isCandidateLoggedIn } = this.state;
 
     if (isCandidateLoggedIn) {
@@ -57,6 +63,7 @@ class CandidateLogin extends Component {
       return null;
     } else {
       return (
+        
         <div>
           <div className="logInContainer">
             <img
