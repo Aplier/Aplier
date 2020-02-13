@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { graphql } from 'react-apollo';
 import { addCandidateMutation } from '../../../../queries/queries';
 import { Auth } from 'aws-amplify';
+import { Link } from 'react-router-dom';
 // import { last } from 'lodash-es';
 
 class TestCandidateForm extends Component {
@@ -51,50 +52,57 @@ class TestCandidateForm extends Component {
         // phone: phone,
       },
     });
-    console.log('AUTH SIGN UP data', data);
+    console.log('data', data);
   };
 
   confirmSignUp = async () => {
     const { email, confirmationCode } = this.state;
 
     let confirmed = await Auth.confirmSignUp(email, confirmationCode);
-    console.log('Confirmed SIGN UP', confirmed);
+    console.log('confirmed', confirmed);
     this.props.handleSignUp();
   };
 
   handleSubmit = event => {
-    console.log('CONFIRM --> HANDELSUBMIT')
-    const {candidateSignedUp} = this.state
     event.preventDefault();
-   
-    if(!candidateSignedUp){
+    const {
+      candidateSignedUp,
+      firstName,
+      lastName,
+      address,
+      email,
+      password,
+    } = this.state;
+    this.props.mutate({
+      variables: {
+        firstName: firstName,
+        lastName: lastName,
+        address: address,
+        email: email,
+        password: password,
+        // phone: phone,
+        // intro: intro,
+        // cognitoId: cognitoId,
+        // imgURL: imgURL,
+      },
+    });
+
+    if (candidateSignedUp) {
+      this.confirmSignUp();
       this.setState({
-        candidateSignedUp: true,
-      })
-      this.props.mutate({
-        variables: {
-          firstName: this.state.firstName,
-          lastName: this.state.lastName,
-          email: this.state.email,
-          password: this.state.password,
-          cognitoId: this.state.cognitoId,
-        },
+        confirmationCode: '',
+        email: '',
       });
-      this.signUp()
+
+      this.props.history.push('/positions');
+    } else {
+      this.signUp();
+      this.setState({
+        password: '',
+        email: '',
+        candidateSignedUp: true,
+      });
     }
-      if(candidateSignedUp){
-        this.confirmSignUp();
-        this.setState({
-          password: '',
-          email: '',
-          candidateSignedUp: true,
-        });
-      }
-      
-      // this.props.history.push('/positions');
-   
-      
-    
     event.target.reset();
   };
 
@@ -183,7 +191,7 @@ class TestCandidateForm extends Component {
               />{' '}
               <br /> <br />
               <button className="customeButton" type="submit">
-                Sign up!
+                <Link to="/confirmemail">Sign up!</Link>
               </button>
             </form>{' '}
             <br />
