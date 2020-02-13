@@ -1,11 +1,12 @@
 const pgp = require('pg-promise')();
 // const connection = 'postgresql://localhost:5432/aplier';
+
 const connection = {
-  host: 'aplier.cmd7ws8o8flr.us-east-2.rds-preview.amazonaws.com',
+  host: 'aplier.ccx1yvxrllrz.us-east-1.rds.amazonaws.com',
   port: 5432,
-  database: 'aplier',
   user: 'Aplier',
-  password: 'FSApikachu',
+  password: 'fsa-1911',
+  database: 'Aplier',
 };
 
 // Creating a new database instance from the connection details:

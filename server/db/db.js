@@ -6,7 +6,7 @@ const pkg = require('../../package.json');
 //   pkg.name + (process.env.NODE_ENV === 'test' ? '-test' : '');
 
 const db = new Sequelize(
-  process.env.RDS_CONNECTION_URL || `postgres://Aplier:FSApikachu@aplier.cmd7ws8o8flr.us-east-2.rds-preview.amazonaws.com/aplier`,
+  process.env.RDS_CONNECTION_URL || `postgres://Aplier:fsa-1911@aplier.ccx1yvxrllrz.us-east-1.rds.amazonaws.com/Aplier`,
 
   // process.env.DATABASE_URL || `postgres://localhost:5432/${databaseName}`,
   {
