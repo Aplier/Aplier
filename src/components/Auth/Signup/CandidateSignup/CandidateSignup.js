@@ -114,6 +114,9 @@ class TestCandidateForm extends Component {
     }
 
     console.log();
+    this.props.history.push('/');
+
+    console.log();
     this.props.history.push('/confirmemail');
   };
 
