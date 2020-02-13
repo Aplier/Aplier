@@ -12,10 +12,10 @@ const sessionStore = new SequelizeStore({ db });
 const path = require('path');
 const { Client } = require('pg');
 const client = new Client({
-  host: 'aplier.cmd7ws8o8flr.us-east-2.rds-preview.amazonaws.com',
+  host: 'aplier.ccx1yvxrllrz.us-east-1.rds.amazonaws.com',
   user: 'Aplier',
-  password: 'FSApikachu',
-  database: 'aplier',
+  password: 'fsa-1911',
+  database: 'Aplier',
 });
 client.connect();
 
@@ -83,7 +83,7 @@ app.use(
 
 const startListening = () => {
   // start listening (and create a 'server' object representing our server)
-  const PORT = 5000;
+  const PORT = 4000;
   app.listen(PORT, () => {
     console.log(`Listening on port ${PORT}`);
   });
