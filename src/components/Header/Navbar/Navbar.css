@@ -57,11 +57,4 @@
   }
 }
 
-@media (min-width: 769px) {
-  .toggle_navbar-button {
-    display: none;
-  }
-  .navbar_logo {
-    margin-left: 0;
-  }
-}
+
