@@ -2,7 +2,7 @@ const express = require('express');
 const graphqlHTTP = require('express-graphql');
 const schema = require('./schema/schema');
 const app = express();
-const cors = require('cors');
+// const cors = require('cors');
 const models = require('./db/models');
 const passport = require('passport');
 const db = require('./db/db');
@@ -20,7 +20,7 @@ const client = new Client({
 client.connect();
 
 //CORS FOR DEV
-app.use(cors());
+// app.use(cors());
 
 const createApp = () => {
 
