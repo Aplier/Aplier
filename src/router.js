@@ -5,7 +5,7 @@ import { Switch, Route } from 'react-router-dom';
 import CompanyForm from './components/Auth/Signup/CompanySignup/CompanySignup';
 import CandidateForm from './components/Auth/Signup/CandidateSignup/CandidateSignup';
 import AboutUs from './components/AboutUs';
-import LandingPage from './components/LandingPage';
+import LandingPage from './components/UI/LandingPage';
 //Auth
 import { Auth } from 'aws-amplify';
 

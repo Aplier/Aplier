@@ -1,4 +1,4 @@
-html{
+html {
   height: 100%;
 }
 
@@ -24,31 +24,30 @@ img {
 }
 
 .landing {
-  background: url(landing.jpg);
+  background: url(assets/img/landing.jpg);
   height: 100vh;
   width: 100vw;
   background-size: cover;
   background-repeat: no-repeat;
 }
 
-
 .AplierTitle {
-  color: #42556F;
+  color: #42556f;
   padding-top: 200px;
   text-align: center;
   font-size: larger;
 }
 
-.customeButton{
+.customeButton {
   widows: 400px;
   height: 56px;
-  background-color: #42556F;
-  border-radius:30px;
+  background-color: #42556f;
+  border-radius: 30px;
   padding-right: 30px;
   padding-left: 30px;
   color: white;
   font-size: large;
-  border:none;
+  border: none;
   transition-duration: 0.4s;
 }
 
@@ -57,7 +56,7 @@ img {
   color: white;
 }
 
-.landingInfo{
+.landingInfo {
   padding-top: 300px;
   display: flex;
   align-items: center;
@@ -65,7 +64,7 @@ img {
 }
 
 .miniLogo {
-  color: #42556F;
+  color: #42556f;
   text-align: center;
 }
 
@@ -79,13 +78,13 @@ a:-webkit-any-link {
   text-align: center;
   padding-top: 200px;
 }
-.candidateOrCompany{
+.candidateOrCompany {
   text-align: center;
   padding: 10px;
   padding-top: 50px;
 }
 
-.candidateContainer{
+.candidateContainer {
   background-color: #bfcad9;
   height: 150%;
   width: 100%;
@@ -93,31 +92,30 @@ a:-webkit-any-link {
   padding-top: 30px;
 }
 
-.candidateImg{
+.candidateImg {
   display: block;
   margin-left: auto;
   margin-right: auto;
 }
 
 .mapCandidates {
-width: 280px;
-height: 70vh;
-padding-right: 20px;
-padding-left: 20px;
-padding-top:50px;
-padding-bottom:50px;
+  width: 280px;
+  height: 70vh;
+  padding-right: 20px;
+  padding-left: 20px;
+  padding-top: 50px;
+  padding-bottom: 50px;
 
-margin-top: 60px;
-margin-bottom: 60px;
-margin-left: auto;
-margin-right: auto;
-background-color:white;
-border-radius: 20px;
-box-shadow: 10px 10px 5px grey;
+  margin-top: 60px;
+  margin-bottom: 60px;
+  margin-left: auto;
+  margin-right: auto;
+  background-color: white;
+  border-radius: 20px;
+  box-shadow: 10px 10px 5px grey;
 }
 
-
-.buttonsDiv{
+.buttonsDiv {
   margin-right: auto;
   margin-left: auto;
   text-align: center;
@@ -140,13 +138,13 @@ box-shadow: 10px 10px 5px grey;
 
 .dislike:hover,
 .like:hover {
-  color: #2EBDD1;
-  transition: all .2s ease-in-out;
+  color: #2ebdd1;
+  transition: all 0.2s ease-in-out;
   transform: scale(1.1);
 }
 
 .active {
-  color: #2EBDD1;
+  color: #2ebdd1;
 }
 
 .thumbs {
@@ -155,23 +153,23 @@ box-shadow: 10px 10px 5px grey;
   padding: 30px;
 }
 
-.logInContainer{
-padding-top: 25%;
-padding-left: 30px;
-padding-right:30px;
-padding-bottom: 30px;
-text-align: center;
+.logInContainer {
+  padding-top: 25%;
+  padding-left: 30px;
+  padding-right: 30px;
+  padding-bottom: 30px;
+  text-align: center;
 }
-.aboutUsColor{
+.aboutUsColor {
   background-color: #bfcad9;
   padding-bottom: 100px;
 }
-.formContainer{
+.formContainer {
   padding: 30px;
   text-align: center;
 }
 
-.Cinput{
+.Cinput {
   background-color: rgb(218, 213, 213);
   border-radius: 30px;
   padding: 10px;
@@ -179,7 +177,7 @@ text-align: center;
   transition-duration: 0.4s;
 }
 
-.Cinput:hover{
+.Cinput:hover {
   background-color: rgb(91, 121, 219); /* Green */
   color: white;
 }
@@ -219,12 +217,12 @@ text-align: center;
 .welcomeAccount {
   padding-top: 40px;
   padding-bottom: 20px;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen,
+    Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
 
-.Cform{
+.Cform {
   background-color: rgb(115, 149, 173);
-
 }
 .accountList {
   padding-top: 10px;
@@ -236,7 +234,6 @@ text-align: center;
   padding-top: 5px;
   padding-bottom: 8px;
 }
-
 
 .allPos {
   background-color: #bfcad9;
@@ -251,30 +248,29 @@ text-align: center;
   height: 70vh;
   padding-right: 20px;
   padding-left: 20px;
-  padding-top:50px;
-  padding-bottom:50px;
+  padding-top: 50px;
+  padding-bottom: 50px;
 
   margin-top: 60px;
   margin-bottom: 60px;
   margin-left: auto;
   margin-right: auto;
-  background-color:white;
+  background-color: white;
   border-radius: 20px;
   box-shadow: 10px 10px 5px grey;
-
 }
 
-img.compImg{
-height: auto;
-width:150px;
-border-radius: 0%;
-display: block;
-margin-left: auto;
-margin-right: auto;
-padding-bottom: 10px;
+img.compImg {
+  height: auto;
+  width: 150px;
+  border-radius: 0%;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  padding-bottom: 10px;
 }
 
-.matchPage{
+.matchPage {
   padding-top: 50px;
   padding-left: 20px;
   padding-right: 20px;
@@ -288,51 +284,51 @@ padding-bottom: 10px;
   text-align: center;
 }
 
-.homeButton{
+.homeButton {
   width: 120px;
   height: 56px;
-  background-color: #42556F;
-  border-radius:30px;
+  background-color: #42556f;
+  border-radius: 30px;
   padding-right: 30px;
   padding-left: 30px;
   color: white;
   font-size: large;
-  border:none;
+  border: none;
   transition-duration: 0.4s;
 }
 
-.noCandidates{
+.noCandidates {
   padding-top: 100px;
   text-align: center;
 }
 
-img.icon{
+img.icon {
   width: 20px;
-  height:20px;
-  border-radius: 0%
+  height: 20px;
+  border-radius: 0%;
 }
 
-.positionInfo{
+.positionInfo {
   padding-left: 20px;
-  padding-right:20px;
+  padding-right: 20px;
 }
 
-img.loginGif{
-width:200px;
-height:auto;
-margin-bottom: 20px;
-border-radius: 0%;
+img.loginGif {
+  width: 200px;
+  height: auto;
+  margin-bottom: 20px;
+  border-radius: 0%;
 }
 
-.allCompPage{
-  padding-top:60px;
+.allCompPage {
+  padding-top: 60px;
   margin-left: auto;
   margin-right: auto;
   width: 300px;
   text-align: center;
 }
 
-.allCompWrap{
+.allCompWrap {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
@@ -341,10 +337,9 @@ border-radius: 0%;
   padding-left: auto;
   padding-top: auto;
   justify-content: center;
-
 }
 
-.allcompImg{
+.allcompImg {
   height: 100px;
   width: 100px;
   border-radius: 50%;
@@ -362,19 +357,18 @@ border-radius: 0%;
   height: 70vh;
   padding-right: 20px;
   padding-left: 20px;
-  padding-top:50px;
-  padding-bottom:50px;
+  padding-top: 50px;
+  padding-bottom: 50px;
 
   margin-top: 40px;
   margin-bottom: 60px;
   margin-left: auto;
   margin-right: auto;
-  background-color:white;
+  background-color: white;
   border-radius: 20px;
   box-shadow: 10px 10px 5px grey;
-
 }
 
-hr{
-  width:50%
+hr {
+  width: 50%;
 }
