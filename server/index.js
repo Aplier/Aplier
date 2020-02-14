@@ -83,9 +83,8 @@ app.use(
 
 const startListening = () => {
   // start listening (and create a 'server' object representing our server)
-  const PORT = 4000;
-  app.listen(PORT, () => {
-    console.log(`Listening on port ${PORT}`);
+  app.listen(process.env.PORT || 4000, () => {
+    console.log(`server running`);
   });
 
   // set up our socket control center
