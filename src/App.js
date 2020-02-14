@@ -26,7 +26,6 @@ const cache = new InMemoryCache()
   })
 })
 
-
 class App extends Component {
   constructor(props) {
     super(props)

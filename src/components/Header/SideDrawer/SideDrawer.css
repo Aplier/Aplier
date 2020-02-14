@@ -46,8 +46,3 @@
   color: bisque;
 }
 
-@media (min-width: 769px) {
-  .side-drawer {
-    display: none;
-  }
-}
