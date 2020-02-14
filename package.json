@@ -17,7 +17,6 @@
     "aws-amplify-react": "^3.1.5",
     "chai": "^4.2.0",
     "connect-session-sequelize": "^6.1.1",
-    "cors": "^2.8.5",
     "crypto": "^1.0.1",
     "enzyme": "^3.11.0",
     "enzyme-adapter-react-16": "^1.15.2",
