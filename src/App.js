@@ -17,7 +17,7 @@ import SideDrawerCompany from './components/Header/SideDrawer/SideDrawerCompany'
 
 //Apollo Client
 const client = new ApolloClient({
-  uri: 'http://localhost:4000/graphql',
+  uri: '/graphql',
 });
 
 class App extends Component {
