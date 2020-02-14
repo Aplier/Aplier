@@ -29,7 +29,7 @@ app.use(bodyParser.text({ type: 'application/graphql' }));
 
 
 //CORS FOR DEV
-// app.use(cors());
+app.use(cors());
 
 const createApp = () => {
   app.use(
