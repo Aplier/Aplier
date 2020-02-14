@@ -46,7 +46,7 @@ const cache = new InMemoryCache()
 const client = new ApolloClient({
   cache,
   link: new HttpLink({
-    uri: 'http://AplierDB.us-east-1.elasticbeanstalk.com/graphql',
+    uri: 'http://aplierDB.us-east-1.elasticbeanstalk.com/graphql',
   })
 })
 
