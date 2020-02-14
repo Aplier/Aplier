@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
-import ApolloClient from 'apollo-boost';
+import { ApolloClient } from 'apollo-client';
+import { InMemoryCache } from 'apollo-cache-inmemory';
+import { HttpLink } from 'apollo-link-http';
 import { ApolloProvider } from 'react-apollo';
 // import { Router} from 'react-router-dom'
 
@@ -16,8 +18,14 @@ import SideDrawerCandidate from './components/Header/SideDrawer/SideDrawerCandid
 import SideDrawerCompany from './components/Header/SideDrawer/SideDrawerCompany';
 
 //Apollo Client
+const cache = new InMemoryCache();
+const link = new HttpLink({
+  uri: 'http://aplier-env.7n9ksnjnpm.us-west-2.elasticbeanstalk.com/',
+});
+
 const client = new ApolloClient({
-  uri: '/graphql',
+  cache,
+  link,
 });
 
 class App extends Component {
