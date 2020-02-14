@@ -19,6 +19,10 @@ class TestCompanyForm extends Component {
     };
   }
 
+  signUp = async () => {
+    const { name, location, industry } = this.state;
+  };
+
   handleSubmit = event => {
     event.preventDefault();
     const { name, location, industry } = this.state;
