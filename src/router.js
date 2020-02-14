@@ -1,5 +1,10 @@
 import React, { Component } from 'react';
 import { Switch, Route } from 'react-router-dom';
+import {
+  CognitoUserPool,
+  CognitoUserAttribute,
+  CognitoUser,
+} from 'aws-amplify';
 
 //components
 import CompanyForm from './components/Auth/Signup/CompanySignup/CompanySignup';
