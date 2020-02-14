@@ -45,6 +45,7 @@ const companyResolvers = {
 
     companies: (parent, args, { models }) => {
       try{
+        console.log("IS COMPANIES GETTING HIT")
         return models.Company.findAll();
       }catch(err){
         console.error(err);

@@ -12,6 +12,8 @@ const sessionStore = new SequelizeStore({ db });
 const path = require('path');
 const { Client } = require('pg');
 const PORT = process.env.PORT || 4000
+const bodyParser = require('body-parser');
+
 
 const client = new Client({
   host: 'aplier.ccx1yvxrllrz.us-east-1.rds.amazonaws.com',
@@ -22,6 +24,8 @@ const client = new Client({
 client.connect();
 
 
+app.use(bodyParser.json())
+app.use(bodyParser.text({ type: 'application/graphql' }));
 
 
 //CORS FOR DEV
