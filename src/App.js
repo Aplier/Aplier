@@ -42,11 +42,12 @@ import SideDrawerCompany from './components/Header/SideDrawer/SideDrawerCompany'
 //   })
 // })
 
+// DOES NOT WORK - USING APOLLO-CLIENT
 const cache = new InMemoryCache()
 const client = new ApolloClient({
   cache,
   link: new HttpLink({
-    uri: 'http://aplierDB.us-east-1.elasticbeanstalk.com/graphql',
+    uri: 'http://aplierDB.us-east-1.elasticbeanstalk.com',
   })
 })
 
