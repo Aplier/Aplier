@@ -18,8 +18,15 @@ import SideDrawerCompany from './components/Header/SideDrawer/SideDrawerCompany'
 
 
 //Apollo Client
+// const client = new ApolloClient({
+//   uri: 'http://aplier-backend.herokuapp.com/graphql',
+//   fetchOptions: {
+//     mode: 'no-cors',
+//   }
+// });
+
 const client = new ApolloClient({
-  uri: 'http://aplier-backend.herokuapp.com/graphql',
+  uri: 'https://apliereded.herokuapp.com/v1/graphql',
   fetchOptions: {
     mode: 'no-cors',
   }
