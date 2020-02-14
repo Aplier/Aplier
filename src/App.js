@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
-import ApolloClient from 'apollo-client';
+import { ApolloClient } from 'apollo-client'
 import { ApolloProvider } from 'react-apollo';
+import { InMemoryCache } from 'apollo-cache-inmemory'
+import { HttpLink } from 'apollo-link-http'
 // import { Router} from 'react-router-dom'
 
 
@@ -16,20 +18,34 @@ import Backdrop from './components/Header/Backdrop/Backdrop';
 import SideDrawerCandidate from './components/Header/SideDrawer/SideDrawerCandidate'
 import SideDrawerCompany from './components/Header/SideDrawer/SideDrawerCompany'
 
-//    THIS DOES NOT WORK JUST SERVES STATIC FILES WITH APOLLO-BOOST
+//    THIS DOES NOT WORK JUST SERVES STATIC FILES -  USING POLLO-BOOST/ LOCALHOST WORKS
 // const client = new ApolloClient({
 //   uri: 'http://localhost:4000/graphql',
 // });
 
-//    THIS DOES NOT WORK JUST SERVES UP STATIC FILES WITH APOLLO-BOOST
+//    THIS DOES NOT WORK JUST SERVES UP STATIC FILES - USING APOLLO-BOOST/ LOCALHOST WORKS
 // const client = new ApolloClient({
 //   uri: 'http://apliercapstone.us-east-1.elasticbeanstalk.com:4000/graphql',
 // });
 
-// THIS WITH APOLLO-CLIENT
+// THIS DOES NOT WORK - USING APOLLO-CLIENT
+// const client = new ApolloClient({
+//   uri: 'http://apliercapstone.us-east-1.elasticbeanstalk.com/graphql',
+// });
+
+const cache = new InMemoryCache()
 const client = new ApolloClient({
-  uri: 'http://apliercapstone.us-east-1.elasticbeanstalk.com/graphql',
-});
+  cache,
+  link: new HttpLink({
+    uri: 'http://apliercapstone.us-east-1.elasticbeanstalk.com/graphql',
+  })
+})
+
+
+
+
+
+
 
 
 class App extends Component {
