@@ -34,7 +34,7 @@ import ScreeningQuestions from './components/candidate/ScreeningQuestions';
 import ScreeningConfirmation from './components/candidate/ScreeningConfirmation';
 import PositionConfirmation from './components/company/PositionConfirmation';
 
-class Routes extends Component {
+class Router extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -96,4 +96,4 @@ class Routes extends Component {
   }
 }
 
-export default Routes;
+export default Router;
