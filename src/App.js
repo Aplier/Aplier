@@ -16,11 +16,15 @@ import Backdrop from './components/Header/Backdrop/Backdrop';
 import SideDrawerCandidate from './components/Header/SideDrawer/SideDrawerCandidate'
 import SideDrawerCompany from './components/Header/SideDrawer/SideDrawerCompany'
 
-
-//Apollo Client
+// Apollo Client LocalHost
 const client = new ApolloClient({
-  uri: 'http://apliercapstone.us-east-1.elasticbeanstalk.com/graphql',
+  uri: 'http://localhost:4000/graphql',
 });
+//Apollo Client
+// const client = new ApolloClient({
+//   uri: 'http://apliercapstone.us-east-1.elasticbeanstalk.com/:4000/graphql',
+// });
+
 
 class App extends Component {
   constructor(props) {
