@@ -20,6 +20,7 @@ import SideDrawerCompany from './components/Header/SideDrawer/SideDrawerCompany'
 const client = new ApolloClient({
   uri: 'http://localhost:4000/graphql',
 });
+//
 //Apollo Client
 // const client = new ApolloClient({
 //   uri: 'http://apliercapstone.us-east-1.elasticbeanstalk.com/:4000/graphql',
