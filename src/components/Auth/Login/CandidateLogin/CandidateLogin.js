@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { Auth } from 'aws-amplify';
-import { Link } from 'react-router-dom';
 
 class CandidateLogin extends Component {
   constructor(props) {
@@ -30,34 +29,28 @@ class CandidateLogin extends Component {
       });
 
       if (isCandidateLoggedIn === false) {
-        console.log('SHOULD BE FALSE', isCandidateLoggedIn)
+        console.log('SHOULD BE FALSE', isCandidateLoggedIn);
         await signedIn;
         this.setState({
           isCandidateLoggedIn: true,
         });
-        console.log('STATE.CANDI ---->',this.state.isCandidateLoggedIn)
+        console.log('STATE.CANDI ---->', this.state.isCandidateLoggedIn);
 
         this.props.history.push('/positions');
-        window.location.reload()
-
-      } else if(isCandidateLoggedIn === true){
-        console.log('SHOULD BE TRUE', isCandidateLoggedIn)
+        window.location.reload();
+      } else if (isCandidateLoggedIn === true) {
+        console.log('SHOULD BE TRUE', isCandidateLoggedIn);
 
         // this.props.history.push('/positions');
-      }
-        else {
+      } else {
         await Auth.confirmSignIn(email);
       }
-
     } catch (error) {
-      console.log(error)
+      console.log(error);
     }
-
-
   };
 
   render() {
-
     const { isCandidateLoggedIn } = this.state;
 
     if (isCandidateLoggedIn) {
@@ -65,7 +58,6 @@ class CandidateLogin extends Component {
       return null;
     } else {
       return (
-
         <div>
           <div className="logInContainer">
             <img

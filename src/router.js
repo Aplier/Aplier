@@ -44,12 +44,14 @@ class Routes extends Component {
   }
 
   async componentDidMount() {
-    let user = await Auth.currentAuthenticatedUser();
-    if (user) {
-      this.setState({ isCandidateLoggedIn: true });
-    } else {
-      this.setState({ isCandidateLoggedIn: false });
-    }
+    try {
+      let user = await Auth.currentAuthenticatedUser();
+      if (user) {
+        this.setState({ isCandidateLoggedIn: true });
+      } else {
+        this.setState({ isCandidateLoggedIn: false });
+      }
+    } catch (error) {}
   }
 
   render() {

@@ -2,8 +2,6 @@ import React, { Component } from 'react';
 import { graphql } from 'react-apollo';
 import { addCandidateMutation } from '../../../../queries/queries';
 import { Auth } from 'aws-amplify';
-import { Link, Redirect } from 'react-router-dom';
-// import { last } from 'lodash-es';
 
 class TestCandidateForm extends Component {
   constructor(props) {
@@ -31,13 +29,13 @@ class TestCandidateForm extends Component {
       address,
       email,
       password,
-      phone,
-      intro,
-      imgURL,
-      vidURL,
-      cognitoId,
-      candidateSignedUp,
-      confirmationCode,
+      // phone,
+      // intro,
+      // imgURL,
+      // vidURL,
+      // cognitoId,
+      // candidateSignedUp,
+      // confirmationCode,
     } = this.state;
     let data = await Auth.signUp({
       username: email,

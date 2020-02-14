@@ -6,6 +6,7 @@ class TestCompanyForm extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      companySignedUp: false,
       name: '',
       location: '',
       industry: '',
@@ -15,30 +16,24 @@ class TestCompanyForm extends Component {
       vidURL: '',
       users: [],
       positions: [],
-      errors: {
-        cognito: null,
-        blankfield: false,
-        passwordmatch: false,
-      },
     };
   }
 
-  onSubmit(event) {
+  handleSubmit = event => {
     event.preventDefault();
+    const { name, location, industry } = this.state;
     this.props.mutate({
       variables: {
-        name: this.state.name,
-        location: this.state.location,
-        industry: this.state.industry,
+        name: name,
+        location: location,
+        industry: industry,
       },
     });
     this.props.history.push('/candidates');
-  }
+  };
 
   render() {
     return (
-      // turns background blue
-      // <div className="Cform">
       <div>
         <p className="miniLogo">Aplier</p>
         <div className="formContainer">
