@@ -23,30 +23,39 @@ client.connect();
 app.use(cors());
 
 const createApp = () => {
+
+  app.use(
+    '/graphql',
+    graphqlHTTP({
+      schema,
+      graphiql: false,
+      context: { models },
+    })
+  );
   // body parsing middleware
-  app.use(express.json());
-  app.use(express.urlencoded({ extended: true }));
+  // app.use(express.json());
+  // app.use(express.urlencoded({ extended: true }));
 
   // compression middleware
   // app.use(compression());
 
   // session middleware with passport
-  app.use(
-    session({
-      secret: process.env.SESSION_SECRET || 'my best friend is Cody',
-      store: sessionStore,
-      resave: false,
-      saveUninitialized: false,
-    })
-  );
-  app.use(passport.initialize());
-  app.use(passport.session());
+  // app.use(
+  //   session({
+  //     secret: process.env.SESSION_SECRET || 'my best friend is Cody',
+  //     store: sessionStore,
+  //     resave: false,
+  //     saveUninitialized: false,
+  //   })
+  // );
+  // app.use(passport.initialize());
+  // app.use(passport.session());
 
   // auth and api routes
   // app.use('/auth', require('./auth'));
 
   // static file-serving middleware
-  app.use(express.static(path.join(__dirname, '..', 'public')));
+  // app.use(express.static(path.join(__dirname, '..', 'public')));
 
   // any remaining requests with an extension (.js, .css, etc.) send 404
   app.use((req, res, next) => {
@@ -72,18 +81,11 @@ const createApp = () => {
   });
 };
 
-app.use(
-  '/graphql',
-  graphqlHTTP({
-    schema,
-    graphiql: true,
-    context: { models },
-  })
-);
+
 
 const startListening = () => {
   // start listening (and create a 'server' object representing our server)
-  const PORT = 4000;
+  const PORT = process.env.PORT || 8080;
   app.listen(PORT, () => {
     console.log(`Listening on port ${PORT}`);
   });

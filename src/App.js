@@ -19,7 +19,7 @@ import SideDrawerCompany from './components/Header/SideDrawer/SideDrawerCompany'
 
 //Apollo Client
 const client = new ApolloClient({
-  uri: 'http://localhost:4000/graphql',
+  uri: 'http://aplier-backend.herokuapp.com/graphql',
 });
 
 class App extends Component {
