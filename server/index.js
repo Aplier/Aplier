@@ -32,7 +32,7 @@ const createApp = () => {
     '/graphql',
     graphqlHTTP({
       schema,
-      graphiql: true,
+      graphiql: false,
       context: { models },
     })
   )
