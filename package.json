@@ -42,7 +42,7 @@
   },
   "scripts": {
     "json:server": "json-server --watch db.json",
-    "start": "nodemon ./server/index.js",
+    "start": "node ./server/index.js",
     "seed": "node seed.js"
   },
   "eslintConfig": {
