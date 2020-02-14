@@ -18,12 +18,6 @@ import Backdrop from './components/Header/Backdrop/Backdrop';
 import SideDrawerCandidate from './components/Header/SideDrawer/SideDrawerCandidate'
 import SideDrawerCompany from './components/Header/SideDrawer/SideDrawerCompany'
 
-
-//Apollo Client
-// const client = new ApolloClient({
-//   uri: 'http://aplier-backend.herokuapp.com/graphql',
-// });
-
 const cache = new InMemoryCache()
   const client = new ApolloClient({
   cache,
@@ -32,21 +26,6 @@ const cache = new InMemoryCache()
   })
 })
 
-// const httpLink = createHttpLink({
-//   credentials: 'include',
-//   uri: 'http://aplier-backend.herokuapp.com/graphql'
-// })
-
-// const middlewareLink = setContext(() => ({
-//   headers: {
-//       'Content-Type': 'application/graphql'
-//   },
-// }));
-
-// const client = new ApolloClient({
-//   link: middlewareLink.concat(httpLink),
-//   cache: new InMemoryCache(),
-// });
 
 class App extends Component {
   constructor(props) {
