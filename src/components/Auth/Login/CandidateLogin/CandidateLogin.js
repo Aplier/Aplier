@@ -37,7 +37,7 @@ class CandidateLogin extends Component {
         });
         console.log('STATE.CANDI ---->',this.state.isCandidateLoggedIn)
 
-        this.props.history.push('/positions');
+        this.props.history.replace('/positions');
         window.location.reload()
 
       } else if(isCandidateLoggedIn === true){
