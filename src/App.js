@@ -24,10 +24,10 @@ import SideDrawerCompany from './components/Header/SideDrawer/SideDrawerCompany'
 //   uri: 'http://aplier-backend.herokuapp.com/graphql',
 // });
 
-/ const cache = new InMemoryCache()
+const cache = new InMemoryCache()
   const client = new ApolloClient({
   cache,
-  link: new HttpLink({
+  link: new createHttpLink({
     uri: 'http://aplier-backend.herokuapp.com/graphql',
   })
 })
