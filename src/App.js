@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
-import ApolloClient from 'apollo-boost';
+import {ApolloClient} from 'apollo-client';
 import { ApolloProvider } from 'react-apollo';
+import {createHttpLink} from 'apollo-link-http'
+import {InMemoryCache} from 'apollo-cache-inmemory'
 // import { Router} from 'react-router-dom'
 
 
@@ -18,19 +20,25 @@ import SideDrawerCompany from './components/Header/SideDrawer/SideDrawerCompany'
 
 
 //Apollo Client
-// const client = new ApolloClient({
-//   uri: 'http://aplier-backend.herokuapp.com/graphql',
-//   fetchOptions: {
-//     mode: 'no-cors',
-//   }
-// });
-
 const client = new ApolloClient({
-  uri: 'https://apliereded.herokuapp.com/v1/graphql',
-  fetchOptions: {
-    mode: 'no-cors',
-  }
+  uri: 'http://aplier-backend.herokuapp.com/graphql',
 });
+
+// const httpLink = createHttpLink({
+//   credentials: 'include',
+//   uri: 'http://aplier-backend.herokuapp.com/graphql'
+// })
+
+// const middlewareLink = setContext(() => ({
+//   headers: {
+//       'Content-Type': 'application/graphql'
+//   },
+// }));
+
+// const client = new ApolloClient({
+//   link: middlewareLink.concat(httpLink),
+//   cache: new InMemoryCache(),
+// });
 
 class App extends Component {
   constructor(props) {
