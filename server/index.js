@@ -2,6 +2,7 @@ const express = require('express');
 const graphqlHTTP = require('express-graphql');
 const schema = require('./schema/schema');
 const app = express();
+const bodyParser = require('body-parser')
 // const cors = require('cors');
 const models = require('./db/models');
 const passport = require('passport');
@@ -36,6 +37,11 @@ const createApp = () => {
   // app.use(express.json());
   // app.use(express.urlencoded({ extended: true }));
 
+// configure app to use bodyParser()
+// this will let us get the data from a POST
+// exclusing the route to graphql
+    app.use(/\/((?!graphql).)*/, bodyParser.urlencoded({ extended: true }));
+    app.use(/\/((?!graphql).)*/, bodyParser.json());
   // compression middleware
   // app.use(compression());
 
