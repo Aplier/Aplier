@@ -65,7 +65,7 @@ async function seed() {
       phone: '123-123-1234',
       intro: 'My name is Tina, please hire me.',
       admin: true,
-      imgURL: 'https://www.vettedpetcare.com/vetted-blog/wp-content/uploads/2018/08/How-To-Travel-With-a-Super-Anxious-Cat-square.jpeg',
+      imgURL: 'https://media-exp1.licdn.com/dms/image/C4D03AQGqXZ-DfOk3dQ/profile-displayphoto-shrink_200_200/0?e=1586995200&v=beta&t=02SdPdDT1Zbo_E3ROQUquxsRtQBi0kIhSYgHDaLqXuE',
       // videoURL: '',
       currentjobId: 1
     }),
@@ -94,15 +94,15 @@ async function seed() {
       currentjobId: 3
     }),
     Candidate.create({
-      firstName: 'John',
-      lastName: 'Doe',
-      email: 'john@gmail.com',
+      firstName: 'Marvin',
+      lastName: 'Huang',
+      email: 'MH@gmail.com',
       password: '123',
       address: 'New York',
       phone: '111-123-1234',
-      intro: 'The best dev you can ever hire',
+      intro: 'Software Engineer specializing in SQl, and Graphql',
       admin: false,
-      imgURL: 'https://vignette.wikia.nocookie.net/characters/images/6/6b/309.png/revision/latest?cb=20141230071329',
+      imgURL: 'https://media-exp1.licdn.com/dms/image/C4D03AQEPeIvZ2xE-RQ/profile-displayphoto-shrink_200_200/0?e=1586995200&v=beta&t=KTfcAPklrXqGyZ84A5aCLeFJT8OKwzoL_2QkMQNPPHQ',
       currentjobId: 4
     }),
     Candidate.create({
@@ -127,13 +127,13 @@ async function seed() {
         phone: '111-222-1234',
         intro: 'React Master',
         admin: true,
-        imgURL: 'https://www.vettedpetcare.com/vetted-blog/wp-content/uploads/2018/08/How-To-Travel-With-a-Super-Anxious-Cat-square.jpeg',
+        imgURL: 'https://media-exp1.licdn.com/dms/image/C4D03AQGvl34LG-jI_A/profile-displayphoto-shrink_200_200/0?e=1586995200&v=beta&t=Ctzy0buBfTCwUyGl2fhKhDtda8aLBW4oJqAGgjiFHjQ',
         currentjobId: 6
     }),
     Candidate.create({
       firstName: 'Remi',
       lastName: 'Mendoza',
-      email: 'remi@gmail.com',
+      email: 'RemiMendoza@gmail.com',
       password: '123',
       address: 'New York',
       phone: '646-646-6464',

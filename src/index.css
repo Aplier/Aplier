@@ -226,6 +226,11 @@ text-align: center;
   background-color: rgb(115, 149, 173);
 
 }
+
+#github {
+  color: rgb(29, 49, 80);
+  font-weight: bold;
+}
 .accountList {
   padding-top: 10px;
   margin: 0;
@@ -355,6 +360,7 @@ border-radius: 0%;
   padding-top: 50px;
   text-align: center;
   padding-bottom: 0px;
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
 }
 
 .aboutUs {

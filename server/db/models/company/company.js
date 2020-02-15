@@ -30,7 +30,8 @@ const Company = db.define('company', {
     type: Sequelize.STRING
   },
   imgURL: {
-    type: Sequelize.TEXT
+    type: Sequelize.TEXT,
+    defaultValue: 'https://i.imgur.com/eZJho9O.png'
   },
   vidURL: {
     type: Sequelize.TEXT

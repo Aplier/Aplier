@@ -15,11 +15,13 @@ class AboutUs extends Component {
             />
             <h3><center>Depak Borhara</center></h3>
             <div className="positionInfo">
-            <p>New York, NY</p>
-            <p>Software Engineer</p>
+            <p> <img alt="icon"className="icon" src="https://cdn3.iconfinder.com/data/icons/unicons-vector-icons-pack/32/location-512.png"/> New York, NY</p>
+            <p> <img alt="icon"className="icon" src="https://png.pngtree.com/svg/20151015/7cc2f4999d.png"/> Software Engineer</p>
+            <p> <img alt="icon"className="icon" src="https://i.imgur.com/zGYtmc4.png"/><a id="github" href="https://github.com/DBorhara"> Depaks Github</a></p>
             <hr></hr>
             <h3>About Me</h3>
-            <p>I am a former non-profit and government professional transitioning to tech. I helped train Software Engineers that came from high need backgrounds which has inspired me to join the tech industry as an engineer. I have a passion for building things and software engineering lets me build products that can solve problems at scale. </p>
+            <p>I am a former non-profit and government professional transitioning to tech. I helped train Software Engineers that came from high need backgrounds which has inspired me to join the tech industry as an engineer. </p>
+
             </div>
         </div>
         <div className="aboutUs">
@@ -30,8 +32,9 @@ class AboutUs extends Component {
             />
             <h3><center>Tina Fun</center></h3>
             <div className="positionInfo">
-            <p>New York, NY</p>
-            <p>Software Engineer</p>
+            <p> <img alt="icon"className="icon" src="https://cdn3.iconfinder.com/data/icons/unicons-vector-icons-pack/32/location-512.png"/> New York, NY</p>
+            <p> <img alt="icon"className="icon" src="https://png.pngtree.com/svg/20151015/7cc2f4999d.png"/> Software Engineer</p>
+            <p> <img alt="icon"className="icon" src="https://i.imgur.com/zGYtmc4.png"/><a id="github" href="https://github.com/tinafun"> Tina's Github</a> </p>
             <hr></hr>
             <h3>About Me</h3>
             <p>Software developer with experience in Digital Advertising, Strategies, Partnerships, E-commerce, and Community Building. A self-starter with a proven track record of creative problem-solving, navigating ambiguity, and team building.
@@ -46,11 +49,12 @@ class AboutUs extends Component {
             />
             <h3><center>Remi Mendoza</center></h3>
             <div className="positionInfo">
-            <p>New York, NY</p>
-            <p>Software Engineer</p>
+            <p> <img alt="icon"className="icon" src="https://cdn3.iconfinder.com/data/icons/unicons-vector-icons-pack/32/location-512.png"/> New York, NY</p>
+            <p> <img alt="icon"className="icon" src="https://png.pngtree.com/svg/20151015/7cc2f4999d.png"/> Software Engineer</p>
+            <p> <img alt="icon"className="icon" src="https://i.imgur.com/zGYtmc4.png"/> <a id="github" href=" https://github.com/mendozaremi"> Remi's Github</a> </p>
             <hr></hr>
             <h3>About Me</h3>
-            <p>I am a Fullstack academy student with the following Technical skills Javascript, NodeJS, Express, ReactJS, Redux, Git, HTML, CSS, PostGresSQL, Sequelize,</p>
+            <p>I'm a graduate of Fullstack Academy's software engineering program. Web development, design, and software engineering were always passions of mine.I'm grateful for what this career has given me and hope to be apart of a company that strives for nothing less than success</p>
             </div>
         </div>
         <div className="aboutUs">
@@ -61,11 +65,12 @@ class AboutUs extends Component {
             />
             <h3><center>Marvin Huang</center></h3>
             <div className="positionInfo">
-            <p>New York, NY</p>
-            <p>Software Engineer</p>
+            <p> <img alt="icon"className="icon" src="https://cdn3.iconfinder.com/data/icons/unicons-vector-icons-pack/32/location-512.png"/> New York, NY</p>
+            <p> <img alt="icon"className="icon" src="https://png.pngtree.com/svg/20151015/7cc2f4999d.png"/> Software Engineer</p>
+            <p> <img alt="icon"className="icon" src="https://i.imgur.com/zGYtmc4.png"/><a id="github" href="https://github.com/mh-393"> Marvin's Github</a> </p>
             <hr></hr>
             <h3>About Me</h3>
-            <p>I'm Marvin a software engineering Student at Fullstack Academy</p>
+            <p>I'm Marvin, a software engineering Student at Fullstack Academy</p>
             </div>
             <br></br>
         </div>

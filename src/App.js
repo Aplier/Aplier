@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {ApolloClient} from 'apollo-client';
+import { ApolloClient } from 'apollo-client';
 import { ApolloProvider } from 'react-apollo';
 import {createHttpLink} from 'apollo-link-http'
 import {InMemoryCache} from 'apollo-cache-inmemory'
@@ -19,7 +19,7 @@ import SideDrawerCandidate from './components/Header/SideDrawer/SideDrawerCandid
 import SideDrawerCompany from './components/Header/SideDrawer/SideDrawerCompany'
 
 const cache = new InMemoryCache()
-  const client = new ApolloClient({
+const client = new ApolloClient({
   cache,
   link: new createHttpLink({
     uri: 'http://aplier-backend.herokuapp.com/graphql',
@@ -69,7 +69,6 @@ class App extends Component {
       backdrop = <Backdrop click={this.backdropClickHandler} />;
     }
       if(this.state.isCandidateLoggedIn === true) {
-      console.log('THIS IS FIRST IF STAETMENT')
         return (
           <ApolloProvider client={client}>
             <div style={{ height: '100%' }}>
@@ -82,7 +81,6 @@ class App extends Component {
         );
     }
     else if(this.state.isUserLoggedIn === true) {
-      console.log('THIS IS SECOND IF STAETMENT')
       return (
         <ApolloProvider client={client}>
           <div style={{ height: '100%' }}>
@@ -95,7 +93,6 @@ class App extends Component {
       );
     }
     else {
-      console.log('THIS IS THIRD IF STAETMENT')
       return (
         <ApolloProvider client={client}>
           <div style={{ height: '100%' }}>
