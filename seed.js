@@ -62,7 +62,7 @@ async function seed() {
       email: 'tina@gmail.com',
       password: '123',
       address: 'New York',
-      phone: '123-123-1234',
+      phone: '347-154-1233',
       intro: 'My name is Tina, please hire me.',
       admin: true,
       imgURL: 'https://media-exp1.licdn.com/dms/image/C4D03AQGqXZ-DfOk3dQ/profile-displayphoto-shrink_200_200/0?e=1586995200&v=beta&t=02SdPdDT1Zbo_E3ROQUquxsRtQBi0kIhSYgHDaLqXuE',
@@ -72,10 +72,10 @@ async function seed() {
     Candidate.create({
       firstName: 'Jane',
       lastName: 'Bing',
-      email: 'Bing@gmail.com',
+      email: 'BingJane@gmail.com',
       password: '123',
       address: 'New York',
-      phone: '777-777-7777',
+      phone: '212-774-6460',
       intro: 'Test Unit Designer',
       admin: true,
       imgURL: 'https://i.imgur.com/dmo3oL0.png',
@@ -87,8 +87,8 @@ async function seed() {
       email: 'Mike@gmail.com',
       password: '123',
       address: 'New York',
-      phone: '777-777-7777',
-      intro: 'UX-UI Designer',
+      phone: '646-651-1437',
+      intro: 'UX-UI Designer expertise',
       admin: true,
       imgURL: 'https://i.imgur.com/kKgdwyu.png',
       currentjobId: 3
@@ -99,7 +99,7 @@ async function seed() {
       email: 'MH@gmail.com',
       password: '123',
       address: 'New York',
-      phone: '111-123-1234',
+      phone: '212-898-1266',
       intro: 'Software Engineer specializing in SQl, and Graphql',
       admin: false,
       imgURL: 'https://media-exp1.licdn.com/dms/image/C4D03AQEPeIvZ2xE-RQ/profile-displayphoto-shrink_200_200/0?e=1586995200&v=beta&t=KTfcAPklrXqGyZ84A5aCLeFJT8OKwzoL_2QkMQNPPHQ',
@@ -108,10 +108,10 @@ async function seed() {
     Candidate.create({
       firstName: 'Tony',
       lastName: 'Melendez',
-      email: 'tony@gmail.com',
+      email: 'tonyMelendez@gmail.com',
       password: '123',
       address: 'LA',
-      phone: '111-123-1234',
+      phone: '212-145-7734',
       intro: 'Cyber security Expert',
       admin: false,
       imgURL: 'https://i.imgur.com/fuBJCqx.png',
@@ -159,7 +159,7 @@ async function seed() {
       industry: 'Tech',
       perks: 'Summer Fridays',
       website: 'twitter.com',
-      imgURL: 'http://tny.im/kFX',
+      imgURL: 'https://i.imgur.com/156zQ1o.png',
     }),
     Company.create({
       name: 'Facebook',
@@ -167,7 +167,7 @@ async function seed() {
       industry: 'Tech',
       perks: 'Unlimited Pizza',
       website: 'facebook.com',
-      imgURL: 'http://tny.im/kFY',
+      imgURL: 'https://i.imgur.com/zPPrLjA.png',
     }),
     Company.create({
       name: 'VaynerMedia',
@@ -175,7 +175,7 @@ async function seed() {
       industry: 'Tech',
       perks: '6 months parental leave',
       website: 'vaynerMedia.com',
-      imgURL: 'http://tny.im/kG0',
+      imgURL: 'https://i.imgur.com/wQTrYap.png',
     }),
     Company.create({
       name: 'Etsy',
@@ -184,6 +184,14 @@ async function seed() {
       perks: 'Free trips to Europe',
       website: 'Etsy.com',
       imgURL: 'https://i.imgur.com/idXCIgi.png',
+    }),
+    Company.create({
+      name: 'Amazon',
+      location: '10 Hudson yards, New York, NY 10001',
+      industry: 'Tech',
+      perks: 'Free Citibikes, Ride-share year-long',
+      website: 'Amazon.com',
+      imgURL: 'https://i.imgur.com/bOrzyws.png',
     })
   ])
 
@@ -252,7 +260,7 @@ async function seed() {
       salaryRange: '$124,000',
       screeningQ1: 'What are the advantages of GraphQl?',
       screeningQ2: 'Describe Prisma?',
-      screeningQ3: 'What is State',
+      screeningQ3: 'What is State?',
       companyId: 2, //twitter
       companyUserId: 2
     }),
@@ -260,10 +268,20 @@ async function seed() {
       title: 'UI Designer',
       description: 'Looking for a UI Designer.',
       salaryRange: '$95,000',
-      screeningQ1: 'What is UI?',
-      screeningQ2: 'Walk me thru a great UX?',
-      screeningQ3: 'React native or Swift/Java & why',
+      screeningQ1: 'What is UI and UX?',
+      screeningQ2: 'What are cons of Functional Programming',
+      screeningQ3: 'React native or Swift/Java and why?',
       companyId: 5, // Etsy
+      companyUserId: 5,
+    }),
+    CompanyPosition.create({
+      title: 'Lead AWS Engineer',
+      description: 'Looking for a engineer with AWS certifications',
+      salaryRange: '$140,000',
+      screeningQ1: 'What is AWS Cognito?',
+      screeningQ2: 'What is RDS?',
+      screeningQ3: 'Why go Serverless?',
+      companyId: 6, // Amazon
       companyUserId: 5,
     }),
   ])

@@ -52,6 +52,15 @@ img {
   transition-duration: 0.4s;
 }
 
+.companyTitle{
+  text-align: center;
+  color: rgb(36, 48, 65);
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+#companyTitle{
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
 .customeButton:hover {
   background-color: rgb(70, 106, 226); /* Green */
   color: white;
@@ -92,6 +101,7 @@ a:-webkit-any-link {
   padding-bottom: 100px;
   padding-top: 30px;
 }
+
 
 .candidateImg{
   display: block;
@@ -152,8 +162,30 @@ box-shadow: 10px 10px 5px grey;
 .thumbs {
   width: 50px;
   height: 50px;
-  padding: 30px;
+  margin-top: 10px;
+  margin-left: 40px;
+  margin-right: 40px;
+  padding: 5px
 }
+
+.thumbs2 {
+  width: 50px;
+  height: 50px;
+  margin-left: 40px;
+  margin-right: 40px;
+  padding: 5px
+}
+
+.thumbs:hover{
+  background-color: rgb(29, 226, 29);
+}
+
+.thumbs2:hover{
+  background-color: rgb(233, 46, 13);
+}
+
+
+
 
 .logInContainer{
 padding-top: 25%;
@@ -240,6 +272,11 @@ text-align: center;
   margin: 0;
   padding-top: 5px;
   padding-bottom: 8px;
+}
+
+.positionTitle{
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  color: rgb(36, 48, 65);
 }
 
 

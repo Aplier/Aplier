@@ -22,13 +22,14 @@ class CandidateAccount extends Component {
     if (data.loading) {
       return <div>Loading Candidate Account...</div>;
     } else {
+      console.log(this.props)
       return (
         <div>
           <div className="formContainer">
             <h3 className="welcomeAccount">Welcome {given_name}</h3>
             <img
               className="circleAccount"
-              src={data.candidate.imgURL}
+              src="https://i.imgur.com/tEcU43K.png"
               alt="screeningImage"
             />{' '}
             {/* <button className="customeButton" type="submit">
