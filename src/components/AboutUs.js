@@ -17,7 +17,7 @@ class AboutUs extends Component {
             <div className="positionInfo">
             <p> <img alt="icon"className="icon" src="https://cdn3.iconfinder.com/data/icons/unicons-vector-icons-pack/32/location-512.png"/> New York, NY</p>
             <p> <img alt="icon"className="icon" src="https://png.pngtree.com/svg/20151015/7cc2f4999d.png"/> Software Engineer</p>
-            <p> <img alt="icon"className="icon" src="https://i.imgur.com/zGYtmc4.png"/><a id="github" href="https://github.com/DBorhara"> Depaks Github</a></p>
+            <p> <img alt="icon"className="icon" src="https://i.imgur.com/zGYtmc4.png"/><a id="github" href="https://github.com/DBorhara"> Depak's Github</a></p>
             <hr></hr>
             <h3>About Me</h3>
             <p>I am a former non-profit and government professional transitioning to tech. I helped train Software Engineers that came from high need backgrounds which has inspired me to join the tech industry as an engineer. </p>

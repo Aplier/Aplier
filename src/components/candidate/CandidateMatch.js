@@ -16,7 +16,7 @@ class CandidateMatch extends Component {
             {/* <img src={company.imgURL} alt="company img" /> */}
             <Link to={'/screening'}>
               <font color="black">
-                <p>{position.title}</p>
+                <p className="positionMatch">{position.title}</p>
               </font>
             </Link>
           </div>
@@ -33,7 +33,7 @@ class CandidateMatch extends Component {
     <h3>Congratulations!</h3>
     <p> You've matched with: </p>
         <div> {this.displayPositions()}</div>
-        
+
         <br></br>
         <br></br>
         <p>Click on the positions and fill out the screening questions.</p>

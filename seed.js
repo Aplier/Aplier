@@ -150,7 +150,7 @@ async function seed() {
       location: '111 8th Avenue, NY 10011',
       industry: 'Tech',
       perks: 'Free Lunch, and work naps',
-      website: 'google.com',
+      website: 'Google.com',
       imgURL: 'http://tny.im/kFW',
     }),
     Company.create({
@@ -158,7 +158,7 @@ async function seed() {
       location: '249 West 17th Street, NY 10011',
       industry: 'Tech',
       perks: 'Summer Fridays',
-      website: 'twitter.com',
+      website: 'Twitter.com',
       imgURL: 'https://i.imgur.com/156zQ1o.png',
     }),
     Company.create({
@@ -166,7 +166,7 @@ async function seed() {
       location: '770 Broadway, New York, NY 10003',
       industry: 'Tech',
       perks: 'Unlimited Pizza',
-      website: 'facebook.com',
+      website: 'Facebook.com',
       imgURL: 'https://i.imgur.com/zPPrLjA.png',
     }),
     Company.create({
@@ -174,7 +174,7 @@ async function seed() {
       location: '10 Hudson yards, New York, NY 10001',
       industry: 'Tech',
       perks: '6 months parental leave',
-      website: 'vaynerMedia.com',
+      website: 'VaynerMedia.com',
       imgURL: 'https://i.imgur.com/wQTrYap.png',
     }),
     Company.create({
@@ -230,7 +230,7 @@ async function seed() {
       salaryRange: '$85,000',
       screeningQ1: 'What are JavaScript Data Types?',
       screeningQ2: 'What is Recursion?',
-      screeningQ3: 'Explain the difference between "==" and "==="?',
+      screeningQ3: 'Explain what is breadth first',
       companyId: 1, // google
       companyUserId: 3
     }),
@@ -238,9 +238,9 @@ async function seed() {
       title: 'Front-End Developer',
       description: 'Looking for a Back-End Developer. skilled in Javascript Concepts',
       salaryRange: '$95,000',
-      screeningQ1: 'Explain what is pop()method in JavaScript?',
+      screeningQ1: 'Explain what is the pop()method in JavaScript?',
       screeningQ2: 'Explain OOP?',
-      screeningQ3: 'Explain closures in JavaScript?',
+      screeningQ3: 'Describe an example of closure?',
       companyId: 3, // facebook
       companyUserId: 1
     }),

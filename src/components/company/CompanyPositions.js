@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { graphql } from 'react-apollo';
-// import TestComp from './testComp'
-// import * as compose from 'lodash.flowright';
+import { Link } from 'react-router-dom'
 import { getPositionsQuery } from '../../queries/queries';
 
 class CompanyPositions extends Component {
@@ -56,12 +55,12 @@ class CompanyPositions extends Component {
             </div>
             <div className='buttonsDiv'>
               <img className="thumbs2"
-                   alt="down" src="https://img.icons8.com/ultraviolet/40/000000/poor-quality.png"
-                   onClick={()=>this.clickThumb({id: position.id, thumb: "down"})}>
+                  alt="down" src="https://img.icons8.com/ultraviolet/40/000000/poor-quality.png"
+                  onClick={()=>this.clickThumb({id: position.id, thumb: "down"})}>
               </img>
               <img className="thumbs"
-                   alt="up" src="https://img.icons8.com/ultraviolet/40/000000/good-quality.png"
-                   onClick={()=>this.clickThumb({id: position.id, thumb: "up"})}>
+                  alt="up" src="https://img.icons8.com/ultraviolet/40/000000/good-quality.png"
+                  onClick={()=>this.clickThumb({id: position.id, thumb: "up"})}>
               </img>
             </div>
           </div>
@@ -81,11 +80,10 @@ class CompanyPositions extends Component {
           </div>
           :
           <div className="noCandidates">
-              <p>You've reached the end of the postions availible...</p>
+              <p>You've reached the end of the postions available...</p>
               <img alt="comeback_later" src="https://acegif.com/wp-content/uploads/tea.gif"/>
               <p>Take a break and come back later,</p>
-              <p>we will have more positions waiting for you!</p>
-
+              <p>Check your matches <a id="github" href="/candidatematches">Here!</a></p>
             </div>
         }
       </div>

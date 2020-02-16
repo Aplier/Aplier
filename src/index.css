@@ -176,6 +176,11 @@ box-shadow: 10px 10px 5px grey;
   padding: 5px
 }
 
+.positionMatch {
+  font-weight: bold;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  color: rgb(36, 48, 65);
+}
 .thumbs:hover{
   background-color: rgb(29, 226, 29);
 }
@@ -394,10 +399,19 @@ border-radius: 0%;
 }
 
 .aboutUsTitle {
+  font-size: large;
   padding-top: 50px;
   text-align: center;
   padding-bottom: 0px;
-  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  /* font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif; */
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  color: rgb(36, 48, 65);
+}
+
+.aboutUsLogo {
+  height: 90px;
+  width: 120px;
+  margin-right: 80px
 }
 
 .aboutUs {
