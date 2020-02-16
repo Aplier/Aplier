@@ -51,7 +51,6 @@ class Candidate extends Component {
 
       return <div>Loading Candidates...</div>;
     } else {
-      console.log('CANDIDATE DATA======>', data.candidates)
       return data.candidates.map(candidate => {
         return (
           <div className="mapCandidates" key={candidate.id}>

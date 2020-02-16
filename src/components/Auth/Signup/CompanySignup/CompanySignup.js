@@ -39,8 +39,9 @@ class TestCompanyForm extends Component {
     return (
       // turns background blue
       // <div className="Cform">
-      <div>
-        <p className="miniLogo">Aplier</p>
+      <div className="aboutUsColor">
+          <br></br>
+        <div className="mapCandidates2">
         <div className="formContainer">
           <img
             className="circleCompany"
@@ -80,6 +81,7 @@ class TestCompanyForm extends Component {
             </button>
           </form>
         </div>
+      </div>
       </div>
     );
   }
