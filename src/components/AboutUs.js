@@ -21,7 +21,6 @@ class AboutUs extends Component {
             <hr></hr>
             <h3>About Me</h3>
             <p>I am a former non-profit and government professional transitioning to tech. I helped train Software Engineers that came from high need backgrounds which has inspired me to join the tech industry as an engineer. </p>
-
             </div>
         </div>
         <div className="aboutUs">
