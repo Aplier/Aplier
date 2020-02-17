@@ -63,73 +63,70 @@ const seed = async () => {
     console.log('Company Seed Error :', error);
   }
 
-  try {
-    const Candidates = await Promise.all([
-      Candidate.create({
-        firstName: 'Tina',
-        lastName: 'Fun',
-        email: 'tina@gmail.com',
-        password: '123',
-        address: 'New York',
-        phone: '123-123-1234',
-        intro: 'My name is Tina, please hire me.',
-        admin: true,
-        imgURL:
-          'https://www.vettedpetcare.com/vetted-blog/wp-content/uploads/2018/08/How-To-Travel-With-a-Super-Anxious-Cat-square.jpeg',
-        // videoURL: '',
-        currentjobId: 1,
-      }),
-      Candidate.create({
-        firstName: 'Jane',
-        lastName: 'Bing',
-        email: 'Bing@gmail.com',
-        password: '123',
-        address: 'New York',
-        phone: '777-777-7777',
-        intro: 'Test Unit Designer',
-        admin: true,
-        imgURL: 'https://i.imgur.com/dmo3oL0.png',
-        currentjobId: 2,
-      }),
-      Candidate.create({
-        firstName: 'Mike',
-        lastName: 'Daniels',
-        email: 'Mike@gmail.com',
-        password: '123',
-        address: 'New York',
-        phone: '777-777-7777',
-        intro: 'UX-UI Designer',
-        admin: true,
-        imgURL: 'https://i.imgur.com/kKgdwyu.png',
-        currentjobId: 3,
-      }),
-      Candidate.create({
-        firstName: 'John',
-        lastName: 'Doe',
-        email: 'john@gmail.com',
-        password: '123',
-        address: 'New York',
-        phone: '111-123-1234',
-        intro: 'The best dev you can ever hire',
-        admin: false,
-        imgURL:
-          'https://vignette.wikia.nocookie.net/characters/images/6/6b/309.png/revision/latest?cb=20141230071329',
-        currentjobId: 4,
-      }),
-      Candidate.create({
-        firstName: 'Tony',
-        lastName: 'Melendez',
-        email: 'tony@gmail.com',
-        password: '123',
-        address: 'LA',
-        phone: '111-123-1234',
-        intro: 'Cyber security Expert',
-        admin: false,
-        imgURL: 'https://i.imgur.com/fuBJCqx.png',
-        // videoURL: '',
-        currentjobId: 5,
-      }),
-      Candidate.create({
+  const Candidates = await Promise.all([
+    Candidate.create({
+      firstName: 'Tina',
+      lastName: 'Fun',
+      email: 'tina@gmail.com',
+      password: '123',
+      address: 'New York',
+      phone: '347-154-1233',
+      intro: 'My name is Tina, please hire me.',
+      admin: true,
+      imgURL: 'https://media-exp1.licdn.com/dms/image/C4D03AQGqXZ-DfOk3dQ/profile-displayphoto-shrink_200_200/0?e=1586995200&v=beta&t=02SdPdDT1Zbo_E3ROQUquxsRtQBi0kIhSYgHDaLqXuE',
+      // videoURL: '',
+      currentjobId: 1
+    }),
+    Candidate.create({
+      firstName: 'Jane',
+      lastName: 'Bing',
+      email: 'BingJane@gmail.com',
+      password: '123',
+      address: 'New York',
+      phone: '212-774-6460',
+      intro: 'Test Unit Designer',
+      admin: true,
+      imgURL: 'https://i.imgur.com/dmo3oL0.png',
+      currentjobId: 2
+    }),
+    Candidate.create({
+      firstName: 'Mike',
+      lastName: 'Daniels',
+      email: 'Mike@gmail.com',
+      password: '123',
+      address: 'New York',
+      phone: '646-651-1437',
+      intro: 'UX-UI Designer expertise',
+      admin: true,
+      imgURL: 'https://i.imgur.com/kKgdwyu.png',
+      currentjobId: 3
+    }),
+    Candidate.create({
+      firstName: 'Marvin',
+      lastName: 'Huang',
+      email: 'MH@gmail.com',
+      password: '123',
+      address: 'New York',
+      phone: '212-898-1266',
+      intro: 'Software Engineer specializing in SQl, and Graphql',
+      admin: false,
+      imgURL: 'https://media-exp1.licdn.com/dms/image/C4D03AQEPeIvZ2xE-RQ/profile-displayphoto-shrink_200_200/0?e=1586995200&v=beta&t=KTfcAPklrXqGyZ84A5aCLeFJT8OKwzoL_2QkMQNPPHQ',
+      currentjobId: 4
+    }),
+    Candidate.create({
+      firstName: 'Tony',
+      lastName: 'Melendez',
+      email: 'tonyMelendez@gmail.com',
+      password: '123',
+      address: 'LA',
+      phone: '212-145-7734',
+      intro: 'Cyber security Expert',
+      admin: false,
+      imgURL: 'https://i.imgur.com/fuBJCqx.png',
+      // videoURL: '',
+      currentjobId: 5
+    }),
+    Candidate.create({
         firstName: 'Depak',
         lastName: 'Borhara',
         email: 'depak@gmail.com',
@@ -138,73 +135,73 @@ const seed = async () => {
         phone: '111-222-1234',
         intro: 'React Master',
         admin: true,
-        imgURL:
-          'https://www.vettedpetcare.com/vetted-blog/wp-content/uploads/2018/08/How-To-Travel-With-a-Super-Anxious-Cat-square.jpeg',
-        currentjobId: 6,
-      }),
-      Candidate.create({
-        firstName: 'Remi',
-        lastName: 'Mendoza',
-        email: 'remi@gmail.com',
-        password: '123',
-        address: 'New York',
-        phone: '646-646-6464',
-        intro: 'React-Native Master',
-        admin: true,
-        imgURL: 'https://i.imgur.com/Q7kyCzR.png',
-        currentjobId: 7,
-      }),
-    ]);
-  } catch (error) {
-    console.log('Candidate Create Error', error);
-  }
+        imgURL: 'https://media-exp1.licdn.com/dms/image/C4D03AQGvl34LG-jI_A/profile-displayphoto-shrink_200_200/0?e=1586995200&v=beta&t=Ctzy0buBfTCwUyGl2fhKhDtda8aLBW4oJqAGgjiFHjQ',
+        currentjobId: 6
+    }),
+    Candidate.create({
+      firstName: 'Remi',
+      lastName: 'Mendoza',
+      email: 'RemiMendoza@gmail.com',
+      password: '123',
+      address: 'New York',
+      phone: '646-646-6464',
+      intro: 'React-Native Master',
+      admin: true,
+      imgURL: 'https://i.imgur.com/Q7kyCzR.png',
+      currentjobId: 7
+    }),
+  ])
 
-  try {
-    const Companies = await Promise.all([
-      Company.create({
-        name: 'Google',
-        location: '111 8th Avenue, NY 10011',
-        industry: 'Tech',
-        perks: 'Free Lunch, and work naps',
-        website: 'google.com',
-        imgURL: 'http://tny.im/kFW',
-      }),
-      Company.create({
-        name: 'Twitter',
-        location: '249 West 17th Street, NY 10011',
-        industry: 'Tech',
-        perks: 'Summer Fridays',
-        website: 'twitter.com',
-        imgURL: 'http://tny.im/kFX',
-      }),
-      Company.create({
-        name: 'Facebook',
-        location: '770 Broadway, New York, NY 10003',
-        industry: 'Tech',
-        perks: 'Unlimited Pizza',
-        website: 'facebook.com',
-        imgURL: 'http://tny.im/kFY',
-      }),
-      Company.create({
-        name: 'VaynerMedia',
-        location: '10 Hudson yards, New York, NY 10001',
-        industry: 'Tech',
-        perks: '6 months parental leave',
-        website: 'vaynerMedia.com',
-        imgURL: 'http://tny.im/kG0',
-      }),
-      Company.create({
-        name: 'Etsy',
-        location: '10 Hudson yards, New York, NY 10001',
-        industry: 'Tech',
-        perks: 'Free trips to Europe',
-        website: 'Etsy.com',
-        imgURL: 'https://i.imgur.com/idXCIgi.png',
-      }),
-    ]);
-  } catch (error) {
-    console.log('Company Create Error', error);
-  }
+  const Companies = await Promise.all([
+    Company.create({
+      name: 'Google',
+      location: '111 8th Avenue, NY 10011',
+      industry: 'Tech',
+      perks: 'Free Lunch, and work naps',
+      website: 'Google.com',
+      imgURL: 'http://tny.im/kFW',
+    }),
+    Company.create({
+      name: 'Twitter',
+      location: '249 West 17th Street, NY 10011',
+      industry: 'Tech',
+      perks: 'Summer Fridays',
+      website: 'Twitter.com',
+      imgURL: 'https://i.imgur.com/156zQ1o.png',
+    }),
+    Company.create({
+      name: 'Facebook',
+      location: '770 Broadway, New York, NY 10003',
+      industry: 'Tech',
+      perks: 'Unlimited Pizza',
+      website: 'Facebook.com',
+      imgURL: 'https://i.imgur.com/zPPrLjA.png',
+    }),
+    Company.create({
+      name: 'VaynerMedia',
+      location: '10 Hudson yards, New York, NY 10001',
+      industry: 'Tech',
+      perks: '6 months parental leave',
+      website: 'VaynerMedia.com',
+      imgURL: 'https://i.imgur.com/wQTrYap.png',
+    }),
+    Company.create({
+      name: 'Etsy',
+      location: '10 Hudson yards, New York, NY 10001',
+      industry: 'Tech',
+      perks: 'Free trips to Europe',
+      website: 'Etsy.com',
+      imgURL: 'https://i.imgur.com/idXCIgi.png',
+    }),
+    Company.create({
+      name: 'Amazon',
+      location: '10 Hudson yards, New York, NY 10001',
+      industry: 'Tech',
+      perks: 'Free Citibikes, Ride-share year-long',
+      website: 'Amazon.com',
+      imgURL: 'https://i.imgur.com/bOrzyws.png',
+    })
+  ])
 
   try {
     const CompanyUsers = await Promise.all([
@@ -246,7 +243,7 @@ const seed = async () => {
       salaryRange: '$85,000',
       screeningQ1: 'What are JavaScript Data Types?',
       screeningQ2: 'What is Recursion?',
-      screeningQ3: 'Explain the difference between "==" and "==="?',
+      screeningQ3: 'Explain what is breadth first',
       companyId: 1, // google
       companyUserId: 3,
     }),
@@ -255,9 +252,9 @@ const seed = async () => {
       description:
         'Looking for a Back-End Developer. skilled in Javascript Concepts',
       salaryRange: '$95,000',
-      screeningQ1: 'Explain what is pop()method in JavaScript?',
+      screeningQ1: 'Explain what is the pop()method in JavaScript?',
       screeningQ2: 'Explain OOP?',
-      screeningQ3: 'Explain closures in JavaScript?',
+      screeningQ3: 'Describe an example of closure?',
       companyId: 3, // facebook
       companyUserId: 1,
     }),
@@ -278,7 +275,7 @@ const seed = async () => {
       salaryRange: '$124,000',
       screeningQ1: 'What are the advantages of GraphQl?',
       screeningQ2: 'Describe Prisma?',
-      screeningQ3: 'What is State',
+      screeningQ3: 'What is State?',
       companyId: 2, //twitter
       companyUserId: 2,
     }),
@@ -286,13 +283,23 @@ const seed = async () => {
       title: 'UI Designer',
       description: 'Looking for a UI Designer.',
       salaryRange: '$95,000',
-      screeningQ1: 'What is UI?',
-      screeningQ2: 'Walk me thru a great UX?',
-      screeningQ3: 'React native or Swift/Java & why',
+      screeningQ1: 'What is UI and UX?',
+      screeningQ2: 'What are cons of Functional Programming',
+      screeningQ3: 'React native or Swift/Java and why?',
       companyId: 5, // Etsy
       companyUserId: 5,
     }),
-  ]);
+    CompanyPosition.create({
+      title: 'Lead AWS Engineer',
+      description: 'Looking for a engineer with AWS certifications',
+      salaryRange: '$140,000',
+      screeningQ1: 'What is AWS Cognito?',
+      screeningQ2: 'What is RDS?',
+      screeningQ3: 'Why go Serverless?',
+      companyId: 6, // Amazon
+      companyUserId: 5,
+    }),
+  ])
 
   const Educations = await Promise.all([
     Education.create({

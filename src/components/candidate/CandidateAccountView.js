@@ -16,24 +16,22 @@ class CandidateAccount extends Component {
 
   displayCandidatesAccount() {
     let data = this.props.data;
-    console.log('DATA DOT CANDIDATE', data.candidate)
-    const { info } = this.state;
-    const { given_name, family_name, email, address, id } = info;
-//     let candidate = this.props.data.candidate;
-//     console.log('data', data);
+    let candidate = this.props.data.candidate;
+    console.log('data', data);
     // const { info } = this.state;
     // const { given_name, family_name, email, address } = info;
 
     if (data.loading) {
       return <div>Loading Candidate Account...</div>;
     } else {
+      console.log(this.props)
       return (
         <div>
           <div className="formContainer">
             <h3 className="welcomeAccount">Welcome {candidate.firstName}</h3>
             <img
               className="circleAccount"
-              src={candidate.imgURL}
+              src="https://i.imgur.com/tEcU43K.png"
               alt="screeningImage"
             />{' '}
             {/* <button className="customeButton" type="submit">

@@ -52,6 +52,15 @@ img {
   transition-duration: 0.4s;
 }
 
+.companyTitle{
+  text-align: center;
+  color: rgb(36, 48, 65);
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+#companyTitle{
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
 .customeButton:hover {
   background-color: rgb(70, 106, 226); /* Green */
   color: white;
@@ -93,6 +102,7 @@ a:-webkit-any-link {
   padding-top: 30px;
 }
 
+
 .candidateImg{
   display: block;
   margin-left: auto;
@@ -115,6 +125,22 @@ background-color:white;
 border-radius: 20px;
 box-shadow: 10px 10px 5px grey;
 }
+.mapCandidates2 {
+  width: 85%;
+  height: 80vh;
+  padding-right: 5px;
+  padding-left: 5px;
+  padding-top:30px;
+  padding-bottom:50px;
+
+  margin-top: 60px;
+  margin-bottom: 60px;
+  margin-left: auto;
+  margin-right: auto;
+  background-color:rgb(255, 255, 255);
+  border-radius: 20px;
+  box-shadow: 10px 10px 5px grey;
+  }
 
 
 .buttonsDiv{
@@ -152,9 +178,47 @@ box-shadow: 10px 10px 5px grey;
 .thumbs {
   width: 50px;
   height: 50px;
-  padding: 30px;
+  margin-top: 10px;
+  margin-left: 40px;
+  margin-right: 40px;
+  padding: 5px
 }
 
+.thumbs2 {
+  width: 50px;
+  height: 50px;
+  margin-left: 40px;
+  margin-right: 40px;
+  padding: 5px
+}
+
+.positionMatch {
+  font-weight: bold;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  color: rgb(36, 48, 65);
+}
+.thumbs:hover{
+  background-color: rgb(29, 226, 29);
+}
+
+.thumbs2:hover{
+  background-color: rgb(233, 46, 13);
+}
+
+.aplierLogo {
+  height: 90px;
+  width: 120px;
+}
+
+.aplierLogo2{
+  text-align: center;
+  justify-content: center;
+  padding-left: 75px;
+}
+
+.companiesh4{
+  margin-top: 20px;
+}
 .logInContainer{
 padding-top: 25%;
 padding-left: 30px;
@@ -164,7 +228,11 @@ text-align: center;
 }
 .aboutUsColor{
   background-color: #bfcad9;
-  padding-bottom: 100px;
+  padding-bottom: 230px;
+}
+.aboutUsColor2{
+  background-color: #bfcad9;
+  padding-bottom: 10px;
 }
 .formContainer{
   padding: 30px;
@@ -226,6 +294,11 @@ text-align: center;
   background-color: rgb(115, 149, 173);
 
 }
+
+#github {
+  color: rgb(29, 49, 80);
+  font-weight: bold;
+}
 .accountList {
   padding-top: 10px;
   margin: 0;
@@ -235,6 +308,11 @@ text-align: center;
   margin: 0;
   padding-top: 5px;
   padding-bottom: 8px;
+}
+
+.positionTitle{
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  color: rgb(36, 48, 65);
 }
 
 
@@ -352,9 +430,19 @@ border-radius: 0%;
 }
 
 .aboutUsTitle {
+  font-size: large;
   padding-top: 50px;
   text-align: center;
   padding-bottom: 0px;
+  /* font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif; */
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  color: rgb(36, 48, 65);
+}
+
+.aboutUsLogo {
+  height: 90px;
+  width: 120px;
+  margin-right: 80px
 }
 
 .aboutUs {

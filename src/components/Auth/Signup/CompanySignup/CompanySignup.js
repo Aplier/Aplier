@@ -108,38 +108,19 @@ class TestCompanyForm extends Component {
         companySignedUp: true,
       });
     }
-
-    console.log();
     this.props.history.push('/');
 
-    console.log();
     this.props.history.push('/confirmemail');
   };
 
   render() {
-    const { companySignedUp } = this.state;
-
-    if (companySignedUp) {
-      return (
-        <div>
-          <form onSubmit={this.handleSubmit}>
-            <label> Confirmation Code</label>
-            <input
-              id="confirmationCode"
-              type="text"
-              onChange={event =>
-                this.setState({ confirmationCode: event.target.value })
-              }
-            />
-            <button>Confirm Sign Up</button>
-          </form>
-        </div>
-      );
-    } else {
-      return (
-        <div>
-          <p className="miniLogo">Aplier</p>
-          <div className="formContainer">
+    return (
+      // turns background blue
+      // <div className="Cform">
+      <div className="aboutUsColor">
+          <br></br>
+        <div className="mapCandidates2">
+        <div className="formContainer">
             <img
               className="circleCompany"
               src="https://i.imgur.com/vENrb8T.png"
@@ -201,9 +182,9 @@ class TestCompanyForm extends Component {
               </button>
             </form>
           </div>
-        </div>
-      );
-    }
+      </div>
+      </div>
+    );
   }
 }
 

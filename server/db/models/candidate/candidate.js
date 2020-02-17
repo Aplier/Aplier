@@ -54,6 +54,7 @@ const Candidate = db.define('candidate', {
   },
   imgURL: {
     type: Sequelize.TEXT,
+    defaultValue: 'https://i.imgur.com/tEcU43K.png'
   },
   videoURL: {
     type: Sequelize.TEXT,

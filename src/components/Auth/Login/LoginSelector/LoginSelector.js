@@ -2,7 +2,9 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 const LoginSelector = props => (
-  <div>
+    <div className="aboutUsColor2">
+          <br></br>
+        <div className="mapCandidates2">
     <div className="candidateOrCompany">
       <br />
       <img
@@ -25,6 +27,7 @@ const LoginSelector = props => (
         </button>
       </div>
     </div>
+  </div>
   </div>
 );
 

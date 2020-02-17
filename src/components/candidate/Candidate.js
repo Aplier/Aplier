@@ -51,7 +51,6 @@ class Candidate extends Component {
 
       return <div>Loading Candidates...</div>;
     } else {
-      console.log('CANDIDATE DATA======>', data.candidates)
       return data.candidates.map(candidate => {
         return (
           <div className="mapCandidates" key={candidate.id}>
@@ -61,13 +60,13 @@ class Candidate extends Component {
               </center>
             </h3>
             <p><img alt="icon"className="icon" src="https://png.pngtree.com/svg/20151015/7cc2f4999d.png"/>&nbsp;&nbsp;{candidate.intro}</p>
-            
+
             <p> <img alt="icon"className="icon" src="https://cdn3.iconfinder.com/data/icons/unicons-vector-icons-pack/32/location-512.png"/>&nbsp;&nbsp;{candidate.address}</p>
             {/* <p>{candidate.phone}</p> */}
             <p><img alt="icon"className="icon" src="https://cdn3.iconfinder.com/data/icons/project-management-32/48/51-512.png"/>&nbsp;&nbsp;{candidate.email}</p>
             <p><img alt='icon' className="icon" src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQ5Cj2qaC9RxT9qngLCMvMvsx7V3sAsIhTkCZdROsdiY7BUypCf"/>&nbsp;&nbsp;{candidate.currentjob.position} @ {candidate.currentjob.companyName}</p>
             <Education candidateId={candidate.id}/>
-            
+
             <div className='buttonsDiv'>
               <img className="thumbs"
                    alt='down'src="https://img.icons8.com/ultraviolet/40/000000/poor-quality.png"
@@ -89,7 +88,7 @@ class Candidate extends Component {
 
       return (
         <div >
-          
+
             {candidateArr&&candidateArr.length>0?
             <div className="candidateContainer">
             <div> {this.displayCandidates()}</div>

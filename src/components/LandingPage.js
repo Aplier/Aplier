@@ -6,7 +6,8 @@ class LandingPage extends Component {
     return (
       <div className="landing">
         <div className="AplierTitle">
-          <h1>Aplier</h1>
+          {/* <h1>Aplier</h1> */}
+          <img className="landingPageLogo" alt="companyImge" src="https://i.imgur.com/XwTxX7q.png" />
         </div>
         <div className="landingInfo">
           <button className="homeButton">

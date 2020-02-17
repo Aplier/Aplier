@@ -37,7 +37,9 @@ class UserLogin extends Component {
   };
   render() {
     return (
-      <div>
+      <div className="aboutUsColor2">
+          <br></br>
+        <div className="mapCandidates2">
         <div className="logInContainer">
         <img
               className="loginGif"
@@ -70,6 +72,7 @@ class UserLogin extends Component {
           <button className="customeButton" type="submit">Login!</button>
         </form>
         </div>
+      </div>
       </div>
     );
   }
