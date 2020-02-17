@@ -47,10 +47,20 @@ class Routes extends Component {
 
   async componentDidMount() {
     let user = await Auth.currentAuthenticatedUser();
-    if (user) {
+    if (user.attributes.firstName) {
       this.setState({ isCandidateLoggedIn: true });
+      console.log('authenticated');
     } else {
+      console.log('not authenticated');
       this.setState({ isCandidateLoggedIn: false });
+    }
+
+    if (user.attributes['custom:industry']) {
+      this.setState({ isCompanyLoggedIn: true });
+      console.log('authenticated');
+    } else {
+      console.log('not authenticated');
+      this.setState({ isCompanyLoggedIn: false });
     }
   }
 
