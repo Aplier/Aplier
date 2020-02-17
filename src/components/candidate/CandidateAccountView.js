@@ -16,11 +16,9 @@ class CandidateAccount extends Component {
 
   displayCandidatesAccount() {
     let data = this.props.data;
-    console.log('DATA DOT CANDIDATE', data.candidate)
-    const { info } = this.state;
-    const { given_name, family_name, email, address, id } = info;
-//     let candidate = this.props.data.candidate;
-//     console.log('data', data);
+    console.log('DATA', data.variables.email)
+    let candidate = this.props.data.candidate;
+    console.log('WHAT IS INFO', this.state.info)
     // const { info } = this.state;
     // const { given_name, family_name, email, address } = info;
 
@@ -28,6 +26,7 @@ class CandidateAccount extends Component {
       return <div>Loading Candidate Account...</div>;
     } else {
       return (
+        
         <div>
           <div className="formContainer">
             <h3 className="welcomeAccount">Welcome {candidate.firstName}</h3>
@@ -79,7 +78,7 @@ export default graphql(getCandidateByIdQuery, {
   options: () => {
     return {
       variables: {
-        id: 1,
+        email: 'tina@gmail.com',
       },
     };
   },
