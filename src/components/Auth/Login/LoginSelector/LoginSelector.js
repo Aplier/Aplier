@@ -22,7 +22,7 @@ const LoginSelector = props => (
       <br></br>
       <div>
         <button className="customeButton">
-          <Link to="/userlogin">Employer </Link>
+          <Link to="/companylogin">Employer </Link>
         </button>
       </div>
     </div>

@@ -1,22 +1,9 @@
 //Libraries
 import React, { Component } from 'react';
 import { graphql } from 'react-apollo';
-import { getCandidateQuery } from '../../queries/queries';
 import Education from './CandidateEdu';
-
-// const getCandidate = graphql(getCandidateQuery,{
-//   props:({data}) => ({
-//       loadingCandidate :data.loading,
-//       candidates:data.candidates,
-//   })
-// })
-
-// const getCandidate = graphql(getCandidateQuery,{
-//   props:({data}) => ({
-//       loadingCandidate :data.loading,
-//       candidates:data.candidates,
-//   })
-// })
+//Queries
+import { getCandidateQuery } from '../../queries/queries';
 
 class Candidate extends Component {
   constructor() {

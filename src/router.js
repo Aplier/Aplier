@@ -16,7 +16,7 @@ import SignupSelector from './components/Auth/Signup/SignUpSelector';
 
 //Login
 import LoginSelector from './components/Auth/Login/LoginSelector/LoginSelector';
-import UserLogin from './components/Auth/Login/UserLogin/UserLogin';
+import CompanyLogin from './components/Auth/Login/CompanyLogin/CompanyLogin';
 import CandidateLogin from './components/Auth/Login/CandidateLogin/CandidateLogin';
 import EmailConfirmation from './components/Auth/Signup/EmailConfirmation';
 
@@ -64,7 +64,7 @@ class Routes extends Component {
         <Route path="/login" component={LoginSelector} />
         <Route path="/companysignup" component={CompanyForm} />
         <Route path="/candidatesignup" component={CandidateForm} />
-        <Route path="/userlogin" component={UserLogin} />
+        <Route path="/companylogin" component={CompanyLogin} />
         <Route path="/candidatelogin" component={CandidateLogin} />
         <Route path="/companies" component={Companies} />
         <Route path="/candidatematches" component={CandidateMatch} />

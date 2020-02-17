@@ -2,13 +2,13 @@
 import React, { Component } from 'react';
 import { Auth } from 'aws-amplify';
 
-class CandidateLogin extends Component {
+class CompanyLogin extends Component {
   constructor(props) {
     super(props);
     this.state = {
       email: '',
       password: '',
-      isCandidateLoggedIn: false,
+      isCompanyLoggedIn: false,
       wrongCredentials: false,
     };
   }
@@ -21,25 +21,31 @@ class CandidateLogin extends Component {
     }
   }
 
+  handleChange = event => {
+    this.setState({
+      [event.target.name]: event.target.value,
+    });
+  };
+
   handleSubmit = async event => {
     event.preventDefault();
-    const { isCandidateLoggedIn, email, password } = this.state;
+    const { isCompanyLoggedIn, email, password } = this.state;
     try {
       let signedIn = await Auth.signIn({
         username: email,
         password: password,
       });
 
-      if (isCandidateLoggedIn === false) {
+      if (isCompanyLoggedIn === false) {
         await signedIn;
         this.setState({
-          isCandidateLoggedIn: true,
+          isCompanyLoggedIn: true,
           wrongCredentials: false,
         });
 
-        this.props.history.replace('/positions');
+        this.props.history.replace('/candidates');
         window.location.reload();
-      } else if (isCandidateLoggedIn === true) {
+      } else if (isCompanyLoggedIn === true) {
       } else {
         await Auth.confirmSignIn(email);
       }
@@ -50,11 +56,10 @@ class CandidateLogin extends Component {
       });
     }
   };
-
   render() {
-    const { isCandidateLoggedIn } = this.state;
+    const { isCompanyLoggedIn } = this.state;
 
-    if (isCandidateLoggedIn) {
+    if (isCompanyLoggedIn) {
       return null;
     } else {
       return (
@@ -63,29 +68,31 @@ class CandidateLogin extends Component {
             <img
               className="loginGif"
               src="https://gophonebox.com/images/Phobby_WaveAnimation.gif"
-              alt="CandidateImage"
+              alt="CompanyImage"
               type="image"
             />{' '}
             <br />
             <form onSubmit={this.handleSubmit}>
               <label className="Clabel">Email Address</label>
               <input
+                type="email"
+                name="email"
                 className="Cinput"
-                value={this.email}
-                onChange={event => this.setState({ email: event.target.value })}
-                type="text"
+                value={this.state.email}
+                onChange={this.handleChange}
+                required
               />
               <br /> <br />
               <label className="Clabel">Password</label>
               <input
-                className="Cinput"
-                value={this.password}
-                onChange={event =>
-                  this.setState({ password: event.target.value })
-                }
                 type="password"
+                name="password"
+                className="Cinput"
+                value={this.state.password}
+                onChange={this.handleChange}
+                required
               />
-              <br /> <br />{' '}
+              <br /> <br />
               <button className="customeButton" type="submit">
                 Login!
               </button>
@@ -101,5 +108,4 @@ class CandidateLogin extends Component {
     }
   }
 }
-
-export default CandidateLogin;
+export default CompanyLogin;
