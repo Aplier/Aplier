@@ -83,21 +83,20 @@ class CompanyPositions extends Component {
 
     return (
       <div>
-        {
-          positionArr && positionArr.length > 0 ?
-          <div className="allPos">
+        ( positionArr && positionArr.length > 0 ?
+        <div className="allPos">
           <div>{this.displayCompanyPositions()}</div>
-          </div>
+        </div>
         ) : (
-          <div className="noCandidates">
-            <p>You've reached the end of the postions availible...</p>
-            <img
-              alt="comeback_later"
-              src="https://acegif.com/wp-content/uploads/tea.gif"
-            />
-            <p>Take a break and come back later,</p>
-            <p>we will have more positions waiting for you!</p>
-          </div>
+        <div className="noCandidates">
+          <p>You've reached the end of the postions availible...</p>
+          <img
+            alt="comeback_later"
+            src="https://acegif.com/wp-content/uploads/tea.gif"
+          />
+          <p>Take a break and come back later,</p>
+          <p>we will have more positions waiting for you!</p>
+        </div>
         )}
       </div>
     );
