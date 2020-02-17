@@ -21,10 +21,9 @@ const client = new Client({
 client.connect();
 
 //CORS FOR DEV
-// app.use(cors());
+app.use(cors());
 
 const createApp = () => {
-
   app.use(
     '/graphql',
     graphqlHTTP({
