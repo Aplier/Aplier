@@ -43,9 +43,9 @@ class TestCompanyForm extends Component {
       username: email,
       password: password,
       attributes: {
-        name: name,
-        industry: industry,
-        location: location,
+        'custom:name': name,
+        'custom:industry': industry,
+        'custom:location': location,
         // sub: cognitoId,
         // picture: imgURL,
         // intro: intro,
@@ -60,7 +60,7 @@ class TestCompanyForm extends Component {
 
     let confirmed = await Auth.confirmSignUp(email, confirmationCode);
     console.log('confirmed', confirmed);
-    this.props.signUp();
+    this.props.handleSignUp();
   };
 
   handleSubmit = event => {
@@ -137,8 +137,6 @@ class TestCompanyForm extends Component {
       );
     } else {
       return (
-        // turns background blue
-        // <div className="Cform">
         <div>
           <p className="miniLogo">Aplier</p>
           <div className="formContainer">
