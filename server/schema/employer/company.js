@@ -3,6 +3,8 @@ const company = `
     id: ID
     name: String!
     location: String!
+    email: String!
+    password: String!
     industry: String!
     perks: String
     website: String
@@ -16,14 +18,18 @@ const company = `
   }
 
   extend type Mutation {
-    addCompany(name: String!,
-               industry: String!,
-               location: String!): Company
+    addCompany(email: String!,
+                password: String!,
+                name: String!,
+                industry: String!,
+                location: String!): Company
     deleteCompany(id: Int, name: String): Company
     editCompany(id: Int!,
                 name: String,
                 location: String,
                 industry: String,
+                email: String!,
+                password: String!,
                 perks: String,
                 website: String,
                 imgURL: String,
@@ -34,58 +40,58 @@ const company = `
 const companyResolvers = {
   Query: {
     company: (parent, args, { models }) => {
-      try{
+      try {
         return models.Company.findOne({
-          where: args
+          where: args,
         });
-      }catch(err){
+      } catch (err) {
         console.error(err);
       }
     },
 
     companies: (parent, args, { models }) => {
-      try{
+      try {
         return models.Company.findAll();
-      }catch(err){
+      } catch (err) {
         console.error(err);
       }
-    }
+    },
   },
 
   Mutation: {
     addCompany: (parent, args, { models }) => {
-      try{
+      try {
         return models.Company.create(args);
-      }catch(err){
+      } catch (err) {
         console.error(err);
       }
     },
 
     deleteCompany: (parent, args, { models }) => {
-      try{
+      try {
         models.Company.destroy({
-          where: args
+          where: args,
         });
-      }catch(err){
+      } catch (err) {
         console.error(err);
       }
     },
 
     editCompany: (parent, args, { models }) => {
-      try{
+      try {
         return models.Company.update(args, {
           where: {
-            id: args.id
-          }
+            id: args.id,
+          },
         });
-      }catch(err){
+      } catch (err) {
         console.error(err);
       }
-    }
-  }
+    },
+  },
 };
 
 module.exports = {
   company,
-  companyResolvers
+  companyResolvers,
 };
