@@ -10,7 +10,7 @@ class CandidateAccount extends Component {
 
   async componentDidMount() {
     const info = await Auth.currentUserInfo();
-    console.log(info);
+    console.log('Auth Current User Information', info);
     this.setState({ info: info.attributes });
   }
 

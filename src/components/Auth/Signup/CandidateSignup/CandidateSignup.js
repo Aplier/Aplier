@@ -53,6 +53,10 @@ class TestCandidateForm extends Component {
       },
     });
     console.log('data', data);
+    this.setState({
+      cognitoId: data.userSub,
+    });
+    console.log('This is hit');
   };
 
   confirmSignUp = async () => {
@@ -63,7 +67,7 @@ class TestCandidateForm extends Component {
     this.props.handleSignUp();
   };
 
-  handleSubmit = event => {
+  handleSubmit = async event => {
     event.preventDefault();
     const {
       candidateSignedUp,
@@ -72,17 +76,18 @@ class TestCandidateForm extends Component {
       address,
       email,
       password,
+      cognitoId,
     } = this.state;
-    this.props.mutate({
+    await this.props.mutate({
       variables: {
         firstName: firstName,
         lastName: lastName,
         address: address,
         email: email,
         password: password,
+        cognitoId: cognitoId,
         // phone: phone,
         // intro: intro,
-        // cognitoId: cognitoId,
         // imgURL: imgURL,
       },
     });

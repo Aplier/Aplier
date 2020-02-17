@@ -20,7 +20,7 @@ const getCandidateQuery = gql`
 `;
 const getCandidateByIdQuery = gql`
   query($id: Int!) {
-    candidate(id: $id) {
+    candidate(id: $id, cognitoId: $cognitoId) {
       id
       firstName
       lastName
@@ -29,6 +29,7 @@ const getCandidateByIdQuery = gql`
       imgURL
       phone
       intro
+      cognitoId
     }
   }
 `;
@@ -111,12 +112,25 @@ const getScreeningByPositionByIdQuery = gql`
 `;
 
 const addCompanyMutation = gql`
-  mutation AddCompany($name: String!, $location: String!, $industry: String!) {
-    addCompany(name: $name, location: $location, industry: $industry) {
+  mutation addCompany(
+    $name: String!
+    $location: String!
+    $industry: String!
+    $email: String!
+    $password: String!
+  ) {
+    addCompany(
+      name: $name
+      location: $location
+      industry: $industry
+      email: $email
+      password: $password
+    ) {
       id
       name
       location
       industry
+      email
     }
   }
 `;
