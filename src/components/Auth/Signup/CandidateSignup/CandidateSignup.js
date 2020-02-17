@@ -31,21 +31,21 @@ class TestCandidateForm extends Component {
       address,
       email,
       password,
-      phone,
-      intro,
-      imgURL,
-      vidURL,
-      cognitoId,
-      candidateSignedUp,
-      confirmationCode,
+      // phone,
+      // intro,
+      // imgURL,
+      // vidURL,
+      // cognitoId,
+      // candidateSignedUp,
+      // confirmationCode,
     } = this.state;
     let data = await Auth.signUp({
       username: email,
       password: password,
       attributes: {
-        given_name: firstName,
-        family_name: lastName,
-        address: address,
+        'custom:given_name': firstName,
+        'custom:family_name': lastName,
+        'custom:address': address,
         // picture: imgURL,
         // sub: cognitoId,
         // intro: intro,
@@ -63,7 +63,7 @@ class TestCandidateForm extends Component {
     this.props.handleSignUp();
   };
 
-  handleSubmit = event => {
+  handleSubmit = async event => {
     event.preventDefault();
     const {
       candidateSignedUp,
@@ -72,17 +72,18 @@ class TestCandidateForm extends Component {
       address,
       email,
       password,
+      cognitoId,
     } = this.state;
-    this.props.mutate({
+    await this.props.mutate({
       variables: {
         firstName: firstName,
         lastName: lastName,
         address: address,
         email: email,
         password: password,
+        cognitoId: cognitoId,
         // phone: phone,
         // intro: intro,
-        // cognitoId: cognitoId,
         // imgURL: imgURL,
       },
     });
