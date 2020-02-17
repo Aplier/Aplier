@@ -75,7 +75,7 @@ class CompanyPositions extends Component {
       <div>
         {
           positionArr && positionArr.length > 0 ?
-          <div className="allPos"> 
+          <div className="allPos">
           <div>{this.displayCompanyPositions()}</div>
           </div>
           :
