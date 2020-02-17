@@ -9,6 +9,7 @@ class CandidateLogin extends Component {
       email: '',
       password: '',
       isCandidateLoggedIn: false,
+      wrongCredentials: false
     };
   }
 
@@ -33,16 +34,25 @@ class CandidateLogin extends Component {
         await signedIn;
         this.setState({
           isCandidateLoggedIn: true,
+          wrongCredentials: false
         });
 
-        this.props.history.push('/positions');
-        window.location.reload();
-      } else if (isCandidateLoggedIn === true) {
-      } else {
+        this.props.history.replace('/positions');
+        window.location.reload()
+
+      } else if(isCandidateLoggedIn === true){
+        console.log('SHOULD BE TRUE', isCandidateLoggedIn)
+
+        // this.props.history.push('/positions');
+      }
+        else {
         await Auth.confirmSignIn(email);
       }
     } catch (error) {
       console.log(error);
+      this.setState({
+        wrongCredentials: true
+      });
     }
   };
 
@@ -83,7 +93,14 @@ class CandidateLogin extends Component {
               <br /> <br />{' '}
               <button className="customeButton" type="submit">
                 Login!
-              </button>{' '}
+              </button>
+              <div>
+                {
+                  this.state.wrongCredentials ?
+                  <p>Wrong username and/or password!</p> :
+                  null
+                }
+              </div>
             </form>
           </div>
         </div>

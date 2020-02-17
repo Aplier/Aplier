@@ -31,21 +31,21 @@ class TestCandidateForm extends Component {
       address,
       email,
       password,
-      phone,
-      intro,
-      imgURL,
-      vidURL,
-      cognitoId,
-      candidateSignedUp,
-      confirmationCode,
+      // phone,
+      // intro,
+      // imgURL,
+      // vidURL,
+      // cognitoId,
+      // candidateSignedUp,
+      // confirmationCode,
     } = this.state;
     let data = await Auth.signUp({
       username: email,
       password: password,
       attributes: {
-        given_name: firstName,
-        family_name: lastName,
-        address: address,
+        'custom:given_name': firstName,
+        'custom:family_name': lastName,
+        'custom:address': address,
         // picture: imgURL,
         // sub: cognitoId,
         // intro: intro,
@@ -53,10 +53,6 @@ class TestCandidateForm extends Component {
       },
     });
     console.log('data', data);
-    this.setState({
-      cognitoId: data.userSub,
-    });
-    console.log('This is hit');
   };
 
   confirmSignUp = async () => {

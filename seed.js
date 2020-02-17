@@ -233,11 +233,10 @@ const seed = async () => {
         password: '123',
         companyId: 5,
       }),
+    ]);
   } catch (error) {
-    console.log('CompanyUser Create Error', error)
+    console.log('CompanyUser Create Error', error);
   }
-
-  ]);
 
   const CompanyPositions = await Promise.all([
     CompanyPosition.create({

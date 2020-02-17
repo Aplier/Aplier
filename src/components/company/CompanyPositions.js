@@ -83,9 +83,10 @@ class CompanyPositions extends Component {
 
     return (
       <div>
-        {positionArr && positionArr.length > 0 ? (
+        {
+          positionArr && positionArr.length > 0 ?
           <div className="allPos">
-            <div>{this.displayCompanyPositions()}</div>
+          <div>{this.displayCompanyPositions()}</div>
           </div>
         ) : (
           <div className="noCandidates">
