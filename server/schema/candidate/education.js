@@ -15,8 +15,7 @@ const education = `
   }
 
   extend type Mutation {
-    addEducation(id: Int,
-                 name: String,
+    addEducation(id: Int,name: String,
                  degree: String,
                  major: String,
                  minor: String,
@@ -42,53 +41,53 @@ const education = `
 const educationResolvers = {
   Query: {
     education: (parent, args, { models }) => {
-      try{
+      try {
         return models.Education.findAll({
           where: args,
           include: {
-            model: models.Candidate
-          }
+            model: models.Candidate,
+          },
         });
-      }catch(err){
+      } catch (err) {
         console.error(err);
       }
-    }
+    },
   },
 
   Mutation: {
     addEducation: (parent, args, { models }) => {
-      try{
+      try {
         return models.Education.create(args);
-      }catch(err){
+      } catch (err) {
         console.error(err);
       }
     },
 
     deleteEducation: (parent, args, { models }) => {
-      try{
+      try {
         models.Education.destroy({
-          where: args
+          where: args,
         });
-      }catch(err){
+      } catch (err) {
         console.error(err);
       }
     },
 
     editEducation: (parent, args, { models }) => {
-      try{
+      try {
         return models.Education.update(args, {
           where: {
-            id: args.id
-          }
+            id: args.id,
+          },
         });
-      }catch(err){
+      } catch (err) {
         console.error(err);
       }
-    }
-  }
+    },
+  },
 };
 
 module.exports = {
   education,
-  educationResolvers
+  educationResolvers,
 };

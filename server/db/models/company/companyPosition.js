@@ -6,35 +6,35 @@ const CompanyPosition = db.define('companyPosition', {
     type: Sequelize.STRING,
     allowNull: false,
     validate: {
-      notEmpty: true
-    }
+      notEmpty: true,
+    },
   },
   description: {
     type: Sequelize.TEXT,
     allowNull: false,
     validate: {
-      notEmpty: true
-    }
+      notEmpty: true,
+    },
   },
   salaryRange: {
     type: Sequelize.STRING,
     allowNull: false,
     validate: {
-      notEmpty: true
-    }
+      notEmpty: true,
+    },
   },
   datePosted: {
-    type: Sequelize.DATE
+    type: Sequelize.DATE,
   },
   screeningQ1: {
-    type: Sequelize.TEXT
+    type: Sequelize.TEXT,
   },
   screeningQ2: {
-    type: Sequelize.TEXT
+    type: Sequelize.TEXT,
   },
   screeningQ3: {
-    type: Sequelize.TEXT
+    type: Sequelize.TEXT,
   },
-})
+});
 
-module.exports = CompanyPosition
+module.exports = CompanyPosition;

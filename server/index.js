@@ -1,16 +1,17 @@
+//Libraries
 const express = require('express');
+const session = require('express-session');
 const graphqlHTTP = require('express-graphql');
 const schema = require('./schema/schema');
 const app = express();
 const cors = require('cors');
+const { Client } = require('pg');
+
 const models = require('./db/models');
-const passport = require('passport');
 const db = require('./db/db');
-const session = require('express-session');
 const SequelizeStore = require('connect-session-sequelize')(session.Store);
 const sessionStore = new SequelizeStore({ db });
-const path = require('path');
-const { Client } = require('pg');
+
 const client = new Client({
   host: 'aplier.ccx1yvxrllrz.us-east-1.rds.amazonaws.com',
   user: 'Aplier',
@@ -27,42 +28,14 @@ const createApp = () => {
   app.use(express.json());
   app.use(express.urlencoded({ extended: true }));
 
-  // compression middleware
-  // app.use(compression());
-
-  // session middleware with passport
   app.use(
-    session({
-      secret: process.env.SESSION_SECRET || 'my best friend is Cody',
-      store: sessionStore,
-      resave: false,
-      saveUninitialized: false,
+    '/graphql',
+    graphqlHTTP({
+      schema,
+      graphiql: true,
+      context: { models },
     })
   );
-  app.use(passport.initialize());
-  app.use(passport.session());
-
-  // auth and api routes
-  // app.use('/auth', require('./auth'));
-
-  // static file-serving middleware
-  app.use(express.static(path.join(__dirname, '..', 'public')));
-
-  // any remaining requests with an extension (.js, .css, etc.) send 404
-  app.use((req, res, next) => {
-    if (path.extname(req.path).length) {
-      const err = new Error('Not found');
-      err.status = 404;
-      next(err);
-    } else {
-      next();
-    }
-  });
-
-  // sends index.html
-  // app.use('*', (req, res) => {
-  //   res.sendFile(path.join(__dirname, '..', 'public/index.html'));
-  // });
 
   // error handling endware
   app.use((err, req, res, next) => {
@@ -71,15 +44,6 @@ const createApp = () => {
     res.status(err.status || 500).send(err.message || 'Internal server error.');
   });
 };
-
-app.use(
-  '/graphql',
-  graphqlHTTP({
-    schema,
-    graphiql: true,
-    context: { models },
-  })
-);
 
 const startListening = () => {
   // start listening (and create a 'server' object representing our server)

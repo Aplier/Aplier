@@ -6,5 +6,5 @@ const positionSkills = `
 `;
 
 module.exports = {
-  positionSkills
+  positionSkills,
 };

@@ -19,43 +19,46 @@ const skill = `
 const skillResolvers = {
   Query: {
     skills: (parent, args, { models }) => {
-      try{
+      try {
         return models.Skill.findOne({
           where: args,
-          include: [{
-            model: models.Candidate
-          },{
-            model: models.CompanyPosition
-          }]
+          include: [
+            {
+              model: models.Candidate,
+            },
+            {
+              model: models.CompanyPosition,
+            },
+          ],
         });
-      }catch(err){
+      } catch (err) {
         console.error(err);
       }
-    }
+    },
   },
 
   Mutation: {
     addSkill: (parent, args, { models }) => {
-      try{
+      try {
         return models.Skill.create(args);
-      }catch(err){
+      } catch (err) {
         console.error(err);
       }
     },
 
     deleteSkill: (parent, args, { models }) => {
-      try{
+      try {
         models.Skill.destroy({
-          where: args
+          where: args,
         });
-      }catch(err){
+      } catch (err) {
         console.error(err);
       }
-    }
-  }
+    },
+  },
 };
 
 module.exports = {
   skill,
-  skillResolvers
+  skillResolvers,
 };

@@ -1,5 +1,8 @@
+//Libraries
 import React, { Component } from 'react';
 import { graphql } from 'react-apollo';
+
+//Queries
 import { addCompanyPositionMutation } from '../../queries/queries';
 
 class NewPositionForm extends Component {

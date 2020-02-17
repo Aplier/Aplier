@@ -1,9 +1,9 @@
+//Libraries
 import React, { Component } from 'react';
 import { graphql } from 'react-apollo';
-import { addCandidateMutation } from '../../../../queries/queries';
 import { Auth } from 'aws-amplify';
-import { Link, Redirect } from 'react-router-dom';
-// import { last } from 'lodash-es';
+//Queries
+import { addCandidateMutation } from '../../../../queries/queries';
 
 class TestCandidateForm extends Component {
   constructor(props) {

@@ -1,7 +1,7 @@
+//Libraries
 import React, { Component } from 'react';
 import { graphql } from 'react-apollo';
-// import TestComp from './testComp'
-// import * as compose from 'lodash.flowright';
+//Queries
 import { getPositionsQuery } from '../../queries/queries';
 
 class CompanyPositions extends Component {
@@ -13,19 +13,19 @@ class CompanyPositions extends Component {
     this.clickThumb = this.clickThumb.bind(this);
   }
 
-  clickThumb(click){
-    const {id, thumb} = click;
+  clickThumb(click) {
+    const { id, thumb } = click;
     const positions = this.props.data.companyPositions;
     const val = positions.find(position => position.id === id);
     const index = positions.indexOf(val);
-    this.props.data.companyPositions.splice(index,1);
-    if(thumb === "up") {
+    this.props.data.companyPositions.splice(index, 1);
+    if (thumb === 'up') {
       this.setState({
-        liked: [...this.state.liked, id]
+        liked: [...this.state.liked, id],
       });
     } else {
       this.setState({
-        liked: [...this.state.liked]
+        liked: [...this.state.liked],
       });
     }
   }
@@ -44,24 +44,34 @@ class CompanyPositions extends Component {
               alt="candidate img"
             />
 
-            <h3><center>{position.title}</center></h3>
+            <h3>
+              <center>{position.title}</center>
+            </h3>
             <div className="positionInfo">
-            <p>{position.description}</p>
-            <p>{position.salaryRange}</p>
-            <p>{position.datePosted}</p>
-            <p>{position.company.name}</p>
-            <p>{position.company.location}</p>
-            <p>{position.company.website}</p>
+              <p>{position.description}</p>
+              <p>{position.salaryRange}</p>
+              <p>{position.datePosted}</p>
+              <p>{position.company.name}</p>
+              <p>{position.company.location}</p>
+              <p>{position.company.website}</p>
             </div>
-            <div className='buttonsDiv'>
-              <img className="thumbs"
-                   alt="down" src="https://img.icons8.com/ultraviolet/40/000000/poor-quality.png"
-                   onClick={()=>this.clickThumb({id: position.id, thumb: "down"})}>
-              </img>
-              <img className="thumbs"
-                   alt="up" src="https://img.icons8.com/ultraviolet/40/000000/good-quality.png"
-                   onClick={()=>this.clickThumb({id: position.id, thumb: "up"})}>
-              </img>
+            <div className="buttonsDiv">
+              <img
+                className="thumbs"
+                alt="down"
+                src="https://img.icons8.com/ultraviolet/40/000000/poor-quality.png"
+                onClick={() =>
+                  this.clickThumb({ id: position.id, thumb: 'down' })
+                }
+              ></img>
+              <img
+                className="thumbs"
+                alt="up"
+                src="https://img.icons8.com/ultraviolet/40/000000/good-quality.png"
+                onClick={() =>
+                  this.clickThumb({ id: position.id, thumb: 'up' })
+                }
+              ></img>
             </div>
           </div>
         );
@@ -73,20 +83,21 @@ class CompanyPositions extends Component {
 
     return (
       <div>
-        {
-          positionArr && positionArr.length > 0 ?
-          <div className="allPos"> 
-          <div>{this.displayCompanyPositions()}</div>
+        {positionArr && positionArr.length > 0 ? (
+          <div className="allPos">
+            <div>{this.displayCompanyPositions()}</div>
           </div>
-          :
+        ) : (
           <div className="noCandidates">
-              <p>You've reached the end of the postions availible...</p>
-              <img alt="comeback_later" src="https://acegif.com/wp-content/uploads/tea.gif"/>
-              <p>Take a break and come back later,</p>
-              <p>we will have more positions waiting for you!</p>
-
-            </div>
-        }
+            <p>You've reached the end of the postions availible...</p>
+            <img
+              alt="comeback_later"
+              src="https://acegif.com/wp-content/uploads/tea.gif"
+            />
+            <p>Take a break and come back later,</p>
+            <p>we will have more positions waiting for you!</p>
+          </div>
+        )}
       </div>
     );
   }

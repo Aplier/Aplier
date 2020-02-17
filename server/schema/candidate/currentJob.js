@@ -21,30 +21,30 @@ const currentJob = `
 const currentJobResolvers = {
   Query: {
     currentJob: (parent, { id }, { models }) => {
-      try{
+      try {
         return models.CurrentJob.findByPk(id);
-      }catch(err){
+      } catch (err) {
         console.error(err);
       }
-    }
+    },
   },
 
   Mutation: {
     editCurrentJob: (parent, args, { models }) => {
-      try{
+      try {
         return models.CurrentJob.update(args, {
           where: {
-            id: args.id
-          }
+            id: args.id,
+          },
         });
-      }catch(err){
+      } catch (err) {
         console.error(err);
       }
-    }
-  }
+    },
+  },
 };
 
 module.exports = {
   currentJob,
-  currentJobResolvers
+  currentJobResolvers,
 };

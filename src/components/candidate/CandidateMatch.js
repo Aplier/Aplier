@@ -1,5 +1,7 @@
+//Libraries
 import React, { Component } from 'react';
 import { graphql } from 'react-apollo';
+//Queries
 import { getMatchByCandidateQuery } from '../../queries/queries';
 // import ScreeningQuestions from './ScreeningQuestions'
 import { Link } from 'react-router-dom';
@@ -29,14 +31,17 @@ class CandidateMatch extends Component {
       <div>
         <p className="miniLogo">Aplier</p>
         <div className="matchPage">
-          <img alt="matchImg"src="https://media0.giphy.com/media/13k4VSc3ngLPUY/giphy.gif"/>
-    <h3>Congratulations!</h3>
-    <p> You've matched with: </p>
-        <div> {this.displayPositions()}</div>
-        
-        <br></br>
-        <br></br>
-        <p>Click on the positions and fill out the screening questions.</p>
+          <img
+            alt="matchImg"
+            src="https://media0.giphy.com/media/13k4VSc3ngLPUY/giphy.gif"
+          />
+          <h3>Congratulations!</h3>
+          <p> You've matched with: </p>
+          <div> {this.displayPositions()}</div>
+
+          <br></br>
+          <br></br>
+          <p>Click on the positions and fill out the screening questions.</p>
         </div>
       </div>
     );

@@ -1,12 +1,13 @@
+//Libraries
+import React from 'react';
+import { Auth } from 'aws-amplify';
 
-import React from 'react'
-import {Auth} from 'aws-amplify'
-
-import './SideDrawer.css'
+//CSS
+import './SideDrawer.css';
 
 const sideDrawerCandidate = props => {
-  let drawerClasses= 'side-drawer';
-  if(props.show) {
+  let drawerClasses = 'side-drawer';
+  if (props.show) {
     drawerClasses = 'side-drawer open';
   }
 
@@ -22,19 +23,29 @@ const sideDrawerCandidate = props => {
       .catch(err => console.log(err));
   };
   return (
-      <nav className={drawerClasses}>
+    <nav className={drawerClasses}>
       <ul>
-
-        <li><a href="/myaccount">My Account</a></li>
-        <li><a href="/candidatematches">Matches</a></li>
-        <li><a href="/aboutus">About us</a></li>
-        <li><a href="/positions">Positions</a></li>
-        <li><a href="/companies">Companies</a></li>
-        <li onClick={handleSubmit}><a href="/">Sign out</a></li>
+        <li>
+          <a href="/myaccount">My Account</a>
+        </li>
+        <li>
+          <a href="/candidatematches">Matches</a>
+        </li>
+        <li>
+          <a href="/aboutus">About us</a>
+        </li>
+        <li>
+          <a href="/positions">Positions</a>
+        </li>
+        <li>
+          <a href="/companies">Companies</a>
+        </li>
+        <li onClick={handleSubmit}>
+          <a href="/">Sign out</a>
+        </li>
       </ul>
-      </nav>
-
-  )
-}
+    </nav>
+  );
+};
 
 export default sideDrawerCandidate;

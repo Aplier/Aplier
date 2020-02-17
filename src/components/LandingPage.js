@@ -11,13 +11,14 @@ class LandingPage extends Component {
         <div className="landingInfo">
           <button className="homeButton">
             <Link to="/signup">Signup</Link>
-          </button> <br />
-          <button className='homeButton'>
+          </button>{' '}
+          <br />
+          <button className="homeButton">
             <Link to="/login">Login</Link>
           </button>
         </div>
       </div>
-    )
+    );
   }
 }
 

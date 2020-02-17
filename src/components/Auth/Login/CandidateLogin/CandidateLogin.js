@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { Auth } from 'aws-amplify';
-import { Link } from 'react-router-dom';
 
 class CandidateLogin extends Component {
   constructor(props) {
@@ -30,42 +29,29 @@ class CandidateLogin extends Component {
       });
 
       if (isCandidateLoggedIn === false) {
-        console.log('SHOULD BE FALSE', isCandidateLoggedIn)
         await signedIn;
         this.setState({
           isCandidateLoggedIn: true,
         });
-        console.log('STATE.CANDI ---->',this.state.isCandidateLoggedIn)
 
         this.props.history.push('/positions');
-        window.location.reload()
-
-      } else if(isCandidateLoggedIn === true){
-        console.log('SHOULD BE TRUE', isCandidateLoggedIn)
-
-        // this.props.history.push('/positions');
-      }
-        else {
+        window.location.reload();
+      } else if (isCandidateLoggedIn === true) {
+      } else {
         await Auth.confirmSignIn(email);
       }
-
     } catch (error) {
-      console.log(error)
+      console.log(error);
     }
-
-
   };
 
   render() {
-
     const { isCandidateLoggedIn } = this.state;
 
     if (isCandidateLoggedIn) {
-      console.log('Candidate has logged in');
       return null;
     } else {
       return (
-
         <div>
           <div className="logInContainer">
             <img
@@ -76,7 +62,6 @@ class CandidateLogin extends Component {
             />{' '}
             <br />
             <form onSubmit={this.handleSubmit}>
-              {/* <h4 className="mv3">{this.isLoggedIn ? 'Login' : 'Sign Up'}</h4> */}
               <label className="Clabel">Email Address</label>
               <input
                 className="Cinput"

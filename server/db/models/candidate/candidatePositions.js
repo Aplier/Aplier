@@ -1,15 +1,15 @@
-const Sequelize = require('sequelize')
-const db = require('../../db')
+const Sequelize = require('sequelize');
+const db = require('../../db');
 
 const CandidatePositions = db.define('candidatePositions', {
   applied: {
     type: Sequelize.BOOLEAN,
-    defaultValue: false
+    defaultValue: false,
   },
   accepted: {
     type: Sequelize.BOOLEAN,
-    defaultValue: false
+    defaultValue: false,
   },
-})
+});
 
-module.exports = CandidatePositions
+module.exports = CandidatePositions;

@@ -3,7 +3,6 @@ import { graphql } from 'react-apollo';
 // import a addSkillMutation ??
 
 class CandidateAddSkill extends Component {
-
   render() {
     return (
       <div>
@@ -17,8 +16,8 @@ class CandidateAddSkill extends Component {
 
         {/* submit button */}
       </div>
-    )
+    );
   }
 }
 
-  export default graphql(CandidateAddSkill)
+export default graphql(CandidateAddSkill);

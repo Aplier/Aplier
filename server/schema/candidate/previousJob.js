@@ -33,53 +33,53 @@ const previousJob = `
 const previousJobResolvers = {
   Query: {
     previousJob: (parent, args, { models }) => {
-      try{
+      try {
         return models.PreviousJob.findAll({
           where: args,
           include: {
-            model: models.Candidate
-          }
+            model: models.Candidate,
+          },
         });
-      }catch(err){
+      } catch (err) {
         console.error(err);
       }
-    }
+    },
   },
 
   Mutation: {
     addPreviousJob: (parent, args, { models }) => {
-      try{
+      try {
         return models.PreviousJob.create(args);
-      }catch(err){
+      } catch (err) {
         console.error(err);
       }
     },
 
     deletePreviousJob: (parent, args, { models }) => {
-      try{
+      try {
         models.PreviousJob.destroy({
-          where: args
+          where: args,
         });
-      }catch(err){
+      } catch (err) {
         console.error(err);
       }
     },
 
     editPreviousJob: (parent, args, { models }) => {
-      try{
+      try {
         return models.PreviousJob.update(args, {
           where: {
-            id: args.id
-          }
+            id: args.id,
+          },
         });
-      }catch(err){
+      } catch (err) {
         console.error(err);
       }
-    }
-  }
+    },
+  },
 };
 
 module.exports = {
   previousJob,
-  previousJobResolvers
+  previousJobResolvers,
 };

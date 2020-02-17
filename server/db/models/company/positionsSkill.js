@@ -1,8 +1,6 @@
-const Sequelize = require('sequelize')
-const db = require('../../db')
+const Sequelize = require('sequelize');
+const db = require('../../db');
 
-const PositionsSkill = db.define('positionsSkill', {
+const PositionsSkill = db.define('positionsSkill', {});
 
-})
-
-module.exports = PositionsSkill
+module.exports = PositionsSkill;

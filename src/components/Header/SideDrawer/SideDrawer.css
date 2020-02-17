@@ -1,7 +1,7 @@
 .side-drawer {
   height: 100%;
-  background: #42556F;
-  box-shadow: 2px 0px 5px rgba(0,0,0,0.5);
+  background: #42556f;
+  box-shadow: 2px 0px 5px rgba(0, 0, 0, 0.5);
   position: fixed;
   top: 0;
   left: 0;
@@ -10,7 +10,7 @@
   width: 150px;
   z-index: 200;
   transform: translateX(-100%);
-  transition: transform 0.3s ease-out
+  transition: transform 0.3s ease-out;
 }
 
 .side-drawer.open {
@@ -33,8 +33,6 @@
   margin: 0.5rem 0 0 0;
 }
 
-
-
 .side-drawer a {
   color: whitesmoke;
   text-decoration: none;
@@ -45,4 +43,3 @@
 .side-drawer a:active {
   color: bisque;
 }
-

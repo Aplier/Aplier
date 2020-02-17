@@ -1,13 +1,13 @@
+//Libraries
 import React, { Component } from 'react';
 import ApolloClient from 'apollo-boost';
 import { ApolloProvider } from 'react-apollo';
-// import { Router} from 'react-router-dom'
 
 //Auth
 import Amplify, { Auth } from 'aws-amplify';
 import aws_exports from './Util/aws-exports';
 
-//components
+//Components
 import Routes from './router';
 import Navbar from './components/Header/Navbar/Navbar';
 import SideDrawer from './components/Header/SideDrawer/SideDrawer';
@@ -61,7 +61,6 @@ class App extends Component {
       backdrop = <Backdrop click={this.backdropClickHandler} />;
     }
     if (this.state.isCandidateLoggedIn === true) {
-      console.log('THIS IS FIRST IF STAETMENT');
       return (
         <ApolloProvider client={client}>
           <div style={{ height: '100%' }}>
@@ -73,7 +72,6 @@ class App extends Component {
         </ApolloProvider>
       );
     } else if (this.state.isUserLoggedIn === true) {
-      console.log('THIS IS SECOND IF STAETMENT');
       return (
         <ApolloProvider client={client}>
           <div style={{ height: '100%' }}>
@@ -85,7 +83,6 @@ class App extends Component {
         </ApolloProvider>
       );
     } else {
-      console.log('THIS IS THIRD IF STAETMENT');
       return (
         <ApolloProvider client={client}>
           <div style={{ height: '100%' }}>

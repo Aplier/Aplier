@@ -27,65 +27,65 @@ const companyUser = `
 const companyUserResolvers = {
   Query: {
     companyUser: (parent, args, { models }) => {
-      try{
+      try {
         return models.CompanyUser.findOne({
           where: args,
           include: {
-            model: models.Company
-          }
+            model: models.Company,
+          },
         });
-      }catch(err){
+      } catch (err) {
         console.error(err);
       }
     },
 
     companyUsers: (parent, args, { models }) => {
-      try{
+      try {
         return models.CompanyUser.findAll({
           include: {
-            model: models.Company
-          }
+            model: models.Company,
+          },
         });
-      }catch(err){
+      } catch (err) {
         console.error(err);
       }
-    }
+    },
   },
 
   Mutation: {
     addCompanyUser: (parent, args, { models }) => {
-      try{
+      try {
         return models.CompanyUser.create(args);
-      }catch(err){
+      } catch (err) {
         console.error(err);
       }
     },
 
     deleteCompanyUser: (parent, args, { models }) => {
-      try{
+      try {
         models.CompanyUser.destroy({
-          where: args
+          where: args,
         });
-      }catch(err){
+      } catch (err) {
         console.error(err);
       }
     },
 
     editCompanyUser: (parent, args, { models }) => {
-      try{
+      try {
         return models.CompanyUser.update(args, {
           where: {
-            companyId: args.companyId
-          }
-        })
-      }catch(err){
+            companyId: args.companyId,
+          },
+        });
+      } catch (err) {
         console.error(err);
       }
-    }
-  }
+    },
+  },
 };
 
 module.exports = {
   companyUser,
-  companyUserResolvers
+  companyUserResolvers,
 };

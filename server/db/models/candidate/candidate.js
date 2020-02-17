@@ -26,8 +26,6 @@ const Candidate = db.define('candidate', {
   password: {
     type: Sequelize.STRING,
     allowNull: false,
-    // Making `.password` act like a func hides it when serializing to JSON.
-    // This is a hack to get around Sequelize's lack of a "private" option.
     get() {
       return () => this.getDataValue('password');
     },
@@ -38,15 +36,12 @@ const Candidate = db.define('candidate', {
   },
   salt: {
     type: Sequelize.STRING,
-    // Making `.salt` act like a function hides it when serializing to JSON.
-    // This is a hack to get around Sequelize's lack of a "private" option.
     get() {
       return () => this.getDataValue('salt');
     },
   },
   admin: {
     type: Sequelize.BOOLEAN,
-    // allowNull: false,
     defaultValue: false,
   },
   intro: {

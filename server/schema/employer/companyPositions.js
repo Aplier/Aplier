@@ -46,79 +46,89 @@ const companyPositions = `
 const companyPositionsResolvers = {
   Query: {
     companyPosition: (parent, args, { models }) => {
-      try{
+      try {
         return models.CompanyPosition.findOne({
           where: args,
-          include: [{
-            model: models.Company
-          },{
-            model: models.CompanyUser
-          },{
-            model: models.Skill
-          },{
-            model: models.Candidate
-          }]
+          include: [
+            {
+              model: models.Company,
+            },
+            {
+              model: models.CompanyUser,
+            },
+            {
+              model: models.Skill,
+            },
+            {
+              model: models.Candidate,
+            },
+          ],
         });
-      }catch(err){
+      } catch (err) {
         console.error(err);
       }
     },
 
     companyPositions: (parent, args, { models }) => {
-      try{
+      try {
         return models.CompanyPosition.findAll({
-          include: [{
-            model: models.Company
-          },{
-            model: models.CompanyUser
-          },{
-            model: models.Skill
-          },{
-            model: models.Candidate
-          }]
+          include: [
+            {
+              model: models.Company,
+            },
+            {
+              model: models.CompanyUser,
+            },
+            {
+              model: models.Skill,
+            },
+            {
+              model: models.Candidate,
+            },
+          ],
         });
-      }catch(err){
+      } catch (err) {
         console.error(err);
       }
-    }
+    },
   },
 
   Mutation: {
     addCompanyPosition: (parent, args, { models }) => {
-      try{
+      try {
         return models.CompanyPosition.create(args);
-      }catch(err){
+      } catch (err) {
         console.error(err);
       }
     },
 
     deleteCompanyPosition: (parent, { id }, { models }) => {
-      try{
+      try {
         models.CompanyPosition.destroy({
           where: {
-            id: id
-          }
+            id: id,
+          },
         });
-      }catch(err){
+      } catch (err) {
         console.error(err);
       }
     },
 
     editCompanyPosition: (parent, args, { models }) => {
-      try{
+      try {
         return models.CompanyPosition.update(args, {
           where: {
-            id: args.id
-          }
+            id: args.id,
+          },
         });
-      }catch(err){
+      } catch (err) {
         console.error(err);
       }
-    }
-  }
+    },
+  },
 };
 
 module.exports = {
   companyPositions,
-  companyPositionsResolvers
+  companyPositionsResolvers,
 };

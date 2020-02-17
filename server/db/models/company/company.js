@@ -21,16 +21,12 @@ const Company = db.define('company', {
   password: {
     type: Sequelize.STRING,
     // allowNull: false,
-    // Making `.password` act like a func hides it when serializing to JSON.
-    // This is a hack to get around Sequelize's lack of a "private" option.
     get() {
       return () => this.getDataValue('password');
     },
   },
   salt: {
     type: Sequelize.STRING,
-    // Making `.salt` act like a function hides it when serializing to JSON.
-    // This is a hack to get around Sequelize's lack of a "private" option.
     get() {
       return () => this.getDataValue('salt');
     },
@@ -65,16 +61,12 @@ const Company = db.define('company', {
 
 module.exports = Company;
 
-/**
- * instanceMethods
- */
+//Instance Methods
 Company.prototype.correctPassword = function(companyPwd) {
   return Company.encryptPassword(companyPwd, this.salt()) === this.password();
 };
 
-/**
- * classMethods
- */
+//Class Methods
 Company.generateSalt = function() {
   return crypto.randomBytes(16).toString('base64');
 };
@@ -87,9 +79,7 @@ Company.encryptPassword = function(plainText, salt) {
     .digest('hex');
 };
 
-/**
- * hooks
- */
+//Hooks
 const setSaltAndPassword = company => {
   if (company.changed('password')) {
     company.salt = Company.generateSalt();

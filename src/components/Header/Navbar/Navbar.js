@@ -1,9 +1,13 @@
+//Libraries
 import React from 'react';
-
-import '../SideDrawer/DrawerToggleButton';
-import './Navbar.css';
-import DrawerToggleButton from '../SideDrawer/DrawerToggleButton';
 import { Auth } from 'aws-amplify';
+
+//Components
+import '../SideDrawer/DrawerToggleButton';
+import DrawerToggleButton from '../SideDrawer/DrawerToggleButton';
+
+//CSS
+import './Navbar.css';
 
 const handleSubmit = async () => {
   await Auth.signOut()

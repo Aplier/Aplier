@@ -15,21 +15,21 @@ const candidatePositions = `
 const candidatePositionsResolvers = {
   Query: {
     appliedPositions: (parent, { candidateId }, { models }) => {
-      try{
+      try {
         return models.CandidatePositions.findAll({
           where: {
             candidateId,
-            applied: true
-          }
+            applied: true,
+          },
         });
-      }catch(err){
+      } catch (err) {
         console.error(err);
       }
-    }
-  }
-}
+    },
+  },
+};
 
 module.exports = {
   candidatePositions,
-  candidatePositionsResolvers
+  candidatePositionsResolvers,
 };

@@ -1,6 +1,8 @@
+//Libraries
 import React, { Component } from 'react';
 import { graphql } from 'react-apollo';
 import { Auth } from 'aws-amplify';
+//Queries
 import { addCompanyMutation } from '../../../../queries/queries';
 
 class TestCompanyForm extends Component {

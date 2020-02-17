@@ -1,5 +1,7 @@
+//Libraries
 import React from 'react';
 
+//Components
 import './SideDrawer.css';
 
 const sideDrawer = props => {
@@ -9,7 +11,6 @@ const sideDrawer = props => {
   }
 
   return (
-    // add logic for signedIn/signedOut candidate && company
     <nav className={drawerClasses}>
       <ul>
         <li>

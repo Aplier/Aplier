@@ -1,3 +1,4 @@
+//Libraries
 import { gql } from 'apollo-boost';
 
 const getCandidateQuery = gql`

@@ -1,4 +1,6 @@
+//Libraries
 import React, { Component } from 'react';
+//Change to GQL Query from axios
 import axios from 'axios';
 
 class UserLogin extends Component {
@@ -39,36 +41,38 @@ class UserLogin extends Component {
     return (
       <div>
         <div className="logInContainer">
-        <img
-              className="loginGif"
-              src="https://gophonebox.com/images/Phobby_WaveAnimation.gif"
-              alt="CandidateImage"
-              type="image"
-            />{' '}
-            <br />
-        <form onSubmit={this.handleSubmit}>
-        <label className="Clabel">Email Address</label>
-          <input
-            type="email"
-            name="email"
-            className="Cinput"
-            value={this.state.email}
-            onChange={this.handleChange}
-            required
-          />
-          <br /> <br />
-          <label className="Clabel">Password</label>
-          <input
-            type="password"
-            name="password"
-            className="Cinput"
-            value={this.state.password}
-            onChange={this.handleChange}
-            required
-          />
-          <br /> <br />
-          <button className="customeButton" type="submit">Login!</button>
-        </form>
+          <img
+            className="loginGif"
+            src="https://gophonebox.com/images/Phobby_WaveAnimation.gif"
+            alt="CandidateImage"
+            type="image"
+          />{' '}
+          <br />
+          <form onSubmit={this.handleSubmit}>
+            <label className="Clabel">Email Address</label>
+            <input
+              type="email"
+              name="email"
+              className="Cinput"
+              value={this.state.email}
+              onChange={this.handleChange}
+              required
+            />
+            <br /> <br />
+            <label className="Clabel">Password</label>
+            <input
+              type="password"
+              name="password"
+              className="Cinput"
+              value={this.state.password}
+              onChange={this.handleChange}
+              required
+            />
+            <br /> <br />
+            <button className="customeButton" type="submit">
+              Login!
+            </button>
+          </form>
         </div>
       </div>
     );

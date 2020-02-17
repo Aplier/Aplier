@@ -3,7 +3,7 @@
   top: 0;
   left: 0;
   width: 100%;
-  background-color: #42556F;
+  background-color: #42556f;
   height: 56px;
 }
 .navbar_navigation {
@@ -17,44 +17,39 @@
   margin-left: 1rem;
 }
 
-.navbar_logo a{
+.navbar_logo a {
   color: whitesmoke;
   text-decoration: none;
   font-size: 1.5rem;
 }
 
 .spacer {
-  flex: 1
+  flex: 1;
 }
 
 .navbar_navigation-items a {
   color: whitesmoke;
   text-decoration: none;
-
 }
 
 .navbar_navigation-items li {
   padding: 0 0.5rem;
 }
 
-.navbar_navigation-items ul{
+.navbar_navigation-items ul {
   list-style: none;
   margin: 0;
   padding: 0;
   display: flex;
 }
 
-
 .navbar_navigation-items a:hover,
 .navbar_navigation-items a:active {
   color: bisque;
 }
-
 
 @media (max-width: 768px) {
   .navbar_navigation-items {
     display: none;
   }
 }
-
-

@@ -1,17 +1,16 @@
+//Libraries
 import React, { Component } from 'react';
 import { graphql } from 'react-apollo';
-import {getCompanyByIdQuery} from '../../queries/queries'
-
+//Queries
+import { getCompanyByIdQuery } from '../../queries/queries';
 
 class CompanyAccount extends Component {
-
-
-  displayCompanysAccountView() {
+  displayCompanyAccountView() {
     let data = this.props.data;
     if (data.loading) {
       return <div>Loading Company Account...</div>;
     } else {
-      console.log(this.props)
+      console.log(this.props);
       return (
         <div>
           <div className="formContainer">
@@ -41,24 +40,24 @@ class CompanyAccount extends Component {
             </button> */}
           </div>
         </div>
-      )
+      );
     }
   }
   render() {
     return (
       <div>
-          <div> {this.displayCompanysAccountView()}</div>
+        <div> {this.displayCompanyAccountView()}</div>
       </div>
-    )
+    );
   }
 }
 
 export default graphql(getCompanyByIdQuery, {
-    options: () => {
-      return {
-        variables: {
-          id: 1
-        }
-      }
-    }
-})(CompanyAccount)
+  options: () => {
+    return {
+      variables: {
+        id: 1,
+      },
+    };
+  },
+})(CompanyAccount);
