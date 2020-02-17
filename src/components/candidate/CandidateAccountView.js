@@ -16,8 +16,11 @@ class CandidateAccount extends Component {
 
   displayCandidatesAccount() {
     let data = this.props.data;
-    let candidate = this.props.data.candidate;
-    console.log('data', data);
+    console.log('DATA DOT CANDIDATE', data.candidate)
+    const { info } = this.state;
+    const { given_name, family_name, email, address, id } = info;
+//     let candidate = this.props.data.candidate;
+//     console.log('data', data);
     // const { info } = this.state;
     // const { given_name, family_name, email, address } = info;
 
