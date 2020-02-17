@@ -10,14 +10,16 @@ class CandidateAccount extends Component {
 
   async componentDidMount() {
     const info = await Auth.currentUserInfo();
-    console.log(info);
+    console.log('Auth Current User Information', info);
     this.setState({ info: info.attributes });
   }
 
   displayCandidatesAccount() {
     let data = this.props.data;
-    const { info } = this.state;
-    const { given_name, family_name, email, address, id } = info;
+    let candidate = this.props.data.candidate;
+    console.log('data', data);
+    // const { info } = this.state;
+    // const { given_name, family_name, email, address } = info;
 
     if (data.loading) {
       return <div>Loading Candidate Account...</div>;
@@ -25,10 +27,10 @@ class CandidateAccount extends Component {
       return (
         <div>
           <div className="formContainer">
-            <h3 className="welcomeAccount">Welcome {given_name}</h3>
+            <h3 className="welcomeAccount">Welcome {candidate.firstName}</h3>
             <img
               className="circleAccount"
-              src={data.candidate.imgURL}
+              src={candidate.imgURL}
               alt="screeningImage"
             />{' '}
             {/* <button className="customeButton" type="submit">
@@ -37,17 +39,17 @@ class CandidateAccount extends Component {
             <br />
             <h4 className="accountList">Full Name</h4>
             <p className="accountListData">
-              {given_name} {family_name}
+              {candidate.firstName} {candidate.lastName}
             </p>
             <hr></hr>
             <h4 className="accountList">Address</h4>
-            <p className="accountListData">{address}</p>
+            <p className="accountListData">{candidate.address}</p>
             <hr></hr>
             <h4 className="accountList">Email</h4>
-            <p className="accountListData">{email}</p>
+            <p className="accountListData">{candidate.email}</p>
             <hr></hr>
             <h4 className="accountList">Phone</h4>
-            <p className="accountListData">{data.candidate.phone}</p>
+            <p className="accountListData">{candidate.phone}</p>
             <hr></hr>
             {/* <h4 className="accountList">Intro</h4>
             <p className="accountListData">{data.candidate.intro}</p>
