@@ -1,3 +1,4 @@
+//Libraries
 const crypto = require('crypto');
 const db = require('../../db');
 const Sequelize = require('sequelize');
@@ -60,18 +61,14 @@ const Candidate = db.define('candidate', {
 
 module.exports = Candidate;
 
-/**
- * instanceMethods
- */
+//Instance Methods
 Candidate.prototype.correctPassword = function(candidatePwd) {
   return (
     Candidate.encryptPassword(candidatePwd, this.salt()) === this.password()
   );
 };
 
-/**
- * classMethods
- */
+//Class Methods
 Candidate.generateSalt = function() {
   return crypto.randomBytes(16).toString('base64');
 };
@@ -84,9 +81,7 @@ Candidate.encryptPassword = function(plainText, salt) {
     .digest('hex');
 };
 
-/**
- * hooks
- */
+//Hooks
 const setSaltAndPassword = candidate => {
   if (candidate.changed('password')) {
     candidate.salt = Candidate.generateSalt();

@@ -51,10 +51,6 @@ const startListening = () => {
   app.listen(PORT, () => {
     console.log(`Listening on port ${PORT}`);
   });
-
-  // set up our socket control center
-  // const io = socketio(server);
-  // require('./socket')(io);
 };
 
 const syncDb = () => db.sync();

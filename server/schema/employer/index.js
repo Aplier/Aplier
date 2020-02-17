@@ -1,3 +1,4 @@
+//Schemas
 const { company, companyResolvers } = require('./company');
 const {
   companyPositions,

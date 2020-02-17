@@ -1,7 +1,7 @@
 //Libraries
 import React from 'react';
 
-//Components
+//CSS
 import './SideDrawer.css';
 
 const sideDrawer = props => {
