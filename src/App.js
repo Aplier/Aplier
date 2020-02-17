@@ -5,9 +5,8 @@ import {createHttpLink} from 'apollo-link-http'
 import {InMemoryCache} from 'apollo-cache-inmemory'
 // import { Router} from 'react-router-dom'
 
-
 //Auth
-import Amplify , { Auth }from 'aws-amplify';
+import Amplify, { Auth } from 'aws-amplify';
 import aws_exports from './Util/aws-exports';
 
 //components
@@ -28,25 +27,24 @@ const client = new ApolloClient({
 
 class App extends Component {
   constructor(props) {
-    super(props)
+    super(props);
 
-  this.state = {
-    sideDrawerOpen: false,
-    isCandidateLoggedIn: false,
-    isUserLoggedIn: false
-  };
-}
+    this.state = {
+      sideDrawerOpen: false,
+      isCandidateLoggedIn: false,
+      isUserLoggedIn: false,
+    };
+  }
 
   async componentDidMount() {
+    let user = await Auth.currentAuthenticatedUser();
 
-    let user = await Auth.currentAuthenticatedUser()
-
-    if(user){
-      this.setState({isCandidateLoggedIn: true})
-      console.log('authenticated')
-    }else {
-      console.log('not authenticated')
-      this.setState({isCandidateLoggedIn: false})
+    if (user) {
+      this.setState({ isCandidateLoggedIn: true });
+      console.log('authenticated');
+    } else {
+      console.log('not authenticated');
+      this.setState({ isCandidateLoggedIn: false });
     }
   }
 
@@ -84,7 +82,7 @@ class App extends Component {
         <ApolloProvider client={client}>
           <div style={{ height: '100%' }}>
             <Navbar drawerClickHandler={this.drawerToggleClickHandler} />
-            <SideDrawerCompany show={this.state.sideDrawerOpen}/>
+            <SideDrawerCompany show={this.state.sideDrawerOpen} />
             {backdrop}
             <Routes />
           </div>
@@ -96,7 +94,7 @@ class App extends Component {
         <ApolloProvider client={client}>
           <div style={{ height: '100%' }}>
             <Navbar drawerClickHandler={this.drawerToggleClickHandler} />
-            <SideDrawer show={this.state.sideDrawerOpen}/>
+            <SideDrawer show={this.state.sideDrawerOpen} />
             {backdrop}
             <Routes />
           </div>
@@ -105,6 +103,5 @@ class App extends Component {
     }
   }
 }
-
 
 export default App;

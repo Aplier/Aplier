@@ -1,4 +1,4 @@
-const db = require('./server/db/index')
+const db = require('./server/db/index');
 const {
   Candidate,
   Education,
@@ -10,50 +10,58 @@ const {
   CompanyUser,
   CandidateSkill,
   CandidatePositions,
-  PositionsSkill
-  } = require('./server/db/models')
+  PositionsSkill,
+} = require('./server/db/models');
 
-async function seed() {
-  await db.sync({force: true})
-  console.log('db synced!')
+const seed = async () => {
+  try {
+    await db.sync({ force: true });
+    console.log('db synced!');
+  } catch (error) {
+    console.log('DB Sync Error', error);
+  }
 
-  const CurrentJobs = await Promise.all([
-    CurrentJob.create({
-      companyName: 'Amazon',
-      position: 'Software Developer',
-      startDate: new Date(2018, 1, 1),
-    }),
-    CurrentJob.create({
-      companyName: 'Facebook',
-      position: 'Senior Software Developer',
-      startDate: new Date(2019, 2, 2),
-    }),
-    CurrentJob.create({
-      companyName: 'Google',
-      position: 'Backend Developer',
-      startDate: new Date(2018, 2, 2),
-    }),
-    CurrentJob.create({
-      companyName: 'Apple',
-      position: 'Fullstack Developer',
-      startDate: new Date(2018, 2, 2),
-    }),
-    CurrentJob.create({
-      companyName: 'Etsy',
-      position: 'ios Developer',
-      startDate: new Date(2018, 2, 2),
-    }),
-    CurrentJob.create({
-      companyName: 'Fullstack Academy',
-      position: 'Fullstack Instructor',
-      startDate: new Date(2018, 2, 2),
-    }),
-    CurrentJob.create({
-      companyName: 'Samsung',
-      position: 'Andriod Developer',
-      startDate: new Date(2018, 2, 2),
-    })
-  ])
+  try {
+    const CurrentJobs = await Promise.all([
+      CurrentJob.create({
+        companyName: 'Amazon',
+        position: 'Software Developer',
+        startDate: new Date(2018, 1, 1),
+      }),
+      CurrentJob.create({
+        companyName: 'Facebook',
+        position: 'Senior Software Developer',
+        startDate: new Date(2019, 2, 2),
+      }),
+      CurrentJob.create({
+        companyName: 'Google',
+        position: 'Backend Developer',
+        startDate: new Date(2018, 2, 2),
+      }),
+      CurrentJob.create({
+        companyName: 'Apple',
+        position: 'Fullstack Developer',
+        startDate: new Date(2018, 2, 2),
+      }),
+      CurrentJob.create({
+        companyName: 'Etsy',
+        position: 'ios Developer',
+        startDate: new Date(2018, 2, 2),
+      }),
+      CurrentJob.create({
+        companyName: 'Fullstack Academy',
+        position: 'Fullstack Instructor',
+        startDate: new Date(2018, 2, 2),
+      }),
+      CurrentJob.create({
+        companyName: 'Samsung',
+        position: 'Andriod Developer',
+        startDate: new Date(2018, 2, 2),
+      }),
+    ]);
+  } catch (error) {
+    console.log('Company Seed Error :', error);
+  }
 
   const Candidates = await Promise.all([
     Candidate.create({
@@ -195,64 +203,71 @@ async function seed() {
     })
   ])
 
-  const CompanyUsers = await Promise.all([
-    CompanyUser.create({
-      email: 'employee@gmail.com',
-      password: '123',
-      companyId: 3
-    }),
-    CompanyUser.create({
-      email: 'employee2@gmail.com',
-      password: '123',
-      companyId:2
-    }),
-    CompanyUser.create({
-      email: 'employee3@gmail.com',
-      password: '123',
-      companyId:1
-    }),
-    CompanyUser.create({
-      email: 'employee4@gmail.com',
-      password: '123',
-      companyId:4
-    }),
-    CompanyUser.create({
-      email: 'employee5@gmail.com',
-      password: '123',
-      companyId:5
-    })
-  ])
+  try {
+    const CompanyUsers = await Promise.all([
+      CompanyUser.create({
+        email: 'employee@gmail.com',
+        password: '123',
+        companyId: 3,
+      }),
+      CompanyUser.create({
+        email: 'employee2@gmail.com',
+        password: '123',
+        companyId: 2,
+      }),
+      CompanyUser.create({
+        email: 'employee3@gmail.com',
+        password: '123',
+        companyId: 1,
+      }),
+      CompanyUser.create({
+        email: 'employee4@gmail.com',
+        password: '123',
+        companyId: 4,
+      }),
+      CompanyUser.create({
+        email: 'employee5@gmail.com',
+        password: '123',
+        companyId: 5,
+      }),
+    ]);
+  } catch (error) {
+    console.log('CompanyUser Create Error', error);
+  }
 
   const CompanyPositions = await Promise.all([
     CompanyPosition.create({
       title: 'Fullstack Developer',
-      description: 'Looking for a Fullstack Developer skilled in the NERD stack and based in the New York City area!',
+      description:
+        'Looking for a Fullstack Developer skilled in the NERD stack and based in the New York City area!',
       salaryRange: '$85,000',
       screeningQ1: 'What are JavaScript Data Types?',
       screeningQ2: 'What is Recursion?',
       screeningQ3: 'Explain what is breadth first',
       companyId: 1, // google
-      companyUserId: 3
+      companyUserId: 3,
     }),
     CompanyPosition.create({
       title: 'Front-End Developer',
-      description: 'Looking for a Back-End Developer. skilled in Javascript Concepts',
+      description:
+        'Looking for a Back-End Developer. skilled in Javascript Concepts',
       salaryRange: '$95,000',
       screeningQ1: 'Explain what is the pop()method in JavaScript?',
       screeningQ2: 'Explain OOP?',
       screeningQ3: 'Describe an example of closure?',
       companyId: 3, // facebook
-      companyUserId: 1
+      companyUserId: 1,
     }),
     CompanyPosition.create({
       title: 'React-Native Developer',
-      description: 'Looking for a React-Native Developer. skilled in Javascript Concepts',
+      description:
+        'Looking for a React-Native Developer. skilled in Javascript Concepts',
       salaryRange: '$75,000',
       screeningQ1: 'What are the advantages of React Native?',
       screeningQ2: 'How many threads run in React Native?',
       screeningQ3: 'What are Hybrid Apps?',
       companyId: 4, // vayner
-      companyUserId: 4
+      companyUserId: 4,
     }),
     CompanyPosition.create({
       title: 'GraphQl-Apollo Developer',
@@ -262,7 +277,7 @@ async function seed() {
       screeningQ2: 'Describe Prisma?',
       screeningQ3: 'What is State?',
       companyId: 2, //twitter
-      companyUserId: 2
+      companyUserId: 2,
     }),
     CompanyPosition.create({
       title: 'UI Designer',
@@ -293,51 +308,51 @@ async function seed() {
       major: 'Strategic Design and Management',
       minor: 'Economics',
       gradDate: new Date(2015, 5, 30),
-      candidateId: 1
+      candidateId: 1,
     }),
     Education.create({
       name: 'MIT',
       degree: 'AB',
       major: 'Computer Science',
       gradDate: new Date(2006, 5, 30),
-      candidateId: 2
+      candidateId: 2,
     }),
     Education.create({
       name: 'City University of New York City College',
       degree: 'Bachelor',
       major: 'Political Science and Governmenet',
       gradDate: new Date(2014, 5, 30),
-      candidateId: 3
+      candidateId: 3,
     }),
     Education.create({
       name: 'NYU',
       degree: 'Bachelor',
       major: 'Chemical Engineering',
       gradDate: new Date(2014, 5, 30),
-      candidateId: 4
+      candidateId: 4,
     }),
     Education.create({
       name: 'UCLA',
       degree: 'Bachelor',
       major: 'Accounting',
       gradDate: new Date(2014, 5, 30),
-      candidateId: 5
+      candidateId: 5,
     }),
     Education.create({
       name: 'USC',
       degree: 'Bachelor',
       major: 'Finance',
       gradDate: new Date(2014, 5, 30),
-      candidateId: 6
+      candidateId: 6,
     }),
     Education.create({
       name: 'Columbia University',
       degree: 'Bachelor',
       major: 'Electrical Engineering',
       gradDate: new Date(2014, 5, 30),
-      candidateId: 7
+      candidateId: 7,
     }),
-  ])
+  ]);
 
   const PreviousJobs = await Promise.all([
     PreviousJob.create({
@@ -345,41 +360,39 @@ async function seed() {
       position: 'Software Developer',
       startDate: new Date(2015, 1, 1),
       endDate: new Date(2017, 12, 1),
-      candidateId: 2
+      candidateId: 2,
     }),
-
-  ])
+  ]);
 
   const Skills = await Promise.all([
     Skill.create({
-      skill: 'JavaScript'
+      skill: 'JavaScript',
     }),
     Skill.create({
-      skill: 'React'
+      skill: 'React',
     }),
     Skill.create({
-      skill: 'Ruby'
+      skill: 'Ruby',
     }),
     Skill.create({
-      skill: 'Python'
+      skill: 'Python',
     }),
     Skill.create({
-      skill: 'Redux'
+      skill: 'Redux',
     }),
     Skill.create({
-      skill: 'C++'
+      skill: 'C++',
     }),
     Skill.create({
-      skill: 'CSS'
+      skill: 'CSS',
     }),
     Skill.create({
-      skill: 'React-Native'
+      skill: 'React-Native',
     }),
     Skill.create({
-      skill: 'GraphQl'
-    })
-  ])
-
+      skill: 'GraphQl',
+    }),
+  ]);
 
   const CandidatePosition = await Promise.all([
     CandidatePositions.create({
@@ -401,130 +414,128 @@ async function seed() {
       candidateId: 3,
       companyPositionId: 3,
       applied: false,
-    })
-  ])
+    }),
+  ]);
 
   const CandidateSkills = await Promise.all([
     CandidateSkill.create({
-      candidateId:1,
-      skillId: 1
+      candidateId: 1,
+      skillId: 1,
     }),
     CandidateSkill.create({
-      candidateId:1,
-      skillId: 2
+      candidateId: 1,
+      skillId: 2,
     }),
     CandidateSkill.create({
-      candidateId:1,
-      skillId: 5
+      candidateId: 1,
+      skillId: 5,
     }),
     CandidateSkill.create({
-      candidateId:1,
-      skillId: 7
+      candidateId: 1,
+      skillId: 7,
     }),
     CandidateSkill.create({
-      candidateId:2,
-      skillId: 1
+      candidateId: 2,
+      skillId: 1,
     }),
     CandidateSkill.create({
-      candidateId:2,
-      skillId: 2
+      candidateId: 2,
+      skillId: 2,
     }),
     CandidateSkill.create({
-      candidateId:2,
-      skillId: 3
+      candidateId: 2,
+      skillId: 3,
     }),
     CandidateSkill.create({
-      candidateId:2,
-      skillId: 4
+      candidateId: 2,
+      skillId: 4,
     }),
     CandidateSkill.create({
-      candidateId:3,
-      skillId: 1
+      candidateId: 3,
+      skillId: 1,
     }),
     CandidateSkill.create({
-      candidateId:3,
-      skillId: 2
+      candidateId: 3,
+      skillId: 2,
     }),
     CandidateSkill.create({
-      candidateId:3,
-      skillId: 4
+      candidateId: 3,
+      skillId: 4,
     }),
     CandidateSkill.create({
-      candidateId:3,
-      skillId: 6
+      candidateId: 3,
+      skillId: 6,
     }),
-
-  ])
+  ]);
 
   const PositionSkill = await Promise.all([
     PositionsSkill.create({
-      companyPositionId:1,
-      skillId: 1
+      companyPositionId: 1,
+      skillId: 1,
     }),
     PositionsSkill.create({
-      companyPositionId:1,
-      skillId: 2
+      companyPositionId: 1,
+      skillId: 2,
     }),
     PositionsSkill.create({
-      companyPositionId:1,
-      skillId: 5
+      companyPositionId: 1,
+      skillId: 5,
     }),
     PositionsSkill.create({
-      companyPositionId:1,
-      skillId: 7
+      companyPositionId: 1,
+      skillId: 7,
     }),
     PositionsSkill.create({
-      companyPositionId:2,
-      skillId: 1
+      companyPositionId: 2,
+      skillId: 1,
     }),
     PositionsSkill.create({
-      companyPositionId:2,
-      skillId: 2
+      companyPositionId: 2,
+      skillId: 2,
     }),
     PositionsSkill.create({
-      companyPositionId:2,
-      skillId: 3
+      companyPositionId: 2,
+      skillId: 3,
     }),
     PositionsSkill.create({
-      companyPositionId:2,
-      skillId: 4
+      companyPositionId: 2,
+      skillId: 4,
     }),
     PositionsSkill.create({
-      companyPositionId:3,
-      skillId: 1
+      companyPositionId: 3,
+      skillId: 1,
     }),
     PositionsSkill.create({
-      companyPositionId:3,
-      skillId: 2
+      companyPositionId: 3,
+      skillId: 2,
     }),
     PositionsSkill.create({
-      companyPositionId:3,
-      skillId: 4
+      companyPositionId: 3,
+      skillId: 4,
     }),
     PositionsSkill.create({
-      companyPositionId:3,
-      skillId: 6
+      companyPositionId: 3,
+      skillId: 6,
     }),
+  ]);
 
-  ])
-
-  console.log(`seeded successfully`)
-}
+  console.log(`seeded successfully`);
+};
 
 // We've separated the `seed` function from the `runSeed` function.
 // This way we can isolate the error handling and exit trapping.
 // The `seed` function is concerned only with modifying the database.
 async function runSeed() {
-  console.log('seeding...')
+  console.log('seeding...');
   try {
-    await seed()
+    await seed();
   } catch (err) {
-    console.error(err)
-    process.exitCode = 1
+    console.error(err);
+    process.exitCode = 1;
   } finally {
-    console.log('closing db connection')
-    await db.close()
-    console.log('db connection closed')
+    console.log('closing db connection');
+    await db.close();
+    console.log('db connection closed');
   }
 }
 
@@ -532,8 +543,8 @@ async function runSeed() {
 // `Async` functions always return a promise, so we can use `catch` to handle
 // any errors that might occur inside of `seed`.
 if (module === require.main) {
-  runSeed()
+  runSeed();
 }
 
 // we export the seed function for testing purposes (see `./seed.spec.js`)
-module.exports = seed
+module.exports = seed;
