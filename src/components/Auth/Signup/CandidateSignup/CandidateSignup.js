@@ -113,11 +113,8 @@ class TestCandidateForm extends Component {
         candidateSignedUp: true,
       });
     }
-
-    console.log();
     this.props.history.push('/');
 
-    console.log();
     this.props.history.push('/confirmemail');
   };
 
@@ -142,8 +139,9 @@ class TestCandidateForm extends Component {
       );
     } else {
       return (
-        <div>
-          <p className="miniLogo">Aplier</p>
+        <div className="aboutUsColor">
+          <br></br>
+        <div className="mapCandidates2">
           <div className="formContainer">
             <img
               className="circleCompany"
@@ -211,6 +209,7 @@ class TestCandidateForm extends Component {
             </form>{' '}
             <br />
           </div>
+        </div>
         </div>
       );
     }

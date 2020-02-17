@@ -1,7 +1,10 @@
 //Libraries
 import React, { Component } from 'react';
-import ApolloClient from 'apollo-boost';
+import { ApolloClient } from 'apollo-client';
 import { ApolloProvider } from 'react-apollo';
+import {createHttpLink} from 'apollo-link-http'
+import {InMemoryCache} from 'apollo-cache-inmemory'
+// import { Router} from 'react-router-dom'
 
 //Auth
 import Amplify, { Auth } from 'aws-amplify';
@@ -12,13 +15,16 @@ import Routes from './router';
 import Navbar from './components/Header/Navbar/Navbar';
 import SideDrawer from './components/Header/SideDrawer/SideDrawer';
 import Backdrop from './components/Header/Backdrop/Backdrop';
-import SideDrawerCandidate from './components/Header/SideDrawer/SideDrawerCandidate';
-import SideDrawerCompany from './components/Header/SideDrawer/SideDrawerCompany';
+import SideDrawerCandidate from './components/Header/SideDrawer/SideDrawerCandidate'
+import SideDrawerCompany from './components/Header/SideDrawer/SideDrawerCompany'
 
-//Apollo Client
+const cache = new InMemoryCache()
 const client = new ApolloClient({
-  uri: 'http://localhost:4000/graphql',
-});
+  cache,
+  link: new createHttpLink({
+    uri: 'http://aplier-backend.herokuapp.com/graphql',
+  })
+})
 
 class App extends Component {
   constructor(props) {
@@ -60,18 +66,19 @@ class App extends Component {
     if (this.state.sideDrawerOpen) {
       backdrop = <Backdrop click={this.backdropClickHandler} />;
     }
-    if (this.state.isCandidateLoggedIn === true) {
-      return (
-        <ApolloProvider client={client}>
-          <div style={{ height: '100%' }}>
-            <Navbar drawerClickHandler={this.drawerToggleClickHandler} />
-            <SideDrawerCandidate show={this.state.sideDrawerOpen} />
-            {backdrop}
-            <Routes />
-          </div>
-        </ApolloProvider>
-      );
-    } else if (this.state.isUserLoggedIn === true) {
+      if(this.state.isCandidateLoggedIn === true) {
+        return (
+          <ApolloProvider client={client}>
+            <div style={{ height: '100%' }}>
+              <Navbar drawerClickHandler={this.drawerToggleClickHandler} />
+              <SideDrawerCandidate show={this.state.sideDrawerOpen}/>
+              {backdrop}
+              <Routes />
+            </div>
+          </ApolloProvider>
+        );
+    }
+    else if(this.state.isUserLoggedIn === true) {
       return (
         <ApolloProvider client={client}>
           <div style={{ height: '100%' }}>
@@ -82,7 +89,8 @@ class App extends Component {
           </div>
         </ApolloProvider>
       );
-    } else {
+    }
+    else {
       return (
         <ApolloProvider client={client}>
           <div style={{ height: '100%' }}>

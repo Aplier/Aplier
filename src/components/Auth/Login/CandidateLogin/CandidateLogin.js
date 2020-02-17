@@ -58,7 +58,10 @@ class CandidateLogin extends Component {
       return null;
     } else {
       return (
-        <div>
+
+        <div className="aboutUsColor2">
+        <br></br>
+          <div className="mapCandidates2">
           <div className="logInContainer">
             <img
               className="loginGif"
@@ -96,6 +99,7 @@ class CandidateLogin extends Component {
               </div>
             </form>
           </div>
+        </div>
         </div>
       );
     }

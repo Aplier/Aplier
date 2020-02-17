@@ -1,7 +1,7 @@
 //Libraries
 import React, { Component } from 'react';
 import { graphql } from 'react-apollo';
-//Queries
+import { Link } from 'react-router-dom'
 import { getPositionsQuery } from '../../queries/queries';
 
 class CompanyPositions extends Component {
@@ -38,40 +38,31 @@ class CompanyPositions extends Component {
       return data.companyPositions.map(position => {
         return (
           <div className="mapPos" key={position.id}>
+            <h3 className="companyTitle">{position.company.name}</h3>
+            <hr></hr>
             <img
               className="compImg"
               src={position.company.imgURL}
               alt="candidate img"
             />
 
-            <h3>
-              <center>{position.title}</center>
-            </h3>
+            <h3 className="positionTitle"><center>{position.title}</center></h3>
             <div className="positionInfo">
-              <p>{position.description}</p>
-              <p>{position.salaryRange}</p>
-              <p>{position.datePosted}</p>
-              <p>{position.company.name}</p>
-              <p>{position.company.location}</p>
-              <p>{position.company.website}</p>
+            <p> <img alt="icon"className="icon" src="https://png.pngtree.com/svg/20151015/7cc2f4999d.png"/>  {position.description}</p>
+            <p> <img alt="icon"className="icon" src="https://i.imgur.com/irB2XD0.png"/>  {position.salaryRange}</p>
+            <p>{position.datePosted}</p>
+            <p> <img alt="icon"className="icon" src="https://cdn3.iconfinder.com/data/icons/unicons-vector-icons-pack/32/location-512.png"/>  {position.company.location}</p>
+            <p> <img alt="icon" className="icon" src="https://i.imgur.com/sFBHk3U.png"/>  {position.company.website}</p>
             </div>
-            <div className="buttonsDiv">
-              <img
-                className="thumbs"
-                alt="down"
-                src="https://img.icons8.com/ultraviolet/40/000000/poor-quality.png"
-                onClick={() =>
-                  this.clickThumb({ id: position.id, thumb: 'down' })
-                }
-              ></img>
-              <img
-                className="thumbs"
-                alt="up"
-                src="https://img.icons8.com/ultraviolet/40/000000/good-quality.png"
-                onClick={() =>
-                  this.clickThumb({ id: position.id, thumb: 'up' })
-                }
-              ></img>
+            <div className='buttonsDiv'>
+              <img className="thumbs2"
+                  alt="down" src="https://img.icons8.com/ultraviolet/40/000000/poor-quality.png"
+                  onClick={()=>this.clickThumb({id: position.id, thumb: "down"})}>
+              </img>
+              <img className="thumbs"
+                  alt="up" src="https://img.icons8.com/ultraviolet/40/000000/good-quality.png"
+                  onClick={()=>this.clickThumb({id: position.id, thumb: "up"})}>
+              </img>
             </div>
           </div>
         );
@@ -86,18 +77,15 @@ class CompanyPositions extends Component {
         ( positionArr && positionArr.length > 0 ?
         <div className="allPos">
           <div>{this.displayCompanyPositions()}</div>
-        </div>
-        ) : (
-        <div className="noCandidates">
-          <p>You've reached the end of the postions availible...</p>
-          <img
-            alt="comeback_later"
-            src="https://acegif.com/wp-content/uploads/tea.gif"
-          />
-          <p>Take a break and come back later,</p>
-          <p>we will have more positions waiting for you!</p>
-        </div>
-        )}
+          </div>
+          :
+          <div className="noCandidates">
+              <p>You've reached the end of the postions available...</p>
+              <img alt="comeback_later" src="https://acegif.com/wp-content/uploads/tea.gif"/>
+              <p>Take a break and come back later,</p>
+              <p>Check your matches <a id="github" href="/candidatematches">Here!</a></p>
+            </div>
+        }
       </div>
     );
   }

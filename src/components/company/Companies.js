@@ -15,9 +15,7 @@ class Companies extends Component {
       return data.companies.map(company => {
         return (
           <div key={company.id}>
-            {/* <img src={company.imgURL} alt="company img" /> */}
-            {/* <h4>{company.name}</h4> */}
-            <img className="allcompImg" src={company.imgURL} alt="compantImg" />
+            <img className="allcompImg"src={company.imgURL}      alt="compantImg"/>
           </div>
         );
       });
@@ -25,19 +23,18 @@ class Companies extends Component {
   }
   render() {
     return (
-      <div className="allCompPage">
-        <h3>
-          <center>
-            Companies working with us to find the top tech employees:
-          </center>
-        </h3>
-
+      <div className="aboutUsColor">
+      <br></br>
+      <div className='allCompPage'>
+      <h4 className="companiesh4"><center>Employers Registered With</center></h4>
+        <img className="aplierLogo"alt="logo" src="https://i.imgur.com/XwTxX7q.png"/>
         <div className="allCompWrap"> {this.displayCompanies()}</div>
         <Link to={'/'}>
           <button className="customeButton">Join us today!</button>
         </Link>
       </div>
-    );
+      </div>
+    )
   }
 }
 

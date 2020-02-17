@@ -5,9 +5,9 @@ import { Link } from 'react-router-dom';
 class CompanyOrCandidate extends Component {
   render() {
     return (
-      <div>
-        <p className="miniLogo">Aplier</p>
-
+      <div className="aboutUsColor">
+        <br></br>
+      <div className="mapCandidates">
         <div className="candidateOrCompany">
           <img
             className="circleCompany"
@@ -29,6 +29,7 @@ class CompanyOrCandidate extends Component {
             </button>
           </div>
         </div>
+      </div>
       </div>
     );
   }

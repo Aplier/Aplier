@@ -21,12 +21,21 @@ const client = new Client({
 client.connect();
 
 //CORS FOR DEV
-app.use(cors());
+// app.use(cors());
 
 const createApp = () => {
+
+  app.use(
+    '/graphql',
+    graphqlHTTP({
+      schema,
+      graphiql: false,
+      context: { models },
+    })
+  );
   // body parsing middleware
-  app.use(express.json());
-  app.use(express.urlencoded({ extended: true }));
+  // app.use(express.json());
+  // app.use(express.urlencoded({ extended: true }));
 
   app.use(
     '/graphql',
@@ -47,7 +56,7 @@ const createApp = () => {
 
 const startListening = () => {
   // start listening (and create a 'server' object representing our server)
-  const PORT = 4000;
+  const PORT = process.env.PORT || 4000;
   app.listen(PORT, () => {
     console.log(`Listening on port ${PORT}`);
   });

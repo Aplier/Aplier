@@ -18,7 +18,7 @@ class CandidateMatch extends Component {
             {/* <img src={company.imgURL} alt="company img" /> */}
             <Link to={'/screening'}>
               <font color="black">
-                <p>{position.title}</p>
+                <p className="positionMatch">{position.title}</p>
               </font>
             </Link>
           </div>
@@ -28,21 +28,25 @@ class CandidateMatch extends Component {
   }
   render() {
     return (
+      <div className="aboutUsColor">
+          <br></br>
+        <div className="mapCandidates2">
       <div>
-        <p className="miniLogo">Aplier</p>
         <div className="matchPage">
-          <img
-            alt="matchImg"
-            src="https://media0.giphy.com/media/13k4VSc3ngLPUY/giphy.gif"
-          />
-          <h3>Congratulations!</h3>
-          <p> You've matched with: </p>
-          <div> {this.displayPositions()}</div>
+          <img alt="matchImg"src="https://media1.giphy.com/media/3NtY188QaxDdC/giphy.gif?cid=790b761160073121779c827564623abc8228956f1f9983c1&rid=giphy.gif"/>
+    <h3>Congratulations!</h3>
+    <p> You've matched with: </p>
+        <div> {this.displayPositions()}</div>
 
-          <br></br>
-          <br></br>
-          <p>Click on the positions and fill out the screening questions.</p>
+        <br></br>
+        <br></br>
+        <h4>Next Steps</h4>
+        <p>Click on any of the above positions proceed to the screening questions.</p>
         </div>
+
+      </div>
+      <img className="aplierLogo2"alt="logo" src="https://i.imgur.com/XwTxX7q.png"/>
+      </div>
       </div>
     );
   }
