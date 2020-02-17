@@ -1,23 +1,23 @@
-//Librares
 import React, { Component } from 'react';
 import { graphql } from 'react-apollo';
-import { Auth } from 'aws-amplify';
-//Queries
 import { getCandidateByIdQuery } from '../../queries/queries';
-
+import { Auth } from 'aws-amplify';
 class CandidateAccount extends Component {
   state = {
     info: {},
   };
-
   async componentDidMount() {
     const info = await Auth.currentUserInfo();
+    console.log('Auth Current User Information', info);
     this.setState({ info: info.attributes });
   }
-
-  async displayCandidatesAccount() {
+  displayCandidatesAccount() {
     let data = this.props.data;
+    console.log('DATA', data);
     let candidate = this.props.data.candidate;
+    console.log('WHAT IS INFO', this.state.info);
+    // const { info } = this.state;
+    // const { given_name, family_name, email, address } = info;
     if (data.loading) {
       return <div>Loading Candidate Account...</div>;
     } else {
@@ -29,7 +29,10 @@ class CandidateAccount extends Component {
               className="circleAccount"
               src={candidate.imgURL}
               alt="screeningImage"
-            />
+            />{' '}
+            {/* <button className="customeButton" type="submit">
+              Change Photo
+            </button>{' '} */}
             <br />
             <h4 className="accountList">Full Name</h4>
             <p className="accountListData">
@@ -45,12 +48,17 @@ class CandidateAccount extends Component {
             <h4 className="accountList">Phone</h4>
             <p className="accountListData">{candidate.phone}</p>
             <hr></hr>
+            {/* <h4 className="accountList">Intro</h4>
+            <p className="accountListData">{data.candidate.intro}</p>
+            <hr></hr> */}
+            {/* <button className="customeButton" type="submit">
+              Edit Account
+            </button> */}
           </div>
         </div>
       );
     }
   }
-
   render() {
     return (
       <div>
@@ -59,7 +67,6 @@ class CandidateAccount extends Component {
     );
   }
 }
-
 export default graphql(getCandidateByIdQuery, {
   options: () => {
     return {
