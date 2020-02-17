@@ -20,9 +20,6 @@ class CompanyAccount extends Component {
               src={data.company.imgURL}
               alt="ComapanyImage"
             />{' '}
-            {/* <button className="customeButton" type="submit">
-              Change Photo
-            </button> <br/> */}
             <h4 className="accountlist">Company name</h4>
             <p className="accountListdata">{data.company.name}</p>
             <hr></hr>

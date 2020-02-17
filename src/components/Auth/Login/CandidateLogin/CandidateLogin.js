@@ -71,7 +71,7 @@ class CandidateLogin extends Component {
               <label className="Clabel">Email Address</label>
               <input
                 className="Cinput"
-                value={this.email}
+                value={this.state.email}
                 onChange={event => this.setState({ email: event.target.value })}
                 type="text"
               />
@@ -79,7 +79,7 @@ class CandidateLogin extends Component {
               <label className="Clabel">Password</label>
               <input
                 className="Cinput"
-                value={this.password}
+                value={this.state.password}
                 onChange={event =>
                   this.setState({ password: event.target.value })
                 }

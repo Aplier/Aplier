@@ -15,10 +15,9 @@ class CandidateAccount extends Component {
     this.setState({ info: info.attributes });
   }
 
-  displayCandidatesAccount() {
+  async displayCandidatesAccount() {
     let data = this.props.data;
     let candidate = this.props.data.candidate;
-
     if (data.loading) {
       return <div>Loading Candidate Account...</div>;
     } else {
@@ -65,7 +64,7 @@ export default graphql(getCandidateByIdQuery, {
   options: () => {
     return {
       variables: {
-        id: 1,
+        email: 'tina@gmail.com',
       },
     };
   },

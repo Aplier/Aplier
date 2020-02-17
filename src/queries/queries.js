@@ -20,8 +20,8 @@ const getCandidateQuery = gql`
   }
 `;
 const getCandidateByIdQuery = gql`
-  query($id: Int!) {
-    candidate(id: $id, cognitoId: $cognitoId) {
+  query($email: String) {
+    candidate(email: $email) {
       id
       firstName
       lastName
@@ -30,7 +30,6 @@ const getCandidateByIdQuery = gql`
       imgURL
       phone
       intro
-      cognitoId
     }
   }
 `;

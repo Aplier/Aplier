@@ -23,13 +23,13 @@ import EmailConfirmation from './components/Auth/Signup/EmailConfirmation';
 //CandidatePages
 import Candidates from './components/candidate/Candidate';
 import Companies from './components/company/Companies';
+import CandidateAccount from './components/candidate/CandidateAccountView';
 import CandidateMatch from './components/candidate/CandidateMatch';
 // import Education from './components/candidate/CandidateEdu';
 
 //CompanyPages
 import CompanyAccount from './components/company/CompanyAccountView';
 import NewPositionForm from './components/NewPositionSignup/NewPositionForm';
-import CandidateAccount from './components/candidate/CandidateAccountView';
 import CompanyPositions from './components/company/CompanyPositions';
 import CompanyMatch from './components/company/CompanyMatch';
 import ScreeningQuestions from './components/candidate/ScreeningQuestions';
@@ -41,7 +41,7 @@ class Routes extends Component {
     super(props);
     this.state = {
       isCandidateLoggedIn: false,
-      isUserLoggedIn: false,
+      isCompanyLoggedIn: false,
     };
   }
 
@@ -55,7 +55,7 @@ class Routes extends Component {
   }
 
   render() {
-    const { isCandidateLoggedIn, isUserLoggedIn } = this.state;
+    const { isCandidateLoggedIn, isCompanyLoggedIn } = this.state;
 
     return (
       <Switch>
@@ -79,7 +79,7 @@ class Routes extends Component {
           path="/screeningconfirmation"
           component={ScreeningConfirmation}
         />
-        {isUserLoggedIn && (
+        {isCompanyLoggedIn && (
           <Switch>
             <Route path="/candidates" component={Candidates} />
             <Route path="/companyaccount" component={CompanyAccount} />
