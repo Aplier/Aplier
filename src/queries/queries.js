@@ -20,7 +20,7 @@ const getCandidateQuery = gql`
 `;
 const getCandidateByIdQuery = gql`
   query($id: Int!) {
-    candidate(id: $id, cognitoId: $cognitoId) {
+    candidate(id: $id) {
       id
       firstName
       lastName

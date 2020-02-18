@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { graphql } from 'react-apollo';
+import { graphql, Query } from 'react-apollo';
 import { getCandidateByIdQuery } from '../../queries/queries';
 import { Auth } from 'aws-amplify';
 
@@ -14,21 +14,29 @@ class CandidateAccount extends Component {
     this.setState({ info: info.attributes });
   }
 
-  displayCandidatesAccount() {
-    let data = this.props.data;
-    let candidate = this.props.data.candidate;
-    console.log('data', data);
+    // let data = this.props.data;
+    // let candidate = this.props.data.candidate;
+    // console.log('data', data);
     // const { info } = this.state;
     // const { given_name, family_name, email, address } = info;
 
-    if (data.loading) {
-      return <div>Loading Candidate Account...</div>;
-    } else {
-      console.log(this.props)
+    render(){
+      console.log('INFO', this.state.info)
       return (
-        <div>
+        <React.Fragment>
+          <Query
+          query={getCandidateByIdQuery}
+          variables={{id:1}}
+          >
+            {({data, loading, error})=>{
+              if (loading) return <p>Loading Candidate Account...</p>
+              if (error) return <p>ERROR</p>
+              console.log('DATA DOT CANDIDATE', data.candidate)
+
+              return(
+                <div>
           <div className="formContainer">
-            <h3 className="welcomeAccount">Welcome {candidate.firstName}</h3>
+            <h3 className="welcomeAccount">Welcome {data.candidate.firstName}</h3>
             <img
               className="circleAccount"
               src="https://i.imgur.com/tEcU43K.png"
@@ -40,17 +48,17 @@ class CandidateAccount extends Component {
             <br />
             <h4 className="accountList">Full Name</h4>
             <p className="accountListData">
-              {candidate.firstName} {candidate.lastName}
+              {data.candidate.firstName} {data.candidate.lastName}
             </p>
             <hr></hr>
             <h4 className="accountList">Address</h4>
-            <p className="accountListData">{candidate.address}</p>
+            <p className="accountListData">{data.candidate.address}</p>
             <hr></hr>
             <h4 className="accountList">Email</h4>
-            <p className="accountListData">{candidate.email}</p>
+            <p className="accountListData">{data.candidate.email}</p>
             <hr></hr>
             <h4 className="accountList">Phone</h4>
-            <p className="accountListData">{candidate.phone}</p>
+            <p className="accountListData">{data.candidate.phone}</p>
             <hr></hr>
             {/* <h4 className="accountList">Intro</h4>
             <p className="accountListData">{data.candidate.intro}</p>
@@ -60,25 +68,23 @@ class CandidateAccount extends Component {
             </button> */}
           </div>
         </div>
+              )
+            }}
+        </Query>
+        </React.Fragment>
       );
     }
   }
 
-  render() {
-    return (
-      <div>
-        <div>{this.displayCandidatesAccount()}</div>
-      </div>
-    );
-  }
-}
 
-export default graphql(getCandidateByIdQuery, {
-  options: () => {
-    return {
-      variables: {
-        id: 1,
-      },
-    };
-  },
-})(CandidateAccount);
+export default graphql(getCandidateByIdQuery)(CandidateAccount);
+
+// export default graphql(getCandidateByIdQuery, {
+//   options: () => {
+//     return {
+//       variables: {
+//         id: 1,
+//       },
+//     };
+//   },
+// })(CandidateAccount);

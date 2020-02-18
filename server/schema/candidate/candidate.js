@@ -17,7 +17,7 @@ const candidate = `
     }
 
   extend type Query {
-    candidate(id: Int!): Candidate
+    candidate(id:Int!): Candidate
     candidates: [Candidate!]!
   }
 
@@ -43,9 +43,10 @@ const candidate = `
 
 const candidateResolvers = {
   Query: {
-    candidate: (parent, { id }, { models }) => {
+    candidate: (parent,  args , { models }) => {
       try {
-        return models.Candidate.findByPk(id, {
+        return models.Candidate.findOne({
+          where: args,
           include: [
             {
               model: models.CurrentJob,
