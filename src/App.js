@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
-import { ApolloClient } from 'apollo-client';
+// import { ApolloClient } from 'apollo-client';
+import {ApolloClient} from 'apollo-boost'
+
 import { ApolloProvider } from 'react-apollo';
 import {createHttpLink} from 'apollo-link-http'
 import {InMemoryCache} from 'apollo-cache-inmemory'
@@ -24,6 +26,15 @@ const client = new ApolloClient({
     uri: 'http://aplier-backend.herokuapp.com/graphql',
   })
 })
+
+
+// const client = new ApolloClient({
+//   cache,
+//   link: new createHttpLink({
+//     uri: 'http://localhost:4000/graphql',
+//   })
+// })
+
 
 class App extends Component {
   constructor(props) {
