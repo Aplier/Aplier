@@ -17,7 +17,7 @@ const candidate = `
     }
 
   extend type Query {
-    candidate(id:Int!): Candidate
+    candidate(email:String): Candidate
     candidates: [Candidate!]!
   }
 

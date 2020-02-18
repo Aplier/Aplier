@@ -19,8 +19,8 @@ const getCandidateQuery = gql`
   }
 `;
 const getCandidateByIdQuery = gql`
-  query($id: Int!) {
-    candidate(id: $id) {
+  query($email: String!) {
+    candidate(email: $email) {
       id
       firstName
       lastName
@@ -196,8 +196,8 @@ const getMatchByPositionQuery = gql`
 `;
 
 const getMatchByCandidateQuery = gql`
-  query($id: Int!) {
-    candidate(id: $id) {
+  query($email: String!) {
+    candidate(email: $email) {
       companyPositions {
         id
         title

@@ -54,7 +54,7 @@ export default graphql(getMatchByCandidateQuery, {
   options: () => {
     return {
       variables: {
-        id: 1,
+        email: 'tina@gmail.com',
       },
     };
   },
