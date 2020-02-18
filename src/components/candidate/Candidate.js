@@ -111,24 +111,24 @@ class Candidate extends Component {
     }
   }
   render() {
-    const candidateArr = this.props.data.candidates;
+    // const candidateArr = this.props.data.candidates;
 
     return (
       <div>
-        (candidateArr&&candidateArr.length>0?
-        <div className="candidateContainer">
-          <div> {this.displayCandidates()}</div>
-        </div>
+        {this.candidateArr && this.candidateArr.length > 0 ? (
+          <div className="candidateContainer">
+            <div> {this.displayCandidates()}</div>
+          </div>
         ) : (
-        <div className="noCandidates">
-          <p>You've reached the end of the Candidate list...</p>
-          <img
-            alt="comeback_later"
-            src="https://acegif.com/wp-content/uploads/tea.gif"
-          />
-          <p>Take a break and come back later,</p>
-          <p>we will have more candidates waiting for you!</p>
-        </div>
+          <div className="noCandidates">
+            <p>You've reached the end of the Candidate list...</p>
+            <img
+              alt="comeback_later"
+              src="https://acegif.com/wp-content/uploads/tea.gif"
+            />
+            <p>Take a break and come back later,</p>
+            <p>we will have more candidates waiting for you!</p>
+          </div>
         )}
       </div>
     );

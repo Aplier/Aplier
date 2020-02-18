@@ -52,6 +52,7 @@ class NewPositionForm extends Component {
               className="Cinput"
               onChange={event => this.setState({ title: event.target.value })}
               value={this.state.title}
+              type="text"
             />{' '}
             <br /> <br />
             <label className="Clabel">Description</label> <br />
@@ -61,6 +62,7 @@ class NewPositionForm extends Component {
                 this.setState({ description: event.target.value })
               }
               value={this.state.description}
+              type="text"
             />{' '}
             <br /> <br />
             <label className="Clabel">Salary</label>
@@ -70,6 +72,7 @@ class NewPositionForm extends Component {
                 this.setState({ salarayRange: event.target.value })
               }
               value={this.state.salarayRange}
+              type="text"
             />{' '}
             <br />
             <br />

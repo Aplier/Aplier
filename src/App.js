@@ -4,14 +4,13 @@ import { ApolloClient } from 'apollo-client';
 import { ApolloProvider } from 'react-apollo';
 import { createHttpLink } from 'apollo-link-http';
 import { InMemoryCache } from 'apollo-cache-inmemory';
-// import { Router} from 'react-router-dom'
 
 //Auth
 import Amplify, { Auth } from 'aws-amplify';
 import aws_exports from './Util/aws-exports';
 
 //Components
-import Routes from './router';
+import Router from './router';
 import Navbar from './components/Header/Navbar/Navbar';
 import SideDrawer from './components/Header/SideDrawer/SideDrawer';
 import Backdrop from './components/Header/Backdrop/Backdrop';
@@ -38,23 +37,22 @@ class App extends Component {
   }
 
   async componentDidMount() {
-    let user = await Auth.currentAuthenticatedUser();
-    console.log('user', user.attributes['custom:industry']);
+    try {
+      let user = await Auth.currentAuthenticatedUser();
 
-    if (user.attributes.firstName) {
-      this.setState({ isCandidateLoggedIn: true });
-      console.log('authenticated');
-    } else {
-      console.log('not authenticated');
-      this.setState({ isCandidateLoggedIn: false });
-    }
+      if (user.attributes.firstName) {
+        this.setState({ isCandidateLoggedIn: true });
+      } else {
+        this.setState({ isCandidateLoggedIn: false });
+      }
 
-    if (user.attributes['custom:industry']) {
-      this.setState({ isCompanyLoggedIn: true });
-      console.log('authenticated');
-    } else {
-      console.log('not authenticated');
-      this.setState({ isCompanyLoggedIn: false });
+      if (user.attributes['custom:industry']) {
+        this.setState({ isCompanyLoggedIn: true });
+      } else {
+        this.setState({ isCompanyLoggedIn: false });
+      }
+    } catch (error) {
+      console.error(error);
     }
   }
 
@@ -82,7 +80,7 @@ class App extends Component {
             <Navbar drawerClickHandler={this.drawerToggleClickHandler} />
             <SideDrawerCandidate show={this.state.sideDrawerOpen} />
             {backdrop}
-            <Routes />
+            <Router />
           </div>
         </ApolloProvider>
       );
@@ -93,7 +91,7 @@ class App extends Component {
             <Navbar drawerClickHandler={this.drawerToggleClickHandler} />
             <SideDrawerCompany show={this.state.sideDrawerOpen} />
             {backdrop}
-            <Routes />
+            <Router />
           </div>
         </ApolloProvider>
       );
@@ -104,7 +102,7 @@ class App extends Component {
             <Navbar drawerClickHandler={this.drawerToggleClickHandler} />
             <SideDrawer show={this.state.sideDrawerOpen} />
             {backdrop}
-            <Routes />
+            <Router />
           </div>
         </ApolloProvider>
       );

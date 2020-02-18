@@ -41,20 +41,23 @@ class TestCompanyForm extends Component {
       // users,
       // positions,
     } = this.state;
-    let data = await Auth.signUp({
-      username: email,
-      password: password,
-      attributes: {
-        'custom:name': name,
-        'custom:industry': industry,
-        'custom:location': location,
-        // sub: cognitoId,
-        // picture: imgURL,
-        // intro: intro,
-        // phone: phone,
-      },
-    });
-    console.log('data', data);
+    try {
+      await Auth.signUp({
+        username: email,
+        password: password,
+        attributes: {
+          'custom:name': name,
+          'custom:industry': industry,
+          'custom:location': location,
+          // sub: cognitoId,
+          // picture: imgURL,
+          // intro: intro,
+          // phone: phone,
+        },
+      });
+    } catch (error) {
+      console.error(error);
+    }
   };
 
   confirmSignUp = async () => {
@@ -120,9 +123,9 @@ class TestCompanyForm extends Component {
       // turns background blue
       // <div className="Cform">
       <div className="aboutUsColor">
-          <br></br>
+        <br></br>
         <div className="mapCandidates2">
-        <div className="formContainer">
+          <div className="formContainer">
             <img
               className="circleCompany"
               src="https://i.imgur.com/vENrb8T.png"
@@ -184,7 +187,7 @@ class TestCompanyForm extends Component {
               </button>
             </form>
           </div>
-      </div>
+        </div>
       </div>
     );
   }

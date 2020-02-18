@@ -17,7 +17,7 @@ class CompanyLogin extends Component {
     try {
       await Auth.currentUserInfo();
     } catch (error) {
-      console.log(error);
+      console.error(error);
     }
   }
 
@@ -37,20 +37,27 @@ class CompanyLogin extends Component {
       });
 
       if (isCompanyLoggedIn === false) {
-        await signedIn;
-        this.setState({
-          isCompanyLoggedIn: true,
-          wrongCredentials: false,
-        });
-
-        this.props.history.replace('/candidates');
-        window.location.reload();
+        try {
+          await signedIn;
+          this.setState({
+            isCompanyLoggedIn: true,
+            wrongCredentials: false,
+          });
+          this.props.history.replace('/candidates');
+          window.location.reload();
+        } catch (error) {
+          console.error(error);
+        }
       } else if (isCompanyLoggedIn === true) {
       } else {
-        await Auth.confirmSignIn(email);
+        try {
+          await Auth.confirmSignIn(email);
+        } catch (error) {
+          console.error(error);
+        }
       }
     } catch (error) {
-      console.log(error);
+      console.error(error);
       this.setState({
         wrongCredentials: true,
       });

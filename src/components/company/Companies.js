@@ -8,14 +8,13 @@ import { getCompaniesQuery } from '../../queries/queries';
 class Companies extends Component {
   displayCompanies() {
     let data = this.props.data;
-    console.log(data);
     if (data.loading) {
       return <div>Loading Companies...</div>;
     } else {
       return data.companies.map(company => {
         return (
           <div key={company.id}>
-            <img className="allcompImg"src={company.imgURL}      alt="compantImg"/>
+            <img className="allcompImg" src={company.imgURL} alt="compantImg" />
           </div>
         );
       });
@@ -24,17 +23,23 @@ class Companies extends Component {
   render() {
     return (
       <div className="aboutUsColor">
-      <br></br>
-      <div className='allCompPage'>
-      <h4 className="companiesh4"><center>Employers Registered With</center></h4>
-        <img className="aplierLogo"alt="logo" src="https://i.imgur.com/XwTxX7q.png"/>
-        <div className="allCompWrap"> {this.displayCompanies()}</div>
-        <Link to={'/'}>
-          <button className="customeButton">Join us today!</button>
-        </Link>
+        <br></br>
+        <div className="allCompPage">
+          <h4 className="companiesh4">
+            <center>Employers Registered With</center>
+          </h4>
+          <img
+            className="aplierLogo"
+            alt="logo"
+            src="https://i.imgur.com/XwTxX7q.png"
+          />
+          <div className="allCompWrap"> {this.displayCompanies()}</div>
+          <Link to={'/'}>
+            <button className="customeButton">Join us today!</button>
+          </Link>
+        </div>
       </div>
-      </div>
-    )
+    );
   }
 }
 

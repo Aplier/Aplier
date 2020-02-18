@@ -36,7 +36,7 @@ import ScreeningQuestions from './components/candidate/ScreeningQuestions';
 import ScreeningConfirmation from './components/candidate/ScreeningConfirmation';
 import PositionConfirmation from './components/company/PositionConfirmation';
 
-class Routes extends Component {
+class Router extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -46,21 +46,20 @@ class Routes extends Component {
   }
 
   async componentDidMount() {
-    let user = await Auth.currentAuthenticatedUser();
-    if (user.attributes.firstName) {
-      this.setState({ isCandidateLoggedIn: true });
-      console.log('authenticated');
-    } else {
-      console.log('not authenticated');
-      this.setState({ isCandidateLoggedIn: false });
-    }
-
-    if (user.attributes['custom:industry']) {
-      this.setState({ isCompanyLoggedIn: true });
-      console.log('authenticated');
-    } else {
-      console.log('not authenticated');
-      this.setState({ isCompanyLoggedIn: false });
+    try {
+      let user = await Auth.currentAuthenticatedUser();
+      if (user.attributes.firstName) {
+        this.setState({ isCandidateLoggedIn: true });
+      } else {
+        this.setState({ isCandidateLoggedIn: false });
+      }
+      if (user.attributes['custom:industry']) {
+        this.setState({ isCompanyLoggedIn: true });
+      } else {
+        this.setState({ isCompanyLoggedIn: false });
+      }
+    } catch (error) {
+      console.error(error);
     }
   }
 
@@ -70,30 +69,22 @@ class Routes extends Component {
     return (
       <Switch>
         <Route exact path="/" component={LandingPage} />
+        <Route path="/aboutus" component={AboutUs} />
         <Route path="/signup" component={SignupSelector} />
-        <Route path="/login" component={LoginSelector} />
         <Route path="/companysignup" component={CompanyForm} />
         <Route path="/candidatesignup" component={CandidateForm} />
+        <Route path="/login" component={LoginSelector} />
         <Route path="/companylogin" component={CompanyLogin} />
         <Route path="/candidatelogin" component={CandidateLogin} />
-        <Route path="/companies" component={Companies} />
-        <Route path="/candidatematches" component={CandidateMatch} />
-        <Route path="/screening" component={ScreeningQuestions} />
         <Route path="/confirmemail" component={EmailConfirmation} />
-        <Route path="/newpositionadded" component={PositionConfirmation} />
-        <Route path="/companyaccount" component={CompanyAccount} />
-        <Route path="/aboutus" component={AboutUs} />
+        <Route path="/companies" component={Companies} />
         <Route path="/positions" component={CompanyPositions} />
-
-        <Route
-          path="/screeningconfirmation"
-          component={ScreeningConfirmation}
-        />
         {isCompanyLoggedIn && (
           <Switch>
-            <Route path="/candidates" component={Candidates} />
             <Route path="/companyaccount" component={CompanyAccount} />
+            <Route path="/candidates" component={Candidates} />
             <Route path="/newposition" component={NewPositionForm} />
+            <Route path="/newpositionadded" component={PositionConfirmation} />
             <Route path="/companymatches" component={CompanyMatch} />
           </Switch>
         )}
@@ -101,6 +92,12 @@ class Routes extends Component {
           <Switch>
             <Route path="/myaccount" component={CandidateAccount} />
             <Route path="/positions" component={CompanyPositions} />
+            <Route path="/candidatematches" component={CandidateMatch} />
+            <Route path="/screening" component={ScreeningQuestions} />
+            <Route
+              path="/screeningconfirmation"
+              component={ScreeningConfirmation}
+            />
           </Switch>
         )}
       </Switch>
@@ -108,4 +105,4 @@ class Routes extends Component {
   }
 }
 
-export default Routes;
+export default Router;

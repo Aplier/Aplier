@@ -1,9 +1,14 @@
 {
-  "short_name": "Aplier",
+  "app": {
+    "background": {}
+  },
+  "manifest_version": 2,
   "name": "Aplier",
-  "icons": [],
-  "start_url": ".",
-  "display": "standalone",
-  "theme_color": "#000000",
-  "background_color": "#ffffff"
+  "version": "1",
+  "default_locale": "en",
+  "description": "Aplier is a web application that allows both companies looking for talent to selectively approach job-seekers, and job-seekers looking to get hired to get an initial pre-screening with companies they want to work for.",
+  "authors": "Depak Borhara, Tina Fun, Remi Mendoza, Marvin Huang",
+  "storage": {
+    "managed_schema": "schema.js"
+  }
 }

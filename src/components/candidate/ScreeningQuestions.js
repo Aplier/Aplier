@@ -45,6 +45,7 @@ class ScreeningQuestions extends Component {
                   this.setState({ screeningQ1: event.target.value })
                 }
                 value={this.state.screeningQ1}
+                type="text"
                 required
               />{' '}
               <br /> <br />
@@ -58,6 +59,7 @@ class ScreeningQuestions extends Component {
                   this.setState({ screeningQ2: event.target.value })
                 }
                 value={this.state.screeningQ2}
+                type="text"
                 required
               />{' '}
               <br /> <br />
@@ -71,6 +73,7 @@ class ScreeningQuestions extends Component {
                   this.setState({ screeningQ3: event.target.value })
                 }
                 value={this.state.screeningQ3}
+                type="text"
                 required
               />{' '}
               <br /> <br />

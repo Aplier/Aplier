@@ -7,9 +7,12 @@ class CandidateAccount extends Component {
     info: {},
   };
   async componentDidMount() {
-    const info = await Auth.currentUserInfo();
-    console.log('Auth Current User Information', info);
-    this.setState({ info: info.attributes });
+    try {
+      const info = await Auth.currentUserInfo();
+      this.setState({ info: info.attributes });
+    } catch (error) {
+      console.error(error);
+    }
   }
   displayCandidatesAccount() {
     let data = this.props.data;
@@ -20,7 +23,7 @@ class CandidateAccount extends Component {
     if (data.loading) {
       return <div>Loading Candidate Account...</div>;
     } else {
-      console.log(this.props)
+      console.log(this.props);
       return (
         <div>
           <div className="formContainer">
