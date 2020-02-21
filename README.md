@@ -50,7 +50,7 @@
 ![Recordit GIF](http://g.recordit.co/T56SD1sZeh.gif)
 **ttystudio**
 
-![ttystudio GIF](https://raw.githubusercontent.com/chjj/ttystudio/master/img/example.gif)
+![ttystudio GIF]()
 
 ---
 
